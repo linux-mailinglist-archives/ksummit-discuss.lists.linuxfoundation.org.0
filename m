@@ -2,46 +2,65 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4AA935EA04
-	for <lists@lfdr.de>; Wed,  3 Jul 2019 19:06:59 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id BB3715EC86
+	for <lists@lfdr.de>; Wed,  3 Jul 2019 21:11:26 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id 14F11EC3;
-	Wed,  3 Jul 2019 17:05:24 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id 8ADC8EA7;
+	Wed,  3 Jul 2019 19:11:13 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id D2501E9F
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id 23BE6E92
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Wed,  3 Jul 2019 17:05:21 +0000 (UTC)
-X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
-Received: from heliosphere.sirena.org.uk (heliosphere.sirena.org.uk
-	[172.104.155.198])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 75E88880
+	Wed,  3 Jul 2019 19:11:12 +0000 (UTC)
+X-Greylist: whitelisted by SQLgrey-1.7.6
+Received: from mail-pf1-f193.google.com (mail-pf1-f193.google.com
+	[209.85.210.193])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 9C7EF87B
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Wed,  3 Jul 2019 17:05:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=sirena.org.uk; s=20170815-heliosphere; h=In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=PeBcGOWyoy6bYfr9ZIJzP5Rj9GzBkvQEEzQ36P2SFvQ=;
-	b=isKVXgkLay3g9PfDHS4ddYZLA
-	BwfO1fXSAQsWFAiXIbWxl69QIzRBs/SMQG1Xq5siIR2jthFlthlCCQHpEPi2PbqewLssgQMElwGcC
-	TBuYiqSMYJ4KSXybB0sAOT+Y7MspQvL++SpFExboosoRjQ5hBSlioBMlTMEW2sap0OXmk=; 
-Received: from cpc102320-sgyl38-2-0-cust46.18-2.cable.virginm.net
-	([82.37.168.47] helo=debutante.sirena.org.uk)
-	by heliosphere.sirena.org.uk with esmtpa (Exim 4.89)
-	(envelope-from <broonie@sirena.org.uk>)
-	id 1hiih2-0006vY-CM; Wed, 03 Jul 2019 17:05:16 +0000
-Received: by debutante.sirena.org.uk (Postfix, from userid 1000)
-	id A530A1128FB2; Wed,  3 Jul 2019 18:05:15 +0100 (BST)
-Date: Wed, 3 Jul 2019 18:05:15 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Jan Kara <jack@suse.cz>
-Message-ID: <20190703170515.GA3490@sirena.org.uk>
-References: <37eb32f3-f341-b1d8-293b-c119ae278b4f@linuxfoundation.org>
+	Wed,  3 Jul 2019 19:11:11 +0000 (UTC)
+Received: by mail-pf1-f193.google.com with SMTP id j2so1731966pfe.6
+	for <ksummit-discuss@lists.linuxfoundation.org>;
+	Wed, 03 Jul 2019 12:11:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+	h=subject:to:cc:references:from:message-id:date:user-agent
+	:mime-version:in-reply-to:content-language:content-transfer-encoding;
+	bh=9r/cORx1FVjknQ71oSdr2jK85tdytlmbnefKg+jzK2Y=;
+	b=bQ0L6wD9nUczjdJ/GKyWi1W8LhiQdcDwDQ9PQ3lYiuR8gVurbstfghQYJFyNEKh6bH
+	3ByxqiVgjkLjnd0zvl55Jb17p1IO2/U4tEZx7rcJqDdzBy102I9T4usIyG3tW/jvffO8
+	D5aEPvO856IYMoQApJdawnR35FlQKPST5NbSnmBysK4nmZ97fRtZ22uRRDswSkttTLjb
+	p7KJEJx5545YiC7M8iQJPeacN4OFu1mePRRaboUMga8ipUBeyPA7iscKglKE+037JUet
+	sbGVtPFQmPAiL4ZlCC1kM+vP7mSeCfuBKX1+zW6qXBek2n+F+Y/cPvu9vy0lzCW1k9GS
+	b+9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20161025;
+	h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+	:user-agent:mime-version:in-reply-to:content-language
+	:content-transfer-encoding;
+	bh=9r/cORx1FVjknQ71oSdr2jK85tdytlmbnefKg+jzK2Y=;
+	b=R2NPeqBRS5Ocv9b5wzkzTl6ebpDdVm83r56s2vFtyqjY6CzMGnX8JXla+GSmDfIXCn
+	g3R03XbSyM25+yOlGq7O8CJsGAGxrM1qObj7QkAFcCLJwCTckG2kixRG555aAqzUOFQS
+	tDW0/KoD7gNhcyn3q93ZEn50oNe34Pg6P6VAUwJGJ3uFjDsYOtWS9u//1z6u5193pjwF
+	y703POJhzoUaAq3/rkLEvzFINomwl7R1fCVumFry5uETPJTbPGnhRH+3IQYGvkkNWJPv
+	rDbu0/0bcI/qlnitnbMpCcKdnCeYa6rqiyv1vVFEy6vSSu8MuM19onYe937SthVRMZx6
+	3LDA==
+X-Gm-Message-State: APjAAAVeW74Ex3ZsWyBVpFdWxlpE9y8cOpXuQrQwSLDOz0Zx9XU1NTHe
+	de+khBFsHZ8rcEcpBqO9Lro=
+X-Google-Smtp-Source: APXvYqwjtOWfdOFAZCNhOtnHs+bc4W+3thRsDZaJtAI6rse6zsTHk2k3+dc6Aq5Mtac+Dygzr6nvHA==
+X-Received: by 2002:a17:90a:32ed:: with SMTP id
+	l100mr14443408pjb.11.1562181071207; 
+	Wed, 03 Jul 2019 12:11:11 -0700 (PDT)
+Received: from [192.168.1.70] (c-24-6-192-50.hsd1.ca.comcast.net.
+	[24.6.192.50]) by smtp.gmail.com with ESMTPSA id
+	v184sm3257074pgd.34.2019.07.03.12.11.10
+	(version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+	Wed, 03 Jul 2019 12:11:10 -0700 (PDT)
+To: Theodore Ts'o <tytso@mit.edu>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+References: <1562080257.3321.19.camel@HansenPartnership.com>
+	<1562080696.3321.21.camel@HansenPartnership.com>
+	<37eb32f3-f341-b1d8-293b-c119ae278b4f@linuxfoundation.org>
 	<1562082713.3321.38.camel@HansenPartnership.com>
 	<201907020926.FB19EDEBCC@keescook>
 	<1562103238.3321.66.camel@HansenPartnership.com>
@@ -50,16 +69,20 @@ References: <37eb32f3-f341-b1d8-293b-c119ae278b4f@linuxfoundation.org>
 	<20190702224347.GJ3032@mit.edu>
 	<20190703085620.GA5007@pendragon.ideasonboard.com>
 	<20190703135012.GC2041@mit.edu>
-	<20190703141013.GB16008@quack2.suse.cz>
+From: Frank Rowand <frowand.list@gmail.com>
+Message-ID: <454fdfd3-f45e-e307-c0cb-2dbc91c179e0@gmail.com>
+Date: Wed, 3 Jul 2019 12:11:09 -0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+	Thunderbird/60.7.1
 MIME-Version: 1.0
-In-Reply-To: <20190703141013.GB16008@quack2.suse.cz>
-X-Cookie: You will be successful in your work.
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Spam-Status: No, score=-1.9 required=5.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,RCVD_IN_DNSWL_NONE autolearn=ham version=3.3.1
+In-Reply-To: <20190703135012.GC2041@mit.edu>
+Content-Language: en-US
+X-Spam-Status: No, score=-2.0 required=5.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID, DKIM_VALID_AU, FREEMAIL_FROM,
+	RCVD_IN_DNSWL_NONE autolearn=ham version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
-Cc: James Bottomley <James.Bottomley@hansenpartnership.com>,
+Cc: James Bottomley <James.Bottomley@HansenPartnership.com>,
 	ksummit-discuss@lists.linuxfoundation.org
 Subject: Re: [Ksummit-discuss] [MAINTAINERS SUMMIT] Patch version changes in
  commit logs?
@@ -74,60 +97,95 @@ List-Post: <mailto:ksummit-discuss@lists.linuxfoundation.org>
 List-Help: <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=help>
 List-Subscribe: <https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss>,
 	<mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5159165706994023199=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
+On 7/3/19 6:50 AM, Theodore Ts'o wrote:
+> On Wed, Jul 03, 2019 at 11:56:20AM +0300, Laurent Pinchart wrote:
+>>
+>> I may have missed the obvious, but while this should work great for
+>> patches applied with git-am, what's the expected workflow for patches
+>> written by the author of a pull request ? I certainly post my own
+>> patches for review on mailing lists, but I don't fetch them back from
+>> the list before sending a pull request. Do we want to move towards a
+>> model where maintainers should retrieve their own patches from the lists
+>> (or from patchwork) ?
+> 
+> So here's my (Unpopular Puffin?) opinion --- I don't think all patches
+> need to have a Link header.  Many don't today, and it's no great
+> tragedy.  If you are updating spelling mistakes in kernel
+> documentation, or you are fixing compiler, sparse, or Coverity
+> warnings, there's generally going to be nothing terribly interesting
+> on the e-mail thread anyway.  So why go to extra effort to create the
+> link?
+> 
+> The patches where the Link tag will be most interesting are the ones
+> that are adding a new feature, or have something that has sparked a
+> lot of controversy.  However, today, merely finding the last V22
+> version of the patch series doesn't necessarily help you find the V21,
+> or V20, or V19, etc., patches.  Most people do *not* send out the V21
+> version a 50 patch series as a reply to the V20 --- and that's
+> actually a good thing, because it makes the reply chain in a mutt
+> reader like mutt be completely unmangeable.
+> 
+> And even if they do, how often will it be useful to go through that
+> kind of detailed legislative history, even presuming that it exists?
+> So 99% of the time, the tag is going to have very highly limited
+> value, just as including in the commit description:
+> 
+> v3
+>   - Fixed whitespace nits
+> 
+> v2
+>  - Used an explicit slab cache instead of kmalloc()
+>  - Fixed spelling nit in documentation
+> 
+> is ***really*** not interesting or appropriate.  And putting in a Link
+> tag so people can read all of those review comments in all their glory
+> is really not going to be all that interesting either.
+> 
+> Personally, if there is a case where it will be useful, it would
+> actually be better for developers to summarize the comments, and
+> design alternatives, considered and rejected, etc., in a cover letter,
 
---===============5159165706994023199==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="qMm9M+Fa2AknHoGS"
-Content-Disposition: inline
+It would be really nice to have such a summary.  I would encourage
+developers to provide such, but not require it.  It is a lot of
+work to create such a document.
 
+On the other hand, given a choice between the summary and a link to
+the discussion, I would prefer the link to the whole discussion
+because the person writing the summary can not predict what detail
+(that may appear insignificant at the time) is critical to the person
+five years later who is researching the feature.
 
---qMm9M+Fa2AknHoGS
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+-Frank
 
-On Wed, Jul 03, 2019 at 04:10:13PM +0200, Jan Kara wrote:
-
-> So I agree in a lot of cases Link tag is going to be useless. OTOH I'm
-> willing to put up with the useless Link tag for the cases where it does
-> help - e.g. multiple times I'm been chasing mailing lists to find out
-> what's the latest posted version of some patch and what other patches are
-> in the series so that I could backport them as well. And the Link tag would
-> help with this or even make it possible to automate this to some extent...
-
-The other thing with the link tag is that if we can automate generating
-it it doesn't really cost us anything - it's going to be more effort to
-decide if it's useful than it is to just add it unconditionally.
-
---qMm9M+Fa2AknHoGS
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAl0c4EgACgkQJNaLcl1U
-h9C1Jwf8DcSq03BsVJAYRFQ2VFqq2XCWMEw+E0Nls9qOPzxPYJSptCiaQxY6hkHh
-s06WQmibWKW985OW2PR97A/5oQi12+qRfP1aaS0YBCuk+e7C/Uo29cDR2+v6Nr8r
-7Csz25MCszars1CnrYDcERZJhqAlqGZjKPJ7Pju7gXEyHrrnbN9HKvcvOqwSf4cW
-Y7+JVt6BSRZvkAr1+A4g6P/pmNYeStOs32cl6yD/ulq7urezb6kQCH0conCn/KpN
-VDwjfl/WUWyH1CrqKMXpnWRjxl5lT10bfWh9hhQlb6KyvIaf30rrHqFNpaqWj4ox
-mn3c0eh/tTkNkTP4HlKQv1LDzqzCVA==
-=tnFc
------END PGP SIGNATURE-----
-
---qMm9M+Fa2AknHoGS--
-
---===============5159165706994023199==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> or better yet in the kernel documentation as part of the design doc
+> for a largish feature, and then if it is a cover letter e-mailed out
+> to the mailing list, include a link to the URL of the cover letter
+> with some text so that a human being reading the commit log will know
+> that there is something actually worth their time to read, as opposed
+> to being treated to a huge amount of legislative history that, at the
+> end of the day, be a complete waste of time to someone trying to debug
+> a live production problem causing data outages for their company.
+> 
+> The reality though is this is a lot of extra work we're asking of the
+> developer, so this automated fashion is a technological solution to
+> something which is really a social problem --- and hopefully there
+> will be a few cases where it will actually result in a net benefit.
+> 
+> Regards,
+> 
+> 					- Ted
+> _______________________________________________
+> Ksummit-discuss mailing list
+> Ksummit-discuss@lists.linuxfoundation.org
+> https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss
+> 
 
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
 https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss
-
---===============5159165706994023199==--
