@@ -2,65 +2,41 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id BB3715EC86
-	for <lists@lfdr.de>; Wed,  3 Jul 2019 21:11:26 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 3C4A55EF46
+	for <lists@lfdr.de>; Thu,  4 Jul 2019 00:54:17 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id 8ADC8EA7;
-	Wed,  3 Jul 2019 19:11:13 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id 6B7C0BB3;
+	Wed,  3 Jul 2019 22:54:05 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id 23BE6E92
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id 5B3F8B9E
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Wed,  3 Jul 2019 19:11:12 +0000 (UTC)
-X-Greylist: whitelisted by SQLgrey-1.7.6
-Received: from mail-pf1-f193.google.com (mail-pf1-f193.google.com
-	[209.85.210.193])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 9C7EF87B
+	Wed,  3 Jul 2019 22:54:03 +0000 (UTC)
+X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
+Received: from perceval.ideasonboard.com (perceval.ideasonboard.com
+	[213.167.242.64])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id F1E1E87C
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Wed,  3 Jul 2019 19:11:11 +0000 (UTC)
-Received: by mail-pf1-f193.google.com with SMTP id j2so1731966pfe.6
-	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Wed, 03 Jul 2019 12:11:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
-	h=subject:to:cc:references:from:message-id:date:user-agent
-	:mime-version:in-reply-to:content-language:content-transfer-encoding;
-	bh=9r/cORx1FVjknQ71oSdr2jK85tdytlmbnefKg+jzK2Y=;
-	b=bQ0L6wD9nUczjdJ/GKyWi1W8LhiQdcDwDQ9PQ3lYiuR8gVurbstfghQYJFyNEKh6bH
-	3ByxqiVgjkLjnd0zvl55Jb17p1IO2/U4tEZx7rcJqDdzBy102I9T4usIyG3tW/jvffO8
-	D5aEPvO856IYMoQApJdawnR35FlQKPST5NbSnmBysK4nmZ97fRtZ22uRRDswSkttTLjb
-	p7KJEJx5545YiC7M8iQJPeacN4OFu1mePRRaboUMga8ipUBeyPA7iscKglKE+037JUet
-	sbGVtPFQmPAiL4ZlCC1kM+vP7mSeCfuBKX1+zW6qXBek2n+F+Y/cPvu9vy0lzCW1k9GS
-	b+9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:subject:to:cc:references:from:message-id:date
-	:user-agent:mime-version:in-reply-to:content-language
-	:content-transfer-encoding;
-	bh=9r/cORx1FVjknQ71oSdr2jK85tdytlmbnefKg+jzK2Y=;
-	b=R2NPeqBRS5Ocv9b5wzkzTl6ebpDdVm83r56s2vFtyqjY6CzMGnX8JXla+GSmDfIXCn
-	g3R03XbSyM25+yOlGq7O8CJsGAGxrM1qObj7QkAFcCLJwCTckG2kixRG555aAqzUOFQS
-	tDW0/KoD7gNhcyn3q93ZEn50oNe34Pg6P6VAUwJGJ3uFjDsYOtWS9u//1z6u5193pjwF
-	y703POJhzoUaAq3/rkLEvzFINomwl7R1fCVumFry5uETPJTbPGnhRH+3IQYGvkkNWJPv
-	rDbu0/0bcI/qlnitnbMpCcKdnCeYa6rqiyv1vVFEy6vSSu8MuM19onYe937SthVRMZx6
-	3LDA==
-X-Gm-Message-State: APjAAAVeW74Ex3ZsWyBVpFdWxlpE9y8cOpXuQrQwSLDOz0Zx9XU1NTHe
-	de+khBFsHZ8rcEcpBqO9Lro=
-X-Google-Smtp-Source: APXvYqwjtOWfdOFAZCNhOtnHs+bc4W+3thRsDZaJtAI6rse6zsTHk2k3+dc6Aq5Mtac+Dygzr6nvHA==
-X-Received: by 2002:a17:90a:32ed:: with SMTP id
-	l100mr14443408pjb.11.1562181071207; 
-	Wed, 03 Jul 2019 12:11:11 -0700 (PDT)
-Received: from [192.168.1.70] (c-24-6-192-50.hsd1.ca.comcast.net.
-	[24.6.192.50]) by smtp.gmail.com with ESMTPSA id
-	v184sm3257074pgd.34.2019.07.03.12.11.10
-	(version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-	Wed, 03 Jul 2019 12:11:10 -0700 (PDT)
-To: Theodore Ts'o <tytso@mit.edu>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-References: <1562080257.3321.19.camel@HansenPartnership.com>
-	<1562080696.3321.21.camel@HansenPartnership.com>
-	<37eb32f3-f341-b1d8-293b-c119ae278b4f@linuxfoundation.org>
+	Wed,  3 Jul 2019 22:54:01 +0000 (UTC)
+Received: from pendragon.ideasonboard.com
+	(dfj612yhrgyx302h3jwwy-3.rev.dnainternet.fi
+	[IPv6:2001:14ba:21f5:5b00:ce28:277f:58d7:3ca4])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 4A01C24B;
+	Thu,  4 Jul 2019 00:53:59 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1562194439;
+	bh=PLO4xwYIW1j5Yz2MshDnEU5GepT3s+xAwbdRzkg20mA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=vWkk6w4OV0nkpjOLcHLCWPPSQnwdYb3wJYBTkIvsFzmNpufh7BKl+4rJE/cXs7JCn
+	4VWfjzgyi6zNh7R/bLwXHTYNrqdV6argFNvJj+NeGg5vNe7UocE+rR3dVAZwwbTGuQ
+	Hl8DzM8e98ev2Zh2QTd5UV8sY9x6gGsC1bdfMT50=
+Date: Thu, 4 Jul 2019 01:53:38 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Leon Romanovsky <leon@kernel.org>
+Message-ID: <20190703225338.GQ5007@pendragon.ideasonboard.com>
+References: <37eb32f3-f341-b1d8-293b-c119ae278b4f@linuxfoundation.org>
 	<1562082713.3321.38.camel@HansenPartnership.com>
 	<201907020926.FB19EDEBCC@keescook>
 	<1562103238.3321.66.camel@HansenPartnership.com>
@@ -68,21 +44,17 @@ References: <1562080257.3321.19.camel@HansenPartnership.com>
 	<1562106408.29304.11.camel@HansenPartnership.com>
 	<20190702224347.GJ3032@mit.edu>
 	<20190703085620.GA5007@pendragon.ideasonboard.com>
-	<20190703135012.GC2041@mit.edu>
-From: Frank Rowand <frowand.list@gmail.com>
-Message-ID: <454fdfd3-f45e-e307-c0cb-2dbc91c179e0@gmail.com>
-Date: Wed, 3 Jul 2019 12:11:09 -0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
-	Thunderbird/60.7.1
+	<alpine.DEB.2.21.1907031104260.1802@nanos.tec.linutronix.de>
+	<20190703123954.GD4727@mtr-leonro.mtl.com>
 MIME-Version: 1.0
-In-Reply-To: <20190703135012.GC2041@mit.edu>
-Content-Language: en-US
+Content-Disposition: inline
+In-Reply-To: <20190703123954.GD4727@mtr-leonro.mtl.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Spam-Status: No, score=-2.0 required=5.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID, DKIM_VALID_AU, FREEMAIL_FROM,
-	RCVD_IN_DNSWL_NONE autolearn=ham version=3.3.1
+	DKIM_VALID,DKIM_VALID_AU autolearn=ham version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
-Cc: James Bottomley <James.Bottomley@HansenPartnership.com>,
+Cc: James Bottomley <James.Bottomley@hansenpartnership.com>,
 	ksummit-discuss@lists.linuxfoundation.org
 Subject: Re: [Ksummit-discuss] [MAINTAINERS SUMMIT] Patch version changes in
  commit logs?
@@ -102,89 +74,84 @@ Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-On 7/3/19 6:50 AM, Theodore Ts'o wrote:
-> On Wed, Jul 03, 2019 at 11:56:20AM +0300, Laurent Pinchart wrote:
->>
->> I may have missed the obvious, but while this should work great for
->> patches applied with git-am, what's the expected workflow for patches
->> written by the author of a pull request ? I certainly post my own
->> patches for review on mailing lists, but I don't fetch them back from
->> the list before sending a pull request. Do we want to move towards a
->> model where maintainers should retrieve their own patches from the lists
->> (or from patchwork) ?
-> 
-> So here's my (Unpopular Puffin?) opinion --- I don't think all patches
-> need to have a Link header.  Many don't today, and it's no great
-> tragedy.  If you are updating spelling mistakes in kernel
-> documentation, or you are fixing compiler, sparse, or Coverity
-> warnings, there's generally going to be nothing terribly interesting
-> on the e-mail thread anyway.  So why go to extra effort to create the
-> link?
-> 
-> The patches where the Link tag will be most interesting are the ones
-> that are adding a new feature, or have something that has sparked a
-> lot of controversy.  However, today, merely finding the last V22
-> version of the patch series doesn't necessarily help you find the V21,
-> or V20, or V19, etc., patches.  Most people do *not* send out the V21
-> version a 50 patch series as a reply to the V20 --- and that's
-> actually a good thing, because it makes the reply chain in a mutt
-> reader like mutt be completely unmangeable.
-> 
-> And even if they do, how often will it be useful to go through that
-> kind of detailed legislative history, even presuming that it exists?
-> So 99% of the time, the tag is going to have very highly limited
-> value, just as including in the commit description:
-> 
-> v3
->   - Fixed whitespace nits
-> 
-> v2
->  - Used an explicit slab cache instead of kmalloc()
->  - Fixed spelling nit in documentation
-> 
-> is ***really*** not interesting or appropriate.  And putting in a Link
-> tag so people can read all of those review comments in all their glory
-> is really not going to be all that interesting either.
-> 
-> Personally, if there is a case where it will be useful, it would
-> actually be better for developers to summarize the comments, and
-> design alternatives, considered and rejected, etc., in a cover letter,
+Hello,
 
-It would be really nice to have such a summary.  I would encourage
-developers to provide such, but not require it.  It is a lot of
-work to create such a document.
+On Wed, Jul 03, 2019 at 03:39:54PM +0300, Leon Romanovsky wrote:
+> On Wed, Jul 03, 2019 at 11:12:11AM +0200, Thomas Gleixner wrote:
+> > On Wed, 3 Jul 2019, Laurent Pinchart wrote:
+> > > On Tue, Jul 02, 2019 at 06:43:47PM -0400, Theodore Ts'o wrote:
+> > > > On Tue, Jul 02, 2019 at 03:26:48PM -0700, James Bottomley wrote:
+> > > > > git is our upstream for version control and our upstream has already
+> > > > > had this as a feature since 2014.  Trying to go to upstream  5 years
+> > > > > later and ask them to change it is likely going to be a singularly
+> > > > > unsuccessful exercise, plus even in the unlikely event we can work out
+> > > > > how to do it compatibly and without causing confusion and upstream said
+> > > > > yes it would take another few years to propagate.
+> > > >
+> > > > If we really want to use the Link: header, we should be able to do
+> > > > this without requiring any changes to git.
+> > > >
+> > > > Step 1)   git config am.messageid true
+> > > > Step 2)   Write and install a .git/hooks/applypatch-msg script which
+> > > > 	  looks for Message-Id: and transmogrifies that line to a
+> > > > 	  Link: trailer, using the lore.kernel.org URL template
+> > > > Step 3)   Document this in Documentation/process.  For bonus points
+> > > > 	  create a script which automatically sets up the user's git
+> > > > 	  configuration by setting up am.messageid config and
+> > > > 	  installing the hook file.
+> > > > Step 4)   Profit
+> > >
+> > > I may have missed the obvious, but while this should work great for
+> > > patches applied with git-am, what's the expected workflow for patches
+> > > written by the author of a pull request ? I certainly post my own
+> > > patches for review on mailing lists, but I don't fetch them back from
+> > > the list before sending a pull request. Do we want to move towards a
+> > > model where maintainers should retrieve their own patches from the lists
+> > > (or from patchwork) ?
+> >
+> > Yes.
+> >
+> > If you just commit, post and then send a pull request later how are you
+> > dealing with Reviewed-by/Acked-by/Tested-by replies on the list?
+> >
+> > Either they do not end up in the changelogs or you have to redo the commits
+> > anyway. So moving to a always redo from mail/patchwork just unifies the
+> > workflow.
+> >
+> > I'm doing that always because I'm way too lazy to collect the tags from
+> > replies manually. I just save the whole thread as mbox and let the tools
+> > sort it out.
 
-On the other hand, given a choice between the summary and a link to
-the discussion, I would prefer the link to the whole discussion
-because the person writing the summary can not predict what detail
-(that may appear insignificant at the time) is critical to the person
-five years later who is researching the feature.
+I usually pick the tags manually. I started doing so because I was too
+lazy to apply the patches from an mbox :-) Picking them manually
+distributes of time the workload of a final git-am before sending the
+pull request, but it has the nice advantage that I can easily see in my
+local tree which patches still require review.
 
--Frank
+> My 2 cents,
+> 
+> I'm doing the same for slightly different reason, I want to be 100% sure
+> that posted and reviewed patch equal to applied. So when it is applicable,
+> I post my own patches and apply them from mailing list later on to
+> shared rdma<->netdev branch.
 
-> or better yet in the kernel documentation as part of the design doc
-> for a largish feature, and then if it is a cover letter e-mailed out
-> to the mailing list, include a link to the URL of the cover letter
-> with some text so that a human being reading the commit log will know
-> that there is something actually worth their time to read, as opposed
-> to being treated to a huge amount of legislative history that, at the
-> end of the day, be a complete waste of time to someone trying to debug
-> a live production problem causing data outages for their company.
-> 
-> The reality though is this is a lot of extra work we're asking of the
-> developer, so this automated fashion is a technological solution to
-> something which is really a social problem --- and hopefully there
-> will be a few cases where it will actually result in a net benefit.
-> 
-> Regards,
-> 
-> 					- Ted
-> _______________________________________________
-> Ksummit-discuss mailing list
-> Ksummit-discuss@lists.linuxfoundation.org
-> https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss
-> 
+I understand both your and Thomas' rationales, and I know that the DRM
+subsystem has enforced usage of the Link: tag through the dim tool used
+to maintain drm-misc. I initially found it a bit of a burden to have to
+go and retrieve patches from my mail client or from patchwork, but I
+also understand the upside. Should we make it an official recommendation
+recorded in written documentation ?
 
+When time permit I will likely try to see if I can automate retrieval of
+a patch series. Ideally I'd like a script that would take a branch,
+identifies where to get the patches from, and goes and pick them up
+(retaining the history below --- until it's time for the final pull
+request). That may not be too difficult to achieve.
+
+-- 
+Regards,
+
+Laurent Pinchart
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
