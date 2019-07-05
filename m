@@ -2,55 +2,54 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id DDC18602D3
-	for <lists@lfdr.de>; Fri,  5 Jul 2019 11:04:21 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id AFA226031C
+	for <lists@lfdr.de>; Fri,  5 Jul 2019 11:27:58 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id 4EF5B10D1;
-	Fri,  5 Jul 2019 09:04:10 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id C5EBC1151;
+	Fri,  5 Jul 2019 09:26:39 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id CB7B410BF
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id 71FFE110D
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri,  5 Jul 2019 09:04:07 +0000 (UTC)
+	Fri,  5 Jul 2019 09:26:37 +0000 (UTC)
 X-Greylist: whitelisted by SQLgrey-1.7.6
-Received: from mail-lj1-f194.google.com (mail-lj1-f194.google.com
-	[209.85.208.194])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 2E88270D
+Received: from mail-lj1-f195.google.com (mail-lj1-f195.google.com
+	[209.85.208.195])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id C860B70D
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri,  5 Jul 2019 09:04:07 +0000 (UTC)
-Received: by mail-lj1-f194.google.com with SMTP id m23so8506328lje.12
+	Fri,  5 Jul 2019 09:26:36 +0000 (UTC)
+Received: by mail-lj1-f195.google.com with SMTP id 16so8565144ljv.10
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri, 05 Jul 2019 02:04:07 -0700 (PDT)
+	Fri, 05 Jul 2019 02:26:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
 	h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-	:cc; bh=WCNj6RlAHIwh0xKixodVtk8iA87tuEWrWyyCcMfOhFg=;
-	b=YCBMl2a41KQKAaGLzmJZGfylf5lwoynOt3x+HBvq4ygz/YBFK8CTNSoHGLaImare1G
-	lKjaLY5tyuFA8iks0mGFEtf+gG8tJEcnKmmejUVnbrNFUyKkzEF80M3yetxHRySQUVsH
-	DDPUEGjC2htHVtxWmpa529ONiz2N99OpKfBq6Y4WXI7YBWsmrEPIw1myB1DMAaGL0Yvx
-	6Ksr4iT53qYU/smWG56u8Huy1d+9NDf2Ui8O200O1LpV0JhS17tHff7GR0v95qbmX647
-	1/uPkLKJvphS8ouOTwl1hojkE9KKcmRV2MCZTU4aWpuUQzJQ+2ijK2NXZEYZ5AImpBOt
-	QJug==
+	:cc; bh=M3S52ERpWoi4uBPmrJtam6HZRY1Fus492m4OW0FpH9I=;
+	b=AgLZVBeXfhZLEzNL9z08u6P+Taa+y8SC3FfjHuV/9+IaAMcVUC5gZenK+754WjMYR+
+	TUcsHRRVfYTeadGJ8koeBOpOy+Qsu9U3odJCuxI9p2+lrfmH4LBvYzRb+25FurdMlDY4
+	nW7Aqgs7+QQSdN97+hgYdzLeWNtzz/Y1cS9qw8JWdqOFlZO1aNRmIVLjtx+eJQ0SK3MM
+	4fg6vhgBm4soJPhAitrqd2uCe3y3L/Obx0maAywiGbXs3m39BC+gjkj7f8lrnt+ZoFHZ
+	aXQwpTS8z0nqPJ2kWb14v48n4hjnknV3tc+kNoX98RujmLKT2Wd2y4kw/mDaR7l8aXWe
+	UzHg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
 	h=x-gm-message-state:mime-version:references:in-reply-to:from:date
 	:message-id:subject:to:cc;
-	bh=WCNj6RlAHIwh0xKixodVtk8iA87tuEWrWyyCcMfOhFg=;
-	b=ai87FRTc5lwYqrWC28ihuvZREwxMX87mmhPeYS9mMVeGwLIvR/O/7G8+Ofun/IK3gu
-	vov4I+KR9jJ9XTI50ee5XLvqfSyUGLgzlphOMC8t3JWXZs211KdUxaY18mUPqz4yNr3T
-	bNdzh0zKyQwc5KArlzHoaOJvoqVpOklrhiqyr09noxdHiVnML5c8SNR4M/xSO4/6jo9n
-	3cNHf6nveLZ9by+2mr2D+SEPP8M3kohvw+wFU4F3RoVP3m6SAugL1Z/5UV3KVL4Ojqlb
-	G8ylN3ajU2HudcEhrgyt9Pcac2S1KqBHhJAGipIBlMNqsPwkqnpeYz9pI6fnyscwPhp6
-	2faQ==
-X-Gm-Message-State: APjAAAVHPnTeu6ff2WqD0gr9uw6lB8zbZUnf/bW9mMqxefELDSf3W9n5
-	Cz5koAYDcTLILLXyKTkqkITDpIEZyLJj4Xi1giD6ow==
-X-Google-Smtp-Source: APXvYqwHW7/dgRgGr2jRyLnW6/5X7XqH4zTma4K68Rw8wFFTZ32n6pOx3ZLhKHdFAUa5but0vqaNKGj1hdnlP6GSZQw=
-X-Received: by 2002:a2e:a0d5:: with SMTP id f21mr1587127ljm.69.1562317445353; 
-	Fri, 05 Jul 2019 02:04:05 -0700 (PDT)
+	bh=M3S52ERpWoi4uBPmrJtam6HZRY1Fus492m4OW0FpH9I=;
+	b=J/kwRayBE7ZbPeTo6TjDvrkFdHtaVZ8BX4fHelXs/tqADOi7bH/ftKGhnghQhO3UDy
+	7YJuUG2m9O8cQBNj6bLCukSC7TGgW5hbd48FVfpDDa5GC60d+TwjC9V++JzKlWkMhANN
+	1ieZfyfjDIKMLrZcweq9K4UCmCv513rqZTxYe+tXWh8WMdLX2/jRbO1AmPPOcaGKl7cL
+	7hHLr3pxpXZNUIYRh22R9rR7x8k5aFhJmsTp395D4B6TVxtXk9cRirBUpdNyDPmPSBaM
+	ljLFhmBh0Hx/ZDM1AVzZ8HQ1WPZbj/Aw20L0RvoXd56Jjql/YLjprL2j82cSpmrduwO4
+	Kmvg==
+X-Gm-Message-State: APjAAAUEzF/iw+/rQygH0Co6Mfo22axv5dqs2gRt9VOMz15n1LlRFzWW
+	5Pn+J2suBc+CDPqLXmYAIzTVP3179ec1f7Efb6ykxQ==
+X-Google-Smtp-Source: APXvYqzz9ngO7dbYmOmZuBzdZPOECD5iCdmIbwKM/R+SUHl8Z6RDo4k9L/uS2Te3YansxezRB7X86Q38mg4S1KY5F3o=
+X-Received: by 2002:a2e:a0d5:: with SMTP id f21mr1642207ljm.69.1562318795144; 
+	Fri, 05 Jul 2019 02:26:35 -0700 (PDT)
 MIME-Version: 1.0
-References: <alpine.DEB.2.21.1907021644420.1802@nanos.tec.linutronix.de>
-	<1562080257.3321.19.camel@HansenPartnership.com>
+References: <1562080257.3321.19.camel@HansenPartnership.com>
 	<1562080696.3321.21.camel@HansenPartnership.com>
 	<37eb32f3-f341-b1d8-293b-c119ae278b4f@linuxfoundation.org>
 	<1562082713.3321.38.camel@HansenPartnership.com>
@@ -60,11 +59,13 @@ References: <alpine.DEB.2.21.1907021644420.1802@nanos.tec.linutronix.de>
 	<1562106408.29304.11.camel@HansenPartnership.com>
 	<20190702224347.GJ3032@mit.edu>
 	<20190703085620.GA5007@pendragon.ideasonboard.com>
-In-Reply-To: <20190703085620.GA5007@pendragon.ideasonboard.com>
+	<20190703135012.GC2041@mit.edu>
+In-Reply-To: <20190703135012.GC2041@mit.edu>
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 5 Jul 2019 11:03:53 +0200
-Message-ID: <CACRpkdaaLiJnHeppy9fq0ymeoJ1oyB6G6VHyNG-NFosze=Oq_w@mail.gmail.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Date: Fri, 5 Jul 2019 11:26:22 +0200
+Message-ID: <CACRpkdbqxwwKxjELS8WXtFHbq3L5b49XoEJjCdUOgRTNLTR_NQ@mail.gmail.com>
+To: "Theodore Ts'o" <tytso@mit.edu>,
+	Marek Szyprowski <m.szyprowski@samsung.com>
 X-Spam-Status: No, score=-2.0 required=5.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID, DKIM_VALID_AU,
 	RCVD_IN_DNSWL_NONE autolearn=ham version=3.3.1
@@ -90,20 +91,49 @@ Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-On Wed, Jul 3, 2019 at 10:56 AM Laurent Pinchart
-<laurent.pinchart@ideasonboard.com> wrote:
+On Wed, Jul 3, 2019 at 3:51 PM Theodore Ts'o <tytso@mit.edu> wrote:
 
-> I may have missed the obvious, but while this should work great for
-> patches applied with git-am, what's the expected workflow for patches
-> written by the author of a pull request ? I certainly post my own
-> patches for review on mailing lists, but I don't fetch them back from
-> the list before sending a pull request. Do we want to move towards a
-> model where maintainers should retrieve their own patches from the lists
-> (or from patchwork) ?
+> Personally, if there is a case where it will be useful, it would
+> actually be better for developers to summarize the comments, and
+> design alternatives, considered and rejected, etc., in a cover letter,
+> or better yet in the kernel documentation as part of the design doc
+> for a largish feature, and then if it is a cover letter e-mailed out
+> to the mailing list, include a link to the URL of the cover letter
+> with some text so that a human being reading the commit log will know
+> that there is something actually worth their time to read, as opposed
+> to being treated to a huge amount of legislative history that, at the
+> end of the day, be a complete waste of time to someone trying to debug
+> a live production problem causing data outages for their company.
 
-This is what I do in DRM as this subsystem requires the list ID.
+I agree. I recently wanted to look into the development history
+of the contiguous memory allocator merged in 2012. This patch set
+went through 24 (!) iterations duly summarized in the cover letter:
+https://lore.kernel.org/lkml/1333462221-3987-1-git-send-email-m.szyprowski@samsung.com/
+it not is on mm/cma.c.
 
-I agree it's a bit impractical.
+The links to the earlier iterations on gmane are dead.
+
+It is one of the more heroic attempts to fix a very real problem
+with memory management in embedded and mobile,
+the second part of which is hopefully coming to a resolution
+with John Stultz work on the ION destaging (ongoing).
+
+The actual commit in the kernel looks like so:
+git log c64be2bb1c6eb43c838b2c6d57b074078be208dd
+
+I would have to dig them all out of lore one by one to get
+the picture (and I guess I will). The story of CMA is a really
+interesting one, and now it is part of the MM core.
+Documentation/cma is pretty empty.
+
+Asking Michal, Marek and Joonsoo who all worked hard on
+this to summarize the development and make the design
+and evolution of this feature understandable would be a
+pretty big development task in itself so I'm not gonna.
+
+But maybe we should just merge a document with lore
+pointers to Documentation/cma for this feature, and others
+of the same impact?
 
 Yours,
 Linus Walleij
