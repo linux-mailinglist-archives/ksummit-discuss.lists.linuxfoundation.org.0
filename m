@@ -2,55 +2,54 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id 45B8760EFD
-	for <lists@lfdr.de>; Sat,  6 Jul 2019 06:46:53 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id EBEC56112D
+	for <lists@lfdr.de>; Sat,  6 Jul 2019 16:48:51 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id 618C4177D;
-	Sat,  6 Jul 2019 04:46:33 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id C568F1CA2;
+	Sat,  6 Jul 2019 14:48:39 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id 2D5D8169B
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id 7EB2B1C99
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Sat,  6 Jul 2019 04:42:48 +0000 (UTC)
-X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
-Received: from outgoing.mit.edu (outgoing-auth-1.mit.edu [18.9.28.11])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id A1D1670D
+	Sat,  6 Jul 2019 14:42:04 +0000 (UTC)
+X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
+Received: from mslow2.mail.gandi.net (mslow2.mail.gandi.net [217.70.178.242])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 4DBF187B
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Sat,  6 Jul 2019 04:42:47 +0000 (UTC)
-Received: from callcc.thunk.org ([66.31.38.53]) (authenticated bits=0)
-	(User authenticated as tytso@ATHENA.MIT.EDU)
-	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id x664gdpl023660
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256
-	verify=NOT); Sat, 6 Jul 2019 00:42:40 -0400
-Received: by callcc.thunk.org (Postfix, from userid 15806)
-	id 0AEA642002E; Sat,  6 Jul 2019 00:42:39 -0400 (EDT)
-Date: Sat, 6 Jul 2019 00:42:38 -0400
-From: "Theodore Ts'o" <tytso@mit.edu>
-To: Linus Walleij <linus.walleij@linaro.org>
-Message-ID: <20190706044238.GE11665@mit.edu>
-References: <37eb32f3-f341-b1d8-293b-c119ae278b4f@linuxfoundation.org>
-	<1562082713.3321.38.camel@HansenPartnership.com>
-	<201907020926.FB19EDEBCC@keescook>
-	<1562103238.3321.66.camel@HansenPartnership.com>
-	<alpine.DEB.2.21.1907030000050.1802@nanos.tec.linutronix.de>
-	<1562106408.29304.11.camel@HansenPartnership.com>
-	<20190702224347.GJ3032@mit.edu>
-	<20190703085620.GA5007@pendragon.ideasonboard.com>
-	<20190703135012.GC2041@mit.edu>
-	<CACRpkdbqxwwKxjELS8WXtFHbq3L5b49XoEJjCdUOgRTNLTR_NQ@mail.gmail.com>
+	Sat,  6 Jul 2019 14:42:02 +0000 (UTC)
+Received: from relay3-d.mail.gandi.net (unknown [217.70.183.195])
+	by mslow2.mail.gandi.net (Postfix) with ESMTP id 974B43A5B89
+	for <ksummit-discuss@lists.linuxfoundation.org>;
+	Sat,  6 Jul 2019 14:02:27 +0000 (UTC)
+X-Originating-IP: 90.65.161.137
+Received: from localhost (lfbn-1-1545-137.w90-65.abo.wanadoo.fr
+	[90.65.161.137])
+	(Authenticated sender: alexandre.belloni@bootlin.com)
+	by relay3-d.mail.gandi.net (Postfix) with ESMTPSA id 63C2960002;
+	Sat,  6 Jul 2019 14:02:15 +0000 (UTC)
+Date: Sat, 6 Jul 2019 16:02:15 +0200
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Michael Ellerman <mpe@ellerman.id.au>
+Message-ID: <20190706140215.GD12409@piout.net>
+References: <7b73e1b7-cc34-982d-2a9c-acf62b88da16@linuxfoundation.org>
+	<20190628205102.GA3131@agluck-desk2.amr.corp.intel.com>
+	<s5hzhm0q3p1.wl-tiwai@suse.de>
+	<alpine.DEB.2.21.1906290906080.1802@nanos.tec.linutronix.de>
+	<87y31eov1l.fsf@concordia.ellerman.id.au>
+	<1562250136.3187.3.camel@HansenPartnership.com>
+	<87zhlt17ue.fsf@concordia.ellerman.id.au>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CACRpkdbqxwwKxjELS8WXtFHbq3L5b49XoEJjCdUOgRTNLTR_NQ@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Spam-Status: No, score=-4.2 required=5.0 tests=BAYES_00,RCVD_IN_DNSWL_MED
-	autolearn=ham version=3.3.1
+In-Reply-To: <87zhlt17ue.fsf@concordia.ellerman.id.au>
+User-Agent: Mutt/1.12.0 (2019-05-25)
+X-Spam-Status: No, score=-1.3 required=5.0 tests=BAYES_00,RCVD_IN_DNSWL_LOW,
+	RCVD_IN_RP_RNBL autolearn=no version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
 Cc: James Bottomley <James.Bottomley@hansenpartnership.com>,
-	ksummit-discuss@lists.linuxfoundation.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>
+	ksummit-discuss@lists.linuxfoundation.org
 Subject: Re: [Ksummit-discuss] [MAINTAINERS SUMMIT] Patch version changes in
  commit logs?
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
@@ -69,36 +68,25 @@ Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-On Fri, Jul 05, 2019 at 11:26:22AM +0200, Linus Walleij wrote:
-> I would have to dig them all out of lore one by one to get
-> the picture (and I guess I will). The story of CMA is a really
-> interesting one, and now it is part of the MM core.
-> Documentation/cma is pretty empty.
+On 05/07/2019 13:24:57+1000, Michael Ellerman wrote:
+> James Bottomley <James.Bottomley@HansenPartnership.com> writes:
+> > Cc: tags are another git artefact.  They're how you tell git-send-email 
+> > where to send copies of the patch for review or notice, but they don't
+> > really provide any intrinsic historical value.
 > 
-> Asking Michal, Marek and Joonsoo who all worked hard on
-> this to summarize the development and make the design
-> and evolution of this feature understandable would be a
-> pretty big development task in itself so I'm not gonna.
+> Right, but it wasn't clear to me if anyone felt that they *do* have
+> historical value. Seems not.
+> 
 
-I assume you want something more detailed than this article on LWN?
+Some maintainers do think it is useful:
 
-	https://lwn.net/Articles/486301/
+https://lore.kernel.org/lkml/20171128161014.GG27409@jhogan-linux.mipstec.com/
 
-I vaguely remember there was a presentation at Plumbers, but of course
-that was a long time ago, before we were regularly recording
-presentations at LPC.
 
-It may be that best sort of thing will be conference presentations
-and/or refereed papers.  For example, there will be a 2019 Usenix ATC
-about EROFS.
-
-	https://www.usenix.org/conference/atc19/presentation/gao
-
-Of course, asking developers to write refereed papers for submission
-to Usenix, FAST, etc., or even giving a presentation at Plumbers is
-also an awful lot to ask.  :-)
-
-					- Ted
+-- 
+Alexandre Belloni, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
