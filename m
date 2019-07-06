@@ -2,56 +2,38 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id EBEC56112D
-	for <lists@lfdr.de>; Sat,  6 Jul 2019 16:48:51 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 2A3CF6111D
+	for <lists@lfdr.de>; Sat,  6 Jul 2019 16:32:29 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id C568F1CA2;
-	Sat,  6 Jul 2019 14:48:39 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id C8CE91C81;
+	Sat,  6 Jul 2019 14:32:15 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id 7EB2B1C99
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id C40D61C6B
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Sat,  6 Jul 2019 14:42:04 +0000 (UTC)
+	Sat,  6 Jul 2019 14:27:42 +0000 (UTC)
 X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
-Received: from mslow2.mail.gandi.net (mslow2.mail.gandi.net [217.70.178.242])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 4DBF187B
+Received: from pokefinder.org (sauhun.de [88.99.104.3])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTP id 80AE34C3
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Sat,  6 Jul 2019 14:42:02 +0000 (UTC)
-Received: from relay3-d.mail.gandi.net (unknown [217.70.183.195])
-	by mslow2.mail.gandi.net (Postfix) with ESMTP id 974B43A5B89
+	Sat,  6 Jul 2019 14:27:41 +0000 (UTC)
+Received: from localhost (p5486CF0A.dip0.t-ipconnect.de [84.134.207.10])
+	by pokefinder.org (Postfix) with ESMTPSA id 579202C376D
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Sat,  6 Jul 2019 14:02:27 +0000 (UTC)
-X-Originating-IP: 90.65.161.137
-Received: from localhost (lfbn-1-1545-137.w90-65.abo.wanadoo.fr
-	[90.65.161.137])
-	(Authenticated sender: alexandre.belloni@bootlin.com)
-	by relay3-d.mail.gandi.net (Postfix) with ESMTPSA id 63C2960002;
-	Sat,  6 Jul 2019 14:02:15 +0000 (UTC)
-Date: Sat, 6 Jul 2019 16:02:15 +0200
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: Michael Ellerman <mpe@ellerman.id.au>
-Message-ID: <20190706140215.GD12409@piout.net>
-References: <7b73e1b7-cc34-982d-2a9c-acf62b88da16@linuxfoundation.org>
-	<20190628205102.GA3131@agluck-desk2.amr.corp.intel.com>
-	<s5hzhm0q3p1.wl-tiwai@suse.de>
-	<alpine.DEB.2.21.1906290906080.1802@nanos.tec.linutronix.de>
-	<87y31eov1l.fsf@concordia.ellerman.id.au>
-	<1562250136.3187.3.camel@HansenPartnership.com>
-	<87zhlt17ue.fsf@concordia.ellerman.id.au>
+	Sat,  6 Jul 2019 16:27:39 +0200 (CEST)
+Date: Sat, 6 Jul 2019 16:27:38 +0200
+From: Wolfram Sang <wsa@the-dreams.de>
+To: ksummit-discuss@lists.linuxfoundation.org
+Message-ID: <20190706142738.GA6893@kunai>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <87zhlt17ue.fsf@concordia.ellerman.id.au>
-User-Agent: Mutt/1.12.0 (2019-05-25)
-X-Spam-Status: No, score=-1.3 required=5.0 tests=BAYES_00,RCVD_IN_DNSWL_LOW,
-	RCVD_IN_RP_RNBL autolearn=no version=3.3.1
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Spam-Status: No, score=-1.9 required=5.0 tests=BAYES_00,RCVD_IN_DNSWL_NONE
+	autolearn=ham version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
-Cc: James Bottomley <James.Bottomley@hansenpartnership.com>,
-	ksummit-discuss@lists.linuxfoundation.org
-Subject: Re: [Ksummit-discuss] [MAINTAINERS SUMMIT] Patch version changes in
- commit logs?
+Subject: [Ksummit-discuss] [MAINTAINERS SUMMIT] Keeping reviews meaningful
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.12
 Precedence: list
@@ -63,31 +45,106 @@ List-Post: <mailto:ksummit-discuss@lists.linuxfoundation.org>
 List-Help: <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=help>
 List-Subscribe: <https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss>,
 	<mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2781317873859379146=="
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-On 05/07/2019 13:24:57+1000, Michael Ellerman wrote:
-> James Bottomley <James.Bottomley@HansenPartnership.com> writes:
-> > Cc: tags are another git artefact.  They're how you tell git-send-email 
-> > where to send copies of the patch for review or notice, but they don't
-> > really provide any intrinsic historical value.
-> 
-> Right, but it wasn't clear to me if anyone felt that they *do* have
-> historical value. Seems not.
-> 
 
-Some maintainers do think it is useful:
-
-https://lore.kernel.org/lkml/20171128161014.GG27409@jhogan-linux.mipstec.com/
+--===============2781317873859379146==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="PEIAKu/WMn1b1Hv9"
+Content-Disposition: inline
 
 
--- 
-Alexandre Belloni, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+--PEIAKu/WMn1b1Hv9
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+
+In the parts of the Kernel I work with, reviews are usually given by a plain
+tag. I think this is not enough to keep a good code quality, so I'll start with
+my theses first:
+
+1) we need a better distinction between Acked-by: and Reviewed-by: and encourage
+   stricter use of that
+
+2) Reviewed-by should have a description of the review done (and the review not
+   done)
+
+3) trivial patches should rather get Acked-by
+
+4) failing the above should be constructively criticized
+
+
+Some more words about each item:
+
+1) I am definitely not striving for a clear line, that's impossible. Yet, from
+what I experience, the overlap between the two became large. It reduces the
+extra value a Reviewed-by should have.
+
+2) A short paragraph will usually do. Of course, trust helps a lot, but it
+doesn't solve everything. Trusted people can be in a hurry, too, etc. And for
+people I don't know, the plain tag doesn't tell me much. Examples for short
+descriptions: "I can't say much about the media part, but the I2C part is
+proper" or "I also checked the documentation and I think this is a good
+approach to overcome the issue" or "All my concerns in the preceding
+discussions have been addressed"
+
+3) Again, no hard line on what is trivial can be made. Still, I think it will
+add to the extra value of a review tag if it is only applied to something which
+is non-trivial, so we should try to have a better distinction.
+
+4) We are in such a need for people reviewing that it can be challenging for
+maintainers to be picky about reviews (you can partly include me here). A
+kernel-wide movement aiming for a better distinction between ack (= looks good)
+and review helps both maintainers and developers, I think.
+
+These things will hopefully help me as a maintainer to better evaluate trust
+for a patch based on the tags given. So, I will try that in the I2C subsystem.
+I would prefer, though, not to be an island but to have something which is
+accepted kernel-wide.
+
+Disclaimer: I am mainly active in the drivers section of Linux. If reviews are
+handled differently in other parts, I am all ears.
+
+Well, I am all ears, anyhow. Opinions?
+
+Kind regards,
+
+  Wolfram
+
+
+--PEIAKu/WMn1b1Hv9
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAl0gr9YACgkQFA3kzBSg
+KbbklQ/+LKmt7rBxcZNvXs4lF9pOl1uS6/U7HaK5s/hpVVGbyRCnRRAUthOJqUs0
+Zwj9fT9mdLfBLpf2zXv3N+yTJFheBKiZbcwXfUYLLc53JUeR0+LfMAawi0xrMoBy
+8SHqGyGd4uLV+Xqc8MSxAGFHzhIJ0q52PK5vC+P7vYLacD8ArCV1VFIEuEKSny7w
+BSgFxW8cSJ1y8KiWS7e0RXprkevn+mM39aeSYEGA9sL5U8U+szN9ZVMGafxSDEso
+VCBESLE/QXLUKsHkiXE06GZdU71juHatBX+NzCpI+kRs4ZG1o8yHLnffN9Sd8MU+
+WR+auLtdFeVOUYqFLMZbENNixJPvkc0TkFJiimNvu3xCf4+035PrGyyw4QA6Huwl
+XINGoxujWSOLqiNhOr7lvpi+KVLNLwqNVWV7Ku1sKYnrBpAdoTxDwvy4tLH05KT4
+3AYX0Lo/S+lx4sGDxHYH9EtyG/bve+OJu1JbotIr/rlmj86miIUMvWd8F6N9Wj2w
+msIW+t0LHlrgt2F16QohS52pueWthfT5PKHo9E8eXVTgYcEBpTqo3S6gjLebxfV0
+Dq5KYSElke/sdPyf9eMJeYKA/gt7IHx153ypkobqeC5RnduIoEwdqGGwokXxjpcX
+V0p6aG8aHhqbc+Qu55qSzkhQk8LqP+wuyQOri4SEXFrLP7+eS5Y=
+=Itgj
+-----END PGP SIGNATURE-----
+
+--PEIAKu/WMn1b1Hv9--
+
+--===============2781317873859379146==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
 https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss
+
+--===============2781317873859379146==--
