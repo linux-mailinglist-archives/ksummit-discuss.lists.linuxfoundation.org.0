@@ -2,74 +2,51 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4E0E0611CA
-	for <lists@lfdr.de>; Sat,  6 Jul 2019 17:05:16 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id B14126124A
+	for <lists@lfdr.de>; Sat,  6 Jul 2019 19:00:07 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id 044B41CEB;
-	Sat,  6 Jul 2019 15:04:57 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id A81DD1DD3;
+	Sat,  6 Jul 2019 16:59:55 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id EB3041C9C
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id C3D651DBE
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Sat,  6 Jul 2019 14:57:18 +0000 (UTC)
+	Sat,  6 Jul 2019 16:52:34 +0000 (UTC)
 X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
-Received: from bedivere.hansenpartnership.com (bedivere.hansenpartnership.com
-	[66.63.167.143])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 939C387B
+Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id C701B70D
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Sat,  6 Jul 2019 14:57:18 +0000 (UTC)
-Received: from localhost (localhost [127.0.0.1])
-	by bedivere.hansenpartnership.com (Postfix) with ESMTP id B2A8B8EE20E; 
-	Sat,  6 Jul 2019 07:57:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=hansenpartnership.com;
-	s=20151216; t=1562425037;
-	bh=p7Jrwo7UHqwEm2aUoHTtY/niP64YZbeDLQEO3rrs6qM=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=rmgOnwwO1vY+TAaCSlEtdK/xyQAI7Z2OlqF4QyM4LjFl1qzu4MaSWHlSubZgdwd3F
-	jyHmCU5gKP03F0D72lFoswo33fjJwJO+jaU6Dy/hBGtn51cKvSQn5MncWcNGxRjwnT
-	T5Vc0zX+SHA8IXWu0Z7QqtRb0FRQShqXAJy6H9Uc=
-Received: from bedivere.hansenpartnership.com ([127.0.0.1])
-	by localhost (bedivere.hansenpartnership.com [127.0.0.1]) (amavisd-new,
-	port 10024)
-	with ESMTP id d_xPR9M9jhtA; Sat,  6 Jul 2019 07:57:17 -0700 (PDT)
-Received: from jarvis.lan (unknown [50.35.68.20])
+	Sat,  6 Jul 2019 16:52:33 +0000 (UTC)
+Received: from localhost (unknown [37.142.3.125])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by bedivere.hansenpartnership.com (Postfix) with ESMTPSA id E3EFE8EE0D4;
-	Sat,  6 Jul 2019 07:57:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=hansenpartnership.com;
-	s=20151216; t=1562425037;
-	bh=p7Jrwo7UHqwEm2aUoHTtY/niP64YZbeDLQEO3rrs6qM=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=rmgOnwwO1vY+TAaCSlEtdK/xyQAI7Z2OlqF4QyM4LjFl1qzu4MaSWHlSubZgdwd3F
-	jyHmCU5gKP03F0D72lFoswo33fjJwJO+jaU6Dy/hBGtn51cKvSQn5MncWcNGxRjwnT
-	T5Vc0zX+SHA8IXWu0Z7QqtRb0FRQShqXAJy6H9Uc=
-Message-ID: <1562425034.3029.3.camel@HansenPartnership.com>
-From: James Bottomley <James.Bottomley@HansenPartnership.com>
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>, Michael Ellerman
-	<mpe@ellerman.id.au>
-Date: Sat, 06 Jul 2019 07:57:14 -0700
-In-Reply-To: <20190706140215.GD12409@piout.net>
-References: <7b73e1b7-cc34-982d-2a9c-acf62b88da16@linuxfoundation.org>
-	<20190628205102.GA3131@agluck-desk2.amr.corp.intel.com>
-	<s5hzhm0q3p1.wl-tiwai@suse.de>
-	<alpine.DEB.2.21.1906290906080.1802@nanos.tec.linutronix.de>
-	<87y31eov1l.fsf@concordia.ellerman.id.au>
-	<1562250136.3187.3.camel@HansenPartnership.com>
-	<87zhlt17ue.fsf@concordia.ellerman.id.au>
-	<20190706140215.GD12409@piout.net>
-X-Mailer: Evolution 3.26.6 
-Mime-Version: 1.0
-X-Spam-Status: No, score=-2.0 required=5.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID, DKIM_VALID_AU,
-	RCVD_IN_DNSWL_NONE autolearn=ham version=3.3.1
+	by mail.kernel.org (Postfix) with ESMTPSA id A0DAB206A2;
+	Sat,  6 Jul 2019 16:52:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=default; t=1562431953;
+	bh=1TRkEi2DQbPrrgmktg9RyMV3nHT8fv+cCqjjdzaH7ZM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NLODGh8F8D+F4jw0hw3vZmKhUTw08cSHXkXRLnfH5pXXkxEXlMOg6ZOY72/AYLMb+
+	6CG4Til2ZJ92o8amLJ+uYxyPcqII52ob+z2t5U3pw1gKZu2bEeXZWKMXy1ZgOHrhwf
+	XQNuAMCiFD0b5rQYryzsRTrasn7gQB7T/W97xpKM=
+Date: Sat, 6 Jul 2019 19:52:14 +0300
+From: Leon Romanovsky <leon@kernel.org>
+To: Wolfram Sang <wsa@the-dreams.de>
+Message-ID: <20190706165214.GB18182@mtr-leonro.mtl.com>
+References: <20190706142738.GA6893@kunai>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20190706142738.GA6893@kunai>
+User-Agent: Mutt/1.12.0 (2019-05-25)
+X-Spam-Status: No, score=-7.0 required=5.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,RCVD_IN_DNSWL_HI autolearn=ham version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
 Cc: ksummit-discuss@lists.linuxfoundation.org
-Subject: Re: [Ksummit-discuss] [MAINTAINERS SUMMIT] Patch version changes in
- commit logs?
+Subject: Re: [Ksummit-discuss] [MAINTAINERS SUMMIT] Keeping reviews
+	meaningful
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.12
 Precedence: list
@@ -86,31 +63,30 @@ Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-On Sat, 2019-07-06 at 16:02 +0200, Alexandre Belloni wrote:
-> On 05/07/2019 13:24:57+1000, Michael Ellerman wrote:
-> > James Bottomley <James.Bottomley@HansenPartnership.com> writes:
-> > > Cc: tags are another git artefact.  They're how you tell git-
-> > > send-email 
-> > > where to send copies of the patch for review or notice, but they
-> > > don't
-> > > really provide any intrinsic historical value.
-> > 
-> > Right, but it wasn't clear to me if anyone felt that they *do* have
-> > historical value. Seems not.
-> > 
-> 
-> Some maintainers do think it is useful:
-> 
-> https://lore.kernel.org/lkml/20171128161014.GG27409@jhogan-linux.mips
-> tec.com/
+On Sat, Jul 06, 2019 at 04:27:38PM +0200, Wolfram Sang wrote:
+>
+> In the parts of the Kernel I work with, reviews are usually given by a plain
+> tag. I think this is not enough to keep a good code quality, so I'll start with
+> my theses first:
+>
+> 1) we need a better distinction between Acked-by: and Reviewed-by: and encourage
+>    stricter use of that
 
-Apart from stable, the only other cc I think is historically useful is
-when I'm carrying a patch that impinges on another maintainer's tree
-and they were cc'd for an ack which never arrived.  Then the cc in the
-changelog tells Linus at least we tried.
+Agree
 
-James
+>
+> 2) Reviewed-by should have a description of the review done (and the review not
+>    done)
 
+IMHO, this path of thinking will lead us to less reviews due to an extra
+work and wouldn't bring an extra quality which we want.
+
+Right now, everything is built on trust and it will continue to be after
+we will demand to add extra sentence. It means that we don't fully trust
+in Reviewed-by of one time contributors now and we won't trust in their
+description of their Reviewed-by either.
+
+Thanks
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
