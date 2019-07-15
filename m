@@ -2,49 +2,58 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2F0A569978
-	for <lists@lfdr.de>; Mon, 15 Jul 2019 19:01:14 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 2D48E69995
+	for <lists@lfdr.de>; Mon, 15 Jul 2019 19:12:09 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id A18D3EBC;
-	Mon, 15 Jul 2019 17:00:56 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id EEB4CEE5;
+	Mon, 15 Jul 2019 17:11:56 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id 4380ACAE
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id 7FB46CC6
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Mon, 15 Jul 2019 17:00:54 +0000 (UTC)
-X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
-Received: from outgoing.mit.edu (outgoing-auth-1.mit.edu [18.9.28.11])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id A93B7898
+	Mon, 15 Jul 2019 17:11:54 +0000 (UTC)
+X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
+Received: from bombadil.infradead.org (bombadil.infradead.org
+	[198.137.202.133])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id B7C2D8C4
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Mon, 15 Jul 2019 17:00:53 +0000 (UTC)
-Received: from callcc.thunk.org (guestnat-104-133-0-99.corp.google.com
-	[104.133.0.99] (may be forged)) (authenticated bits=0)
-	(User authenticated as tytso@ATHENA.MIT.EDU)
-	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id x6FH0kao027889
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256
-	verify=NOT); Mon, 15 Jul 2019 13:00:47 -0400
-Received: by callcc.thunk.org (Postfix, from userid 15806)
-	id A220F420054; Mon, 15 Jul 2019 13:00:45 -0400 (EDT)
-Date: Mon, 15 Jul 2019 13:00:45 -0400
-From: "Theodore Y. Ts'o" <tytso@mit.edu>
-To: Mauro Carvalho Chehab <mchehab+samsung@kernel.org>
-Message-ID: <20190715170045.GB3068@mit.edu>
+	Mon, 15 Jul 2019 17:11:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=bombadil.20170209; h=Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Sender:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=rty09um3cpG+1QRbANHUgDMnxpYwSJILiwmbbeP3Olo=;
+	b=gJHvHqbn/L9Boogae3ybEPo/T
+	dyMpE2JDnc3i20NqqAKNJRWxHFSXBrPtyFmv2RWHbCy0zQUf+xrQ6zm9fT0D/3jdmNBTPwPhzdRuP
+	NhR33G0sm9pxd7QQJX+Ns+M8ZPKMcLnUCBotOkipGI7SDPuzOc/SkHmOYMFBHkbflAjIjSeGMA98i
+	/9tXBT73E3VKjxW5wR/kBUwPJgxawljx9S84xFWpzll51EzH6cFuRlsf1UIihIHWJdA0Yd9NbWqfs
+	3h5g96MIAwBYVsvmzfbFm8+kwOM10axKgrcSPgV6PCuLGRpe6zskxhPF0Dcma8HNZpLtJLl+V8+jk
+	PhkXt5DsQ==;
+Received: from [189.27.46.152] (helo=coco.lan)
+	by bombadil.infradead.org with esmtpsa (Exim 4.92 #3 (Red Hat Linux))
+	id 1hn4Vx-0001vF-Rz; Mon, 15 Jul 2019 17:11:50 +0000
+Date: Mon, 15 Jul 2019 14:11:46 -0300
+From: Mauro Carvalho Chehab <mchehab+samsung@kernel.org>
+To: "Theodore Y. Ts'o" <tytso@mit.edu>
+Message-ID: <20190715141146.1f7b17fd@coco.lan>
+In-Reply-To: <20190715170045.GB3068@mit.edu>
 References: <20190706142738.GA6893@kunai>
 	<CAMuHMdUVtz6_3-9_+QLRWt6x7fauvA0K4p77eOcyVWo_oO9g5g@mail.gmail.com>
 	<20190708115949.GC1050@kunai> <20190715125800.22a9a979@coco.lan>
+	<20190715170045.GB3068@mit.edu>
+X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20190715125800.22a9a979@coco.lan>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Spam-Status: No, score=-4.2 required=5.0 tests=BAYES_00,RCVD_IN_DNSWL_MED
-	autolearn=ham version=3.3.1
+X-Spam-Status: No, score=-4.2 required=5.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,RCVD_IN_DNSWL_MED autolearn=ham version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
 Cc: ksummit <ksummit-discuss@lists.linuxfoundation.org>
 Subject: Re: [Ksummit-discuss] [MAINTAINERS SUMMIT] Keeping reviews
-	meaningful
+ meaningful
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.12
 Precedence: list
@@ -61,61 +70,27 @@ Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-On Mon, Jul 15, 2019 at 12:58:00PM -0300, Mauro Carvalho Chehab wrote:
-> On my case, when I receive an Acked-by, I assume that this came
-> from a maintainer (either a subsystem maintainer or a driver
-> maintainer) - as I expect that non-maintainers (and reviewers)
-> will either send me a reviewed-by or a tested-by.
+Em Mon, 15 Jul 2019 13:00:45 -0400
+"Theodore Y. Ts'o" <tytso@mit.edu> escreveu:
 
-The problem is that the documentation doesn't exactly match your
-expectations:
+> On Mon, Jul 15, 2019 at 12:58:00PM -0300, Mauro Carvalho Chehab wrote:
 
-> When a review a code that will be merged via someone's else tree,
-> I usually either give:
+> I'd suggest changing the text to read:
 > 
-> - Acked-by - if it is something that touches the subsystem
->   I maintain and will be merged via some other tree, but I 
->   didn't make a comprehensive review;
-> 
-> - Reviewed-by - if I did a comprehensive review. I can either
->   be the maintainer or not of the files touched by the patch.
-> 
-> So, I usually expect the others do about the same.
-> 
-> Looking at Documentation/process/5.Posting.rst:
-> 
-> 	 - Acked-by: indicates an agreement by another developer (often a
-> 	   maintainer of the relevant code) that the patch is appropriate for
-> 	   inclusion into the kernel.
-> 
-> 	 - Reviewed-by: the named developer has reviewed the patch for correctness;
-> 	   see the reviewer's statement in :ref:`Documentation/process/submitting-patches.rst <submittingpatches>`
-> 	   for more detail.
-> 
-> I guess the descriptions are already enough to describe those
-> tags.
+>  	 - Acked-by: indicates an agreement by the maintainer or
+> 	   reviewer of the the relevant code that the patch is
+> 	   appropriate for inclusion into the kernel.
 
-I'd suggest changing the text to read:
+Yeah, that sounds clearer.
 
- 	 - Acked-by: indicates an agreement by the maintainer or
-	   reviewer of the the relevant code that the patch is
-	   appropriate for inclusion into the kernel.
+> My concern is that if we have dozens of "Acked-by" by people who are
+> not domain experts in any part of the code in the git log, it's just
+> noise in the system. 
 
-My concern is that if we have dozens of "Acked-by" by people who are
-not domain experts in any part of the code in the git log, it's just
-noise in the system.  Of course, we can't stop people from sending
-Acked-by's on the mailing list, but when I recently pointed out that
-I'm going to ignore an bare Acked-by by someone who I have no idea
-whether or not I can trust the source of that Acked-by, I got yelled
-at for not following the documented process.
+Agreed.
 
-That complaint isn't going to change how *I* interpret or decide to
-include Acked-by's, but if we have general agreement on the
-expectations Maintainers should have (and my expectations match
-yours), then perhaps we can adjust the documentation to make it more
-clear.
-
-					- Ted
+Thanks,
+Mauro
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
