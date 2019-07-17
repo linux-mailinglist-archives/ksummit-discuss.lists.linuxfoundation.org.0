@@ -2,57 +2,68 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7260E6B92C
-	for <lists@lfdr.de>; Wed, 17 Jul 2019 11:28:25 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id DED8F6B92D
+	for <lists@lfdr.de>; Wed, 17 Jul 2019 11:28:43 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id 1AFE0E35;
-	Wed, 17 Jul 2019 09:28:13 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id 21736E3F;
+	Wed, 17 Jul 2019 09:28:29 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id A5CDFCB8
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id 9AF51E39
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Wed, 17 Jul 2019 09:28:10 +0000 (UTC)
-X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
-Received: from userp2120.oracle.com (userp2120.oracle.com [156.151.31.85])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 5803063D
+	Wed, 17 Jul 2019 09:28:26 +0000 (UTC)
+X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
+Received: from wout1-smtp.messagingengine.com (wout1-smtp.messagingengine.com
+	[64.147.123.24])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 22D7C63D
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Wed, 17 Jul 2019 09:28:09 +0000 (UTC)
-Received: from pps.filterd (userp2120.oracle.com [127.0.0.1])
-	by userp2120.oracle.com (8.16.0.27/8.16.0.27) with SMTP id
-	x6H9O4tp014831; Wed, 17 Jul 2019 09:28:03 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com;
-	h=date : from : to : cc
-	: subject : message-id : references : mime-version : content-type :
-	in-reply-to; s=corp-2018-07-02;
-	bh=eoUczEfVmaiKhi78e8hO4iQY6IU4wvHl0MqdV/FyK30=;
-	b=hXHpkwMuubdvEvpSp948fUwo8WKbGchHrN7dieCdUEHdUEvo7U0qXoWXBHsjSkfpl5yn
-	o+nsBc5E3StU4Ra579cCzlwbx+3RQKsGnruMG51Uu80ajLidnVbojVmd9/6iORH/x+Dh
-	JKQjz3pWsjwRxCIIY8+OcWbjV7Nyqj2Hsb9Yc7p8/BF7+4KJBFPaS3Cm7kByuYvucZdO
-	39c+DCx/P32H1z16XEKRuKTZHo6HMf3QH3klVPy0a1P0XnUF56SgsGCC4idyAyVkfi7H
-	Ik4SeMsYsVqAFzzMNuEGAZo0LeptJ4N8zjHDFxGK236cBtZf5sHk+6V0PitJW9uwk6yH
-	Ew== 
-Received: from aserp3020.oracle.com (aserp3020.oracle.com [141.146.126.70])
-	by userp2120.oracle.com with ESMTP id 2tq7xr1e9m-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 17 Jul 2019 09:28:02 +0000
-Received: from pps.filterd (aserp3020.oracle.com [127.0.0.1])
-	by aserp3020.oracle.com (8.16.0.27/8.16.0.27) with SMTP id
-	x6H9L6dH097391; Wed, 17 Jul 2019 09:28:02 GMT
-Received: from userv0121.oracle.com (userv0121.oracle.com [156.151.31.72])
-	by aserp3020.oracle.com with ESMTP id 2tsctwxvyy-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 17 Jul 2019 09:28:01 +0000
-Received: from abhmp0013.oracle.com (abhmp0013.oracle.com [141.146.116.19])
-	by userv0121.oracle.com (8.14.4/8.13.8) with ESMTP id x6H9S0iA018573;
-	Wed, 17 Jul 2019 09:28:01 GMT
-Received: from kadam (/41.57.98.10) by default (Oracle Beehive Gateway v4.0)
-	with ESMTP ; Wed, 17 Jul 2019 09:27:59 +0000
-Date: Wed, 17 Jul 2019 12:27:53 +0300
-From: Dan Carpenter <dan.carpenter@oracle.com>
-To: Takashi Iwai <tiwai@suse.de>
-Message-ID: <20190717092753.GB3111@kadam>
+	Wed, 17 Jul 2019 09:28:26 +0000 (UTC)
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.46])
+	by mailout.west.internal (Postfix) with ESMTP id 63DEA451;
+	Wed, 17 Jul 2019 05:28:24 -0400 (EDT)
+Received: from mailfrontend1 ([10.202.2.162])
+	by compute6.internal (MEProxy); Wed, 17 Jul 2019 05:28:24 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kroah.com; h=
+	date:from:to:cc:subject:message-id:references:mime-version
+	:content-type:in-reply-to; s=fm1; bh=nqqz0q1cbPYK2/Lu885IARziZrk
+	4oH4Xoff3jX7iQYQ=; b=llVDSokKaus9kR6IJ0gITnmc8VLSbcb/RawmLUjMsJ2
+	01ERqMgJ8J71X92g55kUQra/q6fF9WMR/trfZQSSobWjQ1zq57oi43LQHtrkp968
+	6pJqpKLm3ntT4lDOCb1ZXTEB8A0jq1ZWtjuESNObDPMfq9qJCEvB4mb6N6PUiHAJ
+	uIBLtoBC2gGHfg4CNjN5IaiRNm3P0s8zp6eDWDBiaWOdCK6n59Hw+EMCwZK8ANb2
+	J/A9ufr0pJZx6YI3tt5m4u2kznx+mCUTYL14uEBT7SkIWGNmlHlarLyQArj0Id6W
+	EMyHovaXbWkBLRP3Q36UyInjLIHh1wBjk+ar8ISCATw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to:x-me-proxy
+	:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; bh=nqqz0q
+	1cbPYK2/Lu885IARziZrk4oH4Xoff3jX7iQYQ=; b=xcG7ML/OSfInEbiaf1CY1y
+	aAsU1eaPa6vhghNb9IjGhzn0ZzO/Zv6WRg6lOhl/LZaGNTKVp2U601/+8arHVMNk
+	y35Ku42Zxz12AjqgfvhwMnVPifYmbJ4kHVFGg1kFCeP6AzAgF8zVcZx2LOlp42t1
+	q3rfWajwHzv2ApoUbfAMIY1WJymXf+/CXCt8TrmbvPUY9BZXbFYe+g9m4Xxv0acn
+	B59yLGXQzHWnZtdirgXuSwLuaEhgq4RBOnHHfu709OfzUQyBttLENs1yzPaVuNeK
+	phq3CL7wDCKRT9vOOoZXWvnb9CwccgYsFkaTGuy2IDcQvCGZ6W4uCHLRm/nbXUpA
+	==
+X-ME-Sender: <xms:N-ouXYYaiI-T59rIUdtWKRuQ0KHj4Jqn0g72FLTFKg53PvnRDC9uvQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduvddriedvgddukecutefuodetggdotefrodftvf
+	curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+	uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
+	fjughrpeffhffvuffkfhggtggujggfsehttdertddtredvnecuhfhrohhmpefirhgvghcu
+	mffjuceoghhrvghgsehkrhhorghhrdgtohhmqeenucffohhmrghinhepkhgvrhhnvghlrd
+	horhhgnecukfhppeduudefrdduheejrddvudejrdehtdenucfrrghrrghmpehmrghilhhf
+	rhhomhepghhrvghgsehkrhhorghhrdgtohhmnecuvehluhhsthgvrhfuihiivgeptd
+X-ME-Proxy: <xmx:N-ouXf2kRXV-Wmwyb0hBjbzVzRGsZrQP0vOeo-XBUvAzBJ3uRHmf6w>
+	<xmx:N-ouXe-hYV-Jb6RAnNvp1X9_IUVYlWa9d25QQh7wrjTz2v-ri5K4Rw>
+	<xmx:N-ouXUFY69DaP5uzMZuFebBqGB6AGxZicduTWzOa2XE02Yd8u6IQ3g>
+	<xmx:OOouXa8NbGNCzf-Gjk36n4UuVCWynyU3y37ZT3mwZFDiDSGoQPlFSg>
+Received: from localhost (unknown [113.157.217.50])
+	by mail.messagingengine.com (Postfix) with ESMTPA id A7DC480060;
+	Wed, 17 Jul 2019 05:28:22 -0400 (EDT)
+Date: Wed, 17 Jul 2019 18:28:20 +0900
+From: Greg KH <greg@kroah.com>
+To: Dan Carpenter <dan.carpenter@oracle.com>
+Message-ID: <20190717092820.GA18953@kroah.com>
 References: <7b73e1b7-cc34-982d-2a9c-acf62b88da16@linuxfoundation.org>
 	<20190628205102.GA3131@agluck-desk2.amr.corp.intel.com>
 	<alpine.DEB.2.21.1906290802360.1802@nanos.tec.linutronix.de>
@@ -65,26 +76,9 @@ References: <7b73e1b7-cc34-982d-2a9c-acf62b88da16@linuxfoundation.org>
 MIME-Version: 1.0
 Content-Disposition: inline
 In-Reply-To: <20190717092313.GA3111@kadam>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9320
-	signatures=668688
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0
-	malwarescore=0
-	phishscore=0 bulkscore=0 spamscore=0 mlxscore=0 mlxlogscore=999
-	adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
-	engine=8.0.1-1810050000 definitions=main-1907170113
-X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9320
-	signatures=668688
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0
-	priorityscore=1501 malwarescore=0
-	suspectscore=0 phishscore=0 bulkscore=0 spamscore=0 clxscore=1015
-	lowpriorityscore=0 mlxscore=0 impostorscore=0 mlxlogscore=999
-	adultscore=0
-	classifier=spam adjust=0 reason=mlx scancount=1 engine=8.0.1-1810050000
-	definitions=main-1907170114
-X-Spam-Status: No, score=-4.3 required=5.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID, DKIM_VALID_AU, RCVD_IN_DNSWL_MED,
-	UNPARSEABLE_RELAY autolearn=ham version=3.3.1
+User-Agent: Mutt/1.12.1 (2019-06-15)
+X-Spam-Status: No, score=-2.7 required=5.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID, DKIM_VALID_AU, RCVD_IN_DNSWL_LOW autolearn=ham version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
 Cc: Peter Zijlstra <peterz@infradead.org>,
@@ -155,11 +149,13 @@ On Wed, Jul 17, 2019 at 12:23:13PM +0300, Dan Carpenter wrote:
 > 
 > We could add an option to `git am` to save the Message-ID automatically.
 
-Oh, there already is a --message-id option...  Duh.
+Kees already posted a simple git hook to add it to the message when
+using `git am`.  I've been using it for a week or so already, works
+wonderfully.
 
-regards,
-dan carpenter
+thanks,
 
+greg k-h
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
