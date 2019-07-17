@@ -2,78 +2,48 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id 133466BF74
-	for <lists@lfdr.de>; Wed, 17 Jul 2019 18:10:11 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 34EE06BFBF
+	for <lists@lfdr.de>; Wed, 17 Jul 2019 18:41:09 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id D3175E71;
-	Wed, 17 Jul 2019 16:09:56 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id 02F15EC6;
+	Wed, 17 Jul 2019 16:40:55 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id 25AAEB7A
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id F2BDCE8F
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Wed, 17 Jul 2019 16:09:55 +0000 (UTC)
-X-Greylist: whitelisted by SQLgrey-1.7.6
-Received: from mail-lj1-f196.google.com (mail-lj1-f196.google.com
-	[209.85.208.196])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 91E328A8
+	Wed, 17 Jul 2019 16:40:51 +0000 (UTC)
+X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
+Received: from pokefinder.org (sauhun.de [88.99.104.3])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTP id D05828B3
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Wed, 17 Jul 2019 16:09:54 +0000 (UTC)
-Received: by mail-lj1-f196.google.com with SMTP id x25so24224600ljh.2
-	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Wed, 17 Jul 2019 09:09:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
-	h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-	:cc; bh=OzAB4AJPi4c1uiMLSiCnGLSr3O2caClk2A8+VFO28AI=;
-	b=vWXg4ncgNe+N0mGgxuZuHphIjqeJp85TkL7RJWIAN8JRzzOn5ahjWqJQC7wd5mradr
-	ufndP7XddxnVGVTmD0wpsUCSbxnIi56fDaAkyU9+QRhMSwvijm15crZPa+sKcjr3lpsU
-	eJ525RQ08jhOwZNeg2VBRAwz++2oBaVwsBiWNLklU6OJ3elO/c/AhfPV2lHl2JAI0fic
-	IonYac6RpkmOjr6mY8cI0UEzGuXa5kL75vZE/uXIC0ABY0PT5lXTfuRZLf3miC4qJIGX
-	PlHKcGGrsfqiqikBQEWveTq4wQOWN/Qw0rVLd9g4bVON/3tOAhxMut/FvKQ25NiPnLbH
-	ldig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-	:message-id:subject:to:cc;
-	bh=OzAB4AJPi4c1uiMLSiCnGLSr3O2caClk2A8+VFO28AI=;
-	b=CH828A+T0XFPYKWU6EvCOTRrnaoX8VRYgVIGQzLnfBGXSlFm3ysasM5P4Pa+OfM7i8
-	WqMrgH+an0YQFz4dRfe3Odc+VClm+TJ1zxwVSrLJkofWF2DZQ1S24exvwLXL+yNpBqUL
-	zlvPOeynVCjfS31iy37eR8M6pdZCh96DDmYF64k/p9UmW8TKgRftu9QRMDBvWzk2vpAQ
-	2xo5uHpS1hJyw6KRpEAwSEsRZzjVnhyYAGYJn7Dq6aPLd1CY8YnWkGtn3PX8tqsIxqJh
-	yMW8BPjRjzV6SFx7pyMNhR+LvwRSisahI0Wv+1j113b/CrJuObze14fQp3wqryTZZ+BU
-	NBAg==
-X-Gm-Message-State: APjAAAWc1mjvw37+DkRDC0/YBV8WVqFgFYs/0QwDWANIdWIub+R3t2E7
-	mItW/fF3lDjEYww84q/LOIXVesDNR0E2oAgsRbYFfQ==
-X-Google-Smtp-Source: APXvYqw8IJAmZndS1xKOcNN0cFmzNzczFdTlV2yAs+HUwmo9GK88av0UkbEnWBiNmFAT31wFh+ldWlwRArKU9JxD5m0=
-X-Received: by 2002:a2e:8195:: with SMTP id e21mr20406029ljg.62.1563379793059; 
-	Wed, 17 Jul 2019 09:09:53 -0700 (PDT)
+	Wed, 17 Jul 2019 16:40:50 +0000 (UTC)
+Received: from localhost (p54B3309B.dip0.t-ipconnect.de [84.179.48.155])
+	by pokefinder.org (Postfix) with ESMTPSA id EFCD43E4757;
+	Wed, 17 Jul 2019 18:40:49 +0200 (CEST)
+Date: Wed, 17 Jul 2019 18:40:49 +0200
+From: Wolfram Sang <wsa@the-dreams.de>
+To: Linus Walleij <linus.walleij@linaro.org>
+Message-ID: <20190717164049.GA4532@kunai>
+References: <20190706142738.GA6893@kunai> <20190714103509.2dd72c90@archlinux>
+	<alpine.DEB.2.21.1907141157410.1669@nanos.tec.linutronix.de>
+	<20190716211636.GA6679@kunai>
+	<CAOesGMgaw3Xq4gCkSsyHW_n8ETkpSKwe5f_oBsz_+s3c+XsnTA@mail.gmail.com>
+	<alpine.DEB.2.21.1907170026200.1767@nanos.tec.linutronix.de>
+	<bf269ea7-6a9c-25db-5b97-958d9e15bddd@infradead.org>
+	<20190717073130.GA1021@kunai>
+	<CACRpkdbydfyx8LMG8FzCzAYsTP9n57K0yw9_04wgtDSjm+B3iQ@mail.gmail.com>
 MIME-Version: 1.0
-References: <7b73e1b7-cc34-982d-2a9c-acf62b88da16@linuxfoundation.org>
-	<20190628205102.GA3131@agluck-desk2.amr.corp.intel.com>
-	<alpine.DEB.2.21.1906290802360.1802@nanos.tec.linutronix.de>
-	<20190629134329.GA4620@andrea>
-	<alpine.DEB.2.21.1906291714150.1802@nanos.tec.linutronix.de>
-	<20190630163120.GA13925@chatter.i7.local>
-	<20190701072013.GJ3402@hirez.programming.kicks-ass.net>
-	<alpine.DEB.2.21.1907010948310.1802@nanos.tec.linutronix.de>
-	<s5h5zomp4vh.wl-tiwai@suse.de> <20190717092313.GA3111@kadam>
-	<20190717092820.GA18953@kroah.com>
-In-Reply-To: <20190717092820.GA18953@kroah.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 17 Jul 2019 18:09:40 +0200
-Message-ID: <CACRpkdbVHHOm0KoK3cjxs-4DBhZ8nB8cNTE-yt17zTRpTfAgpw@mail.gmail.com>
-To: Greg KH <greg@kroah.com>, Kees Cook <keescook@chromium.org>
-X-Spam-Status: No, score=-2.0 required=5.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID, DKIM_VALID_AU,
-	RCVD_IN_DNSWL_NONE autolearn=ham version=3.3.1
+In-Reply-To: <CACRpkdbydfyx8LMG8FzCzAYsTP9n57K0yw9_04wgtDSjm+B3iQ@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Spam-Status: No, score=-1.9 required=5.0 tests=BAYES_00,RCVD_IN_DNSWL_NONE
+	autolearn=ham version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
-Cc: Peter Zijlstra <peterz@infradead.org>,
-	ksummit <ksummit-discuss@lists.linuxfoundation.org>,
-	Dan Carpenter <dan.carpenter@oracle.com>
-Subject: Re: [Ksummit-discuss] [MAINTAINERS SUMMIT] Patch version changes in
- commit logs?
+Cc: ksummit <ksummit-discuss@lists.linuxfoundation.org>
+Subject: Re: [Ksummit-discuss] [MAINTAINERS SUMMIT] Keeping reviews
+	meaningful
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.12
 Precedence: list
@@ -85,29 +55,88 @@ List-Post: <mailto:ksummit-discuss@lists.linuxfoundation.org>
 List-Help: <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=help>
 List-Subscribe: <https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss>,
 	<mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5464044273655980618=="
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-On Wed, Jul 17, 2019 at 11:28 AM Greg KH <greg@kroah.com> wrote:
-> On Wed, Jul 17, 2019 at 12:23:13PM +0300, Dan Carpenter wrote:
 
-> > We could add an option to `git am` to save the Message-ID automatically.
->
-> Kees already posted a simple git hook to add it to the message when
-> using `git am`.  I've been using it for a week or so already, works
-> wonderfully.
+--===============5464044273655980618==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="LZvS9be/3tNcYl/X"
+Content-Disposition: inline
 
-I also picked Kees script and it works like a charm as long as
-you pick patches from a list that is stashed in lore.
 
-Kees, you script is highly valuable, can we put it inside
-Documentation/* somewhere?
+--LZvS9be/3tNcYl/X
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Yours,
-Linus Walleij
+
+> > Guys, I am just trying to better cope with an amount of patches I can't
+> > handle on my own currently.
+>=20
+> Maintainers don't scale right? :/
+
+Yup, no news here.
+
+> What I tend to do is git log on whatever is affected by a patch
+> and then pick some people who touched the code recently
+> and just add them to CC and ask them to help. This is especially
+
+I do this, too. I also ask people from the same company as the patch
+author to jump in.
+
+> nice with drivers as I can quickly see (by intuition) whether
+> they are doing some general cleanup or actually are running
+> and testing the hardware, even if they didn't sign up as
+> maintainers. Sometimes nudge them to maintain the stuff
+> they seem so intimate with by adding themselves to
+> MAINTAINERS.
+
+I do this, too, and it works OK. I got a few driver maintainers listed.
+Some are really active which is nice, some disappear again which is sad
+but not too surprising. Yet, for every active new maintainer, I have to
+check how they review.
+
+This is what I mean with "trust matrix getting complex". Lots of new
+maintainers where I need to build some trust relationship. Maybe it is
+just a workflow thing, yet I feel I need some kind of tracking to do
+this. And other stuff I mentioned in my initial mail, especially a short
+summary of the review and a higher awareness that reviews can be
+constructively criticized.
+
+
+--LZvS9be/3tNcYl/X
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAl0vT40ACgkQFA3kzBSg
+KbbCLQ//V84Aend7qWxbFNf/JA99YKshi8bGamkUE46aeulbCS3GPxNCT1RZjjWm
+qdgSnNEhN0p/ggpxy5ymtnHyMUBZ5uahujRqRsUcPzeZ9mIdq77UqEB+MOsMvNZR
+vCPs+8/VsN9U3j1bKZgyVE/TCJoOhYgDDYqtIv9wp775CLmsQsMrZsk1rTtRbuDd
+HtHD3t8gA1FF+SaVWHejNVXmEUEB8uUnV+8V+8KbWZoL5cXq6Uto5TBlmQf9DkWI
+sCh8TFDrVKfHbRbAtWgW4yYAfTbzw+XZYTxzDS6Uw/f3YH3YwlHFBWXwPWrXt0xq
+ozs6mttFmBp7/XQYnpTcsYRPCu8W0kPMfiaoLJFg+PRpGShSOaVo1BZ18w3KQPKV
+MjfCEpHswN/PIFHT4tT1v6Y+8v1V3aMnGSnnJe3Sfn8VolnbmIUcuiOnKvCA9Jxc
++HzGWZCc86hBl5Ey4bfcEa6WFzM5YAfQrZzXrf9yN/hHKlRe4absvkAy4tSf7uYA
+RlRtVDedwwrj38xsxARvcFQ+QqcLz8PKZBGfCTa/jH+D2cIzaCjikCTMPUykzGLY
+8FTV6Ly8wSpxNrjd3Msmpg70dGaRcp/qIQDjoPD2AHG5NAubNa+Hkvdhqm2gZ/3P
+1bzVSh361jAqrmohG/qPiwhcEv4EniLYjWoJumcsTD5rTiLnbA4=
+=nycg
+-----END PGP SIGNATURE-----
+
+--LZvS9be/3tNcYl/X--
+
+--===============5464044273655980618==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
 https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss
+
+--===============5464044273655980618==--
