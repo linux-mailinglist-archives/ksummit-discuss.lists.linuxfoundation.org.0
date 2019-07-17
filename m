@@ -2,89 +2,74 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id DED8F6B92D
-	for <lists@lfdr.de>; Wed, 17 Jul 2019 11:28:43 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 883356BF6D
+	for <lists@lfdr.de>; Wed, 17 Jul 2019 18:06:18 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id 21736E3F;
-	Wed, 17 Jul 2019 09:28:29 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id B2556E22;
+	Wed, 17 Jul 2019 16:05:57 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id 9AF51E39
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id 42131DC3
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Wed, 17 Jul 2019 09:28:26 +0000 (UTC)
-X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
-Received: from wout1-smtp.messagingengine.com (wout1-smtp.messagingengine.com
-	[64.147.123.24])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 22D7C63D
+	Wed, 17 Jul 2019 16:05:55 +0000 (UTC)
+X-Greylist: whitelisted by SQLgrey-1.7.6
+Received: from mail-lf1-f67.google.com (mail-lf1-f67.google.com
+	[209.85.167.67])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id A15C58AA
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Wed, 17 Jul 2019 09:28:26 +0000 (UTC)
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.46])
-	by mailout.west.internal (Postfix) with ESMTP id 63DEA451;
-	Wed, 17 Jul 2019 05:28:24 -0400 (EDT)
-Received: from mailfrontend1 ([10.202.2.162])
-	by compute6.internal (MEProxy); Wed, 17 Jul 2019 05:28:24 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kroah.com; h=
-	date:from:to:cc:subject:message-id:references:mime-version
-	:content-type:in-reply-to; s=fm1; bh=nqqz0q1cbPYK2/Lu885IARziZrk
-	4oH4Xoff3jX7iQYQ=; b=llVDSokKaus9kR6IJ0gITnmc8VLSbcb/RawmLUjMsJ2
-	01ERqMgJ8J71X92g55kUQra/q6fF9WMR/trfZQSSobWjQ1zq57oi43LQHtrkp968
-	6pJqpKLm3ntT4lDOCb1ZXTEB8A0jq1ZWtjuESNObDPMfq9qJCEvB4mb6N6PUiHAJ
-	uIBLtoBC2gGHfg4CNjN5IaiRNm3P0s8zp6eDWDBiaWOdCK6n59Hw+EMCwZK8ANb2
-	J/A9ufr0pJZx6YI3tt5m4u2kznx+mCUTYL14uEBT7SkIWGNmlHlarLyQArj0Id6W
-	EMyHovaXbWkBLRP3Q36UyInjLIHh1wBjk+ar8ISCATw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to:x-me-proxy
-	:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; bh=nqqz0q
-	1cbPYK2/Lu885IARziZrk4oH4Xoff3jX7iQYQ=; b=xcG7ML/OSfInEbiaf1CY1y
-	aAsU1eaPa6vhghNb9IjGhzn0ZzO/Zv6WRg6lOhl/LZaGNTKVp2U601/+8arHVMNk
-	y35Ku42Zxz12AjqgfvhwMnVPifYmbJ4kHVFGg1kFCeP6AzAgF8zVcZx2LOlp42t1
-	q3rfWajwHzv2ApoUbfAMIY1WJymXf+/CXCt8TrmbvPUY9BZXbFYe+g9m4Xxv0acn
-	B59yLGXQzHWnZtdirgXuSwLuaEhgq4RBOnHHfu709OfzUQyBttLENs1yzPaVuNeK
-	phq3CL7wDCKRT9vOOoZXWvnb9CwccgYsFkaTGuy2IDcQvCGZ6W4uCHLRm/nbXUpA
-	==
-X-ME-Sender: <xms:N-ouXYYaiI-T59rIUdtWKRuQ0KHj4Jqn0g72FLTFKg53PvnRDC9uvQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduvddriedvgddukecutefuodetggdotefrodftvf
-	curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
-	uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
-	fjughrpeffhffvuffkfhggtggujggfsehttdertddtredvnecuhfhrohhmpefirhgvghcu
-	mffjuceoghhrvghgsehkrhhorghhrdgtohhmqeenucffohhmrghinhepkhgvrhhnvghlrd
-	horhhgnecukfhppeduudefrdduheejrddvudejrdehtdenucfrrghrrghmpehmrghilhhf
-	rhhomhepghhrvghgsehkrhhorghhrdgtohhmnecuvehluhhsthgvrhfuihiivgeptd
-X-ME-Proxy: <xmx:N-ouXf2kRXV-Wmwyb0hBjbzVzRGsZrQP0vOeo-XBUvAzBJ3uRHmf6w>
-	<xmx:N-ouXe-hYV-Jb6RAnNvp1X9_IUVYlWa9d25QQh7wrjTz2v-ri5K4Rw>
-	<xmx:N-ouXUFY69DaP5uzMZuFebBqGB6AGxZicduTWzOa2XE02Yd8u6IQ3g>
-	<xmx:OOouXa8NbGNCzf-Gjk36n4UuVCWynyU3y37ZT3mwZFDiDSGoQPlFSg>
-Received: from localhost (unknown [113.157.217.50])
-	by mail.messagingengine.com (Postfix) with ESMTPA id A7DC480060;
-	Wed, 17 Jul 2019 05:28:22 -0400 (EDT)
-Date: Wed, 17 Jul 2019 18:28:20 +0900
-From: Greg KH <greg@kroah.com>
-To: Dan Carpenter <dan.carpenter@oracle.com>
-Message-ID: <20190717092820.GA18953@kroah.com>
-References: <7b73e1b7-cc34-982d-2a9c-acf62b88da16@linuxfoundation.org>
-	<20190628205102.GA3131@agluck-desk2.amr.corp.intel.com>
-	<alpine.DEB.2.21.1906290802360.1802@nanos.tec.linutronix.de>
-	<20190629134329.GA4620@andrea>
-	<alpine.DEB.2.21.1906291714150.1802@nanos.tec.linutronix.de>
-	<20190630163120.GA13925@chatter.i7.local>
-	<20190701072013.GJ3402@hirez.programming.kicks-ass.net>
-	<alpine.DEB.2.21.1907010948310.1802@nanos.tec.linutronix.de>
-	<s5h5zomp4vh.wl-tiwai@suse.de> <20190717092313.GA3111@kadam>
+	Wed, 17 Jul 2019 16:05:54 +0000 (UTC)
+Received: by mail-lf1-f67.google.com with SMTP id c19so16904472lfm.10
+	for <ksummit-discuss@lists.linuxfoundation.org>;
+	Wed, 17 Jul 2019 09:05:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
+	h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+	:cc:content-transfer-encoding;
+	bh=iz/x39WRQuN+/Nl5HXqyjaEQRbKSfxoDnReqIHARo+8=;
+	b=lSfS4IS3bN3xhjg+Tfep7EtUEFQEe6sOvmuzkCUbXAQZAgKI6+DC8yJTQxMPTmRcv2
+	h4g3DkosgcO/KwZofW6VTv1J89cwYkFA+XO8d0BhtWpsf1pGdWYxpqj3iJQDWalj8we5
+	vJQ7IXRlAKtN9TB3K7ehA+27/k6hU4lgFKFPQc6Ql1jmgnDXN2+dxs8cR/ioA4vrxi9y
+	PISAERfsjmttYx4Nk9lKees+dTTKPaC+Wj8qxNej7pNRWdApIg/bZVSyONMgHbyAwLWz
+	++tGger+5MkK30OV3auD1MwQv/EpZV4n1CF+E5BQYAj2EzTiIUd2kHEEBnYPCptsl/4R
+	t9MA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20161025;
+	h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+	:message-id:subject:to:cc:content-transfer-encoding;
+	bh=iz/x39WRQuN+/Nl5HXqyjaEQRbKSfxoDnReqIHARo+8=;
+	b=KgfbAad1Uh27wyQe/AO0zNRvWjrEwzODu/dFWy8ShC8Gn48PEGEQlou08TYdnFEdte
+	uLJPeynmk+d34EplgGtpXEd6evHjpJVIElGDtnE8HoUaj7L1jasYQm4oGSj+I9z7Czcw
+	eSAu+qENniBcrPpyAs+yqmYp+aZmMsCuIDab+73GezXu3o8RYJo2oanyjTyvyo01vSDA
+	qici6otl9wPBuT8XaNDNIQcgDxpqXt801deSQCxtlzgfHmso8/hZZzs8Asvoj64j5sJg
+	7hJIzKMo2hpr7ZDwc9qGc/s52HpdEleRSV6eW5kQj2G+t/vDlMCyTI06SRPSBgQu9nyF
+	0z7w==
+X-Gm-Message-State: APjAAAU1vF3wt07b/QJqDSQmF4bq21pujXyjvaFt/mMYrGAXIjUhU3Bu
+	6WzkoXNyvd5TpI41TnjRUe+B5YbtFreKaA+YFEHQew==
+X-Google-Smtp-Source: APXvYqzUk0yxJFAYUzuIBebJJrtFBTDlcO+EYqG/oCrikMzj66Ig+KvUn0RHkLeMGcR+RgfVyEzowcD7CEaabtdCPaw=
+X-Received: by 2002:ac2:4891:: with SMTP id x17mr18945937lfc.60.1563379553045; 
+	Wed, 17 Jul 2019 09:05:53 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20190717092313.GA3111@kadam>
-User-Agent: Mutt/1.12.1 (2019-06-15)
-X-Spam-Status: No, score=-2.7 required=5.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID, DKIM_VALID_AU, RCVD_IN_DNSWL_LOW autolearn=ham version=3.3.1
+References: <20190706142738.GA6893@kunai> <20190714103509.2dd72c90@archlinux>
+	<alpine.DEB.2.21.1907141157410.1669@nanos.tec.linutronix.de>
+	<20190716211636.GA6679@kunai>
+	<CAOesGMgaw3Xq4gCkSsyHW_n8ETkpSKwe5f_oBsz_+s3c+XsnTA@mail.gmail.com>
+	<alpine.DEB.2.21.1907170026200.1767@nanos.tec.linutronix.de>
+	<bf269ea7-6a9c-25db-5b97-958d9e15bddd@infradead.org>
+	<20190717073130.GA1021@kunai>
+In-Reply-To: <20190717073130.GA1021@kunai>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Wed, 17 Jul 2019 18:05:41 +0200
+Message-ID: <CACRpkdbydfyx8LMG8FzCzAYsTP9n57K0yw9_04wgtDSjm+B3iQ@mail.gmail.com>
+To: Wolfram Sang <wsa@the-dreams.de>
+X-Spam-Status: No, score=-2.0 required=5.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID, DKIM_VALID_AU,
+	RCVD_IN_DNSWL_NONE autolearn=ham version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
-Cc: Peter Zijlstra <peterz@infradead.org>,
-	ksummit-discuss@lists.linuxfoundation.org
-Subject: Re: [Ksummit-discuss] [MAINTAINERS SUMMIT] Patch version changes in
- commit logs?
+Cc: ksummit <ksummit-discuss@lists.linuxfoundation.org>
+Subject: Re: [Ksummit-discuss] [MAINTAINERS SUMMIT] Keeping reviews
+	meaningful
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.12
 Precedence: list
@@ -96,67 +81,29 @@ List-Post: <mailto:ksummit-discuss@lists.linuxfoundation.org>
 List-Help: <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=help>
 List-Subscribe: <https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss>,
 	<mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-On Wed, Jul 17, 2019 at 12:23:13PM +0300, Dan Carpenter wrote:
-> On Mon, Jul 01, 2019 at 09:53:54AM +0200, Takashi Iwai wrote:
-> > On Mon, 01 Jul 2019 09:49:56 +0200,
-> > Thomas Gleixner wrote:
-> > > 
-> > > On Mon, 1 Jul 2019, Peter Zijlstra wrote:
-> > > 
-> > > > On Sun, Jun 30, 2019 at 12:31:20PM -0400, Konstantin Ryabitsev wrote:
-> > > > > On Sat, Jun 29, 2019 at 05:16:18PM +0200, Thomas Gleixner wrote:
-> > > > > > > Makes all sense to me.  One question/remark:
-> > > > > > > 
-> > > > > > > Documentation/process/submitting-patches.rst says:
-> > > > > > > 
-> > > > > > >  "If the patch follows from a mailing list discussion, give a URL to the
-> > > > > > >   mailing list archive; use the https://lkml.kernel.org/ redirector with
-> > > > > > >   a ``Message-Id``, to ensure that the links cannot become stale."
-> > > > > > > 
-> > > > > > > and it does not mention "lore.kernel.org": does this doc want an update?
-> > > > > > 
-> > > > > > Yes. lkml.kernel.org/r was the initial redirector, but lore is the new
-> > > > > > thing.
-> > > > > 
-> > > > > FYI, lkml.kernel.org == lore.kernel.org in all respects. Using
-> > > > > lore.kernel.org/r/<messageid> will match *any* mailing list archived at
-> > > > > lore.kernel.org (for the full list, see https://lore.kernel.org/lists.html).
-> > > > > I prefer people use lore.kernel.org because that name doesn't imply that the
-> > > > > search will only match LKML.
-> > > > 
-> > > > I much prefer https://lkml.kernel.org/r/$msgid over lore, because I can
-> > > > change it to marc.info with a single character change. And while lore
-> > > > has improved, the thing is still a horrible horrible ugly site (an
-> > > > actual fixed frame for the thread overview, and hiding that 'Reply
-> > > > instructions' and 'LKML Archive on lore.kernel.org' somewhow would
-> > > > already be a big improvement).
-> > > 
-> > > But lore allows to reference all mailinglists which are archived
-> > > there, while lkml.k.org is hardcoded to lkml.
-> > > 
-> > > > Also, strlen("lkml.kernel.org/r/") < strlen("lore.kernel.org/lkml/").
-> > > 
-> > > Come on ....
-> > 
-> > If the size matters, how about just putting the message id?
-> > Something like:
-> >   Link: <alpine.DEB.2.21.1907010948310.1802@nanos.tec.linutronix.de>
-> 
-> We could add an option to `git am` to save the Message-ID automatically.
-
-Kees already posted a simple git hook to add it to the message when
-using `git am`.  I've been using it for a week or so already, works
-wonderfully.
-
-thanks,
-
-greg k-h
-_______________________________________________
-Ksummit-discuss mailing list
-Ksummit-discuss@lists.linuxfoundation.org
-https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss
+T24gV2VkLCBKdWwgMTcsIDIwMTkgYXQgOTozMSBBTSBXb2xmcmFtIFNhbmcgPHdzYUB0aGUtZHJl
+YW1zLmRlPiB3cm90ZToKCj4gR3V5cywgSSBhbSBqdXN0IHRyeWluZyB0byBiZXR0ZXIgY29wZSB3
+aXRoIGFuIGFtb3VudCBvZiBwYXRjaGVzIEkgY2FuJ3QKPiBoYW5kbGUgb24gbXkgb3duIGN1cnJl
+bnRseS4KCk1haW50YWluZXJzIGRvbid0IHNjYWxlIHJpZ2h0PyA6LwoKV2hhdCBJIHRlbmQgdG8g
+ZG8gaXMgZ2l0IGxvZyBvbiB3aGF0ZXZlciBpcyBhZmZlY3RlZCBieSBhIHBhdGNoCmFuZCB0aGVu
+IHBpY2sgc29tZSBwZW9wbGUgd2hvIHRvdWNoZWQgdGhlIGNvZGUgcmVjZW50bHkKYW5kIGp1c3Qg
+YWRkIHRoZW0gdG8gQ0MgYW5kIGFzayB0aGVtIHRvIGhlbHAuIFRoaXMgaXMgZXNwZWNpYWxseQpu
+aWNlIHdpdGggZHJpdmVycyBhcyBJIGNhbiBxdWlja2x5IHNlZSAoYnkgaW50dWl0aW9uKSB3aGV0
+aGVyCnRoZXkgYXJlIGRvaW5nIHNvbWUgZ2VuZXJhbCBjbGVhbnVwIG9yIGFjdHVhbGx5IGFyZSBy
+dW5uaW5nCmFuZCB0ZXN0aW5nIHRoZSBoYXJkd2FyZSwgZXZlbiBpZiB0aGV5IGRpZG4ndCBzaWdu
+IHVwIGFzCm1haW50YWluZXJzLiBTb21ldGltZXMgbnVkZ2UgdGhlbSB0byBtYWludGFpbiB0aGUg
+c3R1ZmYKdGhleSBzZWVtIHNvIGludGltYXRlIHdpdGggYnkgYWRkaW5nIHRoZW1zZWx2ZXMgdG8K
+TUFJTlRBSU5FUlMuIElmIGl0IHdhcyBhIHdoaWxlIHNpbmNlIHRoZXkgZGlkIHRoZSBjaGFuZ2Vz
+Ckkgb2Z0ZW4gZG8gZ2l0IGxvZyBhbmQgZ3JlcCBmb3IgdGhlaXIgbmFtZSBhcyB0aGV5IG9mdGVu
+Cmp1c3QgY2hhbmdlZCBlbWFpbCBhZGRyZXNzLgoKSXQgd291bGQgYmUgcmVhbGx5IG5lYXQgaWYg
+Z2V0X21haW50YWluZXIgY291bGQgZG8gdGhpcyBidXQgSQp0aGluayBpdCByZXF1aXJlcyByZWFs
+IGludGVsbGlnZW5jZSByYXRoZXIgdGhhbiBwYXR0ZXJuLW1hdGNoaW5nLgoKSnVzdCBteSDigqww
+LjAxCgpMaW51cyBXYWxsZWlqCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCktzdW1taXQtZGlzY3VzcyBtYWlsaW5nIGxpc3QKS3N1bW1pdC1kaXNjdXNzQGxp
+c3RzLmxpbnV4Zm91bmRhdGlvbi5vcmcKaHR0cHM6Ly9saXN0cy5saW51eGZvdW5kYXRpb24ub3Jn
+L21haWxtYW4vbGlzdGluZm8va3N1bW1pdC1kaXNjdXNzCg==
