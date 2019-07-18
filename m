@@ -2,69 +2,56 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id B310D6C246
-	for <lists@lfdr.de>; Wed, 17 Jul 2019 22:45:02 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 93A466CB91
+	for <lists@lfdr.de>; Thu, 18 Jul 2019 11:10:32 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id 8761DF0C;
-	Wed, 17 Jul 2019 20:44:49 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id 008F2128D;
+	Thu, 18 Jul 2019 09:10:13 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id AB915D9C
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id 081201273
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Wed, 17 Jul 2019 20:44:47 +0000 (UTC)
-X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
-Received: from wout3-smtp.messagingengine.com (wout3-smtp.messagingengine.com
-	[64.147.123.19])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 5A88412E
+	Thu, 18 Jul 2019 09:09:58 +0000 (UTC)
+X-Greylist: whitelisted by SQLgrey-1.7.6
+Received: from mail-lf1-f66.google.com (mail-lf1-f66.google.com
+	[209.85.167.66])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 51C76756
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Wed, 17 Jul 2019 20:44:47 +0000 (UTC)
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.46])
-	by mailout.west.internal (Postfix) with ESMTP id 5F88F394;
-	Wed, 17 Jul 2019 16:44:46 -0400 (EDT)
-Received: from mailfrontend2 ([10.202.2.163])
-	by compute6.internal (MEProxy); Wed, 17 Jul 2019 16:44:46 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kroah.com; h=
-	date:from:to:cc:subject:message-id:references:mime-version
-	:content-type:in-reply-to; s=fm1; bh=BDjByw+Ta52JLdKWVdc9mU3gLoF
-	rrwLcuSeqti3rsJM=; b=UZFv/IiiJuUBFmLL5u7IqCdDnWVAdrPJLTyp2rjXmxT
-	m/sWEJGvEKLbmwr75hzNDk6KOTUY49cCbajognjOmfdfQq2EwkT2SKe8BLBrq4Di
-	h3ast6iUV5HfHi1xfxit5yJ61efvDKz1rqEuw0PVMmTVaX1kconOBR/kUUY+dQnW
-	fsK6HCc/hRYbxGqsI7m7NcwnJsQ2+EHCu/C6M619ki86fJo/nn80akfqZZG2SAtF
-	S7aH/dt1ga6+CkcWEs0jBQGTMBmLnmcsvRKD18wVpdYf16sSRzcXlZADvZkBVgYa
-	Cwo5cba8X0Aq4GJjjDiQu2HTdJPTZpbyll2U3JkDwFQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to:x-me-proxy
-	:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; bh=BDjByw
-	+Ta52JLdKWVdc9mU3gLoFrrwLcuSeqti3rsJM=; b=aLKH8Vhr3/RozdFnueOh7W
-	Rq+7mMym9pyu2eXNQGnegnyO+09zLSCnpz2E6pyIE2xptfubLHCkYqQqICxTnuH7
-	qxX5nB5SLn3KCU/fbZgSPq3OD5sE+/g9XIPsMTa0hDJ1iO3wgS8Sgt4NWq1pCABV
-	QnRFOqst0Pa+H2lWIX8UTXQZgmVQe+yzc3dczrTW8nl7WLoi1yb+DyKa7FFGMeU2
-	F69Kwc2D5enuTNV/sRW7DUWZDzYlEpTideOt1f2UgUwXkrkADMNv4ebTIP2pFB1H
-	vtau4/er77McT9+zUuv+6eCyJtrCS/2zhAVqP5I9Y36BdiwIypMQtipk/h8gXruA
-	==
-X-ME-Sender: <xms:vYgvXb8SyPgfTysYASMTpr7bXR5E5jnEXBMxgd764nVfanznyrnznw>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduvddrieefgddufedtucetufdoteggodetrfdotf
-	fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-	uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-	cujfgurhepfffhvffukfhfgggtuggjfgesthdtredttdervdenucfhrhhomhepifhrvghg
-	ucfmjfcuoehgrhgvgheskhhrohgrhhdrtghomheqnecukfhppeduudefrdduheejrddvud
-	ejrdehtdenucfrrghrrghmpehmrghilhhfrhhomhepghhrvghgsehkrhhorghhrdgtohhm
-	necuvehluhhsthgvrhfuihiivgeptd
-X-ME-Proxy: <xmx:vYgvXan3poYxpeQqUSvYUvXnUSLiN1pks_mIV6dClOMT1gNsc2pmzQ>
-	<xmx:vYgvXZ3o2BZeO7X5hagbewOjhYvaef54N10uaGMh20iXMw5rM45OkQ>
-	<xmx:vYgvXZTu0GMykIsS05IkQSbWMmLTt-FBAiOu2OWXL7Sei0RpL7bS_w>
-	<xmx:vYgvXdkMjDMeb_yewJk1W9mqqC2WQaBuEx6WXd9CouOut3TsIwioSA>
-Received: from localhost (unknown [113.157.217.50])
-	by mail.messagingengine.com (Postfix) with ESMTPA id D763E380083;
-	Wed, 17 Jul 2019 16:44:44 -0400 (EDT)
-Date: Thu, 18 Jul 2019 05:44:43 +0900
-From: Greg KH <greg@kroah.com>
-To: Linus Walleij <linus.walleij@linaro.org>
-Message-ID: <20190717204443.GA12367@kroah.com>
-References: <alpine.DEB.2.21.1906290802360.1802@nanos.tec.linutronix.de>
+	Thu, 18 Jul 2019 09:09:57 +0000 (UTC)
+Received: by mail-lf1-f66.google.com with SMTP id s19so18646675lfb.9
+	for <ksummit-discuss@lists.linuxfoundation.org>;
+	Thu, 18 Jul 2019 02:09:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
+	h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+	:cc; bh=jlX64yVVCFn54SEvEeK+I+mMGXW/hUR2B/Swt8cC4Vk=;
+	b=NjMlpdXuvnxmeXEkqbXspWwJLd9ZFFGMOmenLQCgqaZQ39Xlxx4pSs9bo56qWU/TZJ
+	nBxarOXVknUSKUexu/mblYMpVM5ETF2eS9B2tIhdgiZYFfK3m4GEbz8QtsLrf2Y4z7wm
+	tkmXLDQxVtdMWTEuboWO6fqCCgZ6l0IU8aqDAd8mqqjjldAXRK4FZ7bTbq9TmKN9+5DA
+	pNs6eLb3xMKbSmFRqkgWQCLCoI+OGcOzt/o2g6BimUSFBQp176Hs6uRmyJMGidiKaCO5
+	vL97IPcncjH93V99dPIJqNCPDfThlShzaSw5OcQ300ILfrerHDR2fef4yRaUtUuDmfgB
+	1m2Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20161025;
+	h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+	:message-id:subject:to:cc;
+	bh=jlX64yVVCFn54SEvEeK+I+mMGXW/hUR2B/Swt8cC4Vk=;
+	b=PrAwczZSuotF5erCK6THHhuT0w7kZte31QMhvloMNJ8Z7qkJJaVR7kIe/R2x7oelD6
+	DtvHrm0W2nwXMIvWYSp8kEdvl9PnAd42/PfUda5lK+1D0PG0xkhp4KjXDu1WccPyiVWi
+	ZOH5qrKKjuD8jIvLYmmyr6297clbS39ewtVdif6JIDJVza12bsMbcHS/jMUHPY8Indxp
+	MvXxAao0rfJv98WipHbV7Jt2SS4RjZ0Mf+V42y9QfNE8cJyrJD7112mx7zUTUw7ls0Ti
+	gOphJBnMxT4kj6YO1PeT9aQ/Una6tgEVD1vi7JjfDVVyh8AZDhtGQIJChQEPUO7NOld9
+	vXYQ==
+X-Gm-Message-State: APjAAAWOkvQwEguNx600J24JUO89QZ+5/34ghd6XQCKC246vZyWCiBqV
+	PPe4+rO9rbzG1PMhyAka9Z2GBKlaqVCpzA/RpXR6cw==
+X-Google-Smtp-Source: APXvYqznW9JyQ5xb3/sl5OMMMAy55INVAr60jw1LLbApabt517GmMFV6wM41b4ReGw0zCNWeDyX7YpvM8qjcyHeBbyU=
+X-Received: by 2002:a19:6a01:: with SMTP id u1mr20366492lfu.141.1563440995746; 
+	Thu, 18 Jul 2019 02:09:55 -0700 (PDT)
+MIME-Version: 1.0
+References: <7b73e1b7-cc34-982d-2a9c-acf62b88da16@linuxfoundation.org>
+	<20190628205102.GA3131@agluck-desk2.amr.corp.intel.com>
+	<alpine.DEB.2.21.1906290802360.1802@nanos.tec.linutronix.de>
 	<20190629134329.GA4620@andrea>
 	<alpine.DEB.2.21.1906291714150.1802@nanos.tec.linutronix.de>
 	<20190630163120.GA13925@chatter.i7.local>
@@ -73,12 +60,15 @@ References: <alpine.DEB.2.21.1906290802360.1802@nanos.tec.linutronix.de>
 	<s5h5zomp4vh.wl-tiwai@suse.de> <20190717092313.GA3111@kadam>
 	<20190717092820.GA18953@kroah.com>
 	<CACRpkdbVHHOm0KoK3cjxs-4DBhZ8nB8cNTE-yt17zTRpTfAgpw@mail.gmail.com>
-MIME-Version: 1.0
-Content-Disposition: inline
 In-Reply-To: <CACRpkdbVHHOm0KoK3cjxs-4DBhZ8nB8cNTE-yt17zTRpTfAgpw@mail.gmail.com>
-User-Agent: Mutt/1.12.1 (2019-06-15)
-X-Spam-Status: No, score=-2.7 required=5.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID, DKIM_VALID_AU, RCVD_IN_DNSWL_LOW autolearn=ham version=3.3.1
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Thu, 18 Jul 2019 11:09:42 +0200
+Message-ID: <CACRpkdZnKNRRZkXpNcA3QALBh3jXQSY6XQWDJ+VrCOvrhRGzaA@mail.gmail.com>
+To: Greg KH <greg@kroah.com>, Kees Cook <keescook@chromium.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>
+X-Spam-Status: No, score=-2.0 required=5.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID, DKIM_VALID_AU,
+	RCVD_IN_DNSWL_NONE autolearn=ham version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
 Cc: Peter Zijlstra <peterz@infradead.org>,
@@ -102,27 +92,25 @@ Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-On Wed, Jul 17, 2019 at 06:09:40PM +0200, Linus Walleij wrote:
+On Wed, Jul 17, 2019 at 6:09 PM Linus Walleij <linus.walleij@linaro.org> wrote:
+>
 > On Wed, Jul 17, 2019 at 11:28 AM Greg KH <greg@kroah.com> wrote:
 > > On Wed, Jul 17, 2019 at 12:23:13PM +0300, Dan Carpenter wrote:
-> 
+>
 > > > We could add an option to `git am` to save the Message-ID automatically.
 > >
 > > Kees already posted a simple git hook to add it to the message when
 > > using `git am`.  I've been using it for a week or so already, works
 > > wonderfully.
-> 
+>
 > I also picked Kees script and it works like a charm as long as
 > you pick patches from a list that is stashed in lore.
 
-Or, from a list that someday will be stashed in lore :)
+On popular request:
+https://lists.linuxfoundation.org/pipermail/ksummit-discuss/2019-July/006608.html
 
-I have an open request to get a few more missing lists into there, but
-in the meantime, have been using the link already.
-
-thanks,
-
-greg k-h
+Yours,
+Linus Walleij
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
