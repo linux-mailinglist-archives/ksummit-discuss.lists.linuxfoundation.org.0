@@ -2,55 +2,82 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id 747D6702B2
-	for <lists@lfdr.de>; Mon, 22 Jul 2019 16:53:40 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0A81570656
+	for <lists@lfdr.de>; Mon, 22 Jul 2019 19:03:01 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id 32C6FC21;
-	Mon, 22 Jul 2019 14:53:17 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id 9CBDEE36;
+	Mon, 22 Jul 2019 17:02:47 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id 3A33EA7A
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id DBBCADD0
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Mon, 22 Jul 2019 14:53:15 +0000 (UTC)
-X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
-Received: from bombadil.infradead.org (bombadil.infradead.org
-	[198.137.202.133])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 718E0775
+	Mon, 22 Jul 2019 17:02:44 +0000 (UTC)
+X-Greylist: whitelisted by SQLgrey-1.7.6
+Received: from mail-pl1-f195.google.com (mail-pl1-f195.google.com
+	[209.85.214.195])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 8FD247F8
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Mon, 22 Jul 2019 14:53:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=bombadil.20170209; h=Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Sender:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=nOR9ufqnwLPYdGKjrT+Vq6LINGmiik3HscZKtIBpEqs=;
-	b=XTlGGwEscogoeUmyA6MWnXrVn
-	Bd1zI4TBb6m/7XJWP1fXU4rlMKwrI3Tba+NbJ0BGWaybNfqfgburKpfTEbS1BTV3hXTWI6gFpD546
-	QppXsP62dMd3ZxTTOea7Ajnbf4G9ecUkpxz3ECLKb3KdRS3P/c103/DmIGjLPoMLIzbFEzWfo/i9j
-	QYan5L7TN8z3SOiX6wbP/BHJ8Sg2c2Jb6cB8UGlAsusL/m10lm8O5nfoji2vcNhOSzPMT5V0ZOEQ/
-	CKqieilXYeI7vkwtaEoO4gsCV8Cdoc7Vl+LNjk32w+bZVUE/n8TCPRWckpdSZx78CeKqQwKhNStFP
-	dXSS6H7yA==;
-Received: from 177.157.124.3.dynamic.adsl.gvt.net.br ([177.157.124.3]
-	helo=coco.lan)
-	by bombadil.infradead.org with esmtpsa (Exim 4.92 #3 (Red Hat Linux))
-	id 1hpZgU-0001RV-Px; Mon, 22 Jul 2019 14:53:03 +0000
-Date: Mon, 22 Jul 2019 11:52:59 -0300
-From: Mauro Carvalho Chehab <mchehab+samsung@kernel.org>
-To: Jonathan Corbet <corbet@lwn.net>
-Message-ID: <20190722115259.47bc749b@coco.lan>
-In-Reply-To: <20190612085405.6045d95d@lwn.net>
-References: <20190612085405.6045d95d@lwn.net>
-X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
+	Mon, 22 Jul 2019 17:02:36 +0000 (UTC)
+Received: by mail-pl1-f195.google.com with SMTP id c14so19399205plo.0
+	for <ksummit-discuss@lists.linuxfoundation.org>;
+	Mon, 22 Jul 2019 10:02:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
+	h=date:from:to:cc:subject:message-id:references:mime-version
+	:content-disposition:in-reply-to;
+	bh=nUAQwUFTmAz6wknBIoJpLjBLI4JpM4VEvsUzDIkKr/o=;
+	b=eXgLUjjesMcprFbqyevrLsQflTdAPC8+kxrZhqwcdgFxL+tRxmqYDCqMVFL1WU52+r
+	fK4XPIqC+UbIobJpmv8u1ECOwUdRIyF9bJW9huw3V0ZyP95J+VxgJC9R4ovfkv7hQHPf
+	f8GN04aGZguRhpoltlX0zlQvkc7RYzwZhaXLE=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20161025;
+	h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+	:mime-version:content-disposition:in-reply-to;
+	bh=nUAQwUFTmAz6wknBIoJpLjBLI4JpM4VEvsUzDIkKr/o=;
+	b=Lz00U4qrWGQmdlxbbhfMLIIEKuBmsf3T2wD6i3XmHC1wlSSYibuiAN8YEF4+c5DTx8
+	9xrD3pppe+WzAXKBGNDzcxIrdr1VX144QiAXLgAtzgAT+9Qy/cdCD3qPOmEGyUYd/7YS
+	M4IWmLk3t+ux2m/TDdoAAXyzka3zddA0RVrmGKZ0TnZE2cY8Y3bL8Bp3SYwdAAE6HZoz
+	cMYdgYlqPdmdhQrQkO/X0qGAwgjhaz0plW8dLr5ccT++DWdQo+mssJTiBzHS7uoLku6b
+	WMCsGUa89MOVvDv+6L1908Hk5U6uaJe3bVAtu0judDWNaXCPcSPcFVR7JRnCAiLvNseo
+	YJRg==
+X-Gm-Message-State: APjAAAUy510K1Lca5BJ6yKqGc0YC8YAqjGnw3f5IwtnK6JRnZmQcfwzB
+	T1IjFjioqJGOZg8nSJiAnBnYsg==
+X-Google-Smtp-Source: APXvYqwhNkZjflYGZcBrHyVaduiY6pNHHl/p2eaekOyC0REX+KwKM1L48AYC0DbrdA+G4LdVyJMzZA==
+X-Received: by 2002:a17:902:6b02:: with SMTP id
+	o2mr25814038plk.99.1563814956219; 
+	Mon, 22 Jul 2019 10:02:36 -0700 (PDT)
+Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
+	by smtp.gmail.com with ESMTPSA id
+	65sm40514377pff.148.2019.07.22.10.02.34
+	(version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+	Mon, 22 Jul 2019 10:02:35 -0700 (PDT)
+Date: Mon, 22 Jul 2019 10:02:34 -0700
+From: Kees Cook <keescook@chromium.org>
+To: Linus Walleij <linus.walleij@linaro.org>
+Message-ID: <201907221001.965A5D36A@keescook>
+References: <alpine.DEB.2.21.1906290802360.1802@nanos.tec.linutronix.de>
+	<20190629134329.GA4620@andrea>
+	<alpine.DEB.2.21.1906291714150.1802@nanos.tec.linutronix.de>
+	<20190630163120.GA13925@chatter.i7.local>
+	<20190701072013.GJ3402@hirez.programming.kicks-ass.net>
+	<alpine.DEB.2.21.1907010948310.1802@nanos.tec.linutronix.de>
+	<s5h5zomp4vh.wl-tiwai@suse.de> <20190717092313.GA3111@kadam>
+	<20190717092820.GA18953@kroah.com>
+	<CACRpkdbVHHOm0KoK3cjxs-4DBhZ8nB8cNTE-yt17zTRpTfAgpw@mail.gmail.com>
 MIME-Version: 1.0
-X-Spam-Status: No, score=-4.2 required=5.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,RCVD_IN_DNSWL_MED autolearn=ham version=3.3.1
+Content-Disposition: inline
+In-Reply-To: <CACRpkdbVHHOm0KoK3cjxs-4DBhZ8nB8cNTE-yt17zTRpTfAgpw@mail.gmail.com>
+X-Spam-Status: No, score=-2.0 required=5.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID, DKIM_VALID_AU,
+	RCVD_IN_DNSWL_NONE autolearn=ham version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
-Cc: ksummit-discuss@lists.linuxfoundation.org
-Subject: Re: [Ksummit-discuss] [TECH TOPIC] Documentation
+Cc: Peter Zijlstra <peterz@infradead.org>,
+	ksummit <ksummit-discuss@lists.linuxfoundation.org>,
+	Dan Carpenter <dan.carpenter@oracle.com>
+Subject: Re: [Ksummit-discuss] [MAINTAINERS SUMMIT] Patch version changes in
+ commit logs?
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.12
 Precedence: list
@@ -62,112 +89,34 @@ List-Post: <mailto:ksummit-discuss@lists.linuxfoundation.org>
 List-Help: <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=help>
 List-Subscribe: <https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss>,
 	<mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-RW0gV2VkLCAxMiBKdW4gMjAxOSAwODo1NDowNSAtMDYwMApKb25hdGhhbiBDb3JiZXQgPGNvcmJl
-dEBsd24ubmV0PiBlc2NyZXZldToKCj4gV2hhdCBjb3VsZCBiZSBtb3JlIGZ1biB0aGFuIHRhbGtp
-bmcgYWJvdXQga2VybmVsIGRvY3VtZW50YXRpb24/ICBUaGluZ3Mgd2UKPiBjb3VsZCBnZXQgaW50
-bzoKPiAKPiAgLSBUaGUgc3RhdGUgb2YgdGhlIFJTVCB0cmFuc2l0aW9uCgpBc3N1bWluZyB0aGF0
-IGFsbCBwYXRjaGVzIG9uIG15IGRldmVsb3BtZW50IGJyYW5jaCBnZXRzIG1lcmdlZCwgd2Ugc2hv
-dWxkCmhhdmU6CgoJLSBhYm91dCAzMDAgZmlsZXMgbWlzc2luZyBjb252ZXJzaW9uOwoJLSBhYm91
-dCA0MCBmaWxlcyB1bmRlciBEb2N1bWVudGF0aW9uLyoudHh0IHRoYXQgbmVlZHMgdG8gYmUKCSAg
-bW92ZWQgdG8gYSBzdWJkaXIgYW5kIGJlIHJlbmFtZWQgdG8gKi5yc3QuCgo+ICAtIE92ZXJhbGwg
-b3JnYW5pemF0aW9uIG9mIERvY3VtZW50YXRpb24vIGFuZCBtb3ZpbmcgZG9jcyB3aGVuIHRoZSBu
-ZWVkCj4gICAgYXJpc2VzLgoKTG9va2luZyBhdCBEb2N1bWVudGF0aW9uL2luZGV4LnJzdCwgSSBn
-dWVzcyB3ZSdyZSBhaW1pbmcgdG8gaGF2ZSBzb21ldGhpbmcgCmxpa2U6CgoJRG9jdW1lbnRhdGlv
-bi8KCeKUnOKUgOKUgCBBQkkKCeKUnOKUgOKUgCBhZG1pbi1ndWlkZQoJ4pSc4pSA4pSAIGtidWls
-ZAoJ4pSc4pSA4pSAIGFyY2gKCeKUgiAgIOKUnOKUgOKUgCBhcm0KCeKUgiAgIOKUnOKUgOKUgCBh
-cm02NAoJ4pSCICAgLi4uCgnilIIgICDilJzilIDilIAgeDg2CgnilIIgICDilILCoMKgIOKUnOKU
-gOKUgCBpMzg2CgnilIIgICDilILCoMKgIOKUlOKUgOKUgCB4ODZfNjQKCeKUgiAgIOKUlOKUgOKU
-gCB4dGVuc2EKCeKUnOKUgOKUgCBjb3JlLWFwaQoJ4pSc4pSA4pSAIGRldmljZXRyZWUKCeKUnOKU
-gOKUgCBkZXYtdG9vbHMKCeKUnOKUgOKUgCBkb2MtZ3VpZGUKCeKUnOKUgOKUgCBkcml2ZXItYXBp
-CgnilJzilIDilIAgZmVhdHVyZXMKCeKUnOKUgOKUgCBmYXVsdC1pbmplY3Rpb24KCeKUnOKUgOKU
-gCBmaWxlc3lzdGVtcwoJ4pSc4pSA4pSAIGZpcm13YXJlLWd1aWRlCgnilJzilIDilIAga2VybmVs
-LWhhY2tpbmcKCeKUnOKUgOKUgCBsaXZlcGF0Y2gKCeKUnOKUgOKUgCBtYWludGFpbmVyCgnilJzi
-lIDilIAgcHJvY2VzcwoJ4pSc4pSA4pSAIHRyYWNlCgnilJTilIDilIAgdHJhbnNsYXRpb25zCgpC
-dHcsIHJpZ2h0IG5vdywgZXh0NCBmcyBkb2NzIGlzIG9uIHR3byBzZXBhcmF0ZSBwYXJ0cyBvZiAK
-RG9jdW1lbnRhdGlvbi9pbmRleC5yc3Q6CgogICBmaWxlc3lzdGVtcy9pbmRleAogICBmaWxlc3lz
-dGVtcy9leHQ0L2luZGV4CgpXZSBzaG91bGQgcHJvYmFibHkgZ2V0IHJpZCBvZiBmaWxlc3lzdGVt
-cy9leHQ0L2luZGV4IGVudHJ5IChhbmQgdGhlIApjb3JyZXNwb25kaW5nIFBERiBlbnRyeSBhdCBj
-b25mLnB5KS4KCi0KCklNTywgdGhlIG1haW4gd29yayB0byBiZSBkb25lIGluIG9yZGVyIHRvIGFj
-aGlldmUgdGhhdCBpcyByZWxhdGVkIHRvCkRyaXZlcidzIHN1YnN5c3RlbSBkb2N1bWVudGF0aW9u
-LgoKV2hhdCBJJ3ZlIGJlZW4gZG9pbmcgc28gZmFyIC0gYXQgbGVhc3QgZm9yIG1vc3QgKGlmIG5v
-dCBhbGwpIGRyaXZlciBkb2NzIAp0aGF0IGNhcnJ5IG1vcmUgdGhhbiBvbmUgZG9jdW1lbnRhdGlv
-biB0eXBlIGF0IHRoZSBzYW1lIHN1YmRpciAoa0FCSSwgCnVBQkkgYW5kL29yIGFkbWluLWd1aWRl
-KSBpcyB0byBrZWVwIHRoZSBkaXJlY3RvcnkgYXMtaXMsIGFkZGluZyB0aGVtIHVuZGVyCnRoaXMg
-c2VjdGlvbiBhdCBEb2N1bWVudGF0aW9uL2luZGV4LnJzdDoKCglLZXJuZWwgQVBJIGRvY3VtZW50
-YXRpb24KCS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQoKVGhlcmUgYXJlIGEgY291cGxlIG9mIHJl
-YXNvbnMgd2h5IEkgb3B0ZWQgZm9yIHRoaXMgc3RyYXRlZ3kgd2hlbgpJIGRpZCBzdWNoIGNvbnZl
-cnNpb25zOgoKMSkgVGhlcmUgYXJlICpsb3RzKiBvZiBkb2NzIHRoYXQgY29udGFpbiBhbGwgMyB0
-eXBlcyBvZiBpbmZvcm1hdGlvbgogICBvbiBpdCBvbiBhIHNpbmdsZSBmaWxlLgoKMikgT24gbWVk
-aWEsIHdlIHVzZSBTUEhJTlhESVJTIHRvIHByb2R1Y2UgdGhlIG1lZGlhIGJvb2sgZnJvbSBvdXIK
-ICAgZGV2ZWwgdHJlZToKCglodHRwczovL2xpbnV4dHYub3JnL2Rvd25sb2Fkcy92NGwtZHZiLWFw
-aXMtbmV3L2luZGV4Lmh0bWwKCiAgIFdoZW4gZG9jdW1lbnRzIGFyZSBidWlsdCB3aXRoIGVpdGhl
-ciBQREYgb3IgU1BISU5YRElSUywgZWFjaCBzdWJkaXIKICAgd2lsbCBiZSBvbiBhIGRpZmZlcmVu
-dCBib29rIGFuZCBhbGwgaW50ZXItYm9vayBjcm9zcy1yZWZlcmVuY2VzCiAgIHdpbGwgYnJlYWsu
-CiAgIAogICBGb3IgdGhpcyB0byBiZSBmaXhlZCwgaW50ZXJzcGhpbnggZXh0ZW5zaW9uIHdvdWxk
-IGJlIHJlcXVpcmVkLAogICBidXQgdGhpcyB3b3VsZCBwcm9iYWJseSByZXF1aXJlIGEgcGVyLXN1
-YnN5c3RlbSBtYXBwaW5nIAogICAoZm9yIGV4YW1wbGUsIHNheWluZyB0aGF0IHRoZSBzaXRlIHVz
-ZWQgdG8gcmVzb2x2ZSBtZWRpYQogICBicm9rZW4gY3Jvc3MgcmVmZXJlbmNlcyBpcyBsaW51eHR2
-Lm9yZykuIAoKICAgTWFpbnRhaW5pbmcgaXQgY2FuIGJlIHBhaW5mdWwsIGFzIHdlIHdvdWxkIGhh
-dmUgYSBiaWcgdGFibGUKICAgYXQgY29uZi5weSB3aXRoIHN1YnN5c3RlbS1zcGVjaWZpYyBzdHVm
-Zi4KCjMpIFNvIGZhciwgSSB3YXMgdW5hYmxlIHRvIHNwbGl0IGV2ZW4gdGhlIG1lZGlhIGRvY3Mu
-IFNoYW1lIG9uCiAgIG1lISBUaGUgcmVhc29uIGlzIHRoYXQgdGhpcyBpcyBub3QgYW4gZWFzeSB0
-YXNrLgoKT25lIGludGVyZXN0aW5nIGV4YW1wbGUgaXMgdGhlIG9wZW4oKSBkb2N1bWVudGF0aW9u
-IGF0IHRoZQptZWRpYSBtZWRpYSB1QVBJIGJvb2s6CgoJRG9jdW1lbnRhdGlvbi9tZWRpYS91YXBp
-L3Y0bC9vcGVuLnJzdAoKVGhpcyBmaWxlIGFjdHVhbGx5IGNvbnRhaW5zIGEgbG90IG9mIHN5c2Fk
-bWluIHJlbGV2YW50IGRhdGEgKHNvLCBpdAppcyBhIGdvb2QgY2FuZGlkYXRlIGZvciB0aGUgYWRt
-aW4tZ3VpZGUpLgoKWWV0LCBpdCB3YXMgd3JpdHRlbiBmb2N1c2VkIG9uIHdoYXQgYSBtZWRpYSB1
-QVBJIGRldmVsb3BlciBuZWVkcwp0byBrbm93LiBTbywgaXQgYWxzbyBtZW50aW9ucyBLZXJuZWwg
-dXNlcnNwYWNlIEFQSSBzeXNjYWxsczoKb3BlbigpLCByZWFkKCksIGNsb3NlKCkgLSB3aXRoIGhh
-cyBjcm9zcy1yZWZlcmVuY2VzIHRvIG90aGVyIHBhcnRzCm9mIHRoZSB1QVBJIGJvb2suCgpTcGxp
-dHRpbmcgdGhpcyBmaWxlIG9uIHR3byBzZXBhcmF0ZSBib29rcyB3b24ndCBiZSB0aGF0IGVhc3ku
-CgpJZGVhbGx5LCB3ZSBzaG91bGQgc3BsaXQgd2hhdCdzIHRoZXJlIGF0IG1lZGlhL3VhcGkgaW50
-byBhZG1pbi1ndWlkZQphbmQgdXNlcnNwYWNlLWFwaSwgYnV0IHRoaXMgd291bGQgbWVhbiAqYSBs
-b3QqIG9mIGVmZm9ydC4gTm90IHN1cmUKaWYgaXQgaXMgd29ydGggdGhlIHRpbWUuCgpBbHNvLCB3
-aGlsZSBhIHN5c2FkbWluIG1pZ2h0IHdhbnQgdG8ga25vdyB3aGF0IGEgL2Rldi92aWRlbzAgZGV2
-aWNlCm1lYW5zLCB0aGUgaW50ZW5kZWQgYXVkaWVuY2UgaXMgcmVhbGx5IHVBUEkgZGV2ZWxvcGVy
-cywgYXMgYW4gdXNlcgp3aWxsIGp1c3QgY2xpY2sgb24gaXRzIEdVSSB0byBjYWxsIGEgbWVkaWEg
-YXBwbGljYXRpb24uCgo+ICAtIFRoZSB1bHRpbWF0ZSB2aXNpb24gZm9yIGtlcm5lbCBkb2NzIChm
-b3Igbm93KS4gIFJTVCBjb252ZXJzaW9uIGFuZAo+ICAgIGltcG9zaW5nIHNvbWUgb3JnYW5pemF0
-aW9uIGFyZSBpbXBvcnRhbnQsIGJ1dCB0aGV5IHdpbGwgbm90LAo+ICAgIHRoZW1zZWx2ZXMsIGdp
-dmUgdXMgYSBjb2hlcmVudCBzZXQgb2YgZG9jdW1lbnRhdGlvbi4gIFdoYXQgY2FuIHdlIGRvIHRv
-Cj4gICAgaGF2ZSBkb2N1bWVudGF0aW9uIHRoYXQgaXMgdXNlZnVsLCBjdXJyZW50LCBhbmQgbWFp
-bnRhaW5hYmxlLCByYXRoZXIKPiAgICB0aGFuIHRoZSBkdXN0eSBhdHRpYyB3ZSBoYXZlIG5vdz8K
-ClRoZSBtb3JlIEkgdGhpbmsgdGhlIG1vcmUgSSdtIGNvbnZpbmNlZCB0aGF0IHRoZSBiZXN0IHdh
-eSB0byBwcm9jZWVkIHdvdWxkCmJlIHRvIHVzZSBzb21lIEtlcm5lbCBib29rcyBhcyBhbiBleGFt
-cGxlIGFuZCBvcmdhbml6ZSB0aGUgbWFpbiBpbmRleC5yc3QKZmlsZXMgb24gYSB3YXkgdGhhdCBp
-dCB3aWxsIGNvdmVyIHdoYXQgYSBuZXdiaWUgS2VybmVsIGRldmVsb3BlciB3b3VsZCBuZWVkCnRv
-IGtub3cuCgpGb3IgZXhhbXBsZSwgbG9va2luZyBhdCBMREQzIG9yZ2FuaXphdGlvbiAoaHR0cHM6
-Ly9sd24ubmV0L0tlcm5lbC9MREQzLyksCndlIGNvdWxkIHVzZSBpdHMgaW5kZXggYXMgYW4gc3Rh
-cnRpbmcgcG9pbnQgZm9yIHdoYXQgYSBkcml2ZXItYXBpIGJvb2sKc2hvdWxkIGNvbnRhaW46CgoJ
-Q2hhcHRlciAxOiBBbiBJbnRyb2R1Y3Rpb24gdG8gRGV2aWNlIERyaXZlcnMKCUNoYXB0ZXIgMzog
-Q2hhciBEcml2ZXJzCglDaGFwdGVyIDY6IEFkdmFuY2VkIENoYXIgRHJpdmVyIE9wZXJhdGlvbnMK
-CUNoYXB0ZXIgOTogQ29tbXVuaWNhdGluZyB3aXRoIEhhcmR3YXJlCglDaGFwdGVyIDEyOiBQQ0kg
-RHJpdmVycwoJQ2hhcHRlciAxMzogVVNCIERyaXZlcnMKCUNoYXB0ZXIgMTQ6IFRoZSBMaW51eCBE
-ZXZpY2UgTW9kZWwKCUNoYXB0ZXIgMTY6IEJsb2NrIERyaXZlcnMKCUNoYXB0ZXIgMTc6IE5ldHdv
-cmsgRHJpdmVycwoJQ2hhcHRlciAxODogVFRZIERyaXZlcnMKCkp1c3QgbG9va2luZyBvbiB0aGVz
-ZSwgb3VyIGRyaXZlci1hcGkgYm9vayBzZWVtIHRvIGJlIG1pc3NpbmcgdGhlCnRleHRzIHRoYXQg
-d291bGQgZ2x1ZSBpdHMgY29udGVudHMsIGUuIGcuIGFuIGludHJvZHVjdGlvbiB0byBkZXZpY2UK
-ZHJpdmVycywgdG8gY2hhci9ibG9jayBkZXZpY2VzIGFuZCBhYm91dCBob3cgdG8gY29tbXVuaWNh
-dGUgd2l0aCB0aGUKaGFyZHdhcmUuCgpJdCBjYW4gYWxzbyBoZWxwIHRvIGlkZW50aWZ5IHRoZSBj
-b250ZW50cyB0aGF0IGEgZHJpdmVyIGRldmVsb3Blcgp3b3VsZCBuZWVkIGZyb20gYSBjb3JlLWFw
-aSBhbmQgYSBLZXJuZWwgZGV2ZWxvcG1lbnQgYm9va3NldDoKCglDaGFwdGVyIDI6IEJ1aWxkaW5n
-IGFuZCBSdW5uaW5nIE1vZHVsZXMKCUNoYXB0ZXIgNDogRGVidWdnaW5nIFRlY2huaXF1ZXMKCUNo
-YXB0ZXIgNTogQ29uY3VycmVuY3kgYW5kIFJhY2UgQ29uZGl0aW9ucwoJQ2hhcHRlciA3OiBUaW1l
-LCBEZWxheXMsIGFuZCBEZWZlcnJlZCBXb3JrCglDaGFwdGVyIDg6IEFsbG9jYXRpbmcgTWVtb3J5
-CglDaGFwdGVyIDEwOiBJbnRlcnJ1cHQgSGFuZGxpbmcKCUNoYXB0ZXIgMTE6IERhdGEgVHlwZXMg
-aW4gdGhlIEtlcm5lbAoKSSB3b3VsZCBkbyB0aGUgc2FtZSB3aXRoIG90aGVyIExpbnV4IGFuZCBM
-aW51eCBLZXJuZWwgcmVsYXRlZCBib29rcy4KCi0KCkJ0dywgaWYgdGhlIGF1dGhvcnMgb2Ygc29t
-ZSBleGlzdGluZyBvbGQgYm9va3MgcmVsZWFzZSB0aGVpciBzdHVmZiB1bmRlcgpHUEx2MiBhbmQg
-YWxsb3cgdXMgdG8gaW1wb3J0IHRoZWlyIGNvbnRlbnRzLCB3ZSBjb3VsZCB0cnkgdG8gaW1wb3J0
-IHNvbWUKcGFydHMgb2YgaXQgdGhhdCBhcmVuJ3QgdG9vIG9ic29sZXRlLiBUaGUgbmV3IGF1dG9t
-YXJrdXAgZXh0ZW5zaW9uCmNhbiBoZWxwIGEgbG90IHRvIGlkZW50aWZ5IG91dGRhdGVkIGRvY3Vt
-ZW50cywgYXMgaXQgd29uJ3QgYmUgYWJsZQp0byBzb2x2ZSB0aGUgZnVuYygpIGNhbGxzLgoKVGhh
-bmtzLApNYXVybwpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpLc3VtbWl0LWRpc2N1c3MgbWFpbGluZyBsaXN0CktzdW1taXQtZGlzY3Vzc0BsaXN0cy5saW51
-eGZvdW5kYXRpb24ub3JnCmh0dHBzOi8vbGlzdHMubGludXhmb3VuZGF0aW9uLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2tzdW1taXQtZGlzY3Vzcwo=
+On Wed, Jul 17, 2019 at 06:09:40PM +0200, Linus Walleij wrote:
+> On Wed, Jul 17, 2019 at 11:28 AM Greg KH <greg@kroah.com> wrote:
+> > On Wed, Jul 17, 2019 at 12:23:13PM +0300, Dan Carpenter wrote:
+> 
+> > > We could add an option to `git am` to save the Message-ID automatically.
+> >
+> > Kees already posted a simple git hook to add it to the message when
+> > using `git am`.  I've been using it for a week or so already, works
+> > wonderfully.
+> 
+> I also picked Kees script and it works like a charm as long as
+> you pick patches from a list that is stashed in lore.
+> 
+> Kees, you script is highly valuable, can we put it inside
+> Documentation/* somewhere?
+
+Yeah, absolutely! Do we already have somewhere to put these kinds of
+maintainer scripts? (Has Dan Williams already thought about this for
+the maintainer's handbook?)
+
+-- 
+Kees Cook
+_______________________________________________
+Ksummit-discuss mailing list
+Ksummit-discuss@lists.linuxfoundation.org
+https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss
