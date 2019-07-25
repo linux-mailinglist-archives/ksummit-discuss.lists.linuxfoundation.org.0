@@ -2,79 +2,42 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id 397D77449E
-	for <lists@lfdr.de>; Thu, 25 Jul 2019 07:01:20 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0FF3C750D3
+	for <lists@lfdr.de>; Thu, 25 Jul 2019 16:18:59 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id EC3FD1625;
-	Thu, 25 Jul 2019 05:01:06 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id BDF19DC2;
+	Thu, 25 Jul 2019 14:18:54 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id 04F121614
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id 895A2DA7
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Thu, 25 Jul 2019 05:01:05 +0000 (UTC)
-X-Greylist: whitelisted by SQLgrey-1.7.6
-Received: from mail-pf1-f177.google.com (mail-pf1-f177.google.com
-	[209.85.210.177])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id A4324F1
+	Thu, 25 Jul 2019 14:18:52 +0000 (UTC)
+X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
+Received: from mail.hallyn.com (mail.hallyn.com [178.63.66.53])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id C61597F8
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Thu, 25 Jul 2019 05:01:04 +0000 (UTC)
-Received: by mail-pf1-f177.google.com with SMTP id y15so22082582pfn.5
-	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Wed, 24 Jul 2019 22:01:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
-	h=date:from:to:cc:subject:message-id:references:mime-version
-	:content-disposition:in-reply-to:user-agent;
-	bh=JtQQz79sq4UHhJlUb9XZRV1ExmiMfJ8YLpq6UjBCHeM=;
-	b=F0nb8EhTZV3qCmzQn82tn5fFWGLk7xBkGUKDr9epxnhanFVXAPQoSdbBfLd2Oc5xPP
-	QPJdyQlJS05XzeDu5VKYJXU8eTTp2o/qkawYXBKZ3cps1dwX//6UNqtfYmykmyZb+f1Q
-	9RpWoYnSFbbMjKK5BMIwq2mX52uEshJh23sE2oygP+joYUd1bB4WtmirdqmdMsbL/tWy
-	9A6A5gEtFyLKnYpKykMn7Yo/P9kC+Jh/3L6r73n38uygAbI9DqLpdmHvbn7JguXumuFK
-	wphP8HvtYKnUH0fl7ZKPBLFHgPH5Xy8C8zIG211H8jAGBTy8sqgKDZKi0yCNQhcsiZbN
-	aBQg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:date:from:to:cc:subject:message-id:references
-	:mime-version:content-disposition:in-reply-to:user-agent;
-	bh=JtQQz79sq4UHhJlUb9XZRV1ExmiMfJ8YLpq6UjBCHeM=;
-	b=ON247JeH8jPmrqfrBjQM7U2jqtrya7BXrlegrGo9Rtb3f1LTjI7rjdsPspywS8Qab2
-	aEcFpG7UIDRuQRCuvp65xGrQxcEHvBpi5m821OT08bDK68jSYj78eRhdNRrZQ9LV3wWn
-	g8u+U+APdMxbHNad5VO9FQ0HsYaYFDxykfe4sMF0xY1gHneVoCGFKkug78XW0dw90mP4
-	FZMZ0bAadsEE3chU4ZwiC0rqjGDTsQPN92sP0d0K48AC8CoaeKYA/fcMq7XIaVlvIrxT
-	XzWzp19LcttLnRwTWwOBiNvbJckjEbPToAgNlzWTiUER1PHCbhiq8VDMHV2wVgAGBAOO
-	E7Vg==
-X-Gm-Message-State: APjAAAXxObt9PN4GvghrdHPOky5vBdY5pXzDYMTOagqQxOm/pyZtmPSU
-	qPWUeaxLU71++HkeGMLOiD4=
-X-Google-Smtp-Source: APXvYqy+l8ctHN6oBSBBGPh9GXvqD71hKD9oo+wFchUn/F/IECgV+anYtPtaDqkYlNVHelc0EU0wTg==
-X-Received: by 2002:a63:bf01:: with SMTP id v1mr82819204pgf.278.1564030864254; 
-	Wed, 24 Jul 2019 22:01:04 -0700 (PDT)
-Received: from localhost ([175.223.30.234]) by smtp.gmail.com with ESMTPSA id
-	z68sm44178757pgz.88.2019.07.24.22.01.02
-	(version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
-	Wed, 24 Jul 2019 22:01:03 -0700 (PDT)
-Date: Thu, 25 Jul 2019 14:00:59 +0900
-From: Sergey Senozhatsky <sergey.senozhatsky.work@gmail.com>
-To: Jan Kara <jack@suse.cz>
-Message-ID: <20190725050059.GA30226@jagdpanzerIV>
-References: <20190530055947.GA29812@mit.edu>
-	<20190724055226.GA15444@jagdpanzerIV>
-	<20190724080347.GA12744@jagdpanzerIV>
-	<CAOQ4uxhdJDnTiANsC4Cv42A5ooeYaTphtGvZgP9Wvp+LCCh1NA@mail.gmail.com>
-	<094f7a8233152e80f34b45982058b599d605864f.camel@kernel.org>
+	Thu, 25 Jul 2019 14:18:51 +0000 (UTC)
+Received: by mail.hallyn.com (Postfix, from userid 1001)
+	id E0896ACC; Thu, 25 Jul 2019 09:18:49 -0500 (CDT)
+Date: Thu, 25 Jul 2019 09:18:49 -0500
+From: "Serge E. Hallyn" <serge@hallyn.com>
+To: Christian Brauner <christian@brauner.io>
+Message-ID: <20190725141849.GB24945@mail.hallyn.com>
+References: <20190719093538.dhyopljyr5ns33qx@brauner.io>
+	<alpine.LRH.2.21.1907201715420.26406@namei.org>
+	<E90059DC-B0EA-4519-99E5-CD9DD600B4D0@brauner.io>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <094f7a8233152e80f34b45982058b599d605864f.camel@kernel.org>
-User-Agent: Mutt/1.12.1 (2019-06-15)
-X-Spam-Status: No, score=-2.0 required=5.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID, DKIM_VALID_AU, FREEMAIL_FROM,
-	RCVD_IN_DNSWL_NONE autolearn=ham version=3.3.1
+In-Reply-To: <E90059DC-B0EA-4519-99E5-CD9DD600B4D0@brauner.io>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Spam-Status: No, score=-1.9 required=5.0 tests=BAYES_00 autolearn=ham
+	version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
-Cc: ksummit-discuss@lists.linuxfoundation.org,
-	Amir Goldstein <amir73il@gmail.com>, Jeff Layton <jlayton@kernel.org>,
-	Trond Myklebust <trondmy@gmail.com>
-Subject: Re: [Ksummit-discuss] [TECH TOPIC] Linux kernel SMB server (CIFSD)
+Cc: mic@digikod.net, ksummit-discuss@lists.linuxfoundation.org
+Subject: Re: [Ksummit-discuss] [TECH TOPIC] seccomp
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.12
 Precedence: list
@@ -91,19 +54,41 @@ Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-On (07/24/19 06:55), Jeff Layton wrote:
-> (cc'ing Trond)
+On Sat, Jul 20, 2019 at 09:41:11AM +0200, Christian Brauner wrote:
+> On July 20, 2019 9:23:33 AM GMT+02:00, James Morris <jmorris@namei.org> wrote:
+> >On Fri, 19 Jul 2019, Christian Brauner wrote:
+> >
+> >> There is a close connection between 1. and 2. When a watcher
+> >intercepts
+> >> a syscall from a watchee and starts to inspect its arguments it can -
+> >> depending on the syscall rather often actually - determine whether or
+> >> not the syscall would succeed or fail. If it knows that the syscall
+> >will
+> >> succeed it currently still has to perform it in lieu of the watchee
+> >> since there is no way to tell the kernel to "resume" or actually
+> >perform
+> >> the syscall. It would be nice if we could discuss approaches to
+> >enabling
+> >> this feature as well.
+> >
+> >Landlock is exploring userspace access control via the seccomp 
+> >syscall with ebpf, but from within the same process:
+> >
+> >https://landlock.io/
+> >
+> >It may be worth investigating whether Landlock could be extended to a 
+> >split watcher/watchee model.
 > 
-> Trond has been driving those patches more recently. He posted a revised
-> set of them recently, and they still use fsnotify to detect unlink
-> activity:
-> 
-> https://www.spinics.net/lists/linux-nfs/msg73692.html
+> Certainly a valid point but...
+> I don't want to rely on landlock for this.
+> First, no one knows if and when it will ever land.
+> Second, seccomp is the go-to sandboxing solution for a lot of userspace already.
+> Often used without a full LSM.
+> Third, syscall interception to me is seccomp territory. :)
+> That's to say I'd like seccomp to have this feature *natively* and ideally not tied to
+> a complete LSM that needs to be merged for this. :)
 
-Jan, do you have objections?
-Would be great to have fsnotify export patch in linux-next, maybe.
-
-	-ss
+Sounds all the more like discussion is warranted :)
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
