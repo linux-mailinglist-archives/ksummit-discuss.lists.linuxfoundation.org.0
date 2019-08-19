@@ -2,33 +2,33 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id 610F594D77
-	for <lists@lfdr.de>; Mon, 19 Aug 2019 21:05:11 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8D9E794F86
+	for <lists@lfdr.de>; Mon, 19 Aug 2019 23:03:49 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id 5CE52E26;
-	Mon, 19 Aug 2019 19:04:58 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id C7F61E1F;
+	Mon, 19 Aug 2019 21:03:35 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id 59C23C00
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id 019CCAD8
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Mon, 19 Aug 2019 19:04:55 +0000 (UTC)
+	Mon, 19 Aug 2019 21:03:34 +0000 (UTC)
 X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
-Received: from Galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id D91D167F
+Received: from youngberry.canonical.com (youngberry.canonical.com
+	[91.189.89.112])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTP id 5D26289E
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Mon, 19 Aug 2019 19:04:54 +0000 (UTC)
-Received: from pd9ef1cb8.dip0.t-ipconnect.de ([217.239.28.184] helo=nanos)
-	by Galois.linutronix.de with esmtpsa
-	(TLS1.2:DHE_RSA_AES_256_CBC_SHA256:256) (Exim 4.80)
-	(envelope-from <tglx@linutronix.de>)
-	id 1hzmxW-0002FP-B6; Mon, 19 Aug 2019 21:04:50 +0200
-Date: Mon, 19 Aug 2019 21:04:49 +0200 (CEST)
-From: Thomas Gleixner <tglx@linutronix.de>
-To: Christian Brauner <christian.brauner@ubuntu.com>
-In-Reply-To: <20190819161624.yeups3ugpyb6d4v2@wittgenstein>
-Message-ID: <alpine.DEB.2.21.1908192103270.1796@nanos.tec.linutronix.de>
+	Mon, 19 Aug 2019 21:03:33 +0000 (UTC)
+Received: from wsip-184-188-36-2.sd.sd.cox.net ([184.188.36.2]
+	helo=wittgenstein) by youngberry.canonical.com with esmtpsa
+	(TLS1.0:RSA_AES_256_CBC_SHA1:32) (Exim 4.76)
+	(envelope-from <christian.brauner@ubuntu.com>)
+	id 1hzooJ-0003hj-VG; Mon, 19 Aug 2019 21:03:28 +0000
+Date: Mon, 19 Aug 2019 23:03:25 +0200
+From: Christian Brauner <christian.brauner@ubuntu.com>
+To: Thomas Gleixner <tglx@linutronix.de>
+Message-ID: <20190819210323.phehe5ldld552ym7@wittgenstein>
 References: <20190706142738.GA6893@kunai>
 	<CAMuHMdUVtz6_3-9_+QLRWt6x7fauvA0K4p77eOcyVWo_oO9g5g@mail.gmail.com>
 	<20190708115949.GC1050@kunai> <20190715125800.22a9a979@coco.lan>
@@ -37,20 +37,19 @@ References: <20190706142738.GA6893@kunai>
 	<20190819065710.GC20455@quack2.suse.cz>
 	<alpine.DEB.2.21.1908191024430.1923@nanos.tec.linutronix.de>
 	<20190819161624.yeups3ugpyb6d4v2@wittgenstein>
-User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
+	<alpine.DEB.2.21.1908192103270.1796@nanos.tec.linutronix.de>
 MIME-Version: 1.0
-X-Linutronix-Spam-Score: -1.0
-X-Linutronix-Spam-Level: -
-X-Linutronix-Spam-Status: No , -1.0 points, 5.0 required, ALL_TRUSTED=-1,
-	SHORTCIRCUIT=-0.0001
-X-Spam-Status: No, score=-4.2 required=5.0 tests=BAYES_00,RCVD_IN_DNSWL_MED
+Content-Disposition: inline
+In-Reply-To: <alpine.DEB.2.21.1908192103270.1796@nanos.tec.linutronix.de>
+User-Agent: NeoMutt/20180716
+X-Spam-Status: No, score=-6.9 required=5.0 tests=BAYES_00,RCVD_IN_DNSWL_HI
 	autolearn=ham version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
 Cc: Mauro Carvalho Chehab <mchehab+samsung@kernel.org>,
 	ksummit <ksummit-discuss@lists.linuxfoundation.org>
 Subject: Re: [Ksummit-discuss] [MAINTAINERS SUMMIT] Keeping reviews
- meaningful
+	meaningful
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.12
 Precedence: list
@@ -67,53 +66,64 @@ Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-On Mon, 19 Aug 2019, Christian Brauner wrote:
-> On Mon, Aug 19, 2019 at 10:26:01AM +0200, Thomas Gleixner wrote:
-> > On Mon, 19 Aug 2019, Jan Kara wrote:
-> > > On Sat 17-08-19 21:35:29, Paul Walmsley wrote:
-> > > > On Mon, 15 Jul 2019, Theodore Y. Ts'o wrote:
-> > > > 
-> > > > > I'd suggest changing the text to read:
+On Mon, Aug 19, 2019 at 09:04:49PM +0200, Thomas Gleixner wrote:
+> On Mon, 19 Aug 2019, Christian Brauner wrote:
+> > On Mon, Aug 19, 2019 at 10:26:01AM +0200, Thomas Gleixner wrote:
+> > > On Mon, 19 Aug 2019, Jan Kara wrote:
+> > > > On Sat 17-08-19 21:35:29, Paul Walmsley wrote:
+> > > > > On Mon, 15 Jul 2019, Theodore Y. Ts'o wrote:
 > > > > > 
-> > > > >  	 - Acked-by: indicates an agreement by the maintainer or
-> > > > > 	   reviewer of the the relevant code that the patch is
-> > > > > 	   appropriate for inclusion into the kernel.
+> > > > > > I'd suggest changing the text to read:
+> > > > > > 
+> > > > > >  	 - Acked-by: indicates an agreement by the maintainer or
+> > > > > > 	   reviewer of the the relevant code that the patch is
+> > > > > > 	   appropriate for inclusion into the kernel.
+> > > > > 
+> > > > > This would be a positive step forward.  I would be in favor of this. 
+> > > > > 
+> > > > > It would also be good to state here, if it isn't stated already, that 
+> > > > > "reviewer" means "someone who is listed in an R: line in MAINTAINERS".
 > > > > 
-> > > > This would be a positive step forward.  I would be in favor of this. 
-> > > > 
-> > > > It would also be good to state here, if it isn't stated already, that 
-> > > > "reviewer" means "someone who is listed in an R: line in MAINTAINERS".
+> > > > I don't think that 'R:' entry in MAINTAINERS should be really asked for.
+> > > > IMO that is unnecessary bureaucracy and discourages review from people
+> > > > that are not core developers. Sure the quality of the review may be lower
+> > > > than from core developer but still there's some value in it. So I'd really
+> > > > leave it at the discretion of the maintainer whether he accepts or just
+> > > > ignores Reviewed-by tag.
 > > > 
-> > > I don't think that 'R:' entry in MAINTAINERS should be really asked for.
-> > > IMO that is unnecessary bureaucracy and discourages review from people
-> > > that are not core developers. Sure the quality of the review may be lower
-> > > than from core developer but still there's some value in it. So I'd really
-> > > leave it at the discretion of the maintainer whether he accepts or just
-> > > ignores Reviewed-by tag.
+> > > The R: in MAINTAINERS is there to make sure these people get actually CC'ed
+> > > on patches against that particular subsystem. It does not mean that others
+> > > are not allowed or encouraged to review patches in that area.
 > > 
-> > The R: in MAINTAINERS is there to make sure these people get actually CC'ed
-> > on patches against that particular subsystem. It does not mean that others
-> > are not allowed or encouraged to review patches in that area.
+> > If I may, I agree that only accepting acks/reviews by people in R: is
+> > too strict.
 > 
-> If I may, I agree that only accepting acks/reviews by people in R: is
-> too strict.
+> It is.
+> 
+> > Imho, it sends the wrong message and probably discourages
+> > participation in kernel development. It's also a high bar currently to
+> > get people even listed as R: In my experience people are reluctant to
+> > suggest they be added as R: in that file because it might be conceived
+> > as being overly assertive of ones abilities. One easy fix could be to
+> > encourage maintainers of a given subsystem to be more open to add people
+> > they trust as R:
+> 
+> We do, but not over the head of the developer. We ask people before doing
 
-It is.
+Sorry, I implicitly assumed the asking-for-developer-consent part.
+You're right.
 
-> Imho, it sends the wrong message and probably discourages
-> participation in kernel development. It's also a high bar currently to
-> get people even listed as R: In my experience people are reluctant to
-> suggest they be added as R: in that file because it might be conceived
-> as being overly assertive of ones abilities. One easy fix could be to
-> encourage maintainers of a given subsystem to be more open to add people
-> they trust as R:
+> that and quite some decline.
 
-We do, but not over the head of the developer. We ask people before doing
-that and quite some decline.
+Right, I had that experience as well. Imho, that's even more of a sign
+that restricting "valuable" reviewers to R: is not a good idea.
 
-Thanks,
-
-	tglx
+One idea I had a while back - and this maybe crazy - was to make a
+review by a certain person mandatory: A way to mark a given patch as
+requiring a review by someone before it can be considered for inclusion,
+i.e. something stronger than "Cc e.g. "Requires-Review-by" without
+necessarily having that person to be listed in MAINTAINERS. Maybe that's
+already expressed in the R: field though...
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
