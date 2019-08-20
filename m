@@ -2,54 +2,76 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8D9E794F86
-	for <lists@lfdr.de>; Mon, 19 Aug 2019 23:03:49 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8CD6295C30
+	for <lists@lfdr.de>; Tue, 20 Aug 2019 12:22:52 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id C7F61E1F;
-	Mon, 19 Aug 2019 21:03:35 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id A2BA6D09;
+	Tue, 20 Aug 2019 10:22:29 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id 019CCAD8
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id 79A4DCCE
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Mon, 19 Aug 2019 21:03:34 +0000 (UTC)
-X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
-Received: from youngberry.canonical.com (youngberry.canonical.com
-	[91.189.89.112])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTP id 5D26289E
+	Tue, 20 Aug 2019 10:22:27 +0000 (UTC)
+X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
+Received: from bedivere.hansenpartnership.com (bedivere.hansenpartnership.com
+	[66.63.167.143])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 0B26012E
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Mon, 19 Aug 2019 21:03:33 +0000 (UTC)
-Received: from wsip-184-188-36-2.sd.sd.cox.net ([184.188.36.2]
-	helo=wittgenstein) by youngberry.canonical.com with esmtpsa
-	(TLS1.0:RSA_AES_256_CBC_SHA1:32) (Exim 4.76)
-	(envelope-from <christian.brauner@ubuntu.com>)
-	id 1hzooJ-0003hj-VG; Mon, 19 Aug 2019 21:03:28 +0000
-Date: Mon, 19 Aug 2019 23:03:25 +0200
-From: Christian Brauner <christian.brauner@ubuntu.com>
-To: Thomas Gleixner <tglx@linutronix.de>
-Message-ID: <20190819210323.phehe5ldld552ym7@wittgenstein>
+	Tue, 20 Aug 2019 10:22:26 +0000 (UTC)
+Received: from localhost (localhost [127.0.0.1])
+	by bedivere.hansenpartnership.com (Postfix) with ESMTP id E6DEE8EE302; 
+	Tue, 20 Aug 2019 03:22:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=hansenpartnership.com;
+	s=20151216; t=1566296545;
+	bh=OFhptEYQOcFy+NWC+otSab8cXOTJz4x9Rhi9jcdOJL4=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=OmCZtQv4Yc79BFOpEEKHhpmczMkH3TSb0sxONWNP8qGUa7IoblPYRvFr33Ha552Fj
+	zOZpVRqHVlLFg4e7nuGGla86HBXXD2Hq7NBwfvZgH/6oKaUR6t/viYhUvnEEEk/4XW
+	RkwilEgjuL84KTFRrSn5Xt05d6MoOXUoawm4o+P8=
+Received: from bedivere.hansenpartnership.com ([127.0.0.1])
+	by localhost (bedivere.hansenpartnership.com [127.0.0.1]) (amavisd-new,
+	port 10024)
+	with ESMTP id 5ooNc68WXAFH; Tue, 20 Aug 2019 03:22:25 -0700 (PDT)
+Received: from jarvis (host86-134-253-248.range86-134.btcentralplus.com
+	[86.134.253.248])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by bedivere.hansenpartnership.com (Postfix) with ESMTPSA id 4A9A98EE0E3;
+	Tue, 20 Aug 2019 03:22:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=hansenpartnership.com;
+	s=20151216; t=1566296545;
+	bh=OFhptEYQOcFy+NWC+otSab8cXOTJz4x9Rhi9jcdOJL4=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=OmCZtQv4Yc79BFOpEEKHhpmczMkH3TSb0sxONWNP8qGUa7IoblPYRvFr33Ha552Fj
+	zOZpVRqHVlLFg4e7nuGGla86HBXXD2Hq7NBwfvZgH/6oKaUR6t/viYhUvnEEEk/4XW
+	RkwilEgjuL84KTFRrSn5Xt05d6MoOXUoawm4o+P8=
+Message-ID: <1566296541.2657.10.camel@HansenPartnership.com>
+From: James Bottomley <James.Bottomley@HansenPartnership.com>
+To: Julia Lawall <julia.lawall@lip6.fr>, Jan Kara <jack@suse.cz>
+Date: Tue, 20 Aug 2019 11:22:21 +0100
+In-Reply-To: <alpine.DEB.2.21.1908191010440.2601@hadrien>
 References: <20190706142738.GA6893@kunai>
 	<CAMuHMdUVtz6_3-9_+QLRWt6x7fauvA0K4p77eOcyVWo_oO9g5g@mail.gmail.com>
 	<20190708115949.GC1050@kunai> <20190715125800.22a9a979@coco.lan>
 	<20190715170045.GB3068@mit.edu>
 	<alpine.DEB.2.21.999.1908172131550.15337@utopia.booyaka.com>
 	<20190819065710.GC20455@quack2.suse.cz>
-	<alpine.DEB.2.21.1908191024430.1923@nanos.tec.linutronix.de>
-	<20190819161624.yeups3ugpyb6d4v2@wittgenstein>
-	<alpine.DEB.2.21.1908192103270.1796@nanos.tec.linutronix.de>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <alpine.DEB.2.21.1908192103270.1796@nanos.tec.linutronix.de>
-User-Agent: NeoMutt/20180716
-X-Spam-Status: No, score=-6.9 required=5.0 tests=BAYES_00,RCVD_IN_DNSWL_HI
-	autolearn=ham version=3.3.1
+	<alpine.DEB.2.21.1908190905110.3257@hadrien>
+	<20190819080440.GA2491@quack2.suse.cz>
+	<alpine.DEB.2.21.1908191010440.2601@hadrien>
+X-Mailer: Evolution 3.26.6 
+Mime-Version: 1.0
+X-Spam-Status: No, score=-2.0 required=5.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID, DKIM_VALID_AU,
+	RCVD_IN_DNSWL_NONE autolearn=ham version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
 Cc: Mauro Carvalho Chehab <mchehab+samsung@kernel.org>,
 	ksummit <ksummit-discuss@lists.linuxfoundation.org>
 Subject: Re: [Ksummit-discuss] [MAINTAINERS SUMMIT] Keeping reviews
-	meaningful
+ meaningful
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.12
 Precedence: list
@@ -66,64 +88,72 @@ Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-On Mon, Aug 19, 2019 at 09:04:49PM +0200, Thomas Gleixner wrote:
-> On Mon, 19 Aug 2019, Christian Brauner wrote:
-> > On Mon, Aug 19, 2019 at 10:26:01AM +0200, Thomas Gleixner wrote:
+On Mon, 2019-08-19 at 10:13 +0200, Julia Lawall wrote:
+> 
+> On Mon, 19 Aug 2019, Jan Kara wrote:
+> 
+> > On Mon 19-08-19 09:06:26, Julia Lawall wrote:
 > > > On Mon, 19 Aug 2019, Jan Kara wrote:
+> > > 
 > > > > On Sat 17-08-19 21:35:29, Paul Walmsley wrote:
 > > > > > On Mon, 15 Jul 2019, Theodore Y. Ts'o wrote:
 > > > > > 
 > > > > > > I'd suggest changing the text to read:
 > > > > > > 
-> > > > > >  	 - Acked-by: indicates an agreement by the maintainer or
+> > > > > >  	 - Acked-by: indicates an agreement by the
+> > > > > > maintainer or
 > > > > > > 	   reviewer of the the relevant code that the patch is
 > > > > > > 	   appropriate for inclusion into the kernel.
 > > > > > 
-> > > > > This would be a positive step forward.  I would be in favor of this. 
+> > > > > This would be a positive step forward.  I would be in favor
+> > > > > of this.
 > > > > > 
-> > > > > It would also be good to state here, if it isn't stated already, that 
-> > > > > "reviewer" means "someone who is listed in an R: line in MAINTAINERS".
+> > > > > It would also be good to state here, if it isn't stated
+> > > > > already, that "reviewer" means "someone who is listed in an
+> > > > > R: line in MAINTAINERS".
 > > > > 
-> > > > I don't think that 'R:' entry in MAINTAINERS should be really asked for.
-> > > > IMO that is unnecessary bureaucracy and discourages review from people
-> > > > that are not core developers. Sure the quality of the review may be lower
-> > > > than from core developer but still there's some value in it. So I'd really
-> > > > leave it at the discretion of the maintainer whether he accepts or just
-> > > > ignores Reviewed-by tag.
+> > > > I don't think that 'R:' entry in MAINTAINERS should be really
+> > > > asked for. IMO that is unnecessary bureaucracy and discourages
+> > > > review from people that are not core developers. Sure the
+> > > > quality of the review may be lower than from core developer but
+> > > > still there's some value in it. So I'd really leave it at the
+> > > > discretion of the maintainer whether he accepts or just ignores
+> > > > Reviewed-by tag.
 > > > 
-> > > The R: in MAINTAINERS is there to make sure these people get actually CC'ed
-> > > on patches against that particular subsystem. It does not mean that others
-> > > are not allowed or encouraged to review patches in that area.
+> > > Is there some other tag for "I'm interested in and reasonably
+> > > knowledgeable about this change and it looks good to me"?
+> > > 
+> > > Note that there is a double "the" in the above text.
 > > 
-> > If I may, I agree that only accepting acks/reviews by people in R: is
-> > too strict.
+> > No. But is there a need for such tag? I, as a maintainer, would
+> > like to see in the email where someone offers the Reviewed-by tag,
+> > how confident the reviewer feels (otherwise I just make my educated
+> > guess). But I don't really see a point in recording this in the
+> > changelog. After all the tag in the changelog serves only two
+> > purposes I know about - to give credit to the reviewer and to have
+> > another person to blame (CC on bug reports ;). So I don't see any
+> > need in recording quality of review in the changelog for long-term
+> > recording of the fact...
 > 
-> It is.
-> 
-> > Imho, it sends the wrong message and probably discourages
-> > participation in kernel development. It's also a high bar currently to
-> > get people even listed as R: In my experience people are reluctant to
-> > suggest they be added as R: in that file because it might be conceived
-> > as being overly assertive of ones abilities. One easy fix could be to
-> > encourage maintainers of a given subsystem to be more open to add people
-> > they trust as R:
-> 
-> We do, but not over the head of the developer. We ask people before doing
+> So is there no tag at all for what I describe?  Concretely,
+> Coccinelle reports bugs via 0-day, sometimes people send me the
+> patch, and sometimes I would like to say "yes, I looked at it and it
+> seems to be fixing the bug that was reported", without implying that
+> I have extensively tested the code.  So is there a concise
+> unambiguous way to do that?
 
-Sorry, I implicitly assumed the asking-for-developer-consent part.
-You're right.
+Yes, that's "Reviewed-by:".  If you actually tested it, you'd add a
+"Tested-by:" as well.  Sometimes people do
 
-> that and quite some decline.
+Reviewed-by: me@me.com #the bits I understand or care about
 
-Right, I had that experience as well. Imho, that's even more of a sign
-that restricting "valuable" reviewers to R: is not a good idea.
+But usually it's up to the maintainer of the file to decide whether the
+review is meaningful enough to be accepted.  Whether the Reviewed-by:
+is accepted by the maintainer is completely their decision and really
+has nothing to do with R: tags in the Maintainers file.
 
-One idea I had a while back - and this maybe crazy - was to make a
-review by a certain person mandatory: A way to mark a given patch as
-requiring a review by someone before it can be considered for inclusion,
-i.e. something stronger than "Cc e.g. "Requires-Review-by" without
-necessarily having that person to be listed in MAINTAINERS. Maybe that's
-already expressed in the R: field though...
+James
+
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
