@@ -2,36 +2,46 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id CEFF29B80E
-	for <lists@lfdr.de>; Fri, 23 Aug 2019 23:16:15 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 6A56F9B816
+	for <lists@lfdr.de>; Fri, 23 Aug 2019 23:26:11 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id 276B9DA8;
-	Fri, 23 Aug 2019 21:16:04 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id 36C75E2A;
+	Fri, 23 Aug 2019 21:26:01 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id D8686CDE
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id 42EE7DE1
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri, 23 Aug 2019 21:16:01 +0000 (UTC)
+	Fri, 23 Aug 2019 21:25:59 +0000 (UTC)
 X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
-Received: from Galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id ABBE68A2
+Received: from heliosphere.sirena.org.uk (heliosphere.sirena.org.uk
+	[172.104.155.198])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id B5E6A7FB
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri, 23 Aug 2019 21:16:00 +0000 (UTC)
-Received: from p5de0b6c5.dip0.t-ipconnect.de ([93.224.182.197] helo=nanos)
-	by Galois.linutronix.de with esmtpsa
-	(TLS1.2:DHE_RSA_AES_256_CBC_SHA256:256) (Exim 4.80)
-	(envelope-from <tglx@linutronix.de>)
-	id 1i1Gub-0000qX-LZ; Fri, 23 Aug 2019 23:15:57 +0200
-Date: Fri, 23 Aug 2019 23:15:55 +0200 (CEST)
-From: Thomas Gleixner <tglx@linutronix.de>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-In-Reply-To: <20190823193832.GE4791@pendragon.ideasonboard.com>
-Message-ID: <alpine.DEB.2.21.1908232150580.1939@nanos.tec.linutronix.de>
-References: <CAHk-=wgqemMJqX4SzbK52KicWSiK4_1qUus=q1akkwdEqXOkvQ@mail.gmail.com>
-	<CAHk-=whrLfPipY7JHnCiFp7vbnshG1Om7tcesa8vqYwu=F=BkA@mail.gmail.com>
-	<CAOw6vbJCCeM_62WARKECkthCafhfpxqWc-R9SBMnc6VVMZ0hkg@mail.gmail.com>
+	Fri, 23 Aug 2019 21:25:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=sirena.org.uk; s=20170815-heliosphere; h=In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=aBDGKD1L7bqpwqKG1Eqantw70g33CShius3DkAL8I38=;
+	b=w2NPirWb08NveoNdnyJhufEWW
+	8PCwOayNe4A1d/abgh+lTD9H7mw7crIf+dLoT92zjFw4FZKOfoTf9D//QcB+0LUZ2FNQvBJYlVdpt
+	9NJs7u3vUD78xcB2wow/yvwF9tCq3Psvi8+RpztbPc6Bnj0tETdeX5udKC+8fiMGTKoKE=; 
+Received: from [92.54.175.117] (helo=fitzroy.sirena.org.uk)
+	by heliosphere.sirena.org.uk with esmtpsa
+	(TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
+	(envelope-from <broonie@sirena.org.uk>)
+	id 1i1H4F-0005Ss-Hz; Fri, 23 Aug 2019 21:25:55 +0000
+Received: by fitzroy.sirena.org.uk (Postfix, from userid 1000)
+	id 3FC4FD02CD1; Fri, 23 Aug 2019 22:25:55 +0100 (BST)
+Date: Fri, 23 Aug 2019 22:25:55 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Thomas Gleixner <tglx@linutronix.de>
+Message-ID: <20190823212555.GV23391@sirena.co.uk>
+References: <CAOw6vbJCCeM_62WARKECkthCafhfpxqWc-R9SBMnc6VVMZ0hkg@mail.gmail.com>
 	<20190823151843.GH8130@mit.edu>
 	<CAOw6vb+1LH8t20S_3kC6xyGZAhrDa3Pe4ZptsJqoQzXf3WCOeg@mail.gmail.com>
 	<alpine.DEB.2.21.1908231740020.1896@nanos.tec.linutronix.de>
@@ -40,14 +50,13 @@ References: <CAHk-=wgqemMJqX4SzbK52KicWSiK4_1qUus=q1akkwdEqXOkvQ@mail.gmail.com>
 	<20190823164602.GB112509@dtor-ws>
 	<alpine.DEB.2.21.1908232108580.1939@nanos.tec.linutronix.de>
 	<20190823193832.GE4791@pendragon.ideasonboard.com>
-User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
+	<alpine.DEB.2.21.1908232150580.1939@nanos.tec.linutronix.de>
 MIME-Version: 1.0
-X-Linutronix-Spam-Score: -1.0
-X-Linutronix-Spam-Level: -
-X-Linutronix-Spam-Status: No , -1.0 points, 5.0 required, ALL_TRUSTED=-1,
-	SHORTCIRCUIT=-0.0001
-X-Spam-Status: No, score=-4.2 required=5.0 tests=BAYES_00,RCVD_IN_DNSWL_MED
-	autolearn=ham version=3.3.1
+In-Reply-To: <alpine.DEB.2.21.1908232150580.1939@nanos.tec.linutronix.de>
+X-Cookie: Don't SANFORIZE me!!
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Spam-Status: No, score=-1.9 required=5.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,RCVD_IN_DNSWL_NONE autolearn=ham version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
 Cc: Joel Fernandes <joelaf@google.com>, Barret Rhoden <brho@google.com>,
@@ -70,122 +79,61 @@ List-Post: <mailto:ksummit-discuss@lists.linuxfoundation.org>
 List-Help: <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=help>
 List-Subscribe: <https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss>,
 	<mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4922291763947785282=="
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-Laurent,
 
-On Fri, 23 Aug 2019, Laurent Pinchart wrote:
-> On Fri, Aug 23, 2019 at 09:17:04PM +0200, Thomas Gleixner wrote:
-> >
-> > Guess what, how I inject the Link to the coverletter of the previous
-> > version of a patch series? Definitely not manualy. 
-> 
-> Would you be able to share your method for automating this ? I'm sure
-> many kernel developers could benefit from such automation (both those
-> who insert links manually now, and those who don't insert links at all
-> because doing it manually is too tedious).
+--===============4922291763947785282==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="VmyrZ50r30oK77nV"
+Content-Disposition: inline
 
-You asked. Don't complain ...
 
-I use quilt for all patch development work and also for my maintainer work,
-IOW for everything. So I have tooling around that in and outside of emacs.
+--VmyrZ50r30oK77nV
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-I store quilt queues (series file, patches, notes and some more) in git for
-versioning. When I post a series I create a mbox with quilt and some custom
-scripting around it.
+On Fri, Aug 23, 2019 at 11:15:55PM +0200, Thomas Gleixner wrote:
 
-Those scripts check whether there is already a mbox or several in the
-patches directory and if not, then the resulting mbox name is mbox-0. If so
-then the highest numbered mbox is looked up and the message id of the cover
-letter extracted and injected into the template which is loaded into the
-editor to write the cover letter. The resulting mbox name is
-mbox-$HIGHEST+1. That mbox is then sent out and also archived in git.
+> For the maintainer side there was something mentioned about some git-am
+> option which allows to insert the link somehow with some extra hook
+> magic. IIRC, it's in one of the ksummit threads, but I can't find it right
+> now.
 
-For one off patches, I usally do not bother to save it. It's on the
-mailing-list, right? So I utilize the method which I have for incoming
-(maintainer work) stuff, which allows me to pick the patch from the list,
-feed it through the usual machinery and then I have the msgid link as well,
-which I then just move into the discard section when I send out V2. That's
-also my workflow when I send out a quick fix for an issue in a reply
-without changelog etc. If the reporter confirms, then I just pick it up,
-add a changelog and commit it.
+It was to have this:
 
-For incoming stuff, I just mark a full mailthread or several of them in the
-mail client, store it as mbox and then I have a script which creates a
-quilt series out of it. That script does a bunch of things:
+. git-sh-setup
+perl -pi -e 's|^Message-Id:\s*<?([^>]+)>?$|Link: https://lore.kernel.org/r/$1|g;' "$1"
 
-    - Collect Reviewed-by, Acked-by, Tested-by tags either from individual
-      replies or replies to the cover letter. The latter apply to the whole
-      series.
+in your .git/hooks/applypatch-msg.
 
-    - Adds my Signed-off-by
+--VmyrZ50r30oK77nV
+Content-Type: application/pgp-signature; name="signature.asc"
 
-    - Extract message-id for each patch and add the
-      Link: https://lkml.kernel.org/r/$MSGID
+-----BEGIN PGP SIGNATURE-----
 
-    - A few magic things which I need for my emacs integration
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAl1gWeIACgkQJNaLcl1U
+h9Agugf/XnTjHkM5DfY80KLvV0G6fXiGoe09k1flScgFlIAGq23fURny8O3hvq/j
+Yom44hSrMQE+IJL4NG39EpUUiAWzlsdN5lbdvlm9V9tBp/FqwycjGxBAZenA0uAe
+c1VbndPyfbB4sXZHRrfvFazBOY99VH/Y0zP6xt9rJ4GQg7y1jLOcsaEt4KQQOo/9
+fUCv46kNxG6LMvTUXkZEDh78TbpjqGH/A/gHfUuv9d0kD4aYbDHNtJYmHn0ixDt3
+8J7lEQmuiA5h1WIFHsSsDadRH43cOd1kdnWdT67D+kjwcZgIjRHinbNqSz7T6S18
+grxAz1aIOKDnRLVqi12jKlsgSJO3ug==
+=wIL4
+-----END PGP SIGNATURE-----
 
-I do that for review, applying patches and for development (addressing
-feedback on a posted series).
+--VmyrZ50r30oK77nV--
 
-Review usually only when it's complex stuff where I really need to see the
-context. Emacs + quilt.el allows me to push/pop the patches, to see patch
-and context, unapply/reapply hunks. I then can just create a reply from the
-current patch (via Link...MSGID) by pulling out the original mail from the
-mbox with more scripting magic and emacs shortcuts which are just burned
-into my fingers, but I have to look them up in .emacs if someone asks what
-I'm doing :)
+--===============4922291763947785282==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
-When done, I just take the replies which I created on the way and send them
-out. Either directly or I load them into the mail client when I want to
-polish them some more.
-
-For applying stuff, I also push/pop, review, do final tweaks if necessary,
-polish the changelog etc. When I'm happy with the result then the series is
-imported into git and pushed into a compile machine for basic checks and I
-usually kick some smoke test as well. When thats all good I push it out
-into my kernel.org tree and let 0-bot and Ingo's test machinery chew on it.
-
-I also use that for development to address review feedback. So I can go
-through the replies in the mbox, eventually write a reply, fixup the
-corresponding patches, take notes which I can use for the next cover
-letter, etc.
-
-For backporting I have a git to quilt export, which I created for all that
-speculation disaster work. That one inserts the 'commit xxxx upstream'
-note. I use quilt for that because I'm so used to fix rejects in emacs or
-to edit the patch (hunk) in the emacs window before applying it. Aside of
-that my brain refuses to work with those git conflict markers and these
-half consistent git states. That's like me and vi[m]. I just know how to
-get out of the mess without creating further damage. :)
-
-The scripts and tools are all highly undocumented and embarrassing hackery
-glued together over two decades; IOW the kind of duct tape engineering
-which I fundamentally dislike. :) At least most of my emacs quilt mess is
-gone by now as someone with lisp brains did it proper.
-
-That said, my git foo is limited and my oldschool habits have just grown
-some warts to utilize the parts of git which I really need and like. Of
-course all wrapped in scripts (bash, python, lisp) which hide the gory
-details of command line arguments from my brain.
-
-So I can't tell how that can be done in git, but I assume that it's
-possible to tweak git-email (or what ever the command is) to emit that
-message id and then stash it away in something like git notes for later
-retrieval.
-
-For the maintainer side there was something mentioned about some git-am
-option which allows to insert the link somehow with some extra hook
-magic. IIRC, it's in one of the ksummit threads, but I can't find it right
-now.
-
-Thanks,
-
-	tglx
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
 https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss
+
+--===============4922291763947785282==--
