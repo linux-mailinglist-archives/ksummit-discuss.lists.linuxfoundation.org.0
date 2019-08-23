@@ -2,61 +2,61 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id 142F19A5D7
-	for <lists@lfdr.de>; Fri, 23 Aug 2019 04:58:43 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 56B2B9A5E3
+	for <lists@lfdr.de>; Fri, 23 Aug 2019 05:04:27 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id 0C47212CA;
-	Fri, 23 Aug 2019 02:58:27 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id B0A0F1310;
+	Fri, 23 Aug 2019 03:04:14 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id 80705C9A
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id 8087D12F9
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri, 23 Aug 2019 02:58:24 +0000 (UTC)
+	Fri, 23 Aug 2019 03:04:12 +0000 (UTC)
 X-Greylist: whitelisted by SQLgrey-1.7.6
 Received: from mail-lj1-f196.google.com (mail-lj1-f196.google.com
 	[209.85.208.196])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id D3CF067F
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 30C9967F
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri, 23 Aug 2019 02:58:23 +0000 (UTC)
-Received: by mail-lj1-f196.google.com with SMTP id x3so7453921lji.5
+	Fri, 23 Aug 2019 03:04:11 +0000 (UTC)
+Received: by mail-lj1-f196.google.com with SMTP id t14so7480283lji.4
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Thu, 22 Aug 2019 19:58:23 -0700 (PDT)
+	Thu, 22 Aug 2019 20:04:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux-foundation.org; s=google;
 	h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-	:cc; bh=pllef4GKLkqE2N4p3HJ6vDldfHblww4CSUu4MylFyr8=;
-	b=BJJ4wimlD6ra4CEEmDuq1MRSjF6nvS+2hTgzH/njXlGVhuewbBBLKKzfQ3DWpQUj/T
-	Ra4zhiU+BrZSyOondm7Ru/bQtH8tpRB9zUpxC/n7snDK07IiAWkSwWF5Srsb9sGAJGYx
-	bPgSqbbZFuNsbGMhdqzF/cagLyBrRS26Pkw98=
+	:cc; bh=Yo56gtkRALOKqbzhI4j8av1UiG/NlL3t1XiOPYrBG90=;
+	b=Oo15uvZNOc90diORBNP2nTPXwL5kTyqtkwArYt/wI61LWy225xw81f7IA2iTemCoEx
+	eEFmlzTJQKMPzWlQTH1VU8FaN5aZwzT+aULpQpQDFBmk/EvgMYTykGeGptCO+B/W6aCP
+	/JkDorWHJcGhjvmWosB2pEWfGNmaHVkL5DMEs=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
 	h=x-gm-message-state:mime-version:references:in-reply-to:from:date
 	:message-id:subject:to:cc;
-	bh=pllef4GKLkqE2N4p3HJ6vDldfHblww4CSUu4MylFyr8=;
-	b=UcxEEzTGcd4TXITL632bO0TzzMOBcRWdMzA0slNmZyLcHyhpprMxxj65LG0qRX2Tlq
-	9vr6h07aQdLxA3CscE0oqYa9eiZsKV/n/msYPYoiwRrq+jUPpQR+xdXiFwL1pW8BuUCI
-	8OjYFKbXyWHM2VT0BDnf5StorkpF7x6oo8lqqMMkRg8GWKYvI2ICkC7VhG0/uvFBHECI
-	+jbrAYkr1RZ0EN6ZviS/a5oGcTG4jKUfCE3M65KHoNk6xPIRA2EDEktbMPUAfUzFIagW
-	Uvh0m5aD5tTn0YytmNxKLz2SM8gv2jEdr/kgNkvZs0s4dPEILHH/VZSausLVb+8xHwuu
-	+sPw==
-X-Gm-Message-State: APjAAAXZcnZaOCYPfTCcg0W0v8e7G5MAG/Ack3Rpzq5bFADenJNsIXy7
-	nahlLcWMYIKtfZmxOyE32SsdgNQsV+rgnw==
-X-Google-Smtp-Source: APXvYqwT0NWHLWcxVPAWCret26AczQVzFkB7s1QhCPFNFK9u8iuFJdANAnXbkXCnqf23KaURqRAIWg==
-X-Received: by 2002:a2e:3109:: with SMTP id x9mr1359291ljx.19.1566529100942;
-	Thu, 22 Aug 2019 19:58:20 -0700 (PDT)
-Received: from mail-lj1-f174.google.com (mail-lj1-f174.google.com.
-	[209.85.208.174])
-	by smtp.gmail.com with ESMTPSA id f17sm360951lfa.67.2019.08.22.19.58.19
+	bh=Yo56gtkRALOKqbzhI4j8av1UiG/NlL3t1XiOPYrBG90=;
+	b=ly2TVHtYAUGjdw12I1TrYmUiXm2c7KJ1x9c7gppktFH8GAdUPsYIfpA/4bj8KZzykq
+	Z5RKHj4LGSz/1xOkza11nfeGwRGBx1cbkHorGYRHO9DYctJnAxInkBKM+xdUmoMRnSsp
+	teL0IdJGo2boEEVyLkZFB9EDYfYosQBypmmlu2kMbwwHUGHCwed93aKx2tCe5j/ppI7i
+	4P4dZpFjogewgH5jT20rVUOoSYqJvXOw98xe/y6vQ+jW8kDlNaXbmktkgOOBaReGFJox
+	UuqE1RJS3sprxly+Mj/oKj5hIrts3AYupAX4IjuchegEqwWDcNGKvF3SfPNmyvN/7h0a
+	HbSg==
+X-Gm-Message-State: APjAAAXTQkKBQH7SKUscBtqdp1H316OicfloezzAkpO38gnQfzH40ZLb
+	cvQdqEMPR3EpFrzH6QCs5NHgNSMo7pZK/A==
+X-Google-Smtp-Source: APXvYqzcCpg16JXwzdmb45rOWWETBvxKTPOPdmIK/0uspP9awtPUdumlcchNyblCKyqU2iNxiLOs2w==
+X-Received: by 2002:a2e:9d90:: with SMTP id c16mr1413750ljj.221.1566529448890; 
+	Thu, 22 Aug 2019 20:04:08 -0700 (PDT)
+Received: from mail-lj1-f182.google.com (mail-lj1-f182.google.com.
+	[209.85.208.182])
+	by smtp.gmail.com with ESMTPSA id b9sm405771ljd.52.2019.08.22.20.04.07
 	for <ksummit-discuss@lists.linuxfoundation.org>
 	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Thu, 22 Aug 2019 19:58:20 -0700 (PDT)
-Received: by mail-lj1-f174.google.com with SMTP id h15so7426060ljg.10
+	Thu, 22 Aug 2019 20:04:08 -0700 (PDT)
+Received: by mail-lj1-f182.google.com with SMTP id t14so7480244lji.4
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Thu, 22 Aug 2019 19:58:19 -0700 (PDT)
-X-Received: by 2002:a2e:88c7:: with SMTP id a7mr1429591ljk.72.1566529099526;
-	Thu, 22 Aug 2019 19:58:19 -0700 (PDT)
+	Thu, 22 Aug 2019 20:04:07 -0700 (PDT)
+X-Received: by 2002:a2e:9702:: with SMTP id r2mr1361817lji.84.1566529447660;
+	Thu, 22 Aug 2019 20:04:07 -0700 (PDT)
 MIME-Version: 1.0
 References: <CAD=FV=UPjPpUyFTPjF-Ogzj_6LJLE4PTxMhCoCEDmH1LXSSmpQ@mail.gmail.com>
 	<CAHk-=whFbgy4RXG11c_=S7O-248oWmwB_aZOcWzWMVh3w7=RCw@mail.gmail.com>
@@ -64,11 +64,12 @@ References: <CAD=FV=UPjPpUyFTPjF-Ogzj_6LJLE4PTxMhCoCEDmH1LXSSmpQ@mail.gmail.com>
 	<a6e7eedd-857c-bfe0-4a14-f4140d6fc21e@roeck-us.net>
 	<CAOesGMgryBghLuTSufjhOUFUFDvL2Jv7qJ3uwaZUwCkMXpEmng@mail.gmail.com>
 	<20190823013619.GA8130@mit.edu>
-In-Reply-To: <20190823013619.GA8130@mit.edu>
+	<CAHk-=wgqemMJqX4SzbK52KicWSiK4_1qUus=q1akkwdEqXOkvQ@mail.gmail.com>
+In-Reply-To: <CAHk-=wgqemMJqX4SzbK52KicWSiK4_1qUus=q1akkwdEqXOkvQ@mail.gmail.com>
 From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Thu, 22 Aug 2019 19:58:03 -0700
-X-Gmail-Original-Message-ID: <CAHk-=wgqemMJqX4SzbK52KicWSiK4_1qUus=q1akkwdEqXOkvQ@mail.gmail.com>
-Message-ID: <CAHk-=wgqemMJqX4SzbK52KicWSiK4_1qUus=q1akkwdEqXOkvQ@mail.gmail.com>
+Date: Thu, 22 Aug 2019 20:03:51 -0700
+X-Gmail-Original-Message-ID: <CAHk-=whrLfPipY7JHnCiFp7vbnshG1Om7tcesa8vqYwu=F=BkA@mail.gmail.com>
+Message-ID: <CAHk-=whrLfPipY7JHnCiFp7vbnshG1Om7tcesa8vqYwu=F=BkA@mail.gmail.com>
 To: "Theodore Y. Ts'o" <tytso@mit.edu>
 X-Spam-Status: No, score=-1.7 required=5.0 tests=BAYES_00,DKIM_INVALID,
 	DKIM_SIGNED,RCVD_IN_DNSWL_NONE autolearn=no version=3.3.1
@@ -99,41 +100,29 @@ Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-On Thu, Aug 22, 2019 at 6:36 PM Theodore Y. Ts'o <tytso@mit.edu> wrote:
+On Thu, Aug 22, 2019 at 7:58 PM Linus Torvalds
+<torvalds@linux-foundation.org> wrote:
 >
-> Surely it's obvious that:
->
-> Link: https://linux-review.googlesource.com/c/1158
->
-> is more useful than:
->
-> Change-Id: I3268f9036512c4378cde1da37e0612b43ed4d384
+> So yes, I'd *much* rather see that "Link" line than try to make a
+> "Change-ID" line be a thing.
 
-Yes, I think that just using the link when you have a public-facing
-gerrit database is perfectly fine already today, and people could
-start using it.
+Tangential note: since it looks like "Link:" lines are going to get
+more common in general, maybe somebody with the right tck/tk-fu can
+make a tool like 'gitk' be able to just do the hyperlinking thing (it
+already does it for commit hashes in the commit message, but wouldn't
+it be convenient to do that for web links too and open a browser
+tab?).
 
-Might that link some day die? Sure. That's fundamental to any external
-link. I don't think it's all that productive to then argue whose links
-are more likely to die before some other link, unless it looks like
-some project is actively trying to game the system and has a pattern
-of having links that are active only for a short while after the
-commit has gone public.
+And maybe we can even make git.kernel.org do it too (I think that uses cgit?).
 
-And I don't see much point to doing that.
+I think that might make it just nicer in general to browse the logs
+and actually follow the links without cut-and-paste games..
 
-So yes, I'd *much* rather see that "Link" line than try to make a
-"Change-ID" line be a thing.
+So using a generic "Link:" tag that can be used for multiple different
+things sounds like a win in general over some specialized change-ID
+tag. No?
 
-Of course, looking at that particular link, my initial reaction is
-"people are bad spellers". The word 'amend' has a single 'm' ;)
-
-And it _is_ important that the link in question is stable, of course.
-Some systems have problems with that. Is that "c/1158" actually a
-stable long-lived name that will stay around as the thing is modified?
-I don't know how that system works.
-
-           Linus
+              Linus
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
