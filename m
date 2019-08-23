@@ -2,56 +2,34 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id B149A9B787
-	for <lists@lfdr.de>; Fri, 23 Aug 2019 22:02:45 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id CEFF29B80E
+	for <lists@lfdr.de>; Fri, 23 Aug 2019 23:16:15 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id EE83AEE3;
-	Fri, 23 Aug 2019 20:02:32 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id 276B9DA8;
+	Fri, 23 Aug 2019 21:16:04 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id 63F0DE28
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id D8686CDE
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri, 23 Aug 2019 20:02:30 +0000 (UTC)
-X-Greylist: whitelisted by SQLgrey-1.7.6
-Received: from mail-lj1-f176.google.com (mail-lj1-f176.google.com
-	[209.85.208.176])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 65334E6
+	Fri, 23 Aug 2019 21:16:01 +0000 (UTC)
+X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
+Received: from Galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id ABBE68A2
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri, 23 Aug 2019 20:02:29 +0000 (UTC)
-Received: by mail-lj1-f176.google.com with SMTP id x3so9940113lji.5
-	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri, 23 Aug 2019 13:02:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=brauner.io; s=google;
-	h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-	:cc; bh=tbvcz+zVT+qQ15MYMD6UJLF7VJmSefMIjoQoXDdwTCo=;
-	b=EXM2QxUjvR3fYhYnOD79A6dpZpCQKi7RLs2uVjaov2BfYutO6SYZRGOXHmp9WFGDO1
-	CGFzhIYTWTt7sYhx6FuIQywGC0eqwAAm+s+uFApzVtywuzlqp2st/drSQD7d5nP4SN8h
-	QD+HU8+TkKlQXAmAT+TCDeLb5USVW3/66xNQycWbykhM63LGaSgwuIxNOqM9u+nG3GwT
-	dOs5aAux4X+NnVINxJwnAsdQyLXFDyRTPx6iI2hlRNKfyizDaaaHM3sEwJ9gDbsgnQZx
-	xe88eAuUuTgE7Mrj1C/tyxGIJrKRE0NUz0JLz5FGDN9BtGSgqJxwIITqOI6XHJoS4Pn4
-	I2FQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-	:message-id:subject:to:cc;
-	bh=tbvcz+zVT+qQ15MYMD6UJLF7VJmSefMIjoQoXDdwTCo=;
-	b=DrSffqJIctc7YgvPHJkuYTPfMW/A2tRIFonK7Et8LzF2pdlKQVntipIh3oS4PssoIc
-	Va0q/f/Qf+Z6GB8avp7OZFQCjNI1GIXTRsFpH7koDbqptJxeVE4lKmycNM7qchORek9Z
-	sMXJ3eSIHdm2iOEzRHmYpFD1lNx/LCSYMk/c/EliCR51IIk9GV/wBBzQxZ96oE9hhyAU
-	3E9TUiOLhkgPVdWToEng9WXa9I1y4iaupBQyFeRgKqBAlgTnQBM+jWbYM23S5A2grT+o
-	SzH37SNw1oWNVF6Gf29n+X7tb6abfd9YQab2kunnk3YkKVZ4cs1P9JGR7YdiUsZr6B/l
-	SABw==
-X-Gm-Message-State: APjAAAV4jRFH1IooljXeGVjLgXSVKxV/TKH9JQa0btiaYgovvmCQ1Sxz
-	6xo/iRG4l6tajwek2jfc3uOpzbRz7afSblnA9a9FmQ==
-X-Google-Smtp-Source: APXvYqwG6WfpTdd0NB71xn/MBq5Pl353PmucThz0EBqrVr0PZV5891Id+I/p/yCLGDQbxl8tOIRu2G0PRGVVjWDb0fY=
-X-Received: by 2002:a2e:331a:: with SMTP id d26mr3890848ljc.86.1566590547703; 
-	Fri, 23 Aug 2019 13:02:27 -0700 (PDT)
-MIME-Version: 1.0
-References: <CAOesGMgryBghLuTSufjhOUFUFDvL2Jv7qJ3uwaZUwCkMXpEmng@mail.gmail.com>
-	<20190823013619.GA8130@mit.edu>
-	<CAHk-=wgqemMJqX4SzbK52KicWSiK4_1qUus=q1akkwdEqXOkvQ@mail.gmail.com>
+	Fri, 23 Aug 2019 21:16:00 +0000 (UTC)
+Received: from p5de0b6c5.dip0.t-ipconnect.de ([93.224.182.197] helo=nanos)
+	by Galois.linutronix.de with esmtpsa
+	(TLS1.2:DHE_RSA_AES_256_CBC_SHA256:256) (Exim 4.80)
+	(envelope-from <tglx@linutronix.de>)
+	id 1i1Gub-0000qX-LZ; Fri, 23 Aug 2019 23:15:57 +0200
+Date: Fri, 23 Aug 2019 23:15:55 +0200 (CEST)
+From: Thomas Gleixner <tglx@linutronix.de>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+In-Reply-To: <20190823193832.GE4791@pendragon.ideasonboard.com>
+Message-ID: <alpine.DEB.2.21.1908232150580.1939@nanos.tec.linutronix.de>
+References: <CAHk-=wgqemMJqX4SzbK52KicWSiK4_1qUus=q1akkwdEqXOkvQ@mail.gmail.com>
 	<CAHk-=whrLfPipY7JHnCiFp7vbnshG1Om7tcesa8vqYwu=F=BkA@mail.gmail.com>
 	<CAOw6vbJCCeM_62WARKECkthCafhfpxqWc-R9SBMnc6VVMZ0hkg@mail.gmail.com>
 	<20190823151843.GH8130@mit.edu>
@@ -61,14 +39,15 @@ References: <CAOesGMgryBghLuTSufjhOUFUFDvL2Jv7qJ3uwaZUwCkMXpEmng@mail.gmail.com>
 	<CAJWu+ooOzZ3vFsW40ok8M0MbrZOcx8xJsrN8Ra_VVq0EavzQfQ@mail.gmail.com>
 	<20190823164602.GB112509@dtor-ws>
 	<alpine.DEB.2.21.1908232108580.1939@nanos.tec.linutronix.de>
-In-Reply-To: <alpine.DEB.2.21.1908232108580.1939@nanos.tec.linutronix.de>
-From: Christian Brauner <christian@brauner.io>
-Date: Fri, 23 Aug 2019 22:02:16 +0200
-Message-ID: <CAHrFyr6rQHiQAY4Wcv4WzUS2B5tBfrnWvyTjD4ktHvsEBMxkCw@mail.gmail.com>
-To: Thomas Gleixner <tglx@linutronix.de>
-X-Spam-Status: No, score=-2.0 required=5.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID, DKIM_VALID_AU, HTML_MESSAGE,
-	RCVD_IN_DNSWL_NONE autolearn=ham version=3.3.1
+	<20190823193832.GE4791@pendragon.ideasonboard.com>
+User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
+MIME-Version: 1.0
+X-Linutronix-Spam-Score: -1.0
+X-Linutronix-Spam-Level: -
+X-Linutronix-Spam-Status: No , -1.0 points, 5.0 required, ALL_TRUSTED=-1,
+	SHORTCIRCUIT=-0.0001
+X-Spam-Status: No, score=-4.2 required=5.0 tests=BAYES_00,RCVD_IN_DNSWL_MED
+	autolearn=ham version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
 Cc: Joel Fernandes <joelaf@google.com>, Barret Rhoden <brho@google.com>,
@@ -91,164 +70,122 @@ List-Post: <mailto:ksummit-discuss@lists.linuxfoundation.org>
 List-Help: <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=help>
 List-Subscribe: <https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss>,
 	<mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7806357223355692740=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
---===============7806357223355692740==
-Content-Type: multipart/alternative; boundary="0000000000001acbc50590ce4934"
+Laurent,
 
---0000000000001acbc50590ce4934
-Content-Type: text/plain; charset="UTF-8"
-
-On Fri, Aug 23, 2019, 21:17 Thomas Gleixner <tglx@linutronix.de> wrote:
-
-> On Fri, 23 Aug 2019, Dmitry Torokhov wrote:
-> > On Fri, Aug 23, 2019 at 12:35:03PM -0400, Joel Fernandes wrote:
-> > > On Fri, Aug 23, 2019 at 12:19 PM Dmitry Torokhov
-> > > <dmitry.torokhov@gmail.com> wrote:
-> > > > On Fri, Aug 23, 2019 at 05:48:55PM +0200, Thomas Gleixner wrote:
-> > > > >
-> > > > > Yes, it's work for the submitter, but it's always work if the
-> submitter
-> > > > > wants to have a proper trace.
-> > > >
-> > > > Here is where I disagree with you. As a patch submitter, I frankly
-> could
-> > > > not care less about proper trace, history, etc. I might be putting
-> cover
-> > >
-> > > But that is exactly what the problem statement is. Doug does care
-> > > about tracing/history and wants that to be more robust etc.
+On Fri, 23 Aug 2019, Laurent Pinchart wrote:
+> On Fri, Aug 23, 2019 at 09:17:04PM +0200, Thomas Gleixner wrote:
 > >
-> > Doug here is not a submitter ;)
->
-> Well, if he wants the changeids there then submitters need to insert them,
-> right? So it's work no matter what unless it can be automated with tooling.
->
-> Guess what, how I inject the Link to the coverletter of the previous
-> version of a patch series? Definitely not manualy.
->
-> So yes, if you want proper traceability then all involved people have to do
-> something. If it can be done with tooling fully automated, fine. If not,
-> it's work whatever method you chose.
->
-> We cannot enforce the changeid thing in the community, but Google can
-> inforce it internally. So we give them a way to be traceable w/o plastering
-> the kernel logs with potentially useless information.
->
-> That said, I'm fine with a Link as well, as long as it is public
->
+> > Guess what, how I inject the Link to the coverletter of the previous
+> > version of a patch series? Definitely not manualy. 
+> 
+> Would you be able to share your method for automating this ? I'm sure
+> many kernel developers could benefit from such automation (both those
+> who insert links manually now, and those who don't insert links at all
+> because doing it manually is too tedious).
 
-A link is definitely more helpful then the change-id.
-Quite a few maintainers are already making use of links to various sites
-anyway so I don't see a good reason not allow Links to Gerrit or whatever.
+You asked. Don't complain ...
 
-accessible. If not, then the coverletter/discard area is the place to use.
->
+I use quilt for all patch development work and also for my maintainer work,
+IOW for everything. So I have tooling around that in and outside of emacs.
 
-Right, change-id should go after --- which is also what Dmitry Vyukov
-suggested.
+I store quilt queues (series file, patches, notes and some more) in git for
+versioning. When I post a series I create a mbox with quilt and some custom
+scripting around it.
 
-One thing I wonder though. What's the ultimate goal here?
-Enabling people to review on Gerrit and lkml simultaneously?
-I mean, apart from tracking versions of patch series/patches this can't be
-all, right?
-We can already do that right now and I'm already doing that when applying
-stuff to my tree: inserting the link to the version of the patch set I
-applied and linking to the previous version in each new version of the
-patchset.
-That could also be automated.
-So is allowing reviews both on Gerrit or whatever the goal here and if so
-how do we ensure that lkml sees all reviews?
+Those scripts check whether there is already a mbox or several in the
+patches directory and if not, then the resulting mbox name is mbox-0. If so
+then the highest numbered mbox is looked up and the message id of the cover
+letter extracted and injected into the template which is loaded into the
+editor to write the cover letter. The resulting mbox name is
+mbox-$HIGHEST+1. That mbox is then sent out and also archived in git.
 
-Christian
+For one off patches, I usally do not bother to save it. It's on the
+mailing-list, right? So I utilize the method which I have for incoming
+(maintainer work) stuff, which allows me to pick the patch from the list,
+feed it through the usual machinery and then I have the msgid link as well,
+which I then just move into the discard section when I send out V2. That's
+also my workflow when I send out a quick fix for an issue in a reply
+without changelog etc. If the reporter confirms, then I just pick it up,
+add a changelog and commit it.
 
---0000000000001acbc50590ce4934
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+For incoming stuff, I just mark a full mailthread or several of them in the
+mail client, store it as mbox and then I have a script which creates a
+quilt series out of it. That script does a bunch of things:
 
-<div dir=3D"auto"><div><br><br><div class=3D"gmail_quote"><div dir=3D"ltr">=
-On Fri, Aug 23, 2019, 21:17 Thomas Gleixner &lt;<a href=3D"mailto:tglx@linu=
-tronix.de">tglx@linutronix.de</a>&gt; wrote:<br></div><blockquote class=3D"=
-gmail_quote" style=3D"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-=
-left:1ex">On Fri, 23 Aug 2019, Dmitry Torokhov wrote:<br>
-&gt; On Fri, Aug 23, 2019 at 12:35:03PM -0400, Joel Fernandes wrote:<br>
-&gt; &gt; On Fri, Aug 23, 2019 at 12:19 PM Dmitry Torokhov<br>
-&gt; &gt; &lt;<a href=3D"mailto:dmitry.torokhov@gmail.com" target=3D"_blank=
-" rel=3D"noreferrer">dmitry.torokhov@gmail.com</a>&gt; wrote:<br>
-&gt; &gt; &gt; On Fri, Aug 23, 2019 at 05:48:55PM +0200, Thomas Gleixner wr=
-ote:<br>
-&gt; &gt; &gt; &gt;<br>
-&gt; &gt; &gt; &gt; Yes, it&#39;s work for the submitter, but it&#39;s alwa=
-ys work if the submitter<br>
-&gt; &gt; &gt; &gt; wants to have a proper trace.<br>
-&gt; &gt; &gt;<br>
-&gt; &gt; &gt; Here is where I disagree with you. As a patch submitter, I f=
-rankly could<br>
-&gt; &gt; &gt; not care less about proper trace, history, etc. I might be p=
-utting cover<br>
-&gt; &gt; <br>
-&gt; &gt; But that is exactly what the problem statement is. Doug does care=
-<br>
-&gt; &gt; about tracing/history and wants that to be more robust etc.<br>
-&gt; <br>
-&gt; Doug here is not a submitter ;)<br>
-<br>
-Well, if he wants the changeids there then submitters need to insert them,<=
-br>
-right? So it&#39;s work no matter what unless it can be automated with tool=
-ing.<br>
-<br>
-Guess what, how I inject the Link to the coverletter of the previous<br>
-version of a patch series? Definitely not manualy. <br>
-<br>
-So yes, if you want proper traceability then all involved people have to do=
-<br>
-something. If it can be done with tooling fully automated, fine. If not,<br=
->
-it&#39;s work whatever method you chose.<br>
-<br>
-We cannot enforce the changeid thing in the community, but Google can<br>
-inforce it internally. So we give them a way to be traceable w/o plastering=
-<br>
-the kernel logs with potentially useless information.<br>
-<br>
-That said, I&#39;m fine with a Link as well, as long as it is public<br></b=
-lockquote></div></div><div dir=3D"auto"><br></div><div dir=3D"auto">A link =
-is definitely more helpful then the change-id.</div><div dir=3D"auto">Quite=
- a few maintainers are already making use of links to various sites anyway =
-so I don&#39;t see a good reason not allow Links to Gerrit or whatever.</di=
-v><div dir=3D"auto"><br></div><div dir=3D"auto"><div class=3D"gmail_quote">=
-<blockquote class=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;border-left:1p=
-x #ccc solid;padding-left:1ex">
-accessible. If not, then the coverletter/discard area is the place to use.<=
-br></blockquote></div></div><div dir=3D"auto"><br></div><div dir=3D"auto">R=
-ight, change-id should go after --- which is also what Dmitry Vyukov sugges=
-ted.</div><div dir=3D"auto"><br></div><div dir=3D"auto">One thing I wonder =
-though. What&#39;s the ultimate goal here?</div><div dir=3D"auto">Enabling =
-people to review on Gerrit and lkml simultaneously?</div><div dir=3D"auto">=
-I mean, apart from tracking versions of patch series/patches this can&#39;t=
- be all, right?</div><div dir=3D"auto">We can already do that right now and=
- I&#39;m already doing that when applying stuff to my tree: inserting the l=
-ink to the version of the patch set I applied and linking to the previous v=
-ersion in each new version of the patchset.</div><div dir=3D"auto">That cou=
-ld also be automated.</div><div dir=3D"auto">So is allowing reviews both on=
- Gerrit or whatever the goal here and if so how do we ensure that lkml sees=
- all reviews?</div><div dir=3D"auto"><br></div><div dir=3D"auto">Christian<=
-/div></div>
+    - Collect Reviewed-by, Acked-by, Tested-by tags either from individual
+      replies or replies to the cover letter. The latter apply to the whole
+      series.
 
---0000000000001acbc50590ce4934--
+    - Adds my Signed-off-by
 
---===============7806357223355692740==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+    - Extract message-id for each patch and add the
+      Link: https://lkml.kernel.org/r/$MSGID
 
+    - A few magic things which I need for my emacs integration
+
+I do that for review, applying patches and for development (addressing
+feedback on a posted series).
+
+Review usually only when it's complex stuff where I really need to see the
+context. Emacs + quilt.el allows me to push/pop the patches, to see patch
+and context, unapply/reapply hunks. I then can just create a reply from the
+current patch (via Link...MSGID) by pulling out the original mail from the
+mbox with more scripting magic and emacs shortcuts which are just burned
+into my fingers, but I have to look them up in .emacs if someone asks what
+I'm doing :)
+
+When done, I just take the replies which I created on the way and send them
+out. Either directly or I load them into the mail client when I want to
+polish them some more.
+
+For applying stuff, I also push/pop, review, do final tweaks if necessary,
+polish the changelog etc. When I'm happy with the result then the series is
+imported into git and pushed into a compile machine for basic checks and I
+usually kick some smoke test as well. When thats all good I push it out
+into my kernel.org tree and let 0-bot and Ingo's test machinery chew on it.
+
+I also use that for development to address review feedback. So I can go
+through the replies in the mbox, eventually write a reply, fixup the
+corresponding patches, take notes which I can use for the next cover
+letter, etc.
+
+For backporting I have a git to quilt export, which I created for all that
+speculation disaster work. That one inserts the 'commit xxxx upstream'
+note. I use quilt for that because I'm so used to fix rejects in emacs or
+to edit the patch (hunk) in the emacs window before applying it. Aside of
+that my brain refuses to work with those git conflict markers and these
+half consistent git states. That's like me and vi[m]. I just know how to
+get out of the mess without creating further damage. :)
+
+The scripts and tools are all highly undocumented and embarrassing hackery
+glued together over two decades; IOW the kind of duct tape engineering
+which I fundamentally dislike. :) At least most of my emacs quilt mess is
+gone by now as someone with lisp brains did it proper.
+
+That said, my git foo is limited and my oldschool habits have just grown
+some warts to utilize the parts of git which I really need and like. Of
+course all wrapped in scripts (bash, python, lisp) which hide the gory
+details of command line arguments from my brain.
+
+So I can't tell how that can be done in git, but I assume that it's
+possible to tweak git-email (or what ever the command is) to emit that
+message id and then stash it away in something like git notes for later
+retrieval.
+
+For the maintainer side there was something mentioned about some git-am
+option which allows to insert the link somehow with some extra hook
+magic. IIRC, it's in one of the ksummit threads, but I can't find it right
+now.
+
+Thanks,
+
+	tglx
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
 https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss
-
---===============7806357223355692740==--
