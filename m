@@ -2,87 +2,88 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id C8AC69B5FB
-	for <lists@lfdr.de>; Fri, 23 Aug 2019 20:00:49 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id BB3499B616
+	for <lists@lfdr.de>; Fri, 23 Aug 2019 20:10:28 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id 2D80EE44;
-	Fri, 23 Aug 2019 18:00:38 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id 52CBDEE8;
+	Fri, 23 Aug 2019 18:10:16 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id 6E47486D
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id BD9FBEC1
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri, 23 Aug 2019 18:00:35 +0000 (UTC)
+	Fri, 23 Aug 2019 18:10:13 +0000 (UTC)
 X-Greylist: whitelisted by SQLgrey-1.7.6
-Received: from mail-io1-f67.google.com (mail-io1-f67.google.com
-	[209.85.166.67])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id D66EF7FB
+Received: from mail-pg1-f196.google.com (mail-pg1-f196.google.com
+	[209.85.215.196])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id C4E5F67F
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri, 23 Aug 2019 18:00:31 +0000 (UTC)
-Received: by mail-io1-f67.google.com with SMTP id q22so22068749iog.4
+	Fri, 23 Aug 2019 18:10:12 +0000 (UTC)
+Received: by mail-pg1-f196.google.com with SMTP id k3so6163859pgb.10
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri, 23 Aug 2019 11:00:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
-	h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-	:cc; bh=ksVPQ9pZIc6zlW6zTJjh8MMgqFnyNJdyNZLb2Plo5V0=;
-	b=hKn5JuFxR94SPxSZrSYyVPzLxaZ9YZnOCIADvl1nV6QugPxqGUn5hdOtM+0aCrlTRR
-	bTYdRISmPIKO38rcXaFOWEnpf12EI46MMcm6A+eu0xf95LjvvDkF9AEzPuSclHpgxybf
-	NMeqY7uRP0kwSK6CSEZ3qGlclt2Dy2Kof5wSQ=
+	Fri, 23 Aug 2019 11:10:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linuxfoundation.org; s=google;
+	h=date:from:to:cc:subject:message-id:mail-followup-to:references
+	:mime-version:content-disposition:in-reply-to:user-agent;
+	bh=HOhnhU48UtkMsJswAqBTvi5/0M6O1/cBUvxKpViJqG0=;
+	b=SFsh0c+As85hBgFsDPsfq7KCqdPKyEWvX/6s6EttFnhDj+DQejw/rTeP8oJ7ppX+I1
+	y8fVVEzLQkQLOCylBY7PGFddxzLOsAQ2b2HmPDUS0mgOnHUEvwq2cBzpuAz7YFubSgSr
+	Z47r57tB7aJxh07outlE9VQiKdbGuQUy3YuWg=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-	:message-id:subject:to:cc;
-	bh=ksVPQ9pZIc6zlW6zTJjh8MMgqFnyNJdyNZLb2Plo5V0=;
-	b=KKqV6yH3SUcgmeOee64E+mjz17nIBxbphnXGllP/S2y9AT8lxaN87mz2oaUtUYumn5
-	rJjTqQYgaKY3yPlGQ0ZmwD3sSKe/yIkQpvQaz+ULBf65ITOqTiiauRpH1Rzg+y68Aq1w
-	AArI9ulrauUSz6L0scewwkqPEK7v1YXEHeZeohIkeZ424A2G2DTFIufrjbxNilOwwK/R
-	EeVJI6P+aFKPq1DvNb3ihhYh9l3NoeKWgHEMuSeIk2G8Z8OKFreUc5Cjb/pxrFz9IWpH
-	wbbMtRTAcG8xs/KZJxi1ikhgbvhMVE9SPK2vU2DizlLxog0Gd1PUkA7GPrbRKP5znKMN
-	cwaA==
-X-Gm-Message-State: APjAAAWR2Ssxd8ansguxW771lIfgGOt5gl3ANCZ8zGlNGFqwQORcHR0N
-	j+CkqmPeBa67OOxv599++nmwmt+N6So=
-X-Google-Smtp-Source: APXvYqwPgwsGSiviydbWpLj3pesQ/0rbxslVKGyPtHCp0C0XfBenubUF3GcqKzUInAPtDlMk75hOHA==
-X-Received: by 2002:a5e:d70a:: with SMTP id v10mr8571465iom.19.1566583230719; 
-	Fri, 23 Aug 2019 11:00:30 -0700 (PDT)
-Received: from mail-io1-f45.google.com (mail-io1-f45.google.com.
-	[209.85.166.45])
-	by smtp.gmail.com with ESMTPSA id l8sm3216760ioh.85.2019.08.23.11.00.29
-	for <ksummit-discuss@lists.linuxfoundation.org>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Fri, 23 Aug 2019 11:00:29 -0700 (PDT)
-Received: by mail-io1-f45.google.com with SMTP id z3so22115627iog.0
-	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri, 23 Aug 2019 11:00:29 -0700 (PDT)
-X-Received: by 2002:a02:a386:: with SMTP id y6mr502607jak.90.1566583228825;
-	Fri, 23 Aug 2019 11:00:28 -0700 (PDT)
-MIME-Version: 1.0
-References: <CAOesGMgYisp--bwVK0_cTMqaUM_TaQ-qwhNDceBOsudBPHWR7g@mail.gmail.com>
+	h=x-gm-message-state:date:from:to:cc:subject:message-id
+	:mail-followup-to:references:mime-version:content-disposition
+	:in-reply-to:user-agent;
+	bh=HOhnhU48UtkMsJswAqBTvi5/0M6O1/cBUvxKpViJqG0=;
+	b=mp1Hpk8DDDXAGi17Ooca525eyuy744GcSOTNP8qU7GafUtrbMB/evD43NTbzcxrhWk
+	7v32odeIvDv0YhBqNKXpQ7Ravx+2ekxVk7fOd6I+8qkqM3PamSEqQdCIXESWZKi3Xnih
+	yJvAtf8EPOnd7lauIlqnOdSslIfmKyyV154rRANc7JHZ/tokxJAPsQjuhWS2otfmbh+W
+	gbj6kPNH3319Sy/FeoHOzSpCeWB3oPIOGN9IeA1YWP/vV9UCRp12Wl3AazH5hxuopAbV
+	skyJ+FZnFtx5YWGDxTAQwl9HKL37a6dmmOtZqrFMcwxP4FgUFwwgEKWDG/YYFZc75WnF
+	zuwQ==
+X-Gm-Message-State: APjAAAXpVHvdUMkgMHbFx/wmCTH3hukQ7/ceEXynNI2cwKsudlvscjNK
+	X2B95xieRbR1qfReU2synahDPxLs
+X-Google-Smtp-Source: APXvYqw+SHPfpImN/8qgGrVfiGcJyTsulJhrdnaKqD4bGxnCKHDBi9r3azTIET4ZVX8Wp1x2fr853A==
+X-Received: by 2002:a63:e44b:: with SMTP id i11mr4944040pgk.297.1566583812217; 
+	Fri, 23 Aug 2019 11:10:12 -0700 (PDT)
+Received: from pure.paranoia.local ([185.236.200.250])
+	by smtp.gmail.com with ESMTPSA id e6sm3106703pfn.71.2019.08.23.11.10.09
+	(version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+	Fri, 23 Aug 2019 11:10:11 -0700 (PDT)
+Date: Fri, 23 Aug 2019 14:10:06 -0400
+From: Konstantin Ryabitsev <konstantin@linuxfoundation.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <20190823181006.GA5749@pure.paranoia.local>
+Mail-Followup-To: Linus Torvalds <torvalds@linux-foundation.org>,
+	"Theodore Y. Ts'o" <tytso@mit.edu>,
+	Joel Fernandes <joelaf@google.com>, Barret Rhoden <brho@google.com>,
+	ksummit <ksummit-discuss@lists.linuxfoundation.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jonathan Nieder <jrn@google.com>, Tomasz Figa <tfiga@chromium.org>,
+	Han-Wen Nienhuys <hanwen@google.com>,
+	Theodore Tso <tytso@google.com>,
+	David Rientjes <rientjes@google.com>,
+	Dmitry Torokhov <dtor@chromium.org>,
+	Dmitry Vyukov <dvyukov@google.com>
+References: <CAD=FV=UPjPpUyFTPjF-Ogzj_6LJLE4PTxMhCoCEDmH1LXSSmpQ@mail.gmail.com>
+	<CAHk-=whFbgy4RXG11c_=S7O-248oWmwB_aZOcWzWMVh3w7=RCw@mail.gmail.com>
+	<CAOesGMgYisp--bwVK0_cTMqaUM_TaQ-qwhNDceBOsudBPHWR7g@mail.gmail.com>
 	<a6e7eedd-857c-bfe0-4a14-f4140d6fc21e@roeck-us.net>
 	<CAOesGMgryBghLuTSufjhOUFUFDvL2Jv7qJ3uwaZUwCkMXpEmng@mail.gmail.com>
 	<20190823013619.GA8130@mit.edu>
 	<CAHk-=wgqemMJqX4SzbK52KicWSiK4_1qUus=q1akkwdEqXOkvQ@mail.gmail.com>
 	<CAHk-=whrLfPipY7JHnCiFp7vbnshG1Om7tcesa8vqYwu=F=BkA@mail.gmail.com>
-	<CAOw6vbJCCeM_62WARKECkthCafhfpxqWc-R9SBMnc6VVMZ0hkg@mail.gmail.com>
-	<20190823151843.GH8130@mit.edu>
-	<CAOw6vb+1LH8t20S_3kC6xyGZAhrDa3Pe4ZptsJqoQzXf3WCOeg@mail.gmail.com>
-	<alpine.DEB.2.21.1908231740020.1896@nanos.tec.linutronix.de>
-	<20190823161947.GA112509@dtor-ws>
-	<CAJWu+ooOzZ3vFsW40ok8M0MbrZOcx8xJsrN8Ra_VVq0EavzQfQ@mail.gmail.com>
-	<CAD=FV=Wsk__UTAazrypFRFpc-ou6a04sasf+70qF0ft02m++-w@mail.gmail.com>
-	<CAJWu+oo++AVx-xsQkVCscWLVQyExA7QUPX8AxyQ=RWFw3FrmiQ@mail.gmail.com>
-In-Reply-To: <CAJWu+oo++AVx-xsQkVCscWLVQyExA7QUPX8AxyQ=RWFw3FrmiQ@mail.gmail.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Fri, 23 Aug 2019 11:00:13 -0700
-X-Gmail-Original-Message-ID: <CAD=FV=UHnf2eCGPo9yH28tFCytWwE-WwsRVjH8oCV5Q+gg8K3g@mail.gmail.com>
-Message-ID: <CAD=FV=UHnf2eCGPo9yH28tFCytWwE-WwsRVjH8oCV5Q+gg8K3g@mail.gmail.com>
-To: Joel Fernandes <joelaf@google.com>
-X-Spam-Status: No, score=-2.0 required=5.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID, DKIM_VALID_AU,
-	RCVD_IN_DNSWL_NONE autolearn=ham version=3.3.1
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAHk-=whrLfPipY7JHnCiFp7vbnshG1Om7tcesa8vqYwu=F=BkA@mail.gmail.com>
+User-Agent: Mutt/1.12.1 (2019-06-15)
+X-Spam-Status: No, score=-1.7 required=5.0 tests=BAYES_00,DKIM_INVALID,
+	DKIM_SIGNED,RCVD_IN_DNSWL_NONE autolearn=no version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
-Cc: Barret Rhoden <brho@google.com>,
+Cc: Joel Fernandes <joelaf@google.com>, Barret Rhoden <brho@google.com>,
 	ksummit <ksummit-discuss@lists.linuxfoundation.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Jonathan Nieder <jrn@google.com>, Tomasz Figa <tfiga@chromium.org>,
@@ -107,59 +108,20 @@ Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-Hi,
+On Thu, Aug 22, 2019 at 08:03:51PM -0700, Linus Torvalds wrote:
+> Tangential note: since it looks like "Link:" lines are going to get
+> more common in general, maybe somebody with the right tck/tk-fu can
+> make a tool like 'gitk' be able to just do the hyperlinking thing (it
+> already does it for commit hashes in the commit message, but wouldn't
+> it be convenient to do that for web links too and open a browser
+> tab?).
+> 
+> And maybe we can even make git.kernel.org do it too (I think that uses cgit?).
 
-On Fri, Aug 23, 2019 at 9:54 AM Joel Fernandes <joelaf@google.com> wrote:
->
-> On Fri, Aug 23, 2019 at 12:45 PM Doug Anderson <dianders@chromium.org> wrote:
-> [snip]
-> > Sure, if a given patch in the series is totally wrong and I re-write
-> > it (but still want the re-write to be considered a new version of the
-> > previous patch) then I have to manually copy the Change-Id for a
-> > gerrit upload.  ...but I'd also be OK if people just get a new
-> > Change-Id in this case.
->
-> Sometimes it is not "totally wrong" but just "done in a different
-> away" and is a new series. This happens a lot since upstream
-> development can be evolutionary. So your v1 may look nothing like v2
-> and is a whole new series. Yet the history linking the 2 series is
-> important. And no amount of automated commit ID generation can link
-> them. This is the scenario I was talking about. I know the git hook
-> works, but sometimes the Change-Id has to be manually copied. That's
-> not automatable. May be we are slightly on different tracks, but this
-> is the scenario that would be useful to trace IMO.
+Yes, we should be able to do this with a simple hook -- both for Link:
+and Message-ID bits. I'll put it on my list.
 
-Agreed that it would be useful and (personally) I'd do it.  Maybe
-others who are used to the gerrit workflow would also do it.  ...but
-what I like is that the fallback for those that don't try to hard
-isn't that terrible.  Yes they'd end up with a new Change-Id in some
-cases, but presumably it still wouldn't be that hard for tools to help
-you.  Namely, if you have a series:
-
-Patch v1 1/3 - Add a frob - Change-Id A
-Patch v1 2/3 - Add a larb - Change-Id B
-Patch v1 3/3 - Use the frob to tweak the larb - Change-Id C
-
-...and you decide that you should be tweaking a sneech instead of a
-larb, you might end up with this if someone isn't careful to copy
-Change-Ids and their workflow is to throw away the old patch #2 and #3
-instead of amending.
-
-Patch v2 1/3 - Add a frob - Change-Id A
-Patch v2 2/3 - Add a sneech - Change-Id D
-Patch v2 3/3 - Use the frob to tweak the sneech - Change-Id E
-
-So you can't find v1 of patch #2 directly from v2 of patch #2.
-...but, a good tool could still help you here.  It would see that at
-least one patch in this series had the same Change-Id and it should
-help you find the whole v1 series.
-
-If all 3 patches were all totally new and lost Change IDs then I guess
-you're SOL, but maybe in that case it really should be considered a
-new series anyway?
-
-
--Doug
+-K
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
