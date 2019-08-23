@@ -2,34 +2,34 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3E10F9B6ED
-	for <lists@lfdr.de>; Fri, 23 Aug 2019 21:17:29 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id F1A2F9B703
+	for <lists@lfdr.de>; Fri, 23 Aug 2019 21:23:35 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id 66D80F4F;
-	Fri, 23 Aug 2019 19:17:18 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id 2E016F79;
+	Fri, 23 Aug 2019 19:23:24 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id 17035DB2
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id 2654BDB2
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri, 23 Aug 2019 19:17:16 +0000 (UTC)
+	Fri, 23 Aug 2019 19:23:22 +0000 (UTC)
 X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
 Received: from Galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 758A17FB
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id AD35C7FB
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri, 23 Aug 2019 19:17:15 +0000 (UTC)
+	Fri, 23 Aug 2019 19:23:21 +0000 (UTC)
 Received: from p5de0b6c5.dip0.t-ipconnect.de ([93.224.182.197] helo=nanos)
 	by Galois.linutronix.de with esmtpsa
 	(TLS1.2:DHE_RSA_AES_256_CBC_SHA256:256) (Exim 4.80)
 	(envelope-from <tglx@linutronix.de>)
-	id 1i1F3g-0007lb-Ns; Fri, 23 Aug 2019 21:17:12 +0200
-Date: Fri, 23 Aug 2019 21:17:04 +0200 (CEST)
+	id 1i1F9b-0007tX-Dt; Fri, 23 Aug 2019 21:23:19 +0200
+Date: Fri, 23 Aug 2019 21:23:18 +0200 (CEST)
 From: Thomas Gleixner <tglx@linutronix.de>
-To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-In-Reply-To: <20190823164602.GB112509@dtor-ws>
-Message-ID: <alpine.DEB.2.21.1908232108580.1939@nanos.tec.linutronix.de>
-References: <CAOesGMgryBghLuTSufjhOUFUFDvL2Jv7qJ3uwaZUwCkMXpEmng@mail.gmail.com>
+To: Joel Fernandes <joelaf@google.com>
+In-Reply-To: <CAJWu+ooBWhwFTOaw38j1SNnY5v9nLtOZRFgfRbgDOP2Q0ocwcQ@mail.gmail.com>
+Message-ID: <alpine.DEB.2.21.1908232119470.1939@nanos.tec.linutronix.de>
+References: <CAOesGMgYisp--bwVK0_cTMqaUM_TaQ-qwhNDceBOsudBPHWR7g@mail.gmail.com>
 	<20190823013619.GA8130@mit.edu>
 	<CAHk-=wgqemMJqX4SzbK52KicWSiK4_1qUus=q1akkwdEqXOkvQ@mail.gmail.com>
 	<CAHk-=whrLfPipY7JHnCiFp7vbnshG1Om7tcesa8vqYwu=F=BkA@mail.gmail.com>
@@ -39,7 +39,11 @@ References: <CAOesGMgryBghLuTSufjhOUFUFDvL2Jv7qJ3uwaZUwCkMXpEmng@mail.gmail.com>
 	<alpine.DEB.2.21.1908231740020.1896@nanos.tec.linutronix.de>
 	<20190823161947.GA112509@dtor-ws>
 	<CAJWu+ooOzZ3vFsW40ok8M0MbrZOcx8xJsrN8Ra_VVq0EavzQfQ@mail.gmail.com>
-	<20190823164602.GB112509@dtor-ws>
+	<CAD=FV=Wsk__UTAazrypFRFpc-ou6a04sasf+70qF0ft02m++-w@mail.gmail.com>
+	<CAJWu+oo++AVx-xsQkVCscWLVQyExA7QUPX8AxyQ=RWFw3FrmiQ@mail.gmail.com>
+	<CAD=FV=UHnf2eCGPo9yH28tFCytWwE-WwsRVjH8oCV5Q+gg8K3g@mail.gmail.com>
+	<CAJWu+or4Lur_q65yTtPQmh8wX2A7EaXaOWXmCnOq3ThRpnN=Tg@mail.gmail.com>
+	<CAJWu+ooBWhwFTOaw38j1SNnY5v9nLtOZRFgfRbgDOP2Q0ocwcQ@mail.gmail.com>
 User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
 MIME-Version: 1.0
 X-Linutronix-Spam-Score: -1.0
@@ -50,7 +54,7 @@ X-Spam-Status: No, score=-4.2 required=5.0 tests=BAYES_00,RCVD_IN_DNSWL_MED
 	autolearn=ham version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
-Cc: Joel Fernandes <joelaf@google.com>, Barret Rhoden <brho@google.com>,
+Cc: Barret Rhoden <brho@google.com>,
 	ksummit <ksummit-discuss@lists.linuxfoundation.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Jonathan Nieder <jrn@google.com>, Tomasz Figa <tfiga@chromium.org>,
@@ -75,39 +79,26 @@ Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-On Fri, 23 Aug 2019, Dmitry Torokhov wrote:
-> On Fri, Aug 23, 2019 at 12:35:03PM -0400, Joel Fernandes wrote:
-> > On Fri, Aug 23, 2019 at 12:19 PM Dmitry Torokhov
-> > <dmitry.torokhov@gmail.com> wrote:
-> > > On Fri, Aug 23, 2019 at 05:48:55PM +0200, Thomas Gleixner wrote:
-> > > >
-> > > > Yes, it's work for the submitter, but it's always work if the submitter
-> > > > wants to have a proper trace.
-> > >
-> > > Here is where I disagree with you. As a patch submitter, I frankly could
-> > > not care less about proper trace, history, etc. I might be putting cover
-> > 
-> > But that is exactly what the problem statement is. Doug does care
-> > about tracing/history and wants that to be more robust etc.
+On Fri, 23 Aug 2019, Joel Fernandes via Ksummit-discuss wrote:
+> On Fri, Aug 23, 2019 at 3:08 PM Joel Fernandes <joelaf@google.com> wrote:
+> > Another thing that could be done is, have the git hook insert the
 > 
-> Doug here is not a submitter ;)
+> And, here I meant have git-send-email or the patch sending program
+> insert the unique ID into the discardable part.
+> 
+> In my flow, I have scripts that remove metadata from my commit message
+> and insert them into the discardable part of the patch already which I
+> use for "additional notes". I am not sure what it would take to have
+> people use such scripts...
 
-Well, if he wants the changeids there then submitters need to insert them,
-right? So it's work no matter what unless it can be automated with tooling.
+Well, if some organization wants those IDs or whatever then they will come
+up with proper tooling which enforces this. We won't ever be able to
+enforce it on every submitter on the planet.
 
-Guess what, how I inject the Link to the coverletter of the previous
-version of a patch series? Definitely not manualy. 
-
-So yes, if you want proper traceability then all involved people have to do
-something. If it can be done with tooling fully automated, fine. If not,
-it's work whatever method you chose.
-
-We cannot enforce the changeid thing in the community, but Google can
-inforce it internally. So we give them a way to be traceable w/o plastering
-the kernel logs with potentially useless information.
-
-That said, I'm fine with a Link as well, as long as it is public
-accessible. If not, then the coverletter/discard area is the place to use.
+For maintainers we can make the Message-ID link mandatory if the community
+agrees on it. git has some form of support for that already as I learned in
+some other thread. And adding it to homebrewn tooling is not rocket science
+either.
 
 Thanks,
 
