@@ -2,61 +2,61 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id C05DC9AFE2
-	for <lists@lfdr.de>; Fri, 23 Aug 2019 14:48:40 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 026949B090
+	for <lists@lfdr.de>; Fri, 23 Aug 2019 15:16:28 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id A7F78EB5;
-	Fri, 23 Aug 2019 12:48:27 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id 0385FEC9;
+	Fri, 23 Aug 2019 13:16:15 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id 9AF75E97
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id 173D8E4A
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri, 23 Aug 2019 12:48:25 +0000 (UTC)
+	Fri, 23 Aug 2019 13:16:13 +0000 (UTC)
 X-Greylist: whitelisted by SQLgrey-1.7.6
-Received: from mail-pg1-f194.google.com (mail-pg1-f194.google.com
-	[209.85.215.194])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 403A667F
+Received: from mail-yw1-f65.google.com (mail-yw1-f65.google.com
+	[209.85.161.65])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 8FB1B89B
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri, 23 Aug 2019 12:48:25 +0000 (UTC)
-Received: by mail-pg1-f194.google.com with SMTP id x15so5743162pgg.8
+	Fri, 23 Aug 2019 13:16:12 +0000 (UTC)
+Received: by mail-yw1-f65.google.com with SMTP id z64so3796360ywe.7
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri, 23 Aug 2019 05:48:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
-	h=date:from:to:cc:subject:message-id:references:mime-version
-	:content-disposition:in-reply-to:user-agent;
-	bh=hCDsW5RL1J+TcuhHrUHgLwws5hWBT6ioG81UjKJzBf8=;
-	b=rzZDk73T+LQIu/qHUqimc6hAnfIe+T9jG15b4fyqB1mTrdLqnT/Qf+3d8iVulZ+/Pi
-	91tepKwjtx3qC+Skn4NvqgnsOVfCsXLdG/R7mSIpkYpwaYurRXvjkZECeAm5IeUsdS1z
-	QEuUI/xJiJxnczJ8+B2oqR7cqeraAtxz8igsdXqbyhy7qZ/Tfci/WP5fssTcuuDANTli
-	Ah76PpZM8mmfaldKcR6+Dia8j0/XLDM12ydiG88QG8LJYAroAyw4U1PK4g70kylxHbf9
-	Bt9RqhNQlX2Qutr9MrvGt8hIYuDyOXSMa7ip4ZM8OU//wRTAt572rcxvTQ8QGUmuxe1B
-	wMHA==
+	Fri, 23 Aug 2019 06:16:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
+	h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+	:cc; bh=X5rEzYs1fSXoqUXHDEw1NqpCBjvMn49cuyJs7PoBGKI=;
+	b=ek8bIr5hJt0SGyp33u2ZQqWaBR+NGvggmtcSoYyNXQMhOz4sCaipcYVwRyYn5UVYGb
+	vcZCkdglthgJRHrAXszjkkqStSMb5m+VXlMyuNa0KdPiQekioFfOijyRRq9Yatziku5q
+	P56551j1SYO604UIGnh0J0E8pokx/fAwwIfh4=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:date:from:to:cc:subject:message-id:references
-	:mime-version:content-disposition:in-reply-to:user-agent;
-	bh=hCDsW5RL1J+TcuhHrUHgLwws5hWBT6ioG81UjKJzBf8=;
-	b=IbYvGIArwbxRq25alC8k4xPzV2LfeZV811IzyJD4z9jVAvpjf5rzvbWfjsj1iW/rQ4
-	yNrfmeHG+NtNMdjWFOAK09y4zwT85gyBCrgJJBNLjKRuQYPsVsfF2DAkw8TesHFZzF9d
-	DQ8DjzMHBxRsy/eBcE9H3Ag5M+u+vuJBduv2kfEx5wRxJM6wT+EUa1QYYfAgUpEhEdu1
-	iepXYMDEIarbcXYWfXWf1JCSytah0Yaozy83tCfh4TuxYLsHSc5PfCQ3ZCoCAY/DFB94
-	6KD2bQs3fXMvTy8JyKhyH5ftRPrNd8kqsOBdtwecFbo1zeqZRLPXWdwPhDBgqEGDH6xT
-	xgJw==
-X-Gm-Message-State: APjAAAXy2Tjoyd77iLKVzXDAfP3qGZwZu5pSzBh8eJcJipmSoXqXohV5
-	pz89EbmCxXlLP3XGDAgBzME=
-X-Google-Smtp-Source: APXvYqwkW/60LYh4NwoO7diX8ngGBqHBtuobN5gYSGcvsqSC0mQ5m3030Kq52JFIpjSsmxWAlp2fBw==
-X-Received: by 2002:a65:68d9:: with SMTP id k25mr3832639pgt.337.1566564504827; 
-	Fri, 23 Aug 2019 05:48:24 -0700 (PDT)
-Received: from Gentoo ([103.231.90.174])
-	by smtp.gmail.com with ESMTPSA id 65sm5117105pgf.30.2019.08.23.05.48.14
-	(version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-	Fri, 23 Aug 2019 05:48:23 -0700 (PDT)
-Date: Fri, 23 Aug 2019 18:18:05 +0530
-From: Bhaskar Chowdhury <unixbhaskar@gmail.com>
-To: Vlastimil Babka <vbabka@suse.cz>
-Message-ID: <20190823124802.GC8380@Gentoo>
+	h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+	:message-id:subject:to:cc;
+	bh=X5rEzYs1fSXoqUXHDEw1NqpCBjvMn49cuyJs7PoBGKI=;
+	b=HrAzAuEiFa4TSAtWbgW8OGpaybxSDNaznjw5cNpmVDOwOA4lo/VvkiTY73nYR9C3ZU
+	s46PVOsyhxldiC7XwmnaEQuiMURPYU7G42IYeS0fmQVsoCNS9Y8e0GTPc39Or80TYxgl
+	awit9AmAamiAYd85IUxFXXrTPBkp+9t1C1HNPe7nbagr1scexM0wY/wD15D95gRsOrL7
+	rNE9/IUtYiLIl5hzdxaCn+JjOB0XrFg2eMEuQT7ID5ecwacMwT7OY11+TB5rnHUxy2Zj
+	O3bwocrYHZEhPo9h7M25z6VEFmu3Mt7az/568mO6Jo8oCAbmwrUSVOh6dQyYDRU/fwjG
+	45Ug==
+X-Gm-Message-State: APjAAAXJG7Hbs+LSQHqUXs5dQfs0+MEegsbJ6lESnUck0g7Yg2cM5PGg
+	cIw5cF3qTOQYA/ZV87xVxMK/Cag+lqQ=
+X-Google-Smtp-Source: APXvYqzXkgkWBHnAK6fO6wnEFoeedw6riSmsbOXSOUIOFB4PFSHSvJ+grilXVsDdzYfOgmMtdvpwaA==
+X-Received: by 2002:a81:4987:: with SMTP id w129mr3514669ywa.5.1566566171558; 
+	Fri, 23 Aug 2019 06:16:11 -0700 (PDT)
+Received: from mail-yw1-f43.google.com (mail-yw1-f43.google.com.
+	[209.85.161.43])
+	by smtp.gmail.com with ESMTPSA id j3sm533689ywf.35.2019.08.23.06.16.09
+	for <ksummit-discuss@lists.linuxfoundation.org>
+	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+	Fri, 23 Aug 2019 06:16:10 -0700 (PDT)
+Received: by mail-yw1-f43.google.com with SMTP id i138so3792002ywg.8
+	for <ksummit-discuss@lists.linuxfoundation.org>;
+	Fri, 23 Aug 2019 06:16:09 -0700 (PDT)
+X-Received: by 2002:a81:2492:: with SMTP id k140mr3253114ywk.138.1566566169398;
+	Fri, 23 Aug 2019 06:16:09 -0700 (PDT)
+MIME-Version: 1.0
 References: <CAD=FV=UPjPpUyFTPjF-Ogzj_6LJLE4PTxMhCoCEDmH1LXSSmpQ@mail.gmail.com>
 	<CAHk-=whFbgy4RXG11c_=S7O-248oWmwB_aZOcWzWMVh3w7=RCw@mail.gmail.com>
 	<CAOesGMgYisp--bwVK0_cTMqaUM_TaQ-qwhNDceBOsudBPHWR7g@mail.gmail.com>
@@ -64,22 +64,25 @@ References: <CAD=FV=UPjPpUyFTPjF-Ogzj_6LJLE4PTxMhCoCEDmH1LXSSmpQ@mail.gmail.com>
 	<CAOesGMgryBghLuTSufjhOUFUFDvL2Jv7qJ3uwaZUwCkMXpEmng@mail.gmail.com>
 	<20190823013619.GA8130@mit.edu>
 	<CAHk-=wgqemMJqX4SzbK52KicWSiK4_1qUus=q1akkwdEqXOkvQ@mail.gmail.com>
-	<5801d0a8-a7c5-559e-7d92-3a233b00d9f7@suse.cz>
-MIME-Version: 1.0
-In-Reply-To: <5801d0a8-a7c5-559e-7d92-3a233b00d9f7@suse.cz>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+	<CAHk-=whrLfPipY7JHnCiFp7vbnshG1Om7tcesa8vqYwu=F=BkA@mail.gmail.com>
+In-Reply-To: <CAHk-=whrLfPipY7JHnCiFp7vbnshG1Om7tcesa8vqYwu=F=BkA@mail.gmail.com>
+From: Sean Paul <seanpaul@chromium.org>
+Date: Fri, 23 Aug 2019 09:15:30 -0400
+X-Gmail-Original-Message-ID: <CAOw6vbJCCeM_62WARKECkthCafhfpxqWc-R9SBMnc6VVMZ0hkg@mail.gmail.com>
+Message-ID: <CAOw6vbJCCeM_62WARKECkthCafhfpxqWc-R9SBMnc6VVMZ0hkg@mail.gmail.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
 X-Spam-Status: No, score=-2.0 required=5.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID, DKIM_VALID_AU, FREEMAIL_FROM,
+	DKIM_VALID, DKIM_VALID_AU,
 	RCVD_IN_DNSWL_NONE autolearn=ham version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
 Cc: Joel Fernandes <joelaf@google.com>, Barret Rhoden <brho@google.com>,
-	Dmitry Torokhov <dtor@chromium.org>,
 	ksummit <ksummit-discuss@lists.linuxfoundation.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Jonathan Nieder <jrn@google.com>, Tomasz Figa <tfiga@chromium.org>,
 	Han-Wen Nienhuys <hanwen@google.com>, Theodore Tso <tytso@google.com>,
-	David Rientjes <rientjes@google.com>, Dmitry Vyukov <dvyukov@google.com>
+	David Rientjes <rientjes@google.com>, Dmitry Torokhov <dtor@chromium.org>,
+	Dmitry Vyukov <dvyukov@google.com>
 Subject: Re: [Ksummit-discuss] Allowing something Change-Id (or something
  like it) in kernel commits
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
@@ -93,82 +96,66 @@ List-Post: <mailto:ksummit-discuss@lists.linuxfoundation.org>
 List-Help: <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=help>
 List-Subscribe: <https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss>,
 	<mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6107886339019027745=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-
---===============6107886339019027745==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="9crTWz/Z+Zyzu20v"
-Content-Disposition: inline
-
-
---9crTWz/Z+Zyzu20v
-Content-Type: text/plain; charset=us-ascii; format=flowed
-Content-Disposition: inline
-
-Clicking on the Change-Id doesn't have any effect or do I miss the
-feature completely?? It open up in similar window in another tab...not
-sure that is what required. I mean what's the point of having redundent
-window open in two different browser tab??
-
-Wondering!!
-
-~Bhaskar
-
-On 11:09 Fri 23 Aug 2019, Vlastimil Babka wrote:
->On 8/23/19 4:58 AM, Linus Torvalds wrote:
->> So yes, I'd *much* rather see that "Link" line than try to make a
->> "Change-ID" line be a thing.
->>
->> Of course, looking at that particular link, my initial reaction is
->> "people are bad spellers". The word 'amend' has a single 'm' ;)
->>
->> And it _is_ important that the link in question is stable, of course.
->> Some systems have problems with that. Is that "c/1158" actually a
->> stable long-lived name that will stay around as the thing is modified?
->> I don't know how that system works.
+On Thu, Aug 22, 2019 at 11:04 PM Linus Torvalds
+<torvalds@linux-foundation.org> wrote:
 >
->Looks like there are also links that include the change-id, and redirect
->to the shorter one, i.e.
->https://linux-review.googlesource.com/q/I3268f9036512c4378cde1da37e0612b43ed4d384
+> On Thu, Aug 22, 2019 at 7:58 PM Linus Torvalds
+> <torvalds@linux-foundation.org> wrote:
+> >
+> > So yes, I'd *much* rather see that "Link" line than try to make a
+> > "Change-ID" line be a thing.
 >
->Seems to me like that's "the best of both worlds" - a link you can
->click, and also a unique ID that can perhaps outlive the particular
->website and you can search for it elsewhere in the future, if there are
->other mirrors. Exactly like the message id's in links to lore.kernel.org.
->_______________________________________________
->Ksummit-discuss mailing list
->Ksummit-discuss@lists.linuxfoundation.org
->https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss
+> Tangential note: since it looks like "Link:" lines are going to get
+> more common in general, maybe somebody with the right tck/tk-fu can
+> make a tool like 'gitk' be able to just do the hyperlinking thing (it
+> already does it for commit hashes in the commit message, but wouldn't
+> it be convenient to do that for web links too and open a browser
+> tab?).
+>
+> And maybe we can even make git.kernel.org do it too (I think that uses cgit?).
+>
+> I think that might make it just nicer in general to browse the logs
+> and actually follow the links without cut-and-paste games..
+>
+> So using a generic "Link:" tag that can be used for multiple different
+> things sounds like a win in general over some specialized change-ID
+> tag. No?
 
---9crTWz/Z+Zyzu20v
-Content-Type: application/pgp-signature; name="signature.asc"
+Only if you've uploaded the patch somewhere before sending it to the
+mailing list. I think this would satisfy the Gerrit crowd, since
+they're presumably uploading the patch to Gerrit, getting some review
+on it and then sending it upstream. They will have a link. If you're
+just interested in being archival tool friendly, you probably just
+want to add some uuid cookie to the patch and post it directly to the
+mailing list.
 
------BEGIN PGP SIGNATURE-----
+That said, I don't think Change-Id (or Uuid or whatever the cookie tag
+is named) needs to be committed to git. If people stuck their
+Change-Id tag below '---' in their mail, it would solve the issue of
+finding old revisions on the list. This would also allow tooling (like
+patchwork) to track across revisions. It's pretty easy to work
+backwards from a commit to _any_ one revision of the patch on the m-l,
+and that will give you the Change-Id.
 
-iQEzBAABCAAdFiEEnwF+nWawchZUPOuwsjqdtxFLKRUFAl1f4H8ACgkQsjqdtxFL
-KRV1OwgA0/6o6sa6iwIyKotHuy4RdeyQv4WaaMjEKnIPdVPihTO/SIyMn6S7lTpI
-k/OA1kp01nHNslSJZgQKzUWsoY/NGY0tvB453EQmOrjYbNqOCbUxQtjTtJbYs1XF
-wSS38OT778/lsv/zrSMV3TqrawENPMFBIhNH7KM5dPkN4y4bE9KnvNUyo77KgF7c
-c39ccexjfBezmWip7nPN1G9RVtqm1fogBUbV/I/P8ciZ4YuBVsyBjDNs1eaBcx1g
-TEFzfCZNO1evc2qOzc3I9IIL+Vt8iHNZh/VEMLkBgC1eh4UoUQ0bxPxZkbI7R5vn
-UxIkx84OqpnSKzNCKWgmEqpT/0o2EA==
-=6rRX
------END PGP SIGNATURE-----
+If Change-Id becomes widely useful below '---', you could add support
+in patchwork to allow direct linking by Change-Id. This would allow
+people to add Link: <patchwork-server/change-id/<change-id> to their
+commit messages without first uploading it somewhere.
 
---9crTWz/Z+Zyzu20v--
+Sean
 
---===============6107886339019027745==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
+>
+>               Linus
+> _______________________________________________
+> Ksummit-discuss mailing list
+> Ksummit-discuss@lists.linuxfoundation.org
+> https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
 https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss
-
---===============6107886339019027745==--
