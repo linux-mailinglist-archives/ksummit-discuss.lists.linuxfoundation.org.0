@@ -2,89 +2,74 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id 026949B090
-	for <lists@lfdr.de>; Fri, 23 Aug 2019 15:16:28 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 864C39B1F3
+	for <lists@lfdr.de>; Fri, 23 Aug 2019 16:29:23 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id 0385FEC9;
-	Fri, 23 Aug 2019 13:16:15 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id 7A697F31;
+	Fri, 23 Aug 2019 14:29:09 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id 173D8E4A
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id 34320CCE
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri, 23 Aug 2019 13:16:13 +0000 (UTC)
+	Fri, 23 Aug 2019 00:03:52 +0000 (UTC)
 X-Greylist: whitelisted by SQLgrey-1.7.6
-Received: from mail-yw1-f65.google.com (mail-yw1-f65.google.com
-	[209.85.161.65])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 8FB1B89B
+Received: from mail-pf1-f196.google.com (mail-pf1-f196.google.com
+	[209.85.210.196])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id A2B6B89B
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri, 23 Aug 2019 13:16:12 +0000 (UTC)
-Received: by mail-yw1-f65.google.com with SMTP id z64so3796360ywe.7
+	Fri, 23 Aug 2019 00:03:51 +0000 (UTC)
+Received: by mail-pf1-f196.google.com with SMTP id 196so5080140pfz.8
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri, 23 Aug 2019 06:16:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
+	Thu, 22 Aug 2019 17:03:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
 	h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-	:cc; bh=X5rEzYs1fSXoqUXHDEw1NqpCBjvMn49cuyJs7PoBGKI=;
-	b=ek8bIr5hJt0SGyp33u2ZQqWaBR+NGvggmtcSoYyNXQMhOz4sCaipcYVwRyYn5UVYGb
-	vcZCkdglthgJRHrAXszjkkqStSMb5m+VXlMyuNa0KdPiQekioFfOijyRRq9Yatziku5q
-	P56551j1SYO604UIGnh0J0E8pokx/fAwwIfh4=
+	:cc; bh=/q1PV1l4oGgLu2GqmOC6k3TRKkCJu2Y6gI4hbOtzZy8=;
+	b=Wi00MmFz8WJKNNSwF3hlOCHWqNhkpb0Q2GZBHTNSCKswL+Omtm4SEK4KkJhFgWMfVo
+	P6suxLXhJwLDKaaibMOFXP+iEmhFvoMe/R1ZcTuCKdFIJUngP8vQ0OFt3OFBfj4+4pjy
+	2VxAtdxKC8RUD3JXlULjVCOIwTxx8DZMuWOfgH5ib0gc1TguYpQ4n0UOMqhiMCwF1FQw
+	5T7aKXzsHAvIM9yX76NH1PpOx4R1wx7iSVEFO5Mh3RWishlRPx1nO4ga8C7QsseQXiE4
+	Cuan0eb8vsiU7dLxk9LfJECViDWcqH9W9BR0fovLsF661pmT075VP9qYL0H8BvH+dcqk
+	jFPA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
 	h=x-gm-message-state:mime-version:references:in-reply-to:from:date
 	:message-id:subject:to:cc;
-	bh=X5rEzYs1fSXoqUXHDEw1NqpCBjvMn49cuyJs7PoBGKI=;
-	b=HrAzAuEiFa4TSAtWbgW8OGpaybxSDNaznjw5cNpmVDOwOA4lo/VvkiTY73nYR9C3ZU
-	s46PVOsyhxldiC7XwmnaEQuiMURPYU7G42IYeS0fmQVsoCNS9Y8e0GTPc39Or80TYxgl
-	awit9AmAamiAYd85IUxFXXrTPBkp+9t1C1HNPe7nbagr1scexM0wY/wD15D95gRsOrL7
-	rNE9/IUtYiLIl5hzdxaCn+JjOB0XrFg2eMEuQT7ID5ecwacMwT7OY11+TB5rnHUxy2Zj
-	O3bwocrYHZEhPo9h7M25z6VEFmu3Mt7az/568mO6Jo8oCAbmwrUSVOh6dQyYDRU/fwjG
-	45Ug==
-X-Gm-Message-State: APjAAAXJG7Hbs+LSQHqUXs5dQfs0+MEegsbJ6lESnUck0g7Yg2cM5PGg
-	cIw5cF3qTOQYA/ZV87xVxMK/Cag+lqQ=
-X-Google-Smtp-Source: APXvYqzXkgkWBHnAK6fO6wnEFoeedw6riSmsbOXSOUIOFB4PFSHSvJ+grilXVsDdzYfOgmMtdvpwaA==
-X-Received: by 2002:a81:4987:: with SMTP id w129mr3514669ywa.5.1566566171558; 
-	Fri, 23 Aug 2019 06:16:11 -0700 (PDT)
-Received: from mail-yw1-f43.google.com (mail-yw1-f43.google.com.
-	[209.85.161.43])
-	by smtp.gmail.com with ESMTPSA id j3sm533689ywf.35.2019.08.23.06.16.09
-	for <ksummit-discuss@lists.linuxfoundation.org>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Fri, 23 Aug 2019 06:16:10 -0700 (PDT)
-Received: by mail-yw1-f43.google.com with SMTP id i138so3792002ywg.8
-	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri, 23 Aug 2019 06:16:09 -0700 (PDT)
-X-Received: by 2002:a81:2492:: with SMTP id k140mr3253114ywk.138.1566566169398;
-	Fri, 23 Aug 2019 06:16:09 -0700 (PDT)
+	bh=/q1PV1l4oGgLu2GqmOC6k3TRKkCJu2Y6gI4hbOtzZy8=;
+	b=DRm4eXrO+7xd/l0ldrDkDSmZIbp3kkbijSdX0xmqeX9xlndgj8XRp/EfsFUvEEif5F
+	THr2iP1DnT5PS2/Vi0xszOBoJ/cqMUPXCawia/AgC46/iRg7LKpz0A7JG/JBmmoa1iCi
+	qwLpdG7maNBz8yQ/jW4HstHwGUSDesKfl9+iiHgrKT3wZ71Yu9e4TaafETSyQGbA3SVY
+	ltC96xNhcdLI5niebxFMzsD7asaWEYMgvpFYm4/8xWmizoN3rH3VFFjB+vx05H5/4D5F
+	bB0QNPMfFpimvdQQmScBZ+BM1wL7/G/SpbqZpHi8f1xCvHQsSVLoQc0W6jlADVNWy9hY
+	j9LQ==
+X-Gm-Message-State: APjAAAU6SkcWELBG849cvrlhgecjbiEdminszdouDS+cqEuBpAEogj9c
+	rZpxyJuE8fd5YxKZ5q6pv4ChYBU9WOfm72DYXGDspg==
+X-Google-Smtp-Source: APXvYqwX+ors63il9wfkCtJaFQ4qOFvsrVj2wa+It7P/HM8yQ3V8mwuXls1F3mFc4boptFAc6QPdlcuOl6Fpka9ct2U=
+X-Received: by 2002:a17:90a:25ea:: with SMTP id
+	k97mr2323079pje.131.1566518630495; 
+	Thu, 22 Aug 2019 17:03:50 -0700 (PDT)
 MIME-Version: 1.0
 References: <CAD=FV=UPjPpUyFTPjF-Ogzj_6LJLE4PTxMhCoCEDmH1LXSSmpQ@mail.gmail.com>
-	<CAHk-=whFbgy4RXG11c_=S7O-248oWmwB_aZOcWzWMVh3w7=RCw@mail.gmail.com>
-	<CAOesGMgYisp--bwVK0_cTMqaUM_TaQ-qwhNDceBOsudBPHWR7g@mail.gmail.com>
-	<a6e7eedd-857c-bfe0-4a14-f4140d6fc21e@roeck-us.net>
-	<CAOesGMgryBghLuTSufjhOUFUFDvL2Jv7qJ3uwaZUwCkMXpEmng@mail.gmail.com>
-	<20190823013619.GA8130@mit.edu>
-	<CAHk-=wgqemMJqX4SzbK52KicWSiK4_1qUus=q1akkwdEqXOkvQ@mail.gmail.com>
-	<CAHk-=whrLfPipY7JHnCiFp7vbnshG1Om7tcesa8vqYwu=F=BkA@mail.gmail.com>
-In-Reply-To: <CAHk-=whrLfPipY7JHnCiFp7vbnshG1Om7tcesa8vqYwu=F=BkA@mail.gmail.com>
-From: Sean Paul <seanpaul@chromium.org>
-Date: Fri, 23 Aug 2019 09:15:30 -0400
-X-Gmail-Original-Message-ID: <CAOw6vbJCCeM_62WARKECkthCafhfpxqWc-R9SBMnc6VVMZ0hkg@mail.gmail.com>
-Message-ID: <CAOw6vbJCCeM_62WARKECkthCafhfpxqWc-R9SBMnc6VVMZ0hkg@mail.gmail.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-X-Spam-Status: No, score=-2.0 required=5.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID, DKIM_VALID_AU,
-	RCVD_IN_DNSWL_NONE autolearn=ham version=3.3.1
+In-Reply-To: <CAD=FV=UPjPpUyFTPjF-Ogzj_6LJLE4PTxMhCoCEDmH1LXSSmpQ@mail.gmail.com>
+Date: Thu, 22 Aug 2019 17:03:39 -0700
+Message-ID: <CAFd5g46G6KvLU7+mkCB1mULPG2x=X5TfUmjmm0_mahpgEZ_9JA@mail.gmail.com>
+To: Doug Anderson <dianders@chromium.org>
+X-Spam-Status: No, score=-9.5 required=5.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID, DKIM_VALID_AU, RCVD_IN_DNSWL_NONE,
+	USER_IN_DEF_DKIM_WL autolearn=ham version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
+X-Mailman-Approved-At: Fri, 23 Aug 2019 14:29:07 +0000
 Cc: Joel Fernandes <joelaf@google.com>, Barret Rhoden <brho@google.com>,
-	ksummit <ksummit-discuss@lists.linuxfoundation.org>,
+	ksummit-discuss@lists.linuxfoundation.org,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Jonathan Nieder <jrn@google.com>, Tomasz Figa <tfiga@chromium.org>,
 	Han-Wen Nienhuys <hanwen@google.com>, Theodore Tso <tytso@google.com>,
 	David Rientjes <rientjes@google.com>, Dmitry Torokhov <dtor@chromium.org>,
 	Dmitry Vyukov <dvyukov@google.com>
 Subject: Re: [Ksummit-discuss] Allowing something Change-Id (or something
- like it) in kernel commits
+	like it) in kernel commits
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.12
 Precedence: list
@@ -96,65 +81,93 @@ List-Post: <mailto:ksummit-discuss@lists.linuxfoundation.org>
 List-Help: <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=help>
 List-Subscribe: <https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss>,
 	<mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=subscribe>
+From: Brendan Higgins via Ksummit-discuss
+	<ksummit-discuss@lists.linuxfoundation.org>
+Reply-To: Brendan Higgins <brendanhiggins@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-On Thu, Aug 22, 2019 at 11:04 PM Linus Torvalds
-<torvalds@linux-foundation.org> wrote:
+On Thu, Aug 22, 2019 at 4:40 PM Doug Anderson <dianders@chromium.org> wrote:
+[...]
+> Specifically, let me list the problems I'd like to solve:
 >
-> On Thu, Aug 22, 2019 at 7:58 PM Linus Torvalds
-> <torvalds@linux-foundation.org> wrote:
-> >
-> > So yes, I'd *much* rather see that "Link" line than try to make a
-> > "Change-ID" line be a thing.
->
-> Tangential note: since it looks like "Link:" lines are going to get
-> more common in general, maybe somebody with the right tck/tk-fu can
-> make a tool like 'gitk' be able to just do the hyperlinking thing (it
-> already does it for commit hashes in the commit message, but wouldn't
-> it be convenient to do that for web links too and open a browser
-> tab?).
->
-> And maybe we can even make git.kernel.org do it too (I think that uses cgit?).
->
-> I think that might make it just nicer in general to browse the logs
-> and actually follow the links without cut-and-paste games..
->
-> So using a generic "Link:" tag that can be used for multiple different
-> things sounds like a win in general over some specialized change-ID
-> tag. No?
+> 1. If I see a commit in Linux, I would like to be able to easily find
+> all of the mailing list discussions relevant to that commit.  I know
+> there are proposals about including the Message-Id of the final post
+> in the commit log and that is certainly better than nothing, but the
+> Message-Id will only get you a link to the final version of the patch.
+> If the relevant discussion happened on a previous version of that
+> patch then you need to find it yourself.  This gets harder if the
+> patch changed subject, touched different files, if parts of the series
+> landed at different times, and if multiple people were involved in
+> posting different versions of the patch.  If the commit in Linux has a
+> Change-Id then the old versions are logically linked and easier to
+> associated with one another.
 
-Only if you've uploaded the patch somewhere before sending it to the
-mailing list. I think this would satisfy the Gerrit crowd, since
-they're presumably uploading the patch to Gerrit, getting some review
-on it and then sending it upstream. They will have a link. If you're
-just interested in being archival tool friendly, you probably just
-want to add some uuid cookie to the patch and post it directly to the
-mailing list.
+Please correct me if I am wrong, but I believe this feature already
+exists in cregit[1]. I believe this is called Email2git[2].
 
-That said, I don't think Change-Id (or Uuid or whatever the cookie tag
-is named) needs to be committed to git. If people stuck their
-Change-Id tag below '---' in their mail, it would solve the issue of
-finding old revisions on the list. This would also allow tooling (like
-patchwork) to track across revisions. It's pretty easy to work
-backwards from a commit to _any_ one revision of the patch on the m-l,
-and that will give you the Change-Id.
+To be clear, I am not against the Change-Id tag, but I think we
+already have support for what you are describing here.
 
-If Change-Id becomes widely useful below '---', you could add support
-in patchwork to allow direct linking by Change-Id. This would allow
-people to add Link: <patchwork-server/change-id/<change-id> to their
-commit messages without first uploading it somewhere.
+> 2. If I do a search through old mailing list archives and I stumble
+> upon a patch that didn't land, I can more easily find different
+> versions of that patch if I have a Change-Id.  Some of these different
+> versions may have relevant discussions that explains why the patch
+> didn't land.  Finding these other patches without a Change-Id might be
+> hard, again because they may touch different files, have a different
+> subject, or have been posted by a different person.
 
-Sean
+Yes! I would love this, and I don't think Email2git handles this;
+nevertheless, I am not sure how difficult it would be to add support
+for that to Email2git.
 
 >
->               Linus
-> _______________________________________________
-> Ksummit-discuss mailing list
-> Ksummit-discuss@lists.linuxfoundation.org
-> https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss
+> At the moment using a Change-Id in the way I described would require
+> searching through mailing lists for the Change-Id string to find other
+> versions of the same patch.  However, I would expect it would only be
+> a matter of time before tools like patchwork are able to use Change-Id
+> to associate one version of a patch with the next version.  I would
+> also expect that allowing Change-Id to exist would allow someone to
+> (perhaps) create a gerrit instance that watched the kernel mailing
+> list and mirrored mailing list discussions in the GUI.  In other
+> words, once such tools exist presumably Change-Id will be much more
+> useful: you will eventually be able to paste a Change-Id into a tool
+> and get links to all relevant discussion and related posts.
+>
+>
+> The basic summary is that I'd like there to be some way to track a
+> logical patch over its lifetime.  I don't believe there is a reliable
+> (non-heuristic) way to do this today and I think Change-Id provides a
+
+I am not sure what Email2git does (I assume it uses a heuristic), but
+it seems reasonably reliable after a couple of random spot checks.
+
+> nice solution.  While we could come up with a new and different
+> solution (because Change-Id was not invented here), it feels like
+> adopting Change-Id is convenient and easy and provides a true benefit.
+> Change-Id works super well with the decentralized/email workflow for
+> patches and can be phased in over time (or it can stay optional
+> forever).
+
+I have wanted to do some of this tracking a commit across multiple
+revisions and I have not found a simple way to do it. I keep meaning
+to look into Email2git more closely, but it is hard for me to imagine
+something more straightforward than something analogous to a
+Change-Id.
+
+So I like the idea, but I think it is probably worth first
+investigating Email2git and see if it solves the same use case. If
+Email2git is portable and is easy to build into a workflow outside of
+cregit, then it should be equally easy to represent the metadata that
+Change-Id provides outside of the mailing lists.
+
+Thanks for thinking about this!
+
+[1] https://cregit.linuxsources.org
+[2] https://www.linux.com/tutorials/email2git-matching-linux-code-its-mailing-list-discussions/
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
