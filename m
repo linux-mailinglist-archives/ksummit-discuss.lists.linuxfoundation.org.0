@@ -2,48 +2,48 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id 008679C0E5
-	for <lists@lfdr.de>; Sun, 25 Aug 2019 01:05:13 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id F20B29C0ED
+	for <lists@lfdr.de>; Sun, 25 Aug 2019 01:13:43 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id C4539C87;
-	Sat, 24 Aug 2019 23:04:59 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id B68E2C8B;
+	Sat, 24 Aug 2019 23:13:31 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id 31670C6E
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id 89F7E2F
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Sat, 24 Aug 2019 23:04:57 +0000 (UTC)
+	Sat, 24 Aug 2019 23:13:29 +0000 (UTC)
 X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
 Received: from outgoing.mit.edu (outgoing-auth-1.mit.edu [18.9.28.11])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 3BB9EB0
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 2397067F
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Sat, 24 Aug 2019 23:04:54 +0000 (UTC)
+	Sat, 24 Aug 2019 23:13:29 +0000 (UTC)
 Received: from callcc.thunk.org (guestnat-104-133-0-111.corp.google.com
 	[104.133.0.111] (may be forged)) (authenticated bits=0)
 	(User authenticated as tytso@ATHENA.MIT.EDU)
-	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id x7ON4lRt007214
+	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id x7OND6KW008829
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256
-	verify=NOT); Sat, 24 Aug 2019 19:04:48 -0400
+	verify=NOT); Sat, 24 Aug 2019 19:13:06 -0400
 Received: by callcc.thunk.org (Postfix, from userid 15806)
-	id 7F44542049E; Sat, 24 Aug 2019 19:04:47 -0400 (EDT)
-Date: Sat, 24 Aug 2019 19:04:47 -0400
+	id C41CD42049E; Sat, 24 Aug 2019 19:13:05 -0400 (EDT)
+Date: Sat, 24 Aug 2019 19:13:05 -0400
 From: "Theodore Y. Ts'o" <tytso@mit.edu>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <20190824230447.GA5163@mit.edu>
-References: <20190823151843.GH8130@mit.edu>
+To: Thomas Gleixner <tglx@linutronix.de>
+Message-ID: <20190824231305.GC5163@mit.edu>
+References: <CAOw6vbJCCeM_62WARKECkthCafhfpxqWc-R9SBMnc6VVMZ0hkg@mail.gmail.com>
+	<20190823151843.GH8130@mit.edu>
 	<CAOw6vb+1LH8t20S_3kC6xyGZAhrDa3Pe4ZptsJqoQzXf3WCOeg@mail.gmail.com>
 	<alpine.DEB.2.21.1908231740020.1896@nanos.tec.linutronix.de>
 	<20190823161947.GA112509@dtor-ws>
 	<CAJWu+ooOzZ3vFsW40ok8M0MbrZOcx8xJsrN8Ra_VVq0EavzQfQ@mail.gmail.com>
 	<20190823164602.GB112509@dtor-ws>
 	<alpine.DEB.2.21.1908232108580.1939@nanos.tec.linutronix.de>
-	<CAHrFyr6rQHiQAY4Wcv4WzUS2B5tBfrnWvyTjD4ktHvsEBMxkCw@mail.gmail.com>
-	<CAD=FV=XGySHprMN+dv6dDKmuTQXnmYg5NStyaOJg+KdNUOFZsQ@mail.gmail.com>
-	<CAHk-=whxp0Vm5V6MtaRNC0_ou0=U4-+Y7Ktzq6osU8JgHy_xhQ@mail.gmail.com>
+	<20190823193832.GE4791@pendragon.ideasonboard.com>
+	<alpine.DEB.2.21.1908232150580.1939@nanos.tec.linutronix.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAHk-=whxp0Vm5V6MtaRNC0_ou0=U4-+Y7Ktzq6osU8JgHy_xhQ@mail.gmail.com>
+In-Reply-To: <alpine.DEB.2.21.1908232150580.1939@nanos.tec.linutronix.de>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Spam-Status: No, score=-4.2 required=5.0 tests=BAYES_00,RCVD_IN_DNSWL_MED
 	autolearn=ham version=3.3.1
@@ -74,28 +74,27 @@ Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-On Sat, Aug 24, 2019 at 11:11:32AM -0700, Linus Torvalds wrote:
-> The first time it gets magically and reliably created for you without
-> you having to do a single thing. The second time, you just look it up.
+On Fri, Aug 23, 2019 at 11:15:55PM +0200, Thomas Gleixner wrote:
+> For incoming stuff, I just mark a full mailthread or several of them in the
+> mail client, store it as mbox and then I have a script which creates a
+> quilt series out of it. That script does a bunch of things:
+> 
+>     - Collect Reviewed-by, Acked-by, Tested-by tags either from individual
+>       replies or replies to the cover letter. The latter apply to the whole
+>       series.
+> 
+>     - Adds my Signed-off-by
+> 
+>     - Extract message-id for each patch and add the
+>       Link: https://lkml.kernel.org/r/$MSGID
+> 
+>     - A few magic things which I need for my emacs integration
 
-Also, if you don't want to look it up, and want to have it generated
-"locally", the Message-Id is generated locally by git send-email.
-(That's right, Message-Id's are just as easy to generate locally as
-UUID's.)  It will look like this:
+I use quilt for processing incoming changes for ext4 as well; would
+you mind sharing your script?  This sounds like it would be really
+useful for me.
 
-     Message-Id: <20190824223355.12947-1-tytso@mit.edu>
-
-So if someone wants to make life easier for people who want to send
-out the V2 version of the patch, it would be possible for someone to
-write some tooling which saves the generated Message-Id by git
-send-email (and if you generate the message id and drop it into the
-files generated by git format-patch, git send-email will use the
-generated message id), so that can get used for the git commit
-description for the next version of the commit, this can be done in a
-completely automated way, without having to do any kind of lookups.
-
-As far as I'm concerned, Message-Id's or Link's are both strictly
-superior than a random 16-byte Change-Id UUID.
+Thanks!!
 
 						- Ted
 _______________________________________________
