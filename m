@@ -2,44 +2,64 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id F39419F1B8
-	for <lists@lfdr.de>; Tue, 27 Aug 2019 19:35:18 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 360729F2A2
+	for <lists@lfdr.de>; Tue, 27 Aug 2019 20:50:45 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id B163119B7;
-	Tue, 27 Aug 2019 17:35:02 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id B1C341B5F;
+	Tue, 27 Aug 2019 18:50:33 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id B67F21952
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id 335571AE5
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Tue, 27 Aug 2019 17:34:59 +0000 (UTC)
+	Tue, 27 Aug 2019 18:50:31 +0000 (UTC)
 X-Greylist: whitelisted by SQLgrey-1.7.6
-Received: from mail-oi1-f193.google.com (mail-oi1-f193.google.com
-	[209.85.167.193])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 2AF00710
+Received: from mail-pl1-f196.google.com (mail-pl1-f196.google.com
+	[209.85.214.196])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 9EEF789B
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Tue, 27 Aug 2019 17:34:59 +0000 (UTC)
-Received: by mail-oi1-f193.google.com with SMTP id 16so15594888oiq.6
+	Tue, 27 Aug 2019 18:50:30 +0000 (UTC)
+Received: by mail-pl1-f196.google.com with SMTP id t14so12187566plr.11
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Tue, 27 Aug 2019 10:34:59 -0700 (PDT)
+	Tue, 27 Aug 2019 11:50:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+	h=sender:date:from:to:cc:subject:message-id:references:mime-version
+	:content-disposition:content-transfer-encoding:in-reply-to
+	:user-agent; bh=Tc/OhcPDptmuP/KOh8QQSxkZYmPs5QWUw7Qro2Fh5TA=;
+	b=SzpZEl2F4ys7/HnXkK44hkCPLvlNUsdnMa8HwR3rYztXwPu9kYVh4m1jQSuXM+2f8i
+	da7cZlWKsAt2RpzXB2ytq2xbP5azRHt1fajOP8jyIr0DnjrDvFfXj4mAD0kulKRw6x1i
+	J+CJcFaHTINYtorvPGR9BpGugVugAvDY7VgEFbdlL+wksq13ElkTEPt+eA4lh8TNNbmn
+	P37fl43GSH775BrpLNxruc899XsbOTQ1WF99tk0Z05rBc+u21M8pJzxQEeUS7bsXqCJD
+	+gxlrg0WSG1fUfQYVSnxkFsGV8sBXWwmi+aO6RUaD0uG96Yao1a4yWT/z4I5uYiYipEl
+	hsqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-	:message-id:subject:to:cc:content-transfer-encoding;
-	bh=bBLUBh8avuAdl5tgAfl1paHIRT9+tBfs0FETbEZgurA=;
-	b=qq08xjq+uZ+8TcKRFmr+m69mPmYza+FHcfcw/cCAk+Z2RvIZFsXb6EAhzgI+ngA0Ve
-	YYp35El/2EZr8QOo9YLZ17S6/2VPFFikklB5nF0kOfNjvYVamBM2+Rdd/5XKx6tm6ayn
-	Sk7Qn8ItoGenFCKvoNMj7LduTBfKAT1l+AUIcgPTLsu+ALa6rA8UW2pTke3iGpdKU5V+
-	gl2rN9+X2KRvcgWZikiCNtfgvskUMTDru1WrWuWM+loXf3aZwxnWPApOpS7h88rKWhng
-	FICdk9qyTdRpLvlHvTvA1kM75F6/nMU5twDXgEkmWZiP3zuha+ateHhExjGglMz0LWY3
-	13xQ==
-X-Gm-Message-State: APjAAAUrjm5nV6zJ1vLMrr2o8v66PvXvhNr7H2tu0dGz083h9eir4YQg
-	IYngBFGJ04uC64ICatkeLqE9HOMkRQKY1t6rYDc=
-X-Google-Smtp-Source: APXvYqzs5EJIiJ7Hl7x217zORIAZqMSsH/P6ayal4KEfyFEl/pwvlhvcGmuLV/Rkvi3ETtCg+euFXhADfKaQb6CmXJM=
-X-Received: by 2002:a54:478d:: with SMTP id o13mr53263oic.54.1566927298331;
-	Tue, 27 Aug 2019 10:34:58 -0700 (PDT)
-MIME-Version: 1.0
+	h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
+	:references:mime-version:content-disposition
+	:content-transfer-encoding:in-reply-to:user-agent;
+	bh=Tc/OhcPDptmuP/KOh8QQSxkZYmPs5QWUw7Qro2Fh5TA=;
+	b=Q8a2k8aa0DLUO1y5Pw+qQSBn+rl9GopOy5mNVqv5BBEey08l4lpNEOM4CX5WDFwgX0
+	pn1Mx48D8X6aoY/DMeDgXMrEj2xAINlXFBrXzPoaxr6DmD9a4GWlTlOnovstZUzcO3K2
+	HztxeoGZDukOMPKmOV4TVKACvZo/bqSYByBE63akqlaPqsReZrqqpeu1V3aA/wUMs9tu
+	W8taVobX2Ht5VdSqCjyHNFTMNT8FQ3dM7vAJp9KDZpSQKu1Q7TQ966kJf0ZF5nD1QFcQ
+	c2Loi10dpIviCB2yJKPdKuNDxU2P8sfe5ssAwFWeQmGfh3a1Fxt0rWOcY9bam568k1e9
+	GsHg==
+X-Gm-Message-State: APjAAAXkSKliUHmErbMO+wz0yJ7BGeQlH6nFV2msgtMkOQ/XtK8NXBti
+	++MpobC8QkZ6zACqjF5JnYw=
+X-Google-Smtp-Source: APXvYqy65WhkCxnzijkL+LXUMbSFdkaN2KEw9fR/PzdK3RiANf7B4ooV7RICTAPgN1EF09N/hvSy2A==
+X-Received: by 2002:a17:902:6b07:: with SMTP id
+	o7mr344510plk.180.1566931830219; 
+	Tue, 27 Aug 2019 11:50:30 -0700 (PDT)
+Received: from localhost (108-223-40-66.lightspeed.sntcca.sbcglobal.net.
+	[108.223.40.66])
+	by smtp.gmail.com with ESMTPSA id x9sm113141pgp.75.2019.08.27.11.50.28
+	(version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+	Tue, 27 Aug 2019 11:50:29 -0700 (PDT)
+Date: Tue, 27 Aug 2019 11:50:27 -0700
+From: Guenter Roeck <linux@roeck-us.net>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Message-ID: <20190827185027.GA15384@roeck-us.net>
 References: <CAD=FV=WrGcfV-_0taGHB-LMZV8zN8oV3KMy=j09dor+hKRLPSg@mail.gmail.com>
 	<CAD=FV=WgbREZd5EiytrEOxQ+GQ33q+ohKqb-T6e3mhFJzWtpXA@mail.gmail.com>
 	<20190826230206.GC28066@mit.edu>
@@ -48,13 +68,14 @@ References: <CAD=FV=WrGcfV-_0taGHB-LMZV8zN8oV3KMy=j09dor+hKRLPSg@mail.gmail.com>
 	<CACT4Y+a2E9FBba4f2iEmQKzO=gNe0cdyW+Pqq8YyiMaOTOu3fg@mail.gmail.com>
 	<20190827134836.GB25038@kroah.com>
 	<dc1a4c98-5e29-094c-ead8-889df35de811@roeck-us.net>
-In-Reply-To: <dc1a4c98-5e29-094c-ead8-889df35de811@roeck-us.net>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 27 Aug 2019 19:34:45 +0200
-Message-ID: <CAMuHMdWFh2cK_T3y=iAfEOq=Nv_JpbKKqJ2chi=X40cWLxqBgA@mail.gmail.com>
-To: Guenter Roeck <linux@roeck-us.net>
-X-Spam-Status: No, score=-1.9 required=5.0 tests=BAYES_00,FREEMAIL_FROM,
-	RCVD_IN_DNSWL_NONE autolearn=ham version=3.3.1
+	<CAMuHMdWFh2cK_T3y=iAfEOq=Nv_JpbKKqJ2chi=X40cWLxqBgA@mail.gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdWFh2cK_T3y=iAfEOq=Nv_JpbKKqJ2chi=X40cWLxqBgA@mail.gmail.com>
+User-Agent: Mutt/1.5.24 (2015-08-30)
+X-Spam-Status: No, score=-1.6 required=5.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID, FREEMAIL_ENVFROM_END_DIGIT, FREEMAIL_FROM,
+	RCVD_IN_DNSWL_NONE autolearn=no version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
 Cc: Joel Fernandes <joelaf@google.com>, Barret Rhoden <brho@google.com>,
@@ -77,77 +98,137 @@ List-Post: <mailto:ksummit-discuss@lists.linuxfoundation.org>
 List-Help: <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=help>
 List-Subscribe: <https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss>,
 	<mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-SGkgR8O8bnRlciwKCk9uIFR1ZSwgQXVnIDI3LCAyMDE5IGF0IDQ6MDEgUE0gR3VlbnRlciBSb2Vj
-ayA8bGludXhAcm9lY2stdXMubmV0PiB3cm90ZToKPiBPbiA4LzI3LzE5IDY6NDggQU0sIEdyZWcg
-S3JvYWgtSGFydG1hbiB3cm90ZToKPiA+IE9uIFR1ZSwgQXVnIDI3LCAyMDE5IGF0IDA2OjI0OjM2
-QU0gLTA3MDAsIERtaXRyeSBWeXVrb3Ygd3JvdGU6Cj4gPj4gT24gTW9uLCBBdWcgMjYsIDIwMTkg
-YXQgMTE6MDYgUE0gVGhvbWFzIEdsZWl4bmVyIDx0Z2x4QGxpbnV0cm9uaXguZGU+IHdyb3RlOgo+
-ID4+PiBPbiBNb24sIDI2IEF1ZyAyMDE5LCBEbWl0cnkgVnl1a292IHdyb3RlOgo+ID4+Pj4gQSBz
-b21ld2hhdCByZWxhdGVkIHBvaW50IHJlIFVVSUQvQ2hhbmdlLUlELgo+ID4+Pj4gRm9yIHN5emJv
-dCAob3IgYW55IG90aGVyIGJ1ZyB0cmFja2luZyBzeXN0ZW0pIHdlIHdhbnQgdG8gYXNzb2NpYXRl
-Cj4gPj4+PiBidWdzIHdpdGggZml4ZXMuIEl0IHR1cm5lZCBvdXQgdGhlcmUgaXMgbm8gZ29vZCBp
-ZGVudGl0eSBvZiBhIGNoYW5nZQo+ID4+Pj4gdGhhdCB3ZSBjb3VsZCB1c2UuIENvbW1pdCBoYXNo
-IGlzIGFuIG9idmlvdXMgZmlyc3QgdGhpbmcgdG8gY29uc2lkZXIsCj4gPj4+PiBidXQgKDEpIGl0
-IGNoYW5nZXMgaW4gbGludXgtbmV4dCwgKDIpIHNvbWV0aW1lcyB0aGUgY2hhbmdlIGlzIG5vdAo+
-ID4+Pj4gY29tbWl0dGVkIHlldCB3aGVuIHdlIGRvIHRoZSBhc3NvY2lhdGlvbiwgKDMpIGl0IGlz
-IGRpZmZlcmVudCB3aGVuCj4gPj4+PiBiYWNrcG9ydGVkIHRvIExUUyAoc28gbm90IHBvc3NpYmxl
-IHRvIHNheSBpZiBhIGZpeCBpcyBpbiB0aGF0IHN0YWJsZQo+ID4+Pj4gdHJlZSBvciBub3QpLgo+
-ID4+Pj4gV2UgZGVjaWRlZCB0byB1c2UgY29tbWl0IHN1YmplY3QsIHdoaWNoIHdvcmtzIHRvIHNv
-bWUgZGVncmVlLCBidXQgYWxzbwo+ID4+Pj4gaGFzIHByb2JsZW1zOiAoMSkgbm90IG5lY2Vzc2Fy
-eSB1bmlxdWUsICgyKSBzb21ldGltZXMgcGVvcGxlIGNoYW5nZQo+ID4+Pj4gc3ViamVjdCBkdXJp
-bmcgYmFja3BvcnRpbmcgKGUuZy4gcHJlcGVuZCBzb21lIHByZWZpeCksICgzKSBoYXMgYWxsIHRo
-ZQo+ID4+Pj4gc2FtZSBwcm9ibGVtcyBvZiBlbWFpbCBjbGllbnRzIG1lc3Npbmcgd2l0aCB0ZXh0
-IChlLmcuIEkgY2FuJ3QgaXNzdWUKPiA+Pj4+ICNzeXogZml4IGNvbW1hbmQgZm9yIGxvbyBsb25n
-IGNvbW1pdCBzdWJqZWN0cyB3aXRoIG15IGVtYWlsIGNsaWVudCkuCj4gPj4+PiBTb21lIHJlYWwg
-VVVJRC9DaGFuZ2UtSUQgd291bGQgc29sdmUgYWxsIG9mIHRoZXNlIHByb2JsZW1zIGJ5IGdpdmlu
-Zwo+ID4+Pj4gdXMgY2FwYWJpbGl0eSB0byByZWZlciB0byBjaGFuZ2VzIHJhdGhlciB0aGFuIGEg
-Y29tbWl0IGluIGEgcGFydGljdWxhcgo+ID4+Pj4gdHJlZSBvbmx5Lgo+ID4+Pgo+ID4+PiBJZiB3
-ZSBhZG9wdCB0aGUgTGluazogLi4uLi8kTVNHIHRhZyB3aWRlbHkgdGhlbiB5b3UgaGF2ZSBhIFVV
-SUQuCj4gPj4KPiA+PiBJcyB0aGVyZSBhIHdheSB0byBlbnN1cmUgdGhhdCBldmVyeWJvZHkgd2ls
-bCBnZW5lcmF0ZSByaWdodCBJRHMKPiA+PiAoQ2hhbmdlSUQtVmVyc2lvbikgYW5kIHRoZW4gYSBs
-aW5rIGluIGNhbm9uaWNhbCBmb3JtIHdpbGwgYmUgaW5jbHVkZWQKPiA+PiBpbnRvIGNvbW1pdD8g
-QXMgZmFyIGFzIEkgdW5kZXJzdGFuZCB0aGlzIGlzIG5vdCBwb3NzaWJsZSB3aXRoIHRoZQo+ID4+
-IGN1cnJlbnQga2VybmVsIHRvb2xpbmcsIGFzIHRoaXMgYXNwZWN0IGlzIG5vdCB1bmRlciBjb250
-cm9sIG9mIGFueQo+ID4+IHVuaWZpZWQgdG9vbGluZy4KPiA+PiBJIHNlZSBkaWZmZXJlbnQgbWFp
-bnRhaW5lcnMgdXNlIGxpbmtzIHRvIGRpZmZlcmVudCBhcmNoaXZlIHdlYiBzaXRlcy4KPiA+PiBB
-bHNvIHNvbWV0aW1lcyBMaW5rIGlzIHByZXNlbnQgZm9yIG90aGVyIHJlYXNvbnMgKGUuZy4gbGlu
-ayB0byBidWcKPiA+PiByZXBvcnQpLgo+ID4+IFRoZSBsaW5rIHdpbGwgbmVlZCB0byBiZSBhZGRl
-ZCBieSBldmVyeSBkZXZlbG9wZXIgKHJhdGhlciB0aGFuCj4gPj4gbWFpbnRhaW5lcikgc28gdGhh
-dCBpdCdzIGF2YWlsYWJsZSBiZWZvcmUgdGhlIGNoYW5nZSBpcyBjb21taXR0ZWQKPiA+PiBhbnl3
-aGVyZS4KPiA+Cj4gPiBGb3Igc3Vic3lzdGVtcyBJIG1haW50YWluLCBJIGFtIGFscmVhZHkgYWRk
-aW5nIHRoZSBMaW5rOiB0YWcgdG8KPiA+IGxvcmUua2VybmVsLm9yZyB3aXRoIHRoZSBtZXNzYWdl
-IGlkIGluIGl0LiAgVGhhdCBpcyBhdXRvbWF0aWNhbGx5IGFkZGVkCj4gPiBieSBteSBzY3JpcHRz
-Lgo+ID4KPiA+PiBUaG91Z2gsIG1vc3Qgb2YgdGhlc2UgYXJlIHByb2JsZW1zIGZvciBhbnkgb3Ro
-ZXIgY2hhbmdlIGlkZW50aWZpY2F0aW9uIHNjaGVtZS4uLgo+ID4KPiA+IE5vdGUsIHdlIGhhdmUg
-NDAwMCsgZGV2ZWxvcGVycyBldmVyeSB5ZWFyLCBpdCdzIGhhcmQgZW5vdWdoIHRvIGdldCB0aGVt
-Cj4gPiBhbGwgdG8gYWdyZWUgb24gbWFqb3IgdGhpbmdzLCBsZXQgYWxvbmUgY3Jhenkgc3R1ZmYg
-bGlrZSB0aGlzIDopCj4gPgo+Cj4gSXMgaXQgcmVhbGx5IHRoYXQgY3JhenkgPwo+Cj4gSSBoYXZl
-IHRvIHVzZSBhIGNvbWJpbmF0aW9uIG9mIHN1YmplY3QgYW5hbHlzaXMgYW5kIHBhdGNoIGNvbnRl
-bnQgYW5hbHlzaXMKPiB1c2luZyBmdXp6eSB0ZXh0IC8gc3RyaW5nIGNvbXBhcmlzb24sIGNvbWJp
-bmVkIHdpdGggYW4gYW5hbHlzaXMgb2YgdGhlIHBhdGNoCj4gZGVzY3JpcHRpb24sIHRvIGFuc3dl
-ciBhIHNpbXBsZSBxdWVzdGlvbjogSXMgdGhpcyBwYXRjaCB1cHN0cmVhbSwgYW5kIHdoYXQgaXMK
-PiBpdHMgdXBzdHJlYW0gU0hBID8gSGF2aW5nIGEgVVVJRCB0YWcgd291bGQgbWFrZSB0aGlzIGEg
-c2ltcGxlIGFuZAoKSSB0eXBpY2FsbHkgdXNlICJnaXQgY2hlcnJ5IC12IiB0byBjaGVjayBpZiBh
-IHBhdGNoIGlzIHVwc3RyZWFtLgpZZXMsIHRoaXMgbWF5IG1pc3MgYSBwYXRjaCB0aGF0IHdhcyBj
-aGFuZ2VkLiAgQnV0IHRoYXQgY2FuIGJlIGEgZ29vZCB0aGluZy4KCj4gc3RyYWlnaHRmb3J3YXJk
-IG9wZXJhdGlvbi4gV2hhdCBpcyBjcmF6eSBpcyBoYXZpbmcgdG8gZG8gYWxsIHRoaXMgYW5hbHlz
-aXMuCgpXaGF0IGhhcHBlbnMgdG8gdGhlIFVVSUQgd2hlbiBhIHBhdGNoIGlzIHNwbGl0IGluIHR3
-byBwYXJ0cz8KSWYgYSBwYXJ0IGlzIGFwcGxpZWQgd2l0aCB0aGUgc2FtZSBVVUlELCB0aGF0IHdv
-dWxkIGdpdmUgdGhlIGZhbHNlIGltcHJlc3Npb24KdGhhdCB0aGUgb3JpZ2luYWwgZnVsbCBwYXRj
-aCB3YXMgYXBwbGllZC4KCkF0IGxlYXN0IHJlYmFzaW5nICh1c2luZyBnaXQgcmViYXNlKSB5b3Vy
-IHN1Ym1pc3Npb25zIGFnYWluc3QgdXBzdHJlYW0gd2lsbAprZWVwIHRoZSBwYXJ0IHRoYXQgc3Rp
-bGwgaGFzbid0IGJlZW4gYXBwbGllZC4KCkdye29ldGplLGVldGluZ31zLAoKICAgICAgICAgICAg
-ICAgICAgICAgICAgR2VlcnQKCi0tIApHZWVydCBVeXR0ZXJob2V2ZW4gLS0gVGhlcmUncyBsb3Rz
-IG9mIExpbnV4IGJleW9uZCBpYTMyIC0tIGdlZXJ0QGxpbnV4LW02OGsub3JnCgpJbiBwZXJzb25h
-bCBjb252ZXJzYXRpb25zIHdpdGggdGVjaG5pY2FsIHBlb3BsZSwgSSBjYWxsIG15c2VsZiBhIGhh
-Y2tlci4gQnV0CndoZW4gSSdtIHRhbGtpbmcgdG8gam91cm5hbGlzdHMgSSBqdXN0IHNheSAicHJv
-Z3JhbW1lciIgb3Igc29tZXRoaW5nIGxpa2UgdGhhdC4KICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAtLSBMaW51cyBUb3J2YWxkcwpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fXwpLc3VtbWl0LWRpc2N1c3MgbWFpbGluZyBsaXN0CktzdW1taXQtZGlz
-Y3Vzc0BsaXN0cy5saW51eGZvdW5kYXRpb24ub3JnCmh0dHBzOi8vbGlzdHMubGludXhmb3VuZGF0
-aW9uLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2tzdW1taXQtZGlzY3Vzcwo=
+On Tue, Aug 27, 2019 at 07:34:45PM +0200, Geert Uytterhoeven wrote:
+> Hi G=FCnter,
+> =
+
+> On Tue, Aug 27, 2019 at 4:01 PM Guenter Roeck <linux@roeck-us.net> wrote:
+> > On 8/27/19 6:48 AM, Greg Kroah-Hartman wrote:
+> > > On Tue, Aug 27, 2019 at 06:24:36AM -0700, Dmitry Vyukov wrote:
+> > >> On Mon, Aug 26, 2019 at 11:06 PM Thomas Gleixner <tglx@linutronix.de=
+> wrote:
+> > >>> On Mon, 26 Aug 2019, Dmitry Vyukov wrote:
+> > >>>> A somewhat related point re UUID/Change-ID.
+> > >>>> For syzbot (or any other bug tracking system) we want to associate
+> > >>>> bugs with fixes. It turned out there is no good identity of a chan=
+ge
+> > >>>> that we could use. Commit hash is an obvious first thing to consid=
+er,
+> > >>>> but (1) it changes in linux-next, (2) sometimes the change is not
+> > >>>> committed yet when we do the association, (3) it is different when
+> > >>>> backported to LTS (so not possible to say if a fix is in that stab=
+le
+> > >>>> tree or not).
+> > >>>> We decided to use commit subject, which works to some degree, but =
+also
+> > >>>> has problems: (1) not necessary unique, (2) sometimes people change
+> > >>>> subject during backporting (e.g. prepend some prefix), (3) has all=
+ the
+> > >>>> same problems of email clients messing with text (e.g. I can't iss=
+ue
+> > >>>> #syz fix command for loo long commit subjects with my email client=
+).
+> > >>>> Some real UUID/Change-ID would solve all of these problems by givi=
+ng
+> > >>>> us capability to refer to changes rather than a commit in a partic=
+ular
+> > >>>> tree only.
+> > >>>
+> > >>> If we adopt the Link: ..../$MSG tag widely then you have a UUID.
+> > >>
+> > >> Is there a way to ensure that everybody will generate right IDs
+> > >> (ChangeID-Version) and then a link in canonical form will be included
+> > >> into commit? As far as I understand this is not possible with the
+> > >> current kernel tooling, as this aspect is not under control of any
+> > >> unified tooling.
+> > >> I see different maintainers use links to different archive web sites.
+> > >> Also sometimes Link is present for other reasons (e.g. link to bug
+> > >> report).
+> > >> The link will need to be added by every developer (rather than
+> > >> maintainer) so that it's available before the change is committed
+> > >> anywhere.
+> > >
+> > > For subsystems I maintain, I am already adding the Link: tag to
+> > > lore.kernel.org with the message id in it.  That is automatically add=
+ed
+> > > by my scripts.
+> > >
+> > >> Though, most of these are problems for any other change identificati=
+on scheme...
+> > >
+> > > Note, we have 4000+ developers every year, it's hard enough to get th=
+em
+> > > all to agree on major things, let alone crazy stuff like this :)
+> > >
+> >
+> > Is it really that crazy ?
+> >
+> > I have to use a combination of subject analysis and patch content analy=
+sis
+> > using fuzzy text / string comparison, combined with an analysis of the =
+patch
+> > description, to answer a simple question: Is this patch upstream, and w=
+hat is
+> > its upstream SHA ? Having a UUID tag would make this a simple and
+> =
+
+> I typically use "git cherry -v" to check if a patch is upstream.
+> Yes, this may miss a patch that was changed.  But that can be a good thin=
+g.
+> =
+
+
+I use that as well, as "first line of defense". But it doesn't always work,
+for example if a patch was applied to a downstream branch while its =
+
+upstream review was still going on, or for backports which required
+conflict resolutions or context changes.
+
+> > straightforward operation. What is crazy is having to do all this analy=
+sis.
+> =
+
+> What happens to the UUID when a patch is split in two parts?
+> If a part is applied with the same UUID, that would give the false impres=
+sion
+> that the original full patch was applied.
+> =
+
+
+Presumably one would/should drop the original UUID in such a situation.
+One should also not blindly trust a uuid and also perform an automated
+and/or manual review. The key would be to have the ability to identify
+a patch without having to search through all of them.
+
+In practice, I use a fuzzy match on the patch subject today, followed
+by another fuzzy match on the patch content. Both are expensive, even
+with parallel search, especially if one has to search through 100k+
+patches. The subject match is also error prone - a computer has a
+diffferent opinion about "match" than the human brain, and a seemingly
+innocent subject change may result in a complete mismatch. Also, yes,
+there may be multiple patches with the same or almost the same subject.
+The ability to replace or at least augment that part of the search
+with a uuid match would be extremely helpful.
+
+> At least rebasing (using git rebase) your submissions against upstream wi=
+ll
+> keep the part that still hasn't been applied.
+> =
+
+
+Unfortunately, a straight rebase doesn't work for a number of reasons.
+In a nutshell we have too many local patches to deal with, in too many
+areas of the kernel. Also, the deviation from upstream is in almost all
+cases not what we want or need if a downstream patch differs from its
+upstream version. We have to use a more intelligent (guided) approach.
+
+Guenter
+_______________________________________________
+Ksummit-discuss mailing list
+Ksummit-discuss@lists.linuxfoundation.org
+https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss
