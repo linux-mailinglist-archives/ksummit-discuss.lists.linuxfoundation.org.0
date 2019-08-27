@@ -2,63 +2,62 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3D45E9E93C
-	for <lists@lfdr.de>; Tue, 27 Aug 2019 15:25:09 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 028249E956
+	for <lists@lfdr.de>; Tue, 27 Aug 2019 15:30:39 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id 50B761514;
-	Tue, 27 Aug 2019 13:24:56 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id 263F11550;
+	Tue, 27 Aug 2019 13:30:28 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id E2ACD150D
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id 85BF81542
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Tue, 27 Aug 2019 13:24:53 +0000 (UTC)
+	Tue, 27 Aug 2019 13:30:25 +0000 (UTC)
 X-Greylist: whitelisted by SQLgrey-1.7.6
-Received: from mail-qk1-f195.google.com (mail-qk1-f195.google.com
-	[209.85.222.195])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id DEC5A8A7
+Received: from mail-qt1-f194.google.com (mail-qt1-f194.google.com
+	[209.85.160.194])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id ED5888A7
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Tue, 27 Aug 2019 13:24:51 +0000 (UTC)
-Received: by mail-qk1-f195.google.com with SMTP id d23so16969793qko.3
+	Tue, 27 Aug 2019 13:30:24 +0000 (UTC)
+Received: by mail-qt1-f194.google.com with SMTP id 44so21216655qtg.11
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Tue, 27 Aug 2019 06:24:51 -0700 (PDT)
+	Tue, 27 Aug 2019 06:30:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
 	h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-	:cc; bh=oefLgTysRRmj+C3SxaKiR6NdQXOyE4Aica9KPynHlg4=;
-	b=DTU9kOv5U2F6bY7ReQsw+UccvoPz4sjR9YPT5XRm0rWYJT7Qu+zyEw/uHml4L+xz6y
-	InBAbzGYWVzbK3DSL4nAzQFO4tCByQ7ywn3//r3odZSBUni0gMCP9ofVsSsfuhmbvCT6
-	it1lxJQDXyUakccIw601ZxduKgYRIpepBLRMdr+y5UB4PPmde+sIKzk40XHIdx8pKlYS
-	MWf2cCeJWoeVeadRB4jQZPGNRO1OknvfWcgR0hbr0Mo+Sr9R6pX8ct8SweOfQcgV17Gf
-	O8AZM/A/q4+HxFUvnTNzGUyTZ190mnT55EkE2sHZzUx7wEpsnsyZdiZE/t24JuvB15Te
-	o/Mg==
+	:cc; bh=y6aGnTTL037h/beDl4l/Xp3rT2bZuwYsnEO2NdO/xa8=;
+	b=BGf7NpAUyjE+PLHeSWg76808YrSpdaMBQ83mnTtz5Z/rOyTzVayS7Rnj6kYJHOz/kZ
+	B/tguZrHO95gG7dsT8DH3oLlRCPMaVBknRH1UGefyEvcx6EPPpx0AIozE9SY7/IL0AX/
+	7t0ggoUDBiM1Ew/ZSeHaXY9OBPNIsxLKlq5fXLj7xc3uInfugj3ZLbxbPhzUgobue2F0
+	Vg/ZnZde3+cgH/KY++rwKyu0P+eOLx10Umz81io2f0Iinfw04sEAut//2EIKaqPmp0+N
+	moMG1HeQG4KHvjZ0alHuW70NNVxrzoCI6ecSM26LOE11CZJGqPdJ++VyK5oLUag9u0Z2
+	EU9g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
 	h=x-gm-message-state:mime-version:references:in-reply-to:from:date
 	:message-id:subject:to:cc;
-	bh=oefLgTysRRmj+C3SxaKiR6NdQXOyE4Aica9KPynHlg4=;
-	b=iZs1xii2yyBExWqW/WMihp1NsNGnBWWnK+O4C22pNT0umb/G7G/0KqvCtzrbqkrDYd
-	9t2WaKKzmJb5lOu9CCtjOl1YldRi4baL1naI0fAU1eqDtCd36FRX5j+bMjCXZ0jZMXrA
-	UVf8hisuyp5s4D082WkefRlLWmieF1I/aNNbfvuIyqI+wbSiiOpQ+O0LkYYI9FQKGBqK
-	lhSAjlJxGa0tfJeBtNmKlOVWPpWHpfSDVJTwP2b6XPZR8Jf2QpcCFYX8vlyimSwDh1X3
-	RVHOEUz5+maorXHtLlISYmtIWZJxbYFFsPQ8H1xOQK0aQ0tBYm6PS/Go6qKadoBttmEk
-	OUlQ==
-X-Gm-Message-State: APjAAAUf8CJslAw4AoRDU6UeOAyEPBI9vHA3Gp0YJuppg9pU4m3XNarA
-	UkTBlLsKf0vQ5zHbbO1UUTt09nUs3botmjhoaYcCvg==
-X-Google-Smtp-Source: APXvYqysMgwbC11WuECjVFH/6puYvPqa8RgZwXOU7zaUc4S53uXeDkdIp5DtGez5rqjp9LDPtA7j91KaW58u7WqFr/k=
-X-Received: by 2002:ae9:e8d3:: with SMTP id
-	a202mr20827710qkg.256.1566912290545; 
-	Tue, 27 Aug 2019 06:24:50 -0700 (PDT)
+	bh=y6aGnTTL037h/beDl4l/Xp3rT2bZuwYsnEO2NdO/xa8=;
+	b=PvidISwp+4gX6VtaVWld4uxgvRySM1XstbEO1eA/FBTN1bxr/UznvH8m0vFRlQHPpW
+	meonrIOLMGryfHoBoVHxD03Jb/nahSQtiVtqrIvsVC4XdPvirScoCVQuLoyPE+DmQ1Mf
+	KZdK90GW4AitkiByPlPY6HlpS+OI9jQXXk06Tlk/mlUIiLzVjHcpGuKsL0PUM1TmoyLP
+	JGZo3Son7kGi/YWxq0ma9/XdWTpeCQJDRF3jF8H7EGfyPej5creGA09RAgredej7EJiV
+	PpMmbqdD+5za7WKTrZq2NUjBhYrK09ZDvPQi8nv+Wc9I7xAvp9abXz1pz3aRQEJYSKDn
+	5MzA==
+X-Gm-Message-State: APjAAAWPeamEYWQHUH/1HEiKZlKov/aPECq5wCV1qc4gz2yjn2oRbmhr
+	INLsC0J34TBs0Nuw+5mdJvo5eZMDyYqzX9QO7hSXnA==
+X-Google-Smtp-Source: APXvYqzKGo1sp7o/e/6xPJsg95OcZmqxHJ3l/s18zkbwVYzgA9ZI+pWiCf2NYvOUwi5WBqgOOXfdF56CRrhBjmtNkEc=
+X-Received: by 2002:a0c:8cc3:: with SMTP id q3mr19283491qvb.127.1566912623341; 
+	Tue, 27 Aug 2019 06:30:23 -0700 (PDT)
 MIME-Version: 1.0
 References: <CAD=FV=WrGcfV-_0taGHB-LMZV8zN8oV3KMy=j09dor+hKRLPSg@mail.gmail.com>
 	<CAD=FV=WgbREZd5EiytrEOxQ+GQ33q+ohKqb-T6e3mhFJzWtpXA@mail.gmail.com>
 	<20190826230206.GC28066@mit.edu>
 	<CACT4Y+aMkb4OTPwbXP1U8wtoV2oaLh+P-FoxG9N5m63kt-kGyw@mail.gmail.com>
-	<alpine.DEB.2.21.1908270806060.1939@nanos.tec.linutronix.de>
-In-Reply-To: <alpine.DEB.2.21.1908270806060.1939@nanos.tec.linutronix.de>
-Date: Tue, 27 Aug 2019 06:24:36 -0700
-Message-ID: <CACT4Y+a2E9FBba4f2iEmQKzO=gNe0cdyW+Pqq8YyiMaOTOu3fg@mail.gmail.com>
-To: Thomas Gleixner <tglx@linutronix.de>
+	<CAMuHMdUxz4ufVzMjbrdA8hoNqH2XCccxNQHR+rsdM=kL9aEFbg@mail.gmail.com>
+In-Reply-To: <CAMuHMdUxz4ufVzMjbrdA8hoNqH2XCccxNQHR+rsdM=kL9aEFbg@mail.gmail.com>
+Date: Tue, 27 Aug 2019 06:30:11 -0700
+Message-ID: <CACT4Y+ZyE+0Q79mxD9KMY3NCe8Oxf4Jk=yCYNkdkH2Jhr-fS_Q@mail.gmail.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
 X-Spam-Status: No, score=-9.5 required=5.0 tests=BAYES_00,DKIM_SIGNED,
 	DKIM_VALID, DKIM_VALID_AU, RCVD_IN_DNSWL_NONE,
 	USER_IN_DEF_DKIM_WL autolearn=ham version=3.3.1
@@ -91,9 +90,13 @@ Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-On Mon, Aug 26, 2019 at 11:06 PM Thomas Gleixner <tglx@linutronix.de> wrote:
+On Tue, Aug 27, 2019 at 12:33 AM Geert Uytterhoeven
+<geert@linux-m68k.org> wrote:
 >
-> On Mon, 26 Aug 2019, Dmitry Vyukov wrote:
+> Hi Dmitry,
+>
+> On Tue, Aug 27, 2019 at 2:30 AM Dmitry Vyukov via Ksummit-discuss
+> <ksummit-discuss@lists.linuxfoundation.org> wrote:
 > > A somewhat related point re UUID/Change-ID.
 > > For syzbot (or any other bug tracking system) we want to associate
 > > bugs with fixes. It turned out there is no good identity of a change
@@ -102,6 +105,14 @@ On Mon, Aug 26, 2019 at 11:06 PM Thomas Gleixner <tglx@linutronix.de> wrote:
 > > committed yet when we do the association, (3) it is different when
 > > backported to LTS (so not possible to say if a fix is in that stable
 > > tree or not).
+>
+> For (3): LTS commits have "commit <sha1> upstream" in their description
+> (perhaps some have "cherry picked from commit <sha1>"?).
+
+A change identification scheme would need to solve all of these. E.g.
+non-committed changes look more problematic for anything that uses
+commit hashes...
+
 > > We decided to use commit subject, which works to some degree, but also
 > > has problems: (1) not necessary unique, (2) sometimes people change
 > > subject during backporting (e.g. prepend some prefix), (3) has all the
@@ -111,20 +122,14 @@ On Mon, Aug 26, 2019 at 11:06 PM Thomas Gleixner <tglx@linutronix.de> wrote:
 > > us capability to refer to changes rather than a commit in a particular
 > > tree only.
 >
-> If we adopt the Link: ..../$MSG tag widely then you have a UUID.
+> "git patch-id --stable <sha1>" may help, too.
+>
+> For quick lookups, you need to generate/append to an index regularly.
 
-Is there a way to ensure that everybody will generate right IDs
-(ChangeID-Version) and then a link in canonical form will be included
-into commit? As far as I understand this is not possible with the
-current kernel tooling, as this aspect is not under control of any
-unified tooling.
-I see different maintainers use links to different archive web sites.
-Also sometimes Link is present for other reasons (e.g. link to bug
-report).
-The link will need to be added by every developer (rather than
-maintainer) so that it's available before the change is committed
-anywhere.
-Though, most of these are problems for any other change identification scheme...
+It's not me, it's everybody ;)
+If I am reading git help correctly, this won't handle changes with
+more than 1 version. Also maintainers will be prohibited from doing
+any changed to patches during commit.
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
