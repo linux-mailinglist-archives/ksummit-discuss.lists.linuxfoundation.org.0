@@ -2,83 +2,39 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id C1EAC9F530
-	for <lists@lfdr.de>; Tue, 27 Aug 2019 23:38:38 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 515649F839
+	for <lists@lfdr.de>; Wed, 28 Aug 2019 04:20:07 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id CB3D31D94;
-	Tue, 27 Aug 2019 21:38:28 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id EF8E623E4;
+	Wed, 28 Aug 2019 02:19:45 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id 057EC1D74
-	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Tue, 27 Aug 2019 21:38:26 +0000 (UTC)
-X-Greylist: whitelisted by SQLgrey-1.7.6
-Received: from mail-qk1-f195.google.com (mail-qk1-f195.google.com
-	[209.85.222.195])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 6DF4C88E
-	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Tue, 27 Aug 2019 21:38:25 +0000 (UTC)
-Received: by mail-qk1-f195.google.com with SMTP id s14so564855qkm.4
-	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Tue, 27 Aug 2019 14:38:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
-	h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-	:cc; bh=3HinFlKoKORgXcf0dzMM/zIMLlM3/CSsLbg3GlrXhVQ=;
-	b=SRwAYYW1/lIOJw/vK/AjJI7hKrs77H1h+o8utpIbeAytauPFUhNiqetddRI7mAuRj7
-	lvQOaDZ+FgHIhay3Je+p038I2T0RHTxGSDybcbVvvd3AQsb/0Ppv/NIvVsWLnkNDS400
-	aiRf4tAENzZp9vHpuoTEtkkSW2BUgiEvb0JT2DwlY6Qfyu/SpjHytNZwpw/b7cHVHT+L
-	/FSyfjrJOoocmaMuZr82J4kFN/oiXibpFMq7gTrMcF0pjRP4Ct4DWxfIzLRlG6Cbj7Tq
-	gmXtdhdkYAnTQL2S9WAzuBb/mE7ql6KUNE+iCHh3gMgFxw3ZTBy2KfFtBcbnJAnfSxK4
-	WiGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-	:message-id:subject:to:cc;
-	bh=3HinFlKoKORgXcf0dzMM/zIMLlM3/CSsLbg3GlrXhVQ=;
-	b=R3I23g4q7YSAQM/HcepZgeLNXG+9DRPqV67+tQhR19lS8aAMVifpjzkumzrRDlmVey
-	zSu7adutEdczOEnyhPSUJEd/8I1LhKerA5ib2Z1lYYTVofQV7Q1t5FJUgTM146My4SK/
-	tumZd/zssHCyXvn/CcLj3oSiWFuTDSUkkpW7mkV9jayxjN55s+qW1jG4zY6vrfkblbY0
-	vPmx4VITQgBYDs7fpoSe/3fFLLa9QCFLwySrKbinXFrPr49CJKe1VHrkErHzYB+bK66m
-	QOiDm7eQjp0TcGiSy1avHoU/fLu6EL8U+kELn4JhnTAWeO47DaYIVxsuYzgp6UJjXeh0
-	SCHA==
-X-Gm-Message-State: APjAAAU+0ao//eT2zhQ2ZFKqzCC98OMr7hed7nW9f3lPJaJIJQdw+pkk
-	MFqdwnjkG0rogYSeaYs04+rrQEfxpjBCE7VudN4TYw==
-X-Google-Smtp-Source: APXvYqwrU10cI01d+KON59f4nM9MeT+Rwa8pBtD03qR8p13UBIHiD+7ibF5xWd6JGIP+aUFw6fwnDRMzA8a2EwYpAgs=
-X-Received: by 2002:a05:620a:15f4:: with SMTP id
-	p20mr681045qkm.303.1566941904177; 
-	Tue, 27 Aug 2019 14:38:24 -0700 (PDT)
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id 73DE22355;
+	Wed, 28 Aug 2019 02:19:43 +0000 (UTC)
+Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id D9F3E1FB;
+	Wed, 28 Aug 2019 02:19:40 +0000 (UTC)
+Received: from oasis.local.home (cpe-66-24-58-225.stny.res.rr.com
+	[66.24.58.225])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 6BC1320674;
+	Wed, 28 Aug 2019 02:19:40 +0000 (UTC)
+Date: Tue, 27 Aug 2019 22:19:38 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: tech-board-discuss@lists.linuxfoundation.org,
+	ksummit-discuss@lists.linuxfoundation.org, LKML
+	<linux-kernel@vger.kernel.org>
+Message-ID: <20190827221938.0552eacb@oasis.local.home>
+X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-References: <CAD=FV=WgbREZd5EiytrEOxQ+GQ33q+ohKqb-T6e3mhFJzWtpXA@mail.gmail.com>
-	<20190826230206.GC28066@mit.edu>
-	<CACT4Y+aMkb4OTPwbXP1U8wtoV2oaLh+P-FoxG9N5m63kt-kGyw@mail.gmail.com>
-	<alpine.DEB.2.21.1908270806060.1939@nanos.tec.linutronix.de>
-	<CACT4Y+a2E9FBba4f2iEmQKzO=gNe0cdyW+Pqq8YyiMaOTOu3fg@mail.gmail.com>
-	<20190827134836.GB25038@kroah.com>
-	<dc1a4c98-5e29-094c-ead8-889df35de811@roeck-us.net>
-	<alpine.DEB.2.21.1908271607440.1939@nanos.tec.linutronix.de>
-	<20190827153344.GC534@kroah.com>
-	<CAMwyc-RX7Sin1W=m8OXeq81TqT1Auhuxm=htgekXFpHHdgu3Yg@mail.gmail.com>
-	<20190827195351.GA30710@kroah.com>
-	<CAJWu+oq8jFnJ4iJ+R3swr-93eMwDgbWXe1W2Aiu-r+tuYSY5Ag@mail.gmail.com>
-In-Reply-To: <CAJWu+oq8jFnJ4iJ+R3swr-93eMwDgbWXe1W2Aiu-r+tuYSY5Ag@mail.gmail.com>
-Date: Tue, 27 Aug 2019 17:38:12 -0400
-Message-ID: <CAJWu+oqxkk2ZJ9+r9xkA-ETrKEhHspYMzOTwc+vO3gjGwC+zJg@mail.gmail.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-X-Spam-Status: No, score=-9.5 required=5.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID, DKIM_VALID_AU, RCVD_IN_DNSWL_NONE,
-	USER_IN_DEF_DKIM_WL autolearn=ham version=3.3.1
+X-Spam-Status: No, score=-6.9 required=5.0 tests=BAYES_00,RCVD_IN_DNSWL_HI
+	autolearn=ham version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
-Cc: Barret Rhoden <brho@google.com>,
-	ksummit <ksummit-discuss@lists.linuxfoundation.org>,
-	Jonathan Nieder <jrn@google.com>, Tomasz Figa <tfiga@chromium.org>,
-	Han-Wen Nienhuys <hanwen@google.com>, Theodore Tso <tytso@google.com>,
-	David Rientjes <rientjes@google.com>, Dmitry Torokhov <dtor@chromium.org>,
-	Dmitry Vyukov <dvyukov@google.com>
-Subject: Re: [Ksummit-discuss] Allowing something Change-Id (or something
- like it) in kernel commits
+Subject: [Ksummit-discuss] TAB nomination for Steven Rostedt
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.12
 Precedence: list
@@ -90,76 +46,42 @@ List-Post: <mailto:ksummit-discuss@lists.linuxfoundation.org>
 List-Help: <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=help>
 List-Subscribe: <https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss>,
 	<mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=subscribe>
-From: Joel Fernandes via Ksummit-discuss
-	<ksummit-discuss@lists.linuxfoundation.org>
-Reply-To: Joel Fernandes <joelaf@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-On Tue, Aug 27, 2019 at 5:34 PM Joel Fernandes <joelaf@google.com> wrote:
->
-> On Tue, Aug 27, 2019 at 3:53 PM Greg Kroah-Hartman
-> <gregkh@linuxfoundation.org> wrote:
-> > On Tue, Aug 27, 2019 at 02:55:28PM -0400, Konstantin Ryabitsev wrote:
-> > > On Tue, 27 Aug 2019 at 11:33, Greg Kroah-Hartman
-> > > <gregkh@linuxfoundation.org> wrote:
-> > > > >        Link: https://lkml.kernel.org/$Message-ID
-> > > > >
-> > > > > then you have your UUID tag. The tip bot sends you a reply based on that
-> > > > > tag and I know you got some of them already.
-> > > >
-> > > > I'm using:
-> > > >             Link: https://lore.kernel.org/r/$message-id
-> > > >
-> > > > should we standardize on the lkml one instead as it's shorter?  The lore
-> > > > one handles any message id that is on any mailing list it handles, is
-> > > > the lkml one the same?
-> > >
-> > > It's the exact same system and the /r/ is always required. I prefer
-> > > lore.kernel.org because it doesn't imply that the message is going to
-> > > be on the LKML (i.e. it can be on a list that isn't even hosted on
-> > > vger.kernel.org).
-> > >
-> > > So, my recommendation is Link: https://lore.kernel.org/r/$message-id
-> >
-> > Great, will stick with that one, thanks.
->
-> I am thinking of how to make this automagic and useful for me. My plan
-> is (and ymmv):
->
-> When I write a patch, have a git hook generate  "Message-Id" in my
-> patch changelog itself when it is written using Greg/Andrew's
-> make_message_id. This Message-Id is not the final message-id and is
-> just for reference purposes for later processing. Then when sending
-> it, after git format-patch I will do a few things:
->   (a) Consult the archive to check the highest value of N for which
-> Message-Id-<N> does not exist
->   (b) Add Message-Id: Message-Id-<N> to the patch header so git
-> send-email uses this as the Message-Id-<N>
->   (c) Add this Message-Id-<N> as a Link: to the changelog;  Possibly
-> removing Message-Id<N-1> link.
->   (d) Remove the original "Message-Id" without the -<N> from the
-> changelog since it has no purpose.
->   (e) Send the patch
->
-> This will automatically link all the previous revisions of a patch
-> vN..vN-1...v1...0.  And also does not need any manual labor - which is
-> one of the main selling points AIUI of Google's git hooks for using
-> "Change-Id:".  Also works for Doug's use case and for people wanting
-> to have a Link: tag.
->
-> Such a git hook can then be provided to the kernel community to better
-> automate their flow of Link: generation. Although the steps (a) to (e)
-> may require additional tooling and changing of the local git tree at
-> the time a patch is submitted - which is Ok for my flow but not sure
-> if it would work for everyone.
+I would like to nominate myself, Steven Rostedt, for election to the
+Linux Foundation Technical Advisory Board (TAB).
 
-Hmm, on second thought, no change to local git tree is needed really,
-for this scheme to work.
+Candidate statement:
 
-- Joel
+I have been highly involved with the Linux kernel community since 2004,
+as a developer, a user, maintainer and educator. When I first came onto
+the board, my platform was to help bridge various parts of the Linux
+ecosystem. I've been working to help developers reach across their
+realms of expertise and unite with other developers in order to have
+better integration of the tools within the GNU and Linux systems. Being
+part of the advisory board to the Linux Foundation has facilitate this
+goal. I am also on the planning committee for Linux Plumbers and have
+become the Microconference Chair. As such I have succeeded in bringing
+in developers to host a Database microconference for the first time at
+Plumbers. The combination of being both on the TAB as well as a
+Plumbers committee member has be extremely useful in my goal of
+bringing all those that interact with Linux closer together. I would
+like to continue this work for at least one more term.
+
+Little more about me:
+
+I'm one of the original developers of the PREEMPT_RT patch (which looks
+to finally be merged into mainline). I'm the original author and
+current maintainer of Ftrace, the official tracer of the Linux kernel.
+I've created ktest.pl that lives in the kernel proper under the tools
+directory which is a testing framework that was written to help
+developers run their own tests. I'm also the one that added "make
+localmodconfig" that brings your kernel compile time down tremendously!
+
+-- Steve
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
