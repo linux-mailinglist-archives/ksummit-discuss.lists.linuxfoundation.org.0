@@ -2,53 +2,57 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id 43EC9A01F9
-	for <lists@lfdr.de>; Wed, 28 Aug 2019 14:39:09 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id DAAFBA0222
+	for <lists@lfdr.de>; Wed, 28 Aug 2019 14:47:41 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id B6EC62EA7;
-	Wed, 28 Aug 2019 12:38:59 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id 1E0222ECB;
+	Wed, 28 Aug 2019 12:47:31 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id 9B47A2E82
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id 31F192EC0
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Wed, 28 Aug 2019 12:38:46 +0000 (UTC)
-X-Greylist: whitelisted by SQLgrey-1.7.6
-Received: from mail-qt1-f193.google.com (mail-qt1-f193.google.com
-	[209.85.160.193])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 033FE13A
+	Wed, 28 Aug 2019 12:47:11 +0000 (UTC)
+X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
+Received: from userp2120.oracle.com (userp2120.oracle.com [156.151.31.85])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 3473113A
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Wed, 28 Aug 2019 12:38:45 +0000 (UTC)
-Received: by mail-qt1-f193.google.com with SMTP id k13so2727179qtm.12
-	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Wed, 28 Aug 2019 05:38:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
-	h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-	:cc; bh=RGm5ggheFTfSyo+W7PAKHcvT+vZvX7j798xnRVRvtlY=;
-	b=GX/SN202vShY6iFidM+tmY0oIl/eeAw21+PPmeFsZrbjEB/kfhf72IhoBO9594lgxD
-	uxWn2+JNlNyl+AJgRJF5TWi6Byz0/tc+bwE45vEl2ux/V+iPc2HtMKNQzA2I/ACd8lox
-	GFfyK7vgjGnGfrs0td7d+8Z7srJ4ka6nDH/2muoiidvSYldBa1rbna1CQFJsIDAelsBS
-	wq8kJ+d3jUmOc6h7+x04Gw/iuI+7X9tK6M/zsd9s4bIogCZMZMDkp5NEPyhNggnt2uDc
-	Op8gOYSS+ByPCG2prlQhscZTllYTwBW1kogH+eJ1DJIdDwrAOLsYTB1rI2pnd3WMpbnd
-	/4+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-	:message-id:subject:to:cc;
-	bh=RGm5ggheFTfSyo+W7PAKHcvT+vZvX7j798xnRVRvtlY=;
-	b=kxsCm4AjTCF2y4ycGbh0mte8mVSMTayub2tv5lmije346dIgrTLm5z4J43Fs6rKLGP
-	+Z7ayD2zdb+XEgS5m2MtXtqmueFKuAMc/DBBVbNA9VpGfI3uqnRCpZ/cmiuRBUjHegmN
-	fO/ckXXt9pEgyDzhD+WC1qCi4atLfWSJUIM0AmRFT014pexyLDjDb/xwoZj+NvAbzMuI
-	JsfA1weyRz1qt8CzBynsKUIQ+48XaN0ahtE5Fg/ns7/VQfdT0YrQYlVYwa/kGpGCaRfX
-	Wq+uM7nLnq+dat9d/y/YiQ0ktodTivOj9qbPMnEHCnpd8iDoSFNHMU5ENIxEabm8fYaZ
-	PcJQ==
-X-Gm-Message-State: APjAAAVABWJmGhSwKiT5KGXNgmLQaDu36PPW15HWaRqsZjsM/0U3Cr6e
-	nsfffvH1LKU/0JV+vge9x0yp2dG9OzGH7Mn7TYBPVw==
-X-Google-Smtp-Source: APXvYqwUapZ/+CBveDSiS1M7Z4xNF2VNnVS9n/ilpXnf53v1JYQoG5duLsCMM7gjXdCZHU/wExsoTchno+UbRp6rqWk=
-X-Received: by 2002:ac8:239d:: with SMTP id q29mr3931201qtq.304.1566995924751; 
-	Wed, 28 Aug 2019 05:38:44 -0700 (PDT)
-MIME-Version: 1.0
+	Wed, 28 Aug 2019 12:47:09 +0000 (UTC)
+Received: from pps.filterd (userp2120.oracle.com [127.0.0.1])
+	by userp2120.oracle.com (8.16.0.27/8.16.0.27) with SMTP id
+	x7SCiniL006752; Wed, 28 Aug 2019 12:46:53 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com;
+	h=to : cc : subject :
+	from : references : date : in-reply-to : message-id : mime-version :
+	content-type; s=corp-2019-08-05;
+	bh=TAlbnmXQxDn1fdUmN0pGYU4bEj2xFcIa/LNEgAiSRl4=;
+	b=YIPYaF73nw7FvdZ6pkXaifmay946DjO7iSmmu4+LJkWgFIC4dAsf3oiPBTkLhiOlE6vn
+	3ZwG2eipgkly6AXnBG6IgUiUIsPZhk/hmRDuxpSfPBvr2c/MlPxnky2TQjjGWhUCOROi
+	U+pEKuGKyIKfrfwPwE0WFHMk3D0xyve60TGx4qTC5xLk7kOfwI3X40CHS0jQr23t8u3o
+	FRfZ/VFXWBFL4OYHX8U8d736CyMiVlzYQJfZYTFyA70TYhzXLHt9nzYveKqqn0L7WwSS
+	GXdkWTAtYsJmGTHt0WwquAdYwbM47HaVOV4EZ3qct55i/5YBE6tJjIcIFnDIUPG3vKpE
+	Sg== 
+Received: from userp3030.oracle.com (userp3030.oracle.com [156.151.31.80])
+	by userp2120.oracle.com with ESMTP id 2unsvnr0gb-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 28 Aug 2019 12:46:53 +0000
+Received: from pps.filterd (userp3030.oracle.com [127.0.0.1])
+	by userp3030.oracle.com (8.16.0.27/8.16.0.27) with SMTP id
+	x7SCgaup153525; Wed, 28 Aug 2019 12:46:52 GMT
+Received: from aserv0121.oracle.com (aserv0121.oracle.com [141.146.126.235])
+	by userp3030.oracle.com with ESMTP id 2un6q2pchg-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 28 Aug 2019 12:46:52 +0000
+Received: from abhmp0014.oracle.com (abhmp0014.oracle.com [141.146.116.20])
+	by aserv0121.oracle.com (8.14.4/8.13.8) with ESMTP id x7SCkpKt022326;
+	Wed, 28 Aug 2019 12:46:51 GMT
+Received: from ca-mkp.ca.oracle.com (/10.159.214.123)
+	by default (Oracle Beehive Gateway v4.0)
+	with ESMTP ; Wed, 28 Aug 2019 05:46:50 -0700
+To: Thomas Gleixner <tglx@linutronix.de>
+From: "Martin K. Petersen" <martin.petersen@oracle.com>
+Organization: Oracle Corporation
 References: <CACT4Y+aMkb4OTPwbXP1U8wtoV2oaLh+P-FoxG9N5m63kt-kGyw@mail.gmail.com>
 	<alpine.DEB.2.21.1908270806060.1939@nanos.tec.linutronix.de>
 	<CACT4Y+a2E9FBba4f2iEmQKzO=gNe0cdyW+Pqq8YyiMaOTOu3fg@mail.gmail.com>
@@ -59,24 +63,45 @@ References: <CACT4Y+aMkb4OTPwbXP1U8wtoV2oaLh+P-FoxG9N5m63kt-kGyw@mail.gmail.com>
 	<CAMwyc-RX7Sin1W=m8OXeq81TqT1Auhuxm=htgekXFpHHdgu3Yg@mail.gmail.com>
 	<20190827195351.GA30710@kroah.com>
 	<CAJWu+oq8jFnJ4iJ+R3swr-93eMwDgbWXe1W2Aiu-r+tuYSY5Ag@mail.gmail.com>
-	<20190828090837.GA31704@kroah.com>
-In-Reply-To: <20190828090837.GA31704@kroah.com>
-Date: Wed, 28 Aug 2019 08:38:33 -0400
-Message-ID: <CAJWu+oocs3T8orMNt6AmdVgWONzZg0vD=E8EdvzE9rOi_XatUw@mail.gmail.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-X-Spam-Status: No, score=-9.5 required=5.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID, DKIM_VALID_AU, RCVD_IN_DNSWL_NONE,
-	USER_IN_DEF_DKIM_WL autolearn=ham version=3.3.1
+	<20190828090837.GA31704@kroah.com> <yq1a7btvc5q.fsf@oracle.com>
+	<alpine.DEB.2.21.1908281252220.1869@nanos.tec.linutronix.de>
+Date: Wed, 28 Aug 2019 08:46:47 -0400
+In-Reply-To: <alpine.DEB.2.21.1908281252220.1869@nanos.tec.linutronix.de>
+	(Thomas Gleixner's message of "Wed, 28 Aug 2019 12:53:33 +0200
+	(CEST)")
+Message-ID: <yq15zmhv4nc.fsf@oracle.com>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.1.92 (gnu/linux)
+MIME-Version: 1.0
+X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9362
+	signatures=668685
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0
+	malwarescore=0
+	phishscore=0 bulkscore=0 spamscore=0 mlxscore=0 mlxlogscore=999
+	adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+	engine=8.0.1-1906280000 definitions=main-1908280136
+X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9362
+	signatures=668685
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0
+	priorityscore=1501 malwarescore=0
+	suspectscore=0 phishscore=0 bulkscore=0 spamscore=0 clxscore=1015
+	lowpriorityscore=0 mlxscore=0 impostorscore=0 mlxlogscore=999
+	adultscore=0
+	classifier=spam adjust=0 reason=mlx scancount=1 engine=8.0.1-1906280000
+	definitions=main-1908280137
+X-Spam-Status: No, score=-4.3 required=5.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID, DKIM_VALID_AU, RCVD_IN_DNSWL_MED,
+	UNPARSEABLE_RELAY autolearn=ham version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
-Cc: Barret Rhoden <brho@google.com>,
+Cc: Joel Fernandes <joelaf@google.com>, Barret Rhoden <brho@google.com>,
 	ksummit <ksummit-discuss@lists.linuxfoundation.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Jonathan Nieder <jrn@google.com>, Tomasz Figa <tfiga@chromium.org>,
 	Han-Wen Nienhuys <hanwen@google.com>, Theodore Tso <tytso@google.com>,
 	David Rientjes <rientjes@google.com>, Dmitry Torokhov <dtor@chromium.org>,
 	Dmitry Vyukov <dvyukov@google.com>
 Subject: Re: [Ksummit-discuss] Allowing something Change-Id (or something
- like it) in kernel commits
+	like it) in kernel commits
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.12
 Precedence: list
@@ -88,107 +113,35 @@ List-Post: <mailto:ksummit-discuss@lists.linuxfoundation.org>
 List-Help: <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=help>
 List-Subscribe: <https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss>,
 	<mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=subscribe>
-From: Joel Fernandes via Ksummit-discuss
-	<ksummit-discuss@lists.linuxfoundation.org>
-Reply-To: Joel Fernandes <joelaf@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-On Wed, Aug 28, 2019 at 5:08 AM Greg Kroah-Hartman
-<gregkh@linuxfoundation.org> wrote:
+
+Thomas,
+
+>> However, requiring proper follow-up headers is yet another thing for me
+>> to manually police. Maybe we could add a line of defense and make
+>> patchwork complain if somebody posts a -vN without a suitable
+>> --in-reply-to?
 >
-> On Tue, Aug 27, 2019 at 05:34:47PM -0400, Joel Fernandes wrote:
-> > On Tue, Aug 27, 2019 at 3:53 PM Greg Kroah-Hartman
-> > <gregkh@linuxfoundation.org> wrote:
-> > > On Tue, Aug 27, 2019 at 02:55:28PM -0400, Konstantin Ryabitsev wrote:
-> > > > On Tue, 27 Aug 2019 at 11:33, Greg Kroah-Hartman
-> > > > <gregkh@linuxfoundation.org> wrote:
-> > > > > >        Link: https://lkml.kernel.org/$Message-ID
-> > > > > >
-> > > > > > then you have your UUID tag. The tip bot sends you a reply based on that
-> > > > > > tag and I know you got some of them already.
-> > > > >
-> > > > > I'm using:
-> > > > >             Link: https://lore.kernel.org/r/$message-id
-> > > > >
-> > > > > should we standardize on the lkml one instead as it's shorter?  The lore
-> > > > > one handles any message id that is on any mailing list it handles, is
-> > > > > the lkml one the same?
-> > > >
-> > > > It's the exact same system and the /r/ is always required. I prefer
-> > > > lore.kernel.org because it doesn't imply that the message is going to
-> > > > be on the LKML (i.e. it can be on a list that isn't even hosted on
-> > > > vger.kernel.org).
-> > > >
-> > > > So, my recommendation is Link: https://lore.kernel.org/r/$message-id
-> > >
-> > > Great, will stick with that one, thanks.
-> >
-> > I am thinking of how to make this automagic and useful for me. My plan
-> > is (and ymmv):
-> >
-> > When I write a patch, have a git hook generate  "Message-Id" in my
-> > patch changelog itself when it is written using Greg/Andrew's
-> > make_message_id. This Message-Id is not the final message-id and is
-> > just for reference purposes for later processing. Then when sending
-> > it, after git format-patch I will do a few things:
-> >   (a) Consult the archive to check the highest value of N for which
-> > Message-Id-<N> does not exist
-> >   (b) Add Message-Id: Message-Id-<N> to the patch header so git
-> > send-email uses this as the Message-Id-<N>
-> >   (c) Add this Message-Id-<N> as a Link: to the changelog;  Possibly
-> > removing Message-Id<N-1> link.
-> >   (d) Remove the original "Message-Id" without the -<N> from the
-> > changelog since it has no purpose.
-> >   (e) Send the patch
+> That's horrible in various mail clients. Post the new series stand alone
+> and add
 >
-> Wow, what an overly complex thing for something that should be trivial
-> to do...
-
-The idea is to make it trivial. All of the steps above are automatic
-and scripted, that's the whole point of what I was saying - to make it
-automatic. If it is not automated, then it is unlikely to be adopted
-widely or unlikely to stick. The final user will experience it as
-trivial.
-
-> How about this, when sending a v2, you have it be in response to the v1
-> patch?  Same for v3, have it be in response for the v2 one.  And so on.
-
-If I remember correctly, the in-reply-to method has drawbacks and is
-not always desired especially when dealing with a whole series. In
-such a case of a whole series, the individual patches are replies to
-the cover-letter (as --thread of git format-patch does); they should
-not be replies to old versions of that patch; otherwise the threading
-looks really weird and confusing.
-
-Plus your response suggestion still does not make it automatic. How
-does sending of a v2 know that it is reply to a v1? Some metadata has
-to be stored in your git tree for that. That's the whole point of the
-steps I listed above.
-
-> Then, when the "final" patch is added, the message id of that will be
-> committed to the tree with the git hook that has been posted here, and
-> then, if someone _REALLY_ wants to go look up past history of versions,
-> they can see it all linked together in a nice pretty tree on
-> lore.kernel.org or elsewhere.
+>     Link://lore.kernel.org/r/$MESSAGE_ID_OF_V$N-1
 >
-> And really, this whole discussion has been for the VERY RARE case of
-> when someone wants to do some code spelunking and try to figure out
-> older versions of a patch history before it was committed and they don't
-> feel like searching for the author's name instead.  The HUGE majority of
-> kernel developers never actually care about this as they don't have to
-> do it.
+> to the cover letter and you have a trail.
 
-I think it is a frequent use case that folks want to look up old
-revisions of a patch and follow the review/discussions of previous
-revisions to know the history of how a patch got to where it is.  I
-think it can be really useful.
+I'm not sure why it would get messed up if the patches are clearly
+tagged as vN?
 
-thanks,
+As far as I'm concerned, the more we automate, the better. Both in terms
+of producing the links, but also in terms of verifying that they are
+present and correct when patches are applied.
 
- - Joel
+-- 
+Martin K. Petersen	Oracle Linux Engineering
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
