@@ -2,60 +2,52 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id D58D7A0BEF
-	for <lists@lfdr.de>; Wed, 28 Aug 2019 23:00:51 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 05CAAA0D77
+	for <lists@lfdr.de>; Thu, 29 Aug 2019 00:19:26 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id 3FE223874;
-	Wed, 28 Aug 2019 21:00:40 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id 056BC3B27;
+	Wed, 28 Aug 2019 22:15:44 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id CC9A22EFD
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id 15A5C3AAD
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Wed, 28 Aug 2019 21:00:20 +0000 (UTC)
+	Wed, 28 Aug 2019 22:15:24 +0000 (UTC)
 X-Greylist: whitelisted by SQLgrey-1.7.6
-Received: from mail-io1-f65.google.com (mail-io1-f65.google.com
-	[209.85.166.65])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id B816313A
+Received: from mail-qt1-f194.google.com (mail-qt1-f194.google.com
+	[209.85.160.194])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 770D513A
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Wed, 28 Aug 2019 21:00:19 +0000 (UTC)
-Received: by mail-io1-f65.google.com with SMTP id t6so2396962ios.7
+	Wed, 28 Aug 2019 22:15:23 +0000 (UTC)
+Received: by mail-qt1-f194.google.com with SMTP id n7so1421789qtb.6
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Wed, 28 Aug 2019 14:00:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
+	Wed, 28 Aug 2019 15:15:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
 	h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-	:cc; bh=oClPUw0s4WSMP4See2mOrq7epRrT9LMmL0a+ToncRBM=;
-	b=X7zi7BgU7xxHZjUO8IliX2Zo3qbdd9MnYIp5UskdCG3F9vF3nSAfstYq/1jFD4tsfA
-	vMX8I4qbgW/y2JjmfUovvIummiBDEyx6q3sZEYaQyXPSmGxhEBzYDb/9COkkPZUtuam3
-	6MikBkrATRx7QnwPHZWckvHaHp/b0gWawciE8=
+	:cc; bh=9Xo7bWGRfMzE1Ynz7hEJE3HRGZxboTkjTu4FhmheMU8=;
+	b=BtFcGeBQQvugvijde8cXh2mZBDEd4fsocj4a9a4dLScoKFGRoHMi3ym2k1f+RARrwJ
+	5eIEA02NviSGD+QtEOb3pc3jXr7W/XWDcoaATE3XTbm3vmApqkICRELs+Hqb287w12xQ
+	1hfaKBCuNZNWOuPh9Oe3KSd4TJxmWeHVPXwOrs078GF2h18pKldaP3UISaNth48Qn6da
+	kgs+RN/xgpwIyXxHaNG/cJXhY4OO8MuWbRAMd+4g1c087d78iZTlX1wuCaae3lhXX2I4
+	EKU9jhV9++KpMuLg859M1XNLej1NNlAQFcLccB4HDaQtH1S2lXdP5uchEd2ceczQ3qHo
+	yMnQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
 	h=x-gm-message-state:mime-version:references:in-reply-to:from:date
 	:message-id:subject:to:cc;
-	bh=oClPUw0s4WSMP4See2mOrq7epRrT9LMmL0a+ToncRBM=;
-	b=iKrH76IbfDlhdFD+01gc2yDyOo7E5rqJH/KF4BcFCYQBPu8dqHs8Q6LP9crnzs/ANc
-	rpKDSwh0nVHbAV2b7nfjc5P6blr2B77/BKsFoWXrBrM+qWjZvY8udt54gX5GSpMROLkj
-	ZbFDW0nfStWVhgLLVkOf/p+ovg6vbQNL9ATbc5bXW0K6i+elAc144EQcui2J1MJ3MylU
-	xVFTSzq3SCQxUb7KnZGnjEEObT008Ex9izZ/rl+XP9KciO4aZUZ12vyvOLQe564s5SH1
-	1J53Xd2IQ9htQvQt1G6fXL/vV1p7hrJ0/lZNX5pI8BqyjJfs7vxMTgWRc1ZZTlFjB2aJ
-	NdGw==
-X-Gm-Message-State: APjAAAXt0XyPEpkCT+adiBPm/YyXZ4I+Elt/omI2RV6heDU+ERANURTw
-	wVLUS2uNZLYOyZP2wliHoHm2nK0S0I4=
-X-Google-Smtp-Source: APXvYqzxOBK1R1cbDfdd+ypK+QH8RA9M6DmnknFmmn10K3Gx92i48nbXjF5d+eNdVxR95SRsd/4MNg==
-X-Received: by 2002:a5d:8f8a:: with SMTP id l10mr6767943iol.306.1567026018479; 
-	Wed, 28 Aug 2019 14:00:18 -0700 (PDT)
-Received: from mail-io1-f45.google.com (mail-io1-f45.google.com.
-	[209.85.166.45])
-	by smtp.gmail.com with ESMTPSA id r78sm209683ior.48.2019.08.28.14.00.16
-	for <ksummit-discuss@lists.linuxfoundation.org>
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Wed, 28 Aug 2019 14:00:17 -0700 (PDT)
-Received: by mail-io1-f45.google.com with SMTP id q12so2439127iog.4
-	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Wed, 28 Aug 2019 14:00:16 -0700 (PDT)
-X-Received: by 2002:a6b:e013:: with SMTP id z19mr6945496iog.141.1567026016460; 
-	Wed, 28 Aug 2019 14:00:16 -0700 (PDT)
+	bh=9Xo7bWGRfMzE1Ynz7hEJE3HRGZxboTkjTu4FhmheMU8=;
+	b=EPxAZ+SdBs1C+8IMZzCAsOBq+U2YXkKPTc70nqJu6ONXDnjjthdRwx+X8pwRqVSOgM
+	xyfcYxwIRpA4dZ2c07oRagTEEkMx8dLeynajeKIqucKRPchbhtUBm/ugTs0Q5uyDzYDx
+	Rn4/AI4wB5pohF63qGI7uRcXUNa/aO7S+OQ0ZmENWfYk13Ls+bAJj2/jZrME7I9hpJQM
+	rT8FNF1ZE8wKiEndRfK2UzWLCDpeWm610a1KdbrxWXzrcxpmMhQsJUE4rMxHsUN+A/n1
+	oVjo12h2VlCDcDDbwr9A97sEp2LVP/FzXXnQe9+ztMLlz0yChdl7VM/iMKdMe9rxWIK0
+	kSvQ==
+X-Gm-Message-State: APjAAAVRbO6C/i0Bk4d7CRwvUWo3FvC4dKQ7vmwyPQv/GgcfeDKijJOO
+	dV5jsPMVP2g2qlyThBj0gmb0cDNL5nQlfpPAuQ==
+X-Google-Smtp-Source: APXvYqyHLOAUIj2C4ucLgrxw6CLfBvNSBI4vggIllkqwWrOoc58YRcoALP1KyNeb2ZulZPZ7n/WOZ+57WjjRn9cjfdM=
+X-Received: by 2002:ac8:44c4:: with SMTP id b4mr6770576qto.224.1567030522298; 
+	Wed, 28 Aug 2019 15:15:22 -0700 (PDT)
 MIME-Version: 1.0
 References: <CACT4Y+a2E9FBba4f2iEmQKzO=gNe0cdyW+Pqq8YyiMaOTOu3fg@mail.gmail.com>
 	<20190827134836.GB25038@kroah.com>
@@ -69,16 +61,14 @@ References: <CACT4Y+a2E9FBba4f2iEmQKzO=gNe0cdyW+Pqq8YyiMaOTOu3fg@mail.gmail.com>
 	<CAJWu+oocs3T8orMNt6AmdVgWONzZg0vD=E8EdvzE9rOi_XatUw@mail.gmail.com>
 	<20190828135820.GA24857@mit.edu>
 	<CAD=FV=VLMFxFt55oB4ERTFw3xnH4czUY5tXiqfY14NKZ8gqojA@mail.gmail.com>
-	<ff8702f347eeabe77b42a6c645cf87d51221f133.camel@sipsolutions.net>
-In-Reply-To: <ff8702f347eeabe77b42a6c645cf87d51221f133.camel@sipsolutions.net>
-From: Doug Anderson <dianders@chromium.org>
-Date: Wed, 28 Aug 2019 14:00:04 -0700
-X-Gmail-Original-Message-ID: <CAD=FV=Xh39=T-v6J1fP6P2jdfSyUqMwKUKy9F266cB0OH8n+EQ@mail.gmail.com>
-Message-ID: <CAD=FV=Xh39=T-v6J1fP6P2jdfSyUqMwKUKy9F266cB0OH8n+EQ@mail.gmail.com>
-To: Johannes Berg <johannes@sipsolutions.net>
-X-Spam-Status: No, score=-2.0 required=5.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID, DKIM_VALID_AU,
-	RCVD_IN_DNSWL_NONE autolearn=ham version=3.3.1
+In-Reply-To: <CAD=FV=VLMFxFt55oB4ERTFw3xnH4czUY5tXiqfY14NKZ8gqojA@mail.gmail.com>
+From: Rob Herring <robherring2@gmail.com>
+Date: Wed, 28 Aug 2019 17:15:10 -0500
+Message-ID: <CAL_JsqJExCf=mzoX=mS3B=9iA8mCyWxQbrfL9iPXSBHJrfSCeQ@mail.gmail.com>
+To: Doug Anderson <dianders@chromium.org>
+X-Spam-Status: No, score=-1.7 required=5.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,FREEMAIL_ENVFROM_END_DIGIT,FREEMAIL_FROM,
+	RCVD_IN_DNSWL_NONE autolearn=no version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
 Cc: Joel Fernandes <joelaf@google.com>, Barret Rhoden <brho@google.com>,
@@ -106,57 +96,55 @@ Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-Hi,
-
-On Wed, Aug 28, 2019 at 1:47 PM Johannes Berg <johannes@sipsolutions.net> wrote:
+On Wed, Aug 28, 2019 at 3:39 PM Doug Anderson <dianders@chromium.org> wrote:
 >
-> Hi Doug,
+> Hi,
 >
->
-> > The actual Message-Id generated there was:
+> On Wed, Aug 28, 2019 at 6:58 AM Theodore Y. Ts'o <tytso@mit.edu> wrote:
 > >
-> > 20190828132723.0.RFC.Ie6289f437ae533d7fcaddfcee9202f0e92c6b2b9@changeid
+> > On Wed, Aug 28, 2019 at 08:38:33AM -0400, Joel Fernandes via Ksummit-discuss wrote:
+> > > The idea is to make it trivial. All of the steps above are automatic
+> > > and scripted, that's the whole point of what I was saying - to make it
+> > > automatic. If it is not automated, then it is unlikely to be adopted
+> > > widely or unlikely to stick. The final user will experience it as
+> > > trivial.
+> >
+> > I'm going to gently suggest that we've reached the point where instead
+> > of people trying to argue for their suggested solution is to actually
+> > *implement* a prototype.  It'll be a lot easier for people to judge a
+> > particular solution if it exists, than to debate about vaporware.
 >
-> When you post a patch with that type of message ID, why don't you
-> already include a suitable archive Link: inside the patch posting?
+> For anyone interested, I've prototyped up my proposed solution.  I
+> personally use patman (a tool hosted in U-Boot) for managing my
+> upstream posting so I have posted a patch to patman that encodes the
+> Change-Id in Message-Id.  We will see what folks there think of it.
+> There are at least a handful of other people who use patman for Linux
+> but lots in U-Boot so maybe it'll be a good way to get a feel for
+> this.
 >
-> Then you don't have to rely on the maintainer to add the Link: tag when
-> they apply the patch. Many (kernel) maintainers do now, and pre-adding
-> the Link: tag means we maintainers should change our scripts to not
-> duplicate the Link: tag, but if you have a predictable Message-Id and
-> predictable archive then you ought to be able to already include link?
-
-That might work, but a few issues:
-
-1. I'd have to guess that the Link would be valid.  Until the patch is
-posted the Link is certainly not valid, so I'm basically adding to the
-patch something that says "I _think_ you'd be able to find this patch
-with this link".  Seems a little sketchy.
-
-2. The script would (presumably) want to look at where the patch was
-mailed to and either generate different links or not generate a link
-in some cases.  Last I checked (maybe fixed now?) some mailing lists
-weren't archived on lore.kernel.org and not everyone CCs LKML.  If
-nothing else the people using this script for posting patches to
-U-Boot wouldn't want a Link to lore.kernel.org
-
-3. The link is of limited usefulness until it lands in the kernel
-tree, isn't it?  If you found the patch on the mailing list before it
-lands then presumably you don't need a link to the patch itself.  A
-link to previous versions could be useful, but I'm not trying to solve
-that (I'm assuming that tooling would eventually be developed that
-could use the Change-Id encoded in the Message-Id to help with this).
-
-4. It feels like getting maintainers to add a "Link:" is a tractable
-(even if difficult) problem.  There are a finite number of maintainers
-that can be told to do this instead of an infinite number of
-submitters.  Presumably maintainers already need to learn to add
-"Link:" anyway since (even if I am surprised and lots of people adopt
-my proposal) you'll never get 100% of submitters adding a "Link:" like
-this.
+> Feel free to look at:
+>
+> https://patchwork.ozlabs.org/patch/1154833/
 
 
--Doug
+>
+> The actual Message-Id generated there was:
+>
+> 20190828132723.0.RFC.Ie6289f437ae533d7fcaddfcee9202f0e92c6b2b9@changeid
+>
+> Thomas Gleixner: I tried using the python library to generate a
+> Message-Id but it produced something that was way too long and I felt
+> that would be a showstopper when a maintainer in Linux tried to
+> provide a "Link:" to one of my patches.  I have generated my own
+> format based on what Rob Herring seems to do (an example Message-Id I
+> see from him is "20190827223716.GA31605@bogus").
+
+FWIW, that's just mutt configuration to not expose your hostname:
+
+set hidden_host = yes
+set hostname = bogus
+
+Rob
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
