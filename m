@@ -2,62 +2,72 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id 09BD1A03EA
-	for <lists@lfdr.de>; Wed, 28 Aug 2019 15:59:03 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id BBBBAA08E1
+	for <lists@lfdr.de>; Wed, 28 Aug 2019 19:48:12 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id D4D7A300C;
-	Wed, 28 Aug 2019 13:58:50 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id DD28634D9;
+	Wed, 28 Aug 2019 17:47:59 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id 40CA02FF9
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id 32A722AB8
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Wed, 28 Aug 2019 13:58:28 +0000 (UTC)
-X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
-Received: from outgoing.mit.edu (outgoing-auth-1.mit.edu [18.9.28.11])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id AC3F842D
+	Wed, 28 Aug 2019 17:47:41 +0000 (UTC)
+X-Greylist: whitelisted by SQLgrey-1.7.6
+Received: from mail-qk1-f169.google.com (mail-qk1-f169.google.com
+	[209.85.222.169])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 95F7D13A
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Wed, 28 Aug 2019 13:58:27 +0000 (UTC)
-Received: from callcc.thunk.org (guestnat-104-133-0-111.corp.google.com
-	[104.133.0.111] (may be forged)) (authenticated bits=0)
-	(User authenticated as tytso@ATHENA.MIT.EDU)
-	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id x7SDwK5G030711
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256
-	verify=NOT); Wed, 28 Aug 2019 09:58:21 -0400
-Received: by callcc.thunk.org (Postfix, from userid 15806)
-	id 7544642049E; Wed, 28 Aug 2019 09:58:20 -0400 (EDT)
-Date: Wed, 28 Aug 2019 09:58:20 -0400
-From: "Theodore Y. Ts'o" <tytso@mit.edu>
-To: Joel Fernandes <joelaf@google.com>
-Message-ID: <20190828135820.GA24857@mit.edu>
-References: <CACT4Y+a2E9FBba4f2iEmQKzO=gNe0cdyW+Pqq8YyiMaOTOu3fg@mail.gmail.com>
-	<20190827134836.GB25038@kroah.com>
-	<dc1a4c98-5e29-094c-ead8-889df35de811@roeck-us.net>
-	<alpine.DEB.2.21.1908271607440.1939@nanos.tec.linutronix.de>
-	<20190827153344.GC534@kroah.com>
-	<CAMwyc-RX7Sin1W=m8OXeq81TqT1Auhuxm=htgekXFpHHdgu3Yg@mail.gmail.com>
-	<20190827195351.GA30710@kroah.com>
-	<CAJWu+oq8jFnJ4iJ+R3swr-93eMwDgbWXe1W2Aiu-r+tuYSY5Ag@mail.gmail.com>
-	<20190828090837.GA31704@kroah.com>
-	<CAJWu+oocs3T8orMNt6AmdVgWONzZg0vD=E8EdvzE9rOi_XatUw@mail.gmail.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAJWu+oocs3T8orMNt6AmdVgWONzZg0vD=E8EdvzE9rOi_XatUw@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Spam-Status: No, score=-4.2 required=5.0 tests=BAYES_00,RCVD_IN_DNSWL_MED
-	autolearn=ham version=3.3.1
+	Wed, 28 Aug 2019 17:47:40 +0000 (UTC)
+Received: by mail-qk1-f169.google.com with SMTP id w18so554775qki.0
+	for <ksummit-discuss@lists.linuxfoundation.org>;
+	Wed, 28 Aug 2019 10:47:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=labbott.name; s=google;
+	h=from:content-transfer-encoding:mime-version:subject:date:references
+	:to:in-reply-to:message-id;
+	bh=ktghpvq4jb4ljl3MH1+Q/2aeglnyX9B8b2I5p81APzM=;
+	b=gVfGVYMixD5gAay+5T9e3p2Z6Mzx33242Iw/8G/d14KpuBlEXhc6dt9e5FGGwiugMq
+	b3UDWo9+9i8l6+wzsOSNz/ohzxOJ2rOI+swbrLVZYjA3DhZhhI6Y64n+IzDqUxqj6VDs
+	mLl+sQipkURuoWGrHT+kP3a3w7+/h5A3XdnaI=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=1e100.net; s=20161025;
+	h=x-gm-message-state:from:content-transfer-encoding:mime-version
+	:subject:date:references:to:in-reply-to:message-id;
+	bh=ktghpvq4jb4ljl3MH1+Q/2aeglnyX9B8b2I5p81APzM=;
+	b=iuvRJO6pxtKuiNnU4+WzVW8d24b/o9TOgNEJA2i5LiHgVr5B/rK+8jRi0EbG7WCh1R
+	ChXrY3f24Ka0nEhrh0A0LPSHTnOHkTo0IXL7CM0G4iFPH7YMn69H/STbJ+Ma79e+VeUV
+	9Kk2xi7YPK6bigUjVXSQB2uqho50brt3VTBrEbq4bS64aov3V9hbYM9rKRJKJhg61Y24
+	IYp5n04ACr5eCxNWMbYW9dfnjDQ/Fv0wDVoQ5HG06nqUwTetN+R8MvNLa2Q23P5CTCDK
+	W+lcKSV+M4/cVTVcxdjvrHTNL09kpY9ii4mcyJUF7QacZ7GkFDiXy0X/vIM7A5QNQsSI
+	7pAQ==
+X-Gm-Message-State: APjAAAVgKh9X/e97fgx8oNPvAg5ViDAq5cgbgJw4e1XprnfUCus1aJZo
+	IreocVJc2RoPBKayF24vSaubsCMpels10A==
+X-Google-Smtp-Source: APXvYqzRKJzpHgTKobowrOAOpgYS9D2tgGJA0aSw+GwWmxAgY/PSiR83d2+OL4eeId3GuLluKdBJvg==
+X-Received: by 2002:a05:620a:1312:: with SMTP id
+	o18mr5097682qkj.458.1567014459158; 
+	Wed, 28 Aug 2019 10:47:39 -0700 (PDT)
+Received: from lauras-mbp.fios-router.home
+	(pool-96-235-39-235.pitbpa.fios.verizon.net. [96.235.39.235])
+	by smtp.gmail.com with ESMTPSA id m9sm1398646qtp.27.2019.08.28.10.47.38
+	for <ksummit-discuss@lists.linuxfoundation.org>
+	(version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+	Wed, 28 Aug 2019 10:47:38 -0700 (PDT)
+From: Laura Abbott <laura@labbott.name>
+Mime-Version: 1.0 (Mac OS X Mail 10.3 \(3273\))
+Date: Wed, 28 Aug 2019 13:47:35 -0400
+References: <E24DF3AE-0595-4B9A-AE1C-9801A88BD5FF@labbott.name>
+To: ksummit-discuss@lists.linuxfoundation.org
+In-Reply-To: <E24DF3AE-0595-4B9A-AE1C-9801A88BD5FF@labbott.name>
+Message-Id: <44D37D71-113E-40BA-81B8-5D8F0962C13A@labbott.name>
+X-Mailer: Apple Mail (2.3273)
+X-Spam-Status: No, score=-2.0 required=5.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID, DKIM_VALID_AU,
+	RCVD_IN_DNSWL_NONE autolearn=ham version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
-Cc: Barret Rhoden <brho@google.com>,
-	ksummit <ksummit-discuss@lists.linuxfoundation.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jonathan Nieder <jrn@google.com>, Tomasz Figa <tfiga@chromium.org>,
-	Han-Wen Nienhuys <hanwen@google.com>, Theodore Tso <tytso@google.com>,
-	David Rientjes <rientjes@google.com>, Dmitry Torokhov <dtor@chromium.org>,
-	Dmitry Vyukov <dvyukov@google.com>
-Subject: Re: [Ksummit-discuss] Allowing something Change-Id (or something
- like it) in kernel commits
+Subject: Re: [Ksummit-discuss] Linux Foundation Technical Advisory Board
+ Elections -- Call for nominations
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.12
 Precedence: list
@@ -74,43 +84,75 @@ Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-On Wed, Aug 28, 2019 at 08:38:33AM -0400, Joel Fernandes via Ksummit-discuss wrote:
-> The idea is to make it trivial. All of the steps above are automatic
-> and scripted, that's the whole point of what I was saying - to make it
-> automatic. If it is not automated, then it is unlikely to be adopted
-> widely or unlikely to stick. The final user will experience it as
-> trivial.
 
-I'm going to gently suggest that we've reached the point where instead
-of people trying to argue for their suggested solution is to actually
-*implement* a prototype.  It'll be a lot easier for people to judge a
-particular solution if it exists, than to debate about vaporware.
+> On Aug 9, 2019, at 2:24 AM, Laura Abbott <laura@labbott.name> wrote:
+> 
+> Hello everyone,
+> 
+> Friendly reminder that the TAB elections are coming soon:
+> 
+> The Linux Foundation Technical Advisory Board (TAB) serves as the
+> interface between the kernel development community and the Linux
+> Foundation. The TAB advises the Foundation on kernel-related matters,
+> helps member companies learn to work with the community, and works to
+> resolve community-related problems before they get out of hand.  We
+> also support the Code of Conduct committee in their mission.
+> 
+> The board has ten members, one of whom sits on the Linux Foundation
+> board of directors.
+> 
+> The election to select five TAB members will be held at the 2019 Kernel Summit
+> in Lisbon, Portugal September 9-11. As has been announced[2], we are moving to
+> an electronic voting system this year. Further details about the exact voting
+> procedures will be coming soon. Anyone is eligible to stand for election,
+> simply send your nomination to:
+> 
+> tech-board-discuss at lists.linux-foundation.org
+> 
+> With your nomination, please include a short candidate statement. This candidate
+> statement should focus on why you are running and what you hope to accomplish
+> on the TAB. We will be collecting these statements and making them publicly 
+> available.
+> 
+> The deadline for receiving nominations is 9am GMT+1 on September 9th (the first
+> day of Kernel Summit). Due to the use of electronic voting, this will be a hard
+> deadline!
+> 
+> Current TAB members, and their election year:
+> 
+> Jon Corbet		2017
+> Greg Kroah-Hartman	2017
+> Steven Rostedt		2017
+> Ted Tso			2017
+> Tim Bird		2017
+> 
+> Chris Mason		2018
+> Laura Abbott		2018
+> Olof Johansson		2018
+> Kees Cook		2018
+> Dan Williams		2018
+> 
+> The five slots from 2017 are all up for election.  As always, please
+> let us know if you have questions, and please do consider running.
+> 
+> Thanks,
+> Laura
+> 
+> [1] TAB members sit for a term of two years, and half of the board is
+> up for election every year. Five of the seats are up for election now.
+> The other five are halfway through their term and will be up for
+> election next year.
+> 
+> [2] https://lists.linuxfoundation.org/pipermail/ksummit-discuss/2019-July/006582.html
 
-Code implementing automation can always be adjusted, and questions
-over whether the Link: trailer should be using lkml.kernel.org or
-lore.kernel.org is really paint shedding.
+Reminder to send in your candidate statements, you can see the
+current ones at 
 
-Also remember that, different people can start using different
-automations, and even different schemes, in parallel, and we can
-actually try them out and see which is:
+https://docs.google.com/document/d/1E3_W1c-xJMx9o2PCnKiGt3vqs-mPh77yNO4GSqNipOQ
 
-* most convenient for the patch submmiter
-* most convenient for the maintainer
-* most convenient for people who are doing code archeology
+Thanks,
+Laura
 
-etc.  Then we can decide on what we want to use.  Trying to pick
-something before people who actually have to use it day to day have
-had a chance to try it in real life is how CIO's end up picking Lotus
-Notes.
-
-Even people who are arguing for using Change-Id will have better luck
-if there is a commonly available solution in active use which makes
-Change-Id's actually *useful* as a search token, as opposed to today,
-where it is viewed (in practical terms, given today's usage, mostly
-correctly) as a proxy for Gerrit instances hidden behind corporate
-firewalls.
-
-						- Ted
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
