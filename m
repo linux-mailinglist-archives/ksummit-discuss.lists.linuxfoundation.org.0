@@ -2,59 +2,47 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8A2709FF15
-	for <lists@lfdr.de>; Wed, 28 Aug 2019 12:05:13 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 19B81A0014
+	for <lists@lfdr.de>; Wed, 28 Aug 2019 12:42:52 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id 08D912968;
-	Wed, 28 Aug 2019 10:05:03 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id 0DCB22A12;
+	Wed, 28 Aug 2019 10:42:40 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id 7023E2968
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id BB1682964
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Wed, 28 Aug 2019 10:04:43 +0000 (UTC)
-X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
-Received: from userp2130.oracle.com (userp2130.oracle.com [156.151.31.86])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 17A0F8B8
+	Wed, 28 Aug 2019 10:42:26 +0000 (UTC)
+X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
+Received: from heliosphere.sirena.org.uk (heliosphere.sirena.org.uk
+	[172.104.155.198])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 3DC118C2
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Wed, 28 Aug 2019 10:04:42 +0000 (UTC)
-Received: from pps.filterd (userp2130.oracle.com [127.0.0.1])
-	by userp2130.oracle.com (8.16.0.27/8.16.0.27) with SMTP id
-	x7SA4agL052784; Wed, 28 Aug 2019 10:04:39 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com;
-	h=to : cc : subject :
-	from : references : date : in-reply-to : message-id : mime-version :
-	content-type; s=corp-2019-08-05;
-	bh=UtKLwDyGc/rPsr1ZwDCCB+prOoOxn+f3zOBkmdvtMCg=;
-	b=Fb32VSHWKu6pAN+svkV6VKlez7xOZK7AojURYaC0u0zfaul2BITHh+9q3DPCrzWFsie4
-	uptvbPmNqttxJpBMzkrPcSNZZxYG0Ajiu8a+KVrZ5LSSnRjAhPBo0zSDpUhWWwMBOu2i
-	NiBOk1ngQo8fVDm6RUz5yuRKdiotI+uGi0sNrTZjbg+kAESGkxcr91CSRLFk26RT2iem
-	vWwFxxFG6mltZtsgXj6s+tB30iJGeZVrY23xNGUGu0RG1g5SUzNnLVov6M4qzib13QB9
-	czNBinb9xmN9nWTlgCc2QdZpRX+x7yLgRBgETmw2XbA3hG5DGJljHqCs3f7TTsjyYify
-	rw== 
-Received: from aserp3020.oracle.com (aserp3020.oracle.com [141.146.126.70])
-	by userp2130.oracle.com with ESMTP id 2unq3p05h6-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 28 Aug 2019 10:04:39 +0000
-Received: from pps.filterd (aserp3020.oracle.com [127.0.0.1])
-	by aserp3020.oracle.com (8.16.0.27/8.16.0.27) with SMTP id
-	x7SA3xrA121015; Wed, 28 Aug 2019 10:04:38 GMT
-Received: from aserv0121.oracle.com (aserv0121.oracle.com [141.146.126.235])
-	by aserp3020.oracle.com with ESMTP id 2undw7947d-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 28 Aug 2019 10:04:38 +0000
-Received: from abhmp0004.oracle.com (abhmp0004.oracle.com [141.146.116.10])
-	by aserv0121.oracle.com (8.14.4/8.13.8) with ESMTP id x7SA4abM001192;
-	Wed, 28 Aug 2019 10:04:37 GMT
-Received: from ca-mkp.ca.oracle.com (/10.159.214.123)
-	by default (Oracle Beehive Gateway v4.0)
-	with ESMTP ; Wed, 28 Aug 2019 03:04:36 -0700
+	Wed, 28 Aug 2019 10:42:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=sirena.org.uk; s=20170815-heliosphere; h=In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=ibenNMbXp4hvZ2PpImt4goTeT5hIkRjIGDJSfP6r9FM=;
+	b=NbdlAAk2IwxUUSGrq/Tp0oH39
+	2ithrGc2udqkUsN75i6+oahY5ftF88QRLa4Nxmzm6b3SAOjD+B73eXFpwRaB4Aaa7lB3s56rGPBf8
+	MKIQsOW4r49zyg8THo2p3h/ohu0B6D5+xgSYglW7tP7xsGyv5Wdnmd3iG16xwnqV2Svgk=; 
+Received: from cpc102320-sgyl38-2-0-cust46.18-2.cable.virginm.net
+	([82.37.168.47] helo=ypsilon.sirena.org.uk)
+	by heliosphere.sirena.org.uk with esmtpsa
+	(TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
+	(envelope-from <broonie@sirena.co.uk>)
+	id 1i2vPD-0003cB-7B; Wed, 28 Aug 2019 10:42:23 +0000
+Received: by ypsilon.sirena.org.uk (Postfix, from userid 1000)
+	id AF84C2742A55; Wed, 28 Aug 2019 11:42:19 +0100 (BST)
+Date: Wed, 28 Aug 2019 11:42:19 +0100
+From: Mark Brown <broonie@kernel.org>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-From: "Martin K. Petersen" <martin.petersen@oracle.com>
-Organization: Oracle Corporation
-References: <CACT4Y+aMkb4OTPwbXP1U8wtoV2oaLh+P-FoxG9N5m63kt-kGyw@mail.gmail.com>
-	<alpine.DEB.2.21.1908270806060.1939@nanos.tec.linutronix.de>
+Message-ID: <20190828104219.GC4298@sirena.co.uk>
+References: <alpine.DEB.2.21.1908270806060.1939@nanos.tec.linutronix.de>
 	<CACT4Y+a2E9FBba4f2iEmQKzO=gNe0cdyW+Pqq8YyiMaOTOu3fg@mail.gmail.com>
 	<20190827134836.GB25038@kroah.com>
 	<dc1a4c98-5e29-094c-ead8-889df35de811@roeck-us.net>
@@ -64,31 +52,12 @@ References: <CACT4Y+aMkb4OTPwbXP1U8wtoV2oaLh+P-FoxG9N5m63kt-kGyw@mail.gmail.com>
 	<20190827195351.GA30710@kroah.com>
 	<CAJWu+oq8jFnJ4iJ+R3swr-93eMwDgbWXe1W2Aiu-r+tuYSY5Ag@mail.gmail.com>
 	<20190828090837.GA31704@kroah.com>
-Date: Wed, 28 Aug 2019 06:04:33 -0400
-In-Reply-To: <20190828090837.GA31704@kroah.com> (Greg Kroah-Hartman's message
-	of "Wed, 28 Aug 2019 11:08:37 +0200")
-Message-ID: <yq1a7btvc5q.fsf@oracle.com>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.1.92 (gnu/linux)
 MIME-Version: 1.0
-X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9362
-	signatures=668685
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0
-	malwarescore=0
-	phishscore=0 bulkscore=0 spamscore=0 mlxscore=0 mlxlogscore=756
-	adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
-	engine=8.0.1-1906280000 definitions=main-1908280107
-X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9362
-	signatures=668685
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0
-	priorityscore=1501 malwarescore=0
-	suspectscore=0 phishscore=0 bulkscore=0 spamscore=0 clxscore=1011
-	lowpriorityscore=0 mlxscore=0 impostorscore=0 mlxlogscore=812
-	adultscore=0
-	classifier=spam adjust=0 reason=mlx scancount=1 engine=8.0.1-1906280000
-	definitions=main-1908280107
-X-Spam-Status: No, score=-4.3 required=5.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID, DKIM_VALID_AU, RCVD_IN_DNSWL_MED,
-	UNPARSEABLE_RELAY autolearn=ham version=3.3.1
+In-Reply-To: <20190828090837.GA31704@kroah.com>
+X-Cookie: Oatmeal raisin.
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Spam-Status: No, score=-1.9 required=5.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,RCVD_IN_DNSWL_NONE autolearn=ham version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
 Cc: Joel Fernandes <joelaf@google.com>, Barret Rhoden <brho@google.com>,
@@ -98,7 +67,7 @@ Cc: Joel Fernandes <joelaf@google.com>, Barret Rhoden <brho@google.com>,
 	David Rientjes <rientjes@google.com>, Dmitry Torokhov <dtor@chromium.org>,
 	Dmitry Vyukov <dvyukov@google.com>
 Subject: Re: [Ksummit-discuss] Allowing something Change-Id (or something
-	like it) in kernel commits
+ like it) in kernel commits
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.12
 Precedence: list
@@ -110,29 +79,57 @@ List-Post: <mailto:ksummit-discuss@lists.linuxfoundation.org>
 List-Help: <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=help>
 List-Subscribe: <https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss>,
 	<mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1929645056188465167=="
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
 
-Greg,
+--===============1929645056188465167==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ABTtc+pdwF7KHXCz"
+Content-Disposition: inline
 
-> How about this, when sending a v2, you have it be in response to the
-> v1 patch?  Same for v3, have it be in response for the v2 one.  And so
-> on.
 
-I spend a ton of time tracking older versions of series (subjects often
-change).
+--ABTtc+pdwF7KHXCz
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-However, requiring proper follow-up headers is yet another thing for me
-to manually police. Maybe we could add a line of defense and make
-patchwork complain if somebody posts a -vN without a suitable
---in-reply-to?
+On Wed, Aug 28, 2019 at 11:08:37AM +0200, Greg Kroah-Hartman wrote:
 
--- 
-Martin K. Petersen	Oracle Linux Engineering
+> How about this, when sending a v2, you have it be in response to the v1
+> patch?  Same for v3, have it be in response for the v2 one.  And so on.
+
+That seems like it might confuse mail readers and have them do
+interesting things with threading so they don't group the entire new
+version of the series together but instead split it through the earlier
+versions.
+
+--ABTtc+pdwF7KHXCz
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAl1mWooACgkQJNaLcl1U
+h9A4Rwf/dYHzWfKp2ix/gJ6aptjVCgcs9kioBuwrzrsviO+C8m0ecrSe2QjFVmUa
+c81WjLaG6pQ18GP/D+DAM6pe9jUdgLwBkLnEMZREd8h3jKHaIjGSeemy+CAsdlT5
+SjYni5xoY5VnO6VpqrSNPvNP0gKahB5DD8ZjohqTqZEdG8wDyen7IS4WSsRZfSNz
+eUQmE8yJobhiEzFH11yYvKJdWYv30Jh02il7xaXZ6u78FQJ88+PrfT43phUbG+R2
+V2pEF5NVfL/3BQP8rL+hvRjbGti/rCqXvJJynVI5amyDcy9ZqNuKChLYxvckPnY+
+V00ZKcAlTid/qdNFLvuxdpZ/jrR0Ug==
+=qaht
+-----END PGP SIGNATURE-----
+
+--ABTtc+pdwF7KHXCz--
+
+--===============1929645056188465167==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
 https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss
+
+--===============1929645056188465167==--
