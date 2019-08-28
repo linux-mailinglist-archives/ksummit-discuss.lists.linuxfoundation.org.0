@@ -2,39 +2,65 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id 515649F839
-	for <lists@lfdr.de>; Wed, 28 Aug 2019 04:20:07 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 378B89FD78
+	for <lists@lfdr.de>; Wed, 28 Aug 2019 10:51:15 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id EF8E623E4;
-	Wed, 28 Aug 2019 02:19:45 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id 6505C2631;
+	Wed, 28 Aug 2019 08:51:04 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id 73DE22355;
-	Wed, 28 Aug 2019 02:19:43 +0000 (UTC)
-Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id D9F3E1FB;
-	Wed, 28 Aug 2019 02:19:40 +0000 (UTC)
-Received: from oasis.local.home (cpe-66-24-58-225.stny.res.rr.com
-	[66.24.58.225])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 6BC1320674;
-	Wed, 28 Aug 2019 02:19:40 +0000 (UTC)
-Date: Tue, 27 Aug 2019 22:19:38 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: tech-board-discuss@lists.linuxfoundation.org,
-	ksummit-discuss@lists.linuxfoundation.org, LKML
-	<linux-kernel@vger.kernel.org>
-Message-ID: <20190827221938.0552eacb@oasis.local.home>
-X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id 10F9524DE
+	for <ksummit-discuss@lists.linuxfoundation.org>;
+	Wed, 28 Aug 2019 08:50:45 +0000 (UTC)
+X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
+Received: from Galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 9512BEC
+	for <ksummit-discuss@lists.linuxfoundation.org>;
+	Wed, 28 Aug 2019 08:50:44 +0000 (UTC)
+Received: from p5de0b6c5.dip0.t-ipconnect.de ([93.224.182.197] helo=nanos)
+	by Galois.linutronix.de with esmtpsa
+	(TLS1.2:DHE_RSA_AES_256_CBC_SHA256:256) (Exim 4.80)
+	(envelope-from <tglx@linutronix.de>)
+	id 1i2tf7-0005WQ-TE; Wed, 28 Aug 2019 10:50:42 +0200
+Date: Wed, 28 Aug 2019 10:50:40 +0200 (CEST)
+From: Thomas Gleixner <tglx@linutronix.de>
+To: "Theodore Y. Ts'o" <tytso@mit.edu>
+In-Reply-To: <alpine.DEB.2.21.1908262146050.1939@nanos.tec.linutronix.de>
+Message-ID: <alpine.DEB.2.21.1908281048520.1939@nanos.tec.linutronix.de>
+References: <CAOw6vbJCCeM_62WARKECkthCafhfpxqWc-R9SBMnc6VVMZ0hkg@mail.gmail.com>
+	<20190823151843.GH8130@mit.edu>
+	<CAOw6vb+1LH8t20S_3kC6xyGZAhrDa3Pe4ZptsJqoQzXf3WCOeg@mail.gmail.com>
+	<alpine.DEB.2.21.1908231740020.1896@nanos.tec.linutronix.de>
+	<20190823161947.GA112509@dtor-ws>
+	<CAJWu+ooOzZ3vFsW40ok8M0MbrZOcx8xJsrN8Ra_VVq0EavzQfQ@mail.gmail.com>
+	<20190823164602.GB112509@dtor-ws>
+	<alpine.DEB.2.21.1908232108580.1939@nanos.tec.linutronix.de>
+	<20190823193832.GE4791@pendragon.ideasonboard.com>
+	<alpine.DEB.2.21.1908232150580.1939@nanos.tec.linutronix.de>
+	<20190824231305.GC5163@mit.edu>
+	<alpine.DEB.2.21.1908250908360.1939@nanos.tec.linutronix.de>
+	<alpine.DEB.2.21.1908262146050.1939@nanos.tec.linutronix.de>
+User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
 MIME-Version: 1.0
-X-Spam-Status: No, score=-6.9 required=5.0 tests=BAYES_00,RCVD_IN_DNSWL_HI
+X-Linutronix-Spam-Score: -1.0
+X-Linutronix-Spam-Level: -
+X-Linutronix-Spam-Status: No , -1.0 points, 5.0 required, ALL_TRUSTED=-1,
+	SHORTCIRCUIT=-0.0001
+X-Spam-Status: No, score=-4.2 required=5.0 tests=BAYES_00,RCVD_IN_DNSWL_MED
 	autolearn=ham version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
-Subject: [Ksummit-discuss] TAB nomination for Steven Rostedt
+Cc: Joel Fernandes <joelaf@google.com>, Barret Rhoden <brho@google.com>,
+	ksummit <ksummit-discuss@lists.linuxfoundation.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jonathan Nieder <jrn@google.com>, Tomasz Figa <tfiga@chromium.org>,
+	Han-Wen Nienhuys <hanwen@google.com>, Theodore Tso <tytso@google.com>,
+	David Rientjes <rientjes@google.com>, Dmitry Torokhov <dtor@chromium.org>,
+	Dmitry Vyukov <dvyukov@google.com>
+Subject: Re: [Ksummit-discuss] Allowing something Change-Id (or something
+ like it) in kernel commits
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.12
 Precedence: list
@@ -51,37 +77,19 @@ Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-I would like to nominate myself, Steven Rostedt, for election to the
-Linux Foundation Technical Advisory Board (TAB).
+On Tue, 27 Aug 2019, Thomas Gleixner wrote:
+> As I did not get a repo set up on git.kernel.org for this yet, find
+> attached a git bundle which allows you to clone my repo for now. That works
+> like a regular clone
 
-Candidate statement:
+I assumed that this should go under pub/scm/utils which requires
+permission, but Konstantin told me just to stick it into ..../tglx/. So here it is:
 
-I have been highly involved with the Linux kernel community since 2004,
-as a developer, a user, maintainer and educator. When I first came onto
-the board, my platform was to help bridge various parts of the Linux
-ecosystem. I've been working to help developers reach across their
-realms of expertise and unite with other developers in order to have
-better integration of the tools within the GNU and Linux systems. Being
-part of the advisory board to the Linux Foundation has facilitate this
-goal. I am also on the planning committee for Linux Plumbers and have
-become the Microconference Chair. As such I have succeeded in bringing
-in developers to host a Database microconference for the first time at
-Plumbers. The combination of being both on the TAB as well as a
-Plumbers committee member has be extremely useful in my goal of
-bringing all those that interact with Linux closer together. I would
-like to continue this work for at least one more term.
+ git://git.kernel.org/pub/scm/linux/kernel/git/tglx/quilttools
 
-Little more about me:
+Thanks,
 
-I'm one of the original developers of the PREEMPT_RT patch (which looks
-to finally be merged into mainline). I'm the original author and
-current maintainer of Ftrace, the official tracer of the Linux kernel.
-I've created ktest.pl that lives in the kernel proper under the tools
-directory which is a testing framework that was written to help
-developers run their own tests. I'm also the one that added "make
-localmodconfig" that brings your kernel compile time down tremendously!
-
--- Steve
+	tglx
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
