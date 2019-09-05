@@ -2,85 +2,49 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9A5DAA83EE
-	for <lists@lfdr.de>; Wed,  4 Sep 2019 15:47:57 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id AEE3FA9782
+	for <lists@lfdr.de>; Thu,  5 Sep 2019 02:13:30 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id 51CF316FD;
-	Wed,  4 Sep 2019 13:47:29 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id 241A621E6;
+	Thu,  5 Sep 2019 00:13:10 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id 60FF3145E
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id CB6FB18B3
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Wed,  4 Sep 2019 13:47:10 +0000 (UTC)
-X-Greylist: whitelisted by SQLgrey-1.7.6
-Received: from mail-qk1-f174.google.com (mail-qk1-f174.google.com
-	[209.85.222.174])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id DD280887
+	Thu,  5 Sep 2019 00:12:34 +0000 (UTC)
+X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
+Received: from outgoing.mit.edu (outgoing-auth-1.mit.edu [18.9.28.11])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 33867A9
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Wed,  4 Sep 2019 13:47:09 +0000 (UTC)
-Received: by mail-qk1-f174.google.com with SMTP id x134so9467207qkb.0
-	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Wed, 04 Sep 2019 06:47:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linuxfoundation.org; s=google;
-	h=date:from:to:cc:subject:message-id:mail-followup-to:references
-	:mime-version:content-disposition:in-reply-to:user-agent;
-	bh=dYGfT8fDJumQBF4AGTRnbAlfF/Il44uNvH+2gMWPiBU=;
-	b=VPdlH2eyGA3ng0ikpiou/TyPNTDExGQQuGnrY3aaPAn672raLgzS6Kr9YeA4F83KRA
-	14nOAcz3dWIp92FoskLi6XLQzgNOyLefW1tTu3swTXIwMc3z0sL8zXrkBoOil6qQySLW
-	zvrzDNsdLJTpszrrA7zGA8mF7bAzjA7IcfADk=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:date:from:to:cc:subject:message-id
-	:mail-followup-to:references:mime-version:content-disposition
-	:in-reply-to:user-agent;
-	bh=dYGfT8fDJumQBF4AGTRnbAlfF/Il44uNvH+2gMWPiBU=;
-	b=hAwcL0akSSRJhlL3f7dmzd1xAn6vJ1v9TMuxAM1Dke56KKFmkE/WwuLkr5Z9btdhmj
-	AKMWdVVDTsB63FgUO/xd0OA32goTKAMnDv6z/UIkhA6/xoyh3bSwXYieWl7JAQc+1yn7
-	/CJtpgA7S18z81VAgH3SKiCR4O1+C8jlxfUwwbTluuGPRmKgMO8C9USw25in9AvrERMz
-	GgAsR1t6g+qR4K/5d0ei60Motn54W6z8cO8+0uBZN8y4HJDN4QU7chi8E6yDuCA8/Tjy
-	C0V9xZ5+aknJJCDeEC+GAuB93yZ5JQyvucwrEfgcSo7/c7GuQu1tNPD1Guyw1ndSIFfR
-	b3Iw==
-X-Gm-Message-State: APjAAAXzw0AvQUOwL2to6NFUI5z0o3Ef0UmKjvE5BGbU/QLwMfp15ctn
-	o2j6442AovKcixftFyf5pj9roplE
-X-Google-Smtp-Source: APXvYqxRBTx7I6wRN3BEAtzlN8mJiuM7TfSjpqddHNtTlgRuXVt808MOA7Fp6PwhUneXLr3VI5sUDA==
-X-Received: by 2002:a05:620a:1193:: with SMTP id
-	b19mr32894333qkk.413.1567604828984; 
-	Wed, 04 Sep 2019 06:47:08 -0700 (PDT)
-Received: from pure.paranoia.local ([87.101.92.157])
-	by smtp.gmail.com with ESMTPSA id
-	139sm6504202qkf.14.2019.09.04.06.47.07
-	(version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-	Wed, 04 Sep 2019 06:47:08 -0700 (PDT)
-Date: Wed, 4 Sep 2019 09:47:06 -0400
-From: Konstantin Ryabitsev <konstantin@linuxfoundation.org>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Message-ID: <20190904134706.GA14421@pure.paranoia.local>
-Mail-Followup-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Laura Abbott <labbott@redhat.com>,
-	Bjorn Helgaas <helgaas@kernel.org>,
-	ksummit-discuss@lists.linuxfoundation.org
-References: <20190830031720.GA7490@mit.edu> <20190830135857.GF7013@google.com>
-	<CAPM=9tymLW8dS_3OD0J9mvSMWpmcs3WWBEQS=gtzX0Zyz-umHg@mail.gmail.com>
-	<20190902222240.GE3367@mit.edu>
-	<574c0ccd-730a-eada-966c-58f5de7c9477@redhat.com>
-	<CAHk-=wh1v7FK_VctdRo3fsuHJU4Dm95siC=vM9seuuapBgdg+A@mail.gmail.com>
-	<20190903172708.qrvaad2paze6ifhz@chatter.i7.local>
-	<20190904120843.GD4811@pendragon.ideasonboard.com>
+	Thu,  5 Sep 2019 00:12:34 +0000 (UTC)
+Received: from callcc.thunk.org (guestnat-104-133-0-96.corp.google.com
+	[104.133.0.96] (may be forged)) (authenticated bits=0)
+	(User authenticated as tytso@ATHENA.MIT.EDU)
+	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id x850CUND025281
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256
+	verify=NOT); Wed, 4 Sep 2019 20:12:32 -0400
+Received: by callcc.thunk.org (Postfix, from userid 15806)
+	id 7A3FC42049E; Wed,  4 Sep 2019 20:12:30 -0400 (EDT)
+Date: Wed, 4 Sep 2019 20:12:30 -0400
+From: "Theodore Y. Ts'o" <tytso@mit.edu>
+To: Kees Cook <keescook@chromium.org>
+Message-ID: <20190905001230.GB25846@mit.edu>
+References: <20190826212548.GA15967@mit.edu>
+	<20190828192307.yvf372vnnx7f4iib@wittgenstein>
+	<20190830035117.GB5670@mit.edu> <201908292248.12974C32@keescook>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20190904120843.GD4811@pendragon.ideasonboard.com>
-User-Agent: Mutt/1.12.1 (2019-06-15)
-X-Spam-Status: No, score=-1.7 required=5.0 tests=BAYES_00,DKIM_INVALID,
-	DKIM_SIGNED,RCVD_IN_DNSWL_NONE autolearn=no version=3.3.1
+In-Reply-To: <201908292248.12974C32@keescook>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Spam-Status: No, score=-4.2 required=5.0 tests=BAYES_00,MAY_BE_FORGED,
+	RCVD_IN_DNSWL_MED autolearn=ham version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
-Cc: Bjorn Helgaas <helgaas@kernel.org>,
+Cc: Christian Brauner <christian.brauner@ubuntu.com>,
 	ksummit-discuss@lists.linuxfoundation.org
-Subject: Re: [Ksummit-discuss] Topics for the Maintainer's Summit
+Subject: Re: [Ksummit-discuss] DRAFT Kernel Summit Track schedule
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.12
 Precedence: list
@@ -97,62 +61,39 @@ Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-On Wed, Sep 04, 2019 at 03:08:43PM +0300, Laurent Pinchart wrote:
-> > - Just like Patchwork, it would keep track of new patches and series of 
-> >   patches, recognize when new patch/series revisions are posted, track 
-> >   reviewed-by's, tested-by's, etc, and provide useful maintainer 
-> >   functionality, such as showing interdiffs between revisions.
+On Thu, Aug 29, 2019 at 10:53:54PM -0700, Kees Cook wrote:
+> On Thu, Aug 29, 2019 at 11:51:17PM -0400, Theodore Y. Ts'o wrote:
+> > On Wed, Aug 28, 2019 at 09:23:08PM +0200, Christian Brauner wrote:
+> > > On Mon, Aug 26, 2019 at 05:25:48PM -0400, Theodore Ts'o wrote:
+> > > > This is a draft kernel summit track schedule.  Please let me know of
+> > > > any potential conflicts or schedule changes that you might like to
+> > > > make.
+> > > 
+> > > Could we grab a slot for
+> > > https://lists.linuxfoundation.org/pipermail/ksummit-discuss/2019-July/006699.html
+> > > please? It doesn't seem to appear in the list yet.
+> > 
+> > I hadn't scheduled this because it seemed to be a fairly specialized
+> > topic, and one of the major contributors to the thread (Andy
+> > Lutomirski) won't be able to be there.  Will we have the right people
+> > to have this discussion in Lisbon?
 > 
-> I've been thinking about this for about a year now. One issue that makes
-> this difficult is that many M[UTD]A software mangle e-mails in a way
-> that make extracting information automatically pretty painful. Google's
-> answer to this was Gerrit, which solved this particular issue, but
-> disrupted the e-mail-based workflow in a way that is not acceptable to
-> many developers (myself included). A better, in my opinion, solution
-> would have been standardisation of a format to exchange review
-> information. Quite obviously going for a markup language (be it XML,
-> json, yaml or whatever is hype today) is a no-go, given that we would
-> destroy everybody's workflow again. My idea was to use a review format
-> that is as close to e-mail as possible (with > quote markers and
-> everything that people are already familiar with). Of course M[UTD]A
-> software would still mangle it, but given reasonable M[TD]As, I think we
-> could teach some of the MUAs commonly used (mutt comes to mind) to
-> behave properly (through plugins, scripts, settings files, ...). E-mails
-> that would not be mangled through the process would be easily parsable
-> by the tool you would like to develop. That would not give us full
-> coverage, but if we manage to establish such an end-to-end solution, we
-> could then push it to more MUAs. This would allow to tackle this complex
-> problem one step at a time, while not alienating developers by asking
-> them to leave their MUA. Over time we could the develop more tooling
-> around that review exchange format, once a large enough portion of
-> exchanged reviews will follow it.
+> I agree it would be better to have Andy there, but I don't think that's
+> reason enough to not discuss it. We had a rather large BoF meeting at LSS
+> about it with a circle of maybe 15-20 people where we made some headway
+> on understanding some of the larger requirements, but there was a lot
+> left to discuss. I know several people from that discussion will be in
+> Lisbon, though I agree it's somewhat specialized. I'm not sure what the
+> "interest level" cut-off is for a ksummit slot, but I know I'll need to
+> spend time talking with a bunch of people about it in person while I'm
+> there, so at least having some "unscheduled" slots for similar kinds of
+> discussions would be value.
 
-One way to prevent mail software from mangling message bodies is to send
-them as multipart/signed -- at least most MTA/MDAs know not to touch
-those. I know git-am handles multipart/signed patches just fine (though
-it just ignores signatures), and most gui MUAs just shrug the signatures
-off by showing them as useless attachments.
+OK, I've scheduled "Deep Argument Inspection and Seccomp" at 15:45 on
+Monday.  Let me know if that slot doesn't work for anyone critical who
+needs to participate.
 
-Doesn't help much for cases where people use their own MUAs to send
-patches, but at least we can prevent the transmission/display parts of
-the equation from messing with structured mail content.
-
-(Of course, in my beautiful vision of the future we aren't using
-mail clients at all any more, but let's leave that topic on the
-sci-fi/fantasy shelf for now.)
-
-> I'd say it sounds too good to be true. Being often on the move I would
-> love a tool that would let me work offline. Even when online, being able
-> to run queries locally and script actions without the need for a web
-> browser interface would be amazing.
-
-It is quite literally too good to be true, because this tool does not
-exist. ;) However, having this feedback will hopefully help me make the
-case for coming up with some funds to get things going.
-
-Best regards,
--K
-
+					- Ted
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
