@@ -2,68 +2,87 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id D8738AD610
-	for <lists@lfdr.de>; Mon,  9 Sep 2019 11:50:17 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 3B11FAD689
+	for <lists@lfdr.de>; Mon,  9 Sep 2019 12:16:29 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id DC236E70;
-	Mon,  9 Sep 2019 09:50:03 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id 7F5F7E8D;
+	Mon,  9 Sep 2019 10:16:14 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id C888DE57
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id 97353E7E
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Mon,  9 Sep 2019 09:50:01 +0000 (UTC)
+	Mon,  9 Sep 2019 10:16:12 +0000 (UTC)
 X-Greylist: whitelisted by SQLgrey-1.7.6
-Received: from mail-ot1-f68.google.com (mail-ot1-f68.google.com
-	[209.85.210.68])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 3113D7DB
+Received: from mail-io1-f66.google.com (mail-io1-f66.google.com
+	[209.85.166.66])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 4CE9376F
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Mon,  9 Sep 2019 09:50:01 +0000 (UTC)
-Received: by mail-ot1-f68.google.com with SMTP id 41so8034893oti.12
+	Mon,  9 Sep 2019 10:16:12 +0000 (UTC)
+Received: by mail-io1-f66.google.com with SMTP id d25so27353017iob.6
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Mon, 09 Sep 2019 02:50:01 -0700 (PDT)
+	Mon, 09 Sep 2019 03:16:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linuxfoundation.org; s=google;
+	h=date:from:to:cc:subject:message-id:mail-followup-to:references
+	:mime-version:content-disposition:in-reply-to:user-agent;
+	bh=R0HAs2O3vv222yV5JJGgw0cG8Oflq+i1vLuRdT5hL0o=;
+	b=Zox7/Mwmb/P2fwmcO6JvAkyUccPOwd1/juKRigQMk8Xf4yLdnTnr57b8OQ4WVcJmLu
+	8IFkL+yjBTiVDs0Fhejy5gJ4Nvb8AzfV7UZJfOPFCu2HGzcj02o3hdI2saWUpjQ0uJbm
+	bzb9qMkO6uippyIQWyE2jLN3Y6qGwdwwtOD+g=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=1e100.net; s=20161025;
-	h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-	:message-id:subject:to:cc;
-	bh=MHtHv23UfGrTnRYdydZ/rD0iTeCN9bvcG0m5o/9b0dM=;
-	b=LBf3SZwu1ScdwG44XpeKdSKl1E3U1GAOoALBtBI5sR6F47Z7HAJC5SE/QD4KNkSg69
-	W9zNSNLp4BA8TnoCm11njs378C1G4VT3mLttdwmM+MQcKq1KAc4oKemIMo5jhy593pUu
-	4Ob5gspznxdx2Wu/rVdbiWAXNlsDcsLVRIMeyr9Z5ZlFlxmTQVWrsqxt8E3lrJFxeWe3
-	0t2B3rNiCSZWRG1kB0Jz0HyMb+Qa2KNsgaBnFWQLTxsw8FWBhkc/ArmzWYuNDa37BqrL
-	CwawEwKnaQZdG+t1huT8p99yl7NFl2f9MzVYPL/Q8SCxIwhvbXjR2qSRMEutMIIAcjP9
-	jDdQ==
-X-Gm-Message-State: APjAAAULYLkh2GPBxOQZHjgXAIVosBvez1lPb0ojrd+LJn2TygAStH3A
-	qIXZykh8nJ9ozSMiuHP6mMtOImbH4aHDADR9wNg=
-X-Google-Smtp-Source: APXvYqxVIZ5XP2ITbJALFEjeyrtisFebQb5+SYwmiT4vtoTQUOjP1hfLwF0HiRAICpfYoSkY7f3pCiImDdN1/g/9R18=
-X-Received: by 2002:a9d:5a06:: with SMTP id v6mr17799327oth.250.1568022600418; 
-	Mon, 09 Sep 2019 02:50:00 -0700 (PDT)
-MIME-Version: 1.0
-References: <20190830031720.GA7490@mit.edu> <20190830135857.GF7013@google.com>
-	<CAPM=9tymLW8dS_3OD0J9mvSMWpmcs3WWBEQS=gtzX0Zyz-umHg@mail.gmail.com>
-	<20190902222240.GE3367@mit.edu>
-	<574c0ccd-730a-eada-966c-58f5de7c9477@redhat.com>
-	<CAHk-=wh1v7FK_VctdRo3fsuHJU4Dm95siC=vM9seuuapBgdg+A@mail.gmail.com>
+	h=x-gm-message-state:date:from:to:cc:subject:message-id
+	:mail-followup-to:references:mime-version:content-disposition
+	:in-reply-to:user-agent;
+	bh=R0HAs2O3vv222yV5JJGgw0cG8Oflq+i1vLuRdT5hL0o=;
+	b=dFM63wQZieXy+MujAp6CP8rIwEn4paqoHWMcjF/Zckp5WwGt5WvdxUBmIVBiEOkbTF
+	VUhnQXf9gkiEFyFZCOUCGHAgCjvIe4gFhpEdxp1jekESaYZcfb4/R62XXWinu7O0YG2N
+	2Xc7ajC9WX7WHejJSGyiBfSTuMy6w214KB6gMcYpVIJnQgXAOWu0DySru9KTe6S8hV+Y
+	pCPexnDePxVJCBCd/HQPU+oTJtQ2YC3KOzr1cCB3hF0M3V2GHl+dtrB90lcg7Ogj6ZBb
+	0Ac/7eEElFCNIhqigzWDO/Xit50v7KxnQfrPzb8Rd2TTsaPIyyA1QEXOg0Uo56Ccc5Cx
+	fzHg==
+X-Gm-Message-State: APjAAAXmfN3x8ODQZXmq0PUJRCZ602Z9gqb/dhCfGqn7N5HM+3pQJOQ/
+	9UxQ8Q6uxDHBUrBfqmdkXL2bkkmx
+X-Google-Smtp-Source: APXvYqygYM9Z/WHX2cKRRCo5YA8x96JlrObPxeU2PyGB0clHamNQ/3V9yVZSpKNE688murRdSw3Riw==
+X-Received: by 2002:a5d:87ce:: with SMTP id q14mr12780188ios.248.1568024171591;
+	Mon, 09 Sep 2019 03:16:11 -0700 (PDT)
+Received: from pure.paranoia.local ([87.101.92.157])
+	by smtp.gmail.com with ESMTPSA id
+	u10sm15379005ior.81.2019.09.09.03.16.09
+	(version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+	Mon, 09 Sep 2019 03:16:11 -0700 (PDT)
+Date: Mon, 9 Sep 2019 06:16:06 -0400
+From: Konstantin Ryabitsev <konstantin@linuxfoundation.org>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Message-ID: <20190909101606.GB9452@pure.paranoia.local>
+Mail-Followup-To: Geert Uytterhoeven <geert@linux-m68k.org>,
+	Jani Nikula <jani.nikula@intel.com>,
+	Olof Johansson <olof@lixom.net>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Bjorn Helgaas <helgaas@kernel.org>,
+	ksummit <ksummit-discuss@lists.linuxfoundation.org>
+References: <CAHk-=wh1v7FK_VctdRo3fsuHJU4Dm95siC=vM9seuuapBgdg+A@mail.gmail.com>
 	<20190903172708.qrvaad2paze6ifhz@chatter.i7.local>
 	<20190904120843.GD4811@pendragon.ideasonboard.com>
-	<20190904134706.GA14421@pure.paranoia.local> <87lfv3w3v6.fsf@intel.com>
+	<20190904134706.GA14421@pure.paranoia.local>
+	<87lfv3w3v6.fsf@intel.com>
 	<CAL_Jsq+-bGRxaOxEbCH+57TQto6KUO7Fs+tMLswzeJEB=FWA+Q@mail.gmail.com>
 	<CAHk-=whovSzsjL0HrfVbYTP8RCcCQj6u3g1LsfOiNeQmzfy2mA@mail.gmail.com>
 	<CAOesGMjpsQYL2gK3M1fvxmCHp=ZZj9Hx4JcFASMvKQXMfyfXBA@mail.gmail.com>
 	<87imq1x3q2.fsf@intel.com>
-In-Reply-To: <87imq1x3q2.fsf@intel.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 9 Sep 2019 11:49:48 +0200
-Message-ID: <CAMuHMdXVJuRv1n1zvmVUYOj_DCkYu-n3mub9rSdePf6M1nEObw@mail.gmail.com>
-To: Jani Nikula <jani.nikula@intel.com>
-X-Spam-Status: No, score=-1.9 required=5.0 tests=BAYES_00,FREEMAIL_FROM,
-	RCVD_IN_DNSWL_NONE autolearn=ham version=3.3.1
+	<CAMuHMdXVJuRv1n1zvmVUYOj_DCkYu-n3mub9rSdePf6M1nEObw@mail.gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdXVJuRv1n1zvmVUYOj_DCkYu-n3mub9rSdePf6M1nEObw@mail.gmail.com>
+User-Agent: Mutt/1.12.1 (2019-06-15)
+X-Spam-Status: No, score=-1.7 required=5.0 tests=BAYES_00,DKIM_INVALID,
+	DKIM_SIGNED,RCVD_IN_DNSWL_NONE autolearn=no version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
 Cc: Bjorn Helgaas <helgaas@kernel.org>,
-	ksummit <ksummit-discuss@lists.linuxfoundation.org>,
-	Konstantin Ryabitsev <konstantin@linuxfoundation.org>
+	ksummit <ksummit-discuss@lists.linuxfoundation.org>
 Subject: Re: [Ksummit-discuss] Topics for the Maintainer's Summit
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.12
@@ -81,66 +100,29 @@ Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-Hi Jani,
+On Mon, Sep 09, 2019 at 11:49:48AM +0200, Geert Uytterhoeven wrote:
+> > We can still have the review on emailed patches, and we could still use
+> > git am to apply patches from email, with better reliability if the
+> > sending was done by a service in, say, kernel.org control. Though if we
+> > had the series automatically available in a branch, I'd think people
+> > would move over to picking up the commits from git. And email would only
+> > be used for communication, not data transfer.
+> 
+> Do we trust the branch to contain the exact same commits as the
+> patches reviewed on the mailing list?
+> For an automatic service on kernel.org, we could.
 
-On Mon, Sep 9, 2019 at 10:39 AM Jani Nikula <jani.nikula@intel.com> wrote:
-> On Fri, 06 Sep 2019, Olof Johansson <olof@lixom.net> wrote:
-> > Random observation: We're slowly migrating closer to the "web" based
-> > model of github/gitlab/bitbucket where changes come in via a merge
-> > request + branch, but we would be reconstructing it out of email with
-> > the cover letter equivalent of the merge request description, etc.
-> > That's obviously not a problem, just an interesting observation.
->
-> Well, as I tried to explain up-thread, I think it *is* a problem we're
-> building infrastructure on top of git send-email and am, while we have
-> git push and pull. Trying to reconstruct everything from email is
-> problematic because it is lossy.
->
-> We can still have the review on emailed patches, and we could still use
-> git am to apply patches from email, with better reliability if the
-> sending was done by a service in, say, kernel.org control. Though if we
-> had the series automatically available in a branch, I'd think people
-> would move over to picking up the commits from git. And email would only
-> be used for communication, not data transfer.
+But we really shouldn't, considering kernel.org is the exact kind of
+target that attackers would go after if it was implicitly trusted by
+developers. Once patches have been reviewed by maintainers and merged
+into their tree, we should be using cryptographic attestation for all
+git-centric operations after that -- regardless of whether you pulled
+from kernel.org or any other location.
 
-Do we trust the branch to contain the exact same commits as the
-patches reviewed on the mailing list?
-For an automatic service on kernel.org, we could.
-For branches provided manually by the submitter, or elsewhere, we cannot.
+Kernel.org is just there to simplify the moving of bits and we shouldn't
+make it a source of trust.
 
-Note that we already trust patchwork, assuming it received the exact
-same patch as our inboxes.  But for patchwork, the human factor is not
-involved, so human mistakes are assumed to be absent.
-
-> > The final step of merging it in is still manual in our setup, and
-> > that's what most maintainers still prefer; the "hands off" part of the
-> > web model where you don't actively download and look at the code is
-> > what feels less careful and involved at least for me. Plus the fact
-> > that the master contents of the tree would reside up somewhere on the
-> > internet instead of on the maintainers locally controlled machine with
-> > the trust complications involved in that.
->
-> I'm suggesting maintainers would still have their trees wherever they
-> feel comfortable having them. I find it hard to understand why emailed
-> patches would somehow be inherently safer and more trustworthy than git
-> pull.
-
-The emailed patch is what has been reviewed.
-For (sub)maintainers, we trust that the branch they provide contains the
-right commits.  Still, mistakes happens (check how many pull requests
-Linus complains about due to wrong/missing branch/tag).
-For random contributors, we do not.
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+-K
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
