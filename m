@@ -2,66 +2,71 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5427BAD86B
-	for <lists@lfdr.de>; Mon,  9 Sep 2019 14:02:29 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 80B38AD888
+	for <lists@lfdr.de>; Mon,  9 Sep 2019 14:09:43 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id 78850104A;
-	Mon,  9 Sep 2019 12:01:23 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id A5026FA9;
+	Mon,  9 Sep 2019 12:09:26 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id 1AF0D1023
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id A7BB5FF8
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Mon,  9 Sep 2019 12:01:21 +0000 (UTC)
-X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
-Received: from bedivere.hansenpartnership.com (bedivere.hansenpartnership.com
-	[66.63.167.143])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id A122B81A
+	Mon,  9 Sep 2019 12:09:23 +0000 (UTC)
+X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
+Received: from heliosphere.sirena.org.uk (heliosphere.sirena.org.uk
+	[172.104.155.198])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 31E0781A
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Mon,  9 Sep 2019 12:01:20 +0000 (UTC)
-Received: from localhost (localhost [127.0.0.1])
-	by bedivere.hansenpartnership.com (Postfix) with ESMTP id 755658EE180; 
-	Mon,  9 Sep 2019 05:01:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=hansenpartnership.com;
-	s=20151216; t=1568030479;
-	bh=IHj4BWpJu+oYjS6RjhRvMc6RI/KfEcB+XNrYfEBsT10=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=hhEkBE6T7NVd4s62xqix/ENI2/mj0KuKKeiTY2knAn0dMfO2fRZWbJYj5Rg3WmBGz
-	rNNSFAGNAiy3mL7TT83XRvA4c7j+wYiWD11C54XVjYaZhdxgBqui+82T392/eO2CWu
-	3zGcNcn83ttG8+WpZQpWHYioKFjZ3SLeO6UNbcU8=
-Received: from bedivere.hansenpartnership.com ([127.0.0.1])
-	by localhost (bedivere.hansenpartnership.com [127.0.0.1]) (amavisd-new,
-	port 10024)
-	with ESMTP id QD5l7HVy6KF4; Mon,  9 Sep 2019 05:01:19 -0700 (PDT)
-Received: from [192.168.6.117] (unknown [148.69.85.38])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by bedivere.hansenpartnership.com (Postfix) with ESMTPSA id 70B938EE105;
-	Mon,  9 Sep 2019 05:01:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=hansenpartnership.com;
-	s=20151216; t=1568030479;
-	bh=IHj4BWpJu+oYjS6RjhRvMc6RI/KfEcB+XNrYfEBsT10=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=hhEkBE6T7NVd4s62xqix/ENI2/mj0KuKKeiTY2knAn0dMfO2fRZWbJYj5Rg3WmBGz
-	rNNSFAGNAiy3mL7TT83XRvA4c7j+wYiWD11C54XVjYaZhdxgBqui+82T392/eO2CWu
-	3zGcNcn83ttG8+WpZQpWHYioKFjZ3SLeO6UNbcU8=
-Message-ID: <1568030467.6613.19.camel@HansenPartnership.com>
-From: James Bottomley <James.Bottomley@HansenPartnership.com>
-To: Mark Brown <broonie@kernel.org>
-Date: Mon, 09 Sep 2019 13:01:07 +0100
-In-Reply-To: <20190909115338.GD2036@sirena.org.uk>
-References: <CAPM=9tx7toB7Bsif6RDo51HNxcGbbHDPHD7DjmF9i+zs-J0HRQ@mail.gmail.com>
-	<1568025855.6613.5.camel@HansenPartnership.com>
-	<20190909115338.GD2036@sirena.org.uk>
-X-Mailer: Evolution 3.26.6 
-Mime-Version: 1.0
-X-Spam-Status: No, score=-1.7 required=5.0 tests=BAYES_00,DKIM_INVALID,
-	DKIM_SIGNED,RCVD_IN_DNSWL_NONE autolearn=no version=3.3.1
+	Mon,  9 Sep 2019 12:09:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=sirena.org.uk; s=20170815-heliosphere; h=In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=0XahagjCpYEzf/OhbFmIlVc6R7zcSSVHwUas/N06Llk=;
+	b=qr/nwFVwIbkC4itf/8eGnCqMI
+	ZDbRsDrmtZ3Ke+5st2MidM9BKFL6xB9at2ds7kcRR+IOWlrs4Vs+p9ujkkxnE/e5B6Yf6AsnXZV+e
+	xAtIW10tlUoKZmvMYOwVWRxWWJnC61BAwRHArJJH+A57WFdewtbBtbaxj8X1x6QZabh9E=; 
+Received: from [148.69.85.38] (helo=fitzroy.sirena.org.uk)
+	by heliosphere.sirena.org.uk with esmtpsa
+	(TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
+	(envelope-from <broonie@sirena.org.uk>)
+	id 1i7ITs-0002Gr-Ru; Mon, 09 Sep 2019 12:09:16 +0000
+Received: by fitzroy.sirena.org.uk (Postfix, from userid 1000)
+	id 1526CD02D18; Mon,  9 Sep 2019 13:09:16 +0100 (BST)
+Date: Mon, 9 Sep 2019 13:09:16 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Michael Ellerman <mpe@ellerman.id.au>
+Message-ID: <20190909120916.GE2036@sirena.org.uk>
+References: <CAJWu+ooOzZ3vFsW40ok8M0MbrZOcx8xJsrN8Ra_VVq0EavzQfQ@mail.gmail.com>
+	<20190823164602.GB112509@dtor-ws>
+	<alpine.DEB.2.21.1908232108580.1939@nanos.tec.linutronix.de>
+	<CAHrFyr6rQHiQAY4Wcv4WzUS2B5tBfrnWvyTjD4ktHvsEBMxkCw@mail.gmail.com>
+	<CAD=FV=XGySHprMN+dv6dDKmuTQXnmYg5NStyaOJg+KdNUOFZsQ@mail.gmail.com>
+	<CAHk-=whxp0Vm5V6MtaRNC0_ou0=U4-+Y7Ktzq6osU8JgHy_xhQ@mail.gmail.com>
+	<20190824230447.GA5163@mit.edu> <20190825031143.GA2590@kroah.com>
+	<20190827105153.GB23391@sirena.co.uk>
+	<871rwpdgys.fsf@mpe.ellerman.id.au>
+MIME-Version: 1.0
+In-Reply-To: <871rwpdgys.fsf@mpe.ellerman.id.au>
+X-Cookie: Be careful!  UGLY strikes 9 out of 10!
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Spam-Status: No, score=-1.9 required=5.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,RCVD_IN_DNSWL_NONE autolearn=ham version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
-Cc: ksummit <ksummit-discuss@lists.linuxfoundation.org>
-Subject: Re: [Ksummit-discuss] vague topic for maintainers summit
+Cc: Joel Fernandes <joelaf@google.com>, Barret Rhoden <brho@google.com>,
+	ksummit <ksummit-discuss@lists.linuxfoundation.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jonathan Nieder <jrn@google.com>, Tomasz Figa <tfiga@chromium.org>,
+	Han-Wen Nienhuys <hanwen@google.com>, Theodore Tso <tytso@google.com>,
+	David Rientjes <rientjes@google.com>, Dmitry Torokhov <dtor@chromium.org>,
+	Dmitry Vyukov <dvyukov@google.com>
+Subject: Re: [Ksummit-discuss] Allowing something Change-Id (or something
+ like it) in kernel commits
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.12
 Precedence: list
@@ -73,79 +78,66 @@ List-Post: <mailto:ksummit-discuss@lists.linuxfoundation.org>
 List-Help: <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=help>
 List-Subscribe: <https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss>,
 	<mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7852026667734524279=="
+Content-Type: multipart/mixed; boundary="===============2575118312674570663=="
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
 
---===============7852026667734524279==
-Content-Type: multipart/signed; micalg="pgp-sha256";
-	protocol="application/pgp-signature"; boundary="=-Xs8hKXvDJJdvu72OLvfE"
+--===============2575118312674570663==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="y2zxS2PfCDLh6JVG"
+Content-Disposition: inline
 
 
---=-Xs8hKXvDJJdvu72OLvfE
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+--y2zxS2PfCDLh6JVG
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-On Mon, 2019-09-09 at 12:53 +0100, Mark Brown wrote:
-> On Mon, Sep 09, 2019 at 11:44:15AM +0100, James Bottomley wrote:
->=20
-> > I haven't really found corporations attempting to apply pressure to
-> > get their patches merged as is, although I've heard of others
-> > having this
->=20
-> I've definitely faced this in various forms, mostly coming from
-> companies in the embedded space.  It feels like it's got better
-> over time as companies have become less prone to going on
-> substantial out of tree adventures but it's still there.
->=20
-> > problem.  My usual problem is that the creator of the patch is
-> > deeply wedded to their design and doesn't want to change so it's an
-> > individual rather than a corporate issue.
->=20
-> That's often a corporate problem as well, if the company has a
-> big investment in whatever approach or codebase they have they
-> may not want to spend the time on substantial rework.  Often it
-> seems fairly clear that the people doing the upstreaming have
-> inherited something from other engineers rather than having done
-> the design and original implementation themselves.  In my more
-> embedded experience I'd say that the corporate investment is a
-> more common issue than developers.
+On Mon, Sep 09, 2019 at 06:14:19PM +1000, Michael Ellerman wrote:
+> Mark Brown <broonie@kernel.org> writes:
 
-Actually, I find the inherited code part easier because usually the
-person pushing it isn't wedded to someone else's design and is happier
-to do a rework because it makes it more their code.  My biggest problem
-has been with the original author trying to push their design as the
-only possible way and then trying to bring corporate pressure to bear
-when it became clear this wouldn't be accepted.
+> > What I'm doing for this is that when I apply the patch I save a
+> > git note with the message ID and various other things then when I
+> > push the patch out and generate the "applied, thanks" e-mail I
+> > look for the git note and use that.
 
-> I'm not sure I have any particularly bright ideas other than
-> being clear with people about what the issues are and asking for
-> clearer explanations of what's being done and why it's different
-> to everything else.
+> I was doing something similar with git notes, but the beauty of a
+> Link: that includes the message id is it gives you everything you need
+> to send those "applied" mails without any extra state.
 
-Trying to explain that it's a maintenance and consistency issue more
-than anything else does seem to help.
+Yeah, you can definitely do that - I originally did it that way
+but converted to notes because I want to make sure that I can
+send out the applied mails if the push succeeds even if the
+network is slow or spotty.
 
-James
+> I also have a local message-id <=> patchwork id mapping, and that means
+> I can also do the patchwork state update based purely off the Link: tag.
 
---=-Xs8hKXvDJJdvu72OLvfE
+...
+
+> If only the patchwork maintainers weren't all volunteers they could get
+> that implemented some time ;)
+
+Indeed.
+
+--y2zxS2PfCDLh6JVG
 Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABMIAB0WIQTnYEDbdso9F2cI+arnQslM7pishQUCXXY/AwAKCRDnQslM7pis
-hR/OAQDaZX7p4mTdWA0ghBFYQle4QaVEA4StZ3iggg3i9j1NAQEAulE128qCtOB6
-VJjGe6F9xy4q4HI4hP2WcygPq0mapdY=
-=neI9
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAl12QOsACgkQJNaLcl1U
+h9Bwcwf/QEFmUL/xMjQSOfTGrUTI6Ln3LmZJAuT+ZGirN/VdV86NSDmNZOtcwxq+
+f9TeUHt2V4ErDel5YNvIpsPDR7hhReEVfkORgjzkNv7R4TctyLX6QmHEXEh6311D
+ERrkrB8yh2YoAg5mbK1qZQagWuLUYxlGJurp8UBRImBi3COkJjVeIV3Ax+DW3Bsr
+db6zH/HanY2S2KdH/yCo224/KvBof+gNqN95n4AXK/a0pUMYAzsEjgbF7lBG5TEK
+NHGz9Gq+BG1k2P9Gb6gR+PvRNjiialdH4pfhrB5QUIKqqgg6HBBL9nE16QxepSHp
+LepU0JX9xIP71cWnXcKBdXfdayokgw==
+=RFB9
 -----END PGP SIGNATURE-----
 
---=-Xs8hKXvDJJdvu72OLvfE--
+--y2zxS2PfCDLh6JVG--
 
-
---===============7852026667734524279==
+--===============2575118312674570663==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -156,5 +148,4 @@ Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
 https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss
 
---===============7852026667734524279==--
-
+--===============2575118312674570663==--
