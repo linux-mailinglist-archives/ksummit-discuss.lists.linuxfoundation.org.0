@@ -2,64 +2,72 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1A6D5B2165
-	for <lists@lfdr.de>; Fri, 13 Sep 2019 15:55:23 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 942E1B21A2
+	for <lists@lfdr.de>; Fri, 13 Sep 2019 16:12:10 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id B7260FE8;
-	Fri, 13 Sep 2019 13:55:06 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id DBF261023;
+	Fri, 13 Sep 2019 14:11:54 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
-Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
-	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id 5F065FDE
+Received: from smtp2.linuxfoundation.org (smtp2.linux-foundation.org
+	[172.17.192.36])
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id 17A5CFFB
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri, 13 Sep 2019 13:55:04 +0000 (UTC)
-X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
-Received: from bombadil.infradead.org (bombadil.infradead.org
-	[198.137.202.133])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 0043C7DB
+	Fri, 13 Sep 2019 14:11:52 +0000 (UTC)
+X-Greylist: delayed 17:00:04 by SQLgrey-1.7.6
+Received: from smtprelay.hostedemail.com (smtprelay0246.hostedemail.com
+	[216.40.44.246])
+	by smtp2.linuxfoundation.org (Postfix) with ESMTPS id D754C1DE7C
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri, 13 Sep 2019 13:55:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=bombadil.20170209; h=Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Sender:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=bNVVCafqJkMcKoP1y59HFv8nRZ31wfx1kpQ64ijtqic=;
-	b=iK98qwUe7lOp1d7EKY7SRunR0
-	JlOgLWm5Fu6g9XFQG1KRkDv+Y0UkI6LgXnV+4TLv+uqQqp6SjUZHhy342WFPU8ErtM2c2hWxh3j2U
-	lJkoc/JImKg7rfJvB54cPZVHIS2vg1E8CjdL09vS+vcN/EPqDA6k44scEudr4qd+vzgrMsH6GPHqW
-	3+p4AYZdLaRyJ4ygVLqG/8QJ4f7VmWIqojyGf+5liR/oIEh4qx3+FOVFg0iAMnHsPuk7vCxcztdgV
-	JbKDP0E9YgdjmUVjZ9hIkTbva1WtTMDiWSiwibb4ud+JDJhkstCYHyPLTWw25+wp37jEmVhG08IJ6
-	PAZ5vnqfQ==;
-Received: from 177.96.232.144.dynamic.adsl.gvt.net.br ([177.96.232.144]
-	helo=coco.lan)
-	by bombadil.infradead.org with esmtpsa (Exim 4.92.2 #3 (Red Hat Linux))
-	id 1i8m2I-0003uH-Lp; Fri, 13 Sep 2019 13:54:55 +0000
-Date: Fri, 13 Sep 2019 10:54:46 -0300
-From: Mauro Carvalho Chehab <mchehab@kernel.org>
-To: Matthew Wilcox <willy6545@gmail.com>
-Message-ID: <20190913105446.2b7af558@coco.lan>
-In-Reply-To: <CAFhKne8Nbk=OnZO_pqPURneVtxcHqbfkH+xJBrAYfCfsntfQ2g@mail.gmail.com>
+	Fri, 13 Sep 2019 14:11:50 +0000 (UTC)
+Received: from smtprelay.hostedemail.com (10.5.19.251.rfc1918.com
+	[10.5.19.251])
+	by smtpgrave01.hostedemail.com (Postfix) with ESMTP id 02EC718030454
+	for <ksummit-discuss@lists.linuxfoundation.org>;
+	Thu, 12 Sep 2019 20:34:54 +0000 (UTC)
+Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net
+	[216.40.38.60])
+	by smtprelay03.hostedemail.com (Postfix) with ESMTP id B7E4E837F24A;
+	Thu, 12 Sep 2019 20:34:51 +0000 (UTC)
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Spam-Summary: 2, 0, 0, , d41d8cd98f00b204, joe@perches.com,
+	:::::::::::::::::::::::::,
+	RULES_HIT:41:355:379:599:988:989:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1534:1537:1567:1593:1594:1711:1714:1730:1747:1777:1792:2393:2559:2562:2828:3138:3139:3140:3141:3142:3622:3865:3866:3867:3870:3871:3874:4321:5007:10004:10400:10562:10848:11232:11658:11914:12297:12740:12760:12895:13019:13069:13311:13357:13439:14659:14721:21080:21627:30054:30091,
+	0,
+	RBL:47.151.152.152:@perches.com:.lbl8.mailshell.net-62.14.0.100
+	64.201.201.201, CacheIP:none, Bayesian:0.5, 0.5, 0.5,
+	Netcheck:none, DomainCache:0, MSF:not bulk, SPF:fn, MSBL:0,
+	DNSBL:neutral, Custom_rules:0:0:0, LFtime:17, LUA_SUMMARY:none
+X-HE-Tag: wood38_47427da86d73d
+X-Filterd-Recvd-Size: 1803
+Received: from XPS-9350.home (unknown [47.151.152.152])
+	(Authenticated sender: joe@perches.com)
+	by omf11.hostedemail.com (Postfix) with ESMTPA;
+	Thu, 12 Sep 2019 20:34:49 +0000 (UTC)
+Message-ID: <4299c79e33f22e237e42515ea436f187d8beb32e.camel@perches.com>
+From: Joe Perches <joe@perches.com>
+To: Bart Van Assche <bvanassche@acm.org>, "Martin K. Petersen"
+	<martin.petersen@oracle.com>, Dan Williams <dan.j.williams@intel.com>
+Date: Thu, 12 Sep 2019 13:34:48 -0700
+In-Reply-To: <74984dc0-d5e4-f272-34b9-9a78619d5a83@acm.org>
 References: <156821692280.2951081.18036584954940423225.stgit@dwillia2-desk3.amr.corp.intel.com>
 	<yq1o8zqeqhb.fsf@oracle.com>
 	<6fe45562-9493-25cf-afdb-6c0e702a49b4@acm.org>
 	<44c08faf43fa77fb271f8dbb579079fb09007716.camel@perches.com>
 	<74984dc0-d5e4-f272-34b9-9a78619d5a83@acm.org>
-	<CAFhKne8Nbk=OnZO_pqPURneVtxcHqbfkH+xJBrAYfCfsntfQ2g@mail.gmail.com>
-X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
+User-Agent: Evolution 3.32.1-2 
 MIME-Version: 1.0
-X-Spam-Status: No, score=-4.2 required=5.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,RCVD_IN_DNSWL_MED autolearn=ham version=3.3.1
+X-Spam-Status: No, score=-1.9 required=5.0 tests=BAYES_00,RCVD_IN_DNSWL_NONE
+	autolearn=ham version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
-	smtp1.linux-foundation.org
-Cc: Dave Jiang <dave.jiang@intel.com>, Bart Van Assche <bvanassche@acm.org>,
+	smtp2.linux-foundation.org
+Cc: Dave Jiang <dave.jiang@intel.com>,
 	ksummit-discuss@lists.linuxfoundation.org, linux-nvdimm@lists.01.org,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-kernel@vger.kernel.org, Vishal Verma <vishal.l.verma@intel.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Steve French <stfrench@microsoft.com>, "Tobin C. Harding" <me@tobin.cc>
+	linux-kernel@vger.kernel.org, Steve French <stfrench@microsoft.com>,
+	Vishal Verma <vishal.l.verma@intel.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Dmitry Vyukov <dvyukov@google.com>, "Tobin C. Harding" <me@tobin.cc>
 Subject: Re: [Ksummit-discuss] [PATCH v2 0/3] Maintainer Entry Profiles
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.12
@@ -77,58 +85,18 @@ Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-Em Fri, 13 Sep 2019 08:56:30 -0400
-Matthew Wilcox <willy6545@gmail.com> escreveu:
+On Thu, 2019-09-12 at 13:01 -0700, Bart Van Assche wrote:
 
-> It's easy enough to move the kernel-doc warnings out from under W=1. I only
-> out them there to avoid overwhelming us with new warnings. If they're
-> mostly fixed now, let's make checking them the default.
+> Another argument in favor of W=1 is that the formatting of kernel-doc
+> headers is checked only if W=1 is passed to make.
 
-Didn't try doing it kernelwide, but for media we do use W=1 by default,
-on our CI instance.
-
-There's a few warnings at EDAC, but they all seem easy enough to be
-fixed.
-
-So, from my side, I'm all to make W=1 default.
-
-Regards,
-Mauro
-
-> 
-> On Thu., Sep. 12, 2019, 16:01 Bart Van Assche, <bvanassche@acm.org> wrote:
-> 
-> > On 9/12/19 8:34 AM, Joe Perches wrote:  
-> > > On Thu, 2019-09-12 at 14:31 +0100, Bart Van Assche wrote:  
-> > >> On 9/11/19 5:40 PM, Martin K. Petersen wrote:  
-> > >>> * The patch must compile without warnings (make C=1  
-> > CF="-D__CHECK_ENDIAN__")  
-> > >>>   and does not incur any zeroday test robot complaints.  
-> > >>
-> > >> How about adding W=1 to that make command?  
-> > >
-> > > That's rather too compiler version dependent and new
-> > > warnings frequently get introduced by new compiler versions.  
-> >
-> > I've never observed this myself. If a new compiler warning is added to
-> > gcc and if it produces warnings that are not useful for kernel code
-> > usually Linus or someone else is quick to suppress that warning.
-> >
-> > Another argument in favor of W=1 is that the formatting of kernel-doc
-> > headers is checked only if W=1 is passed to make.
-> >
-> > Bart.
-> >
-> > _______________________________________________
-> > Ksummit-discuss mailing list
-> > Ksummit-discuss@lists.linuxfoundation.org
-> > https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss
-> >  
+Actually, but for the fact there are far too many
+to generally enable that warning right now,
+(an x86-64 defconfig has more than 1000)
+that sounds pretty reasonable to me.
 
 
 
-Thanks,
-Mauro
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
