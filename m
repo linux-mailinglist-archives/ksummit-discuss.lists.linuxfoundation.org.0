@@ -2,75 +2,51 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2D24AB1501
-	for <lists@lfdr.de>; Thu, 12 Sep 2019 22:01:51 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id EE70AB18AA
+	for <lists@lfdr.de>; Fri, 13 Sep 2019 09:10:09 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id 279C9D9D;
-	Thu, 12 Sep 2019 20:01:35 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id 7686C49F;
+	Fri, 13 Sep 2019 07:09:46 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
 Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
 	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id 8DB1ECB2
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id 2565340B
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Thu, 12 Sep 2019 20:01:32 +0000 (UTC)
-X-Greylist: whitelisted by SQLgrey-1.7.6
-Received: from mail-pf1-f194.google.com (mail-pf1-f194.google.com
-	[209.85.210.194])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 424517D2
+	Fri, 13 Sep 2019 07:09:44 +0000 (UTC)
+X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
+Received: from ms.lwn.net (ms.lwn.net [45.79.88.28])
+	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 2212281A
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Thu, 12 Sep 2019 20:01:32 +0000 (UTC)
-Received: by mail-pf1-f194.google.com with SMTP id y5so13892289pfo.4
-	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Thu, 12 Sep 2019 13:01:32 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:subject:to:cc:references:from:message-id:date
-	:user-agent:mime-version:in-reply-to:content-language
-	:content-transfer-encoding;
-	bh=7ShxzRkwVpFXPFUhCMkn8w2H4SHeQQrrLJDUeQMUdcI=;
-	b=oFeeyzJ3uPbIyE9hMmCyotS2GSTwXj6HdvBf5whAdgaIP7w4XCXISMFGEjkOZw65I3
-	sNLStL8xlxcQncFZQXK3low6Otsv3VwZmJ3ZC5A1eXNp0kd+pzowLynbtn/70AEMEiOd
-	yQEDlLuia09VsqQuluj7D2FGy/AMA8iVMUUx9oSYETxAcS6Rp6IvzzDhYePZngownPCT
-	hjxRO9ErHXrtasNRwny0tkoDMMxpKc1q9Jwo1EOoCC1TwfR+yPrG6bfiVZbLWNcTX0Jy
-	VsuGHUk65gUOSbM6TtuNwFHiz/HEvQ0Nl23HZ20HM9274PupAtxEu+ZT5tj7u4fysVR8
-	FQqA==
-X-Gm-Message-State: APjAAAU+VxP5vI0XMxVhHZPzga8s4dq6Ydx/cP+pBKxvtNS2E6HV5F3N
-	w5a2dHBmaOipliITj4zY1xs=
-X-Google-Smtp-Source: APXvYqyry5egiR7l6s0aQO4rPH0UT6pfvHSg90vmXu4bIiK4MHA+WwyQh+uKxb6FVD5SJXGN+IyDag==
-X-Received: by 2002:a63:fe52:: with SMTP id x18mr23647280pgj.344.1568318491686;
-	Thu, 12 Sep 2019 13:01:31 -0700 (PDT)
-Received: from [192.168.43.134] ([38.98.37.138])
-	by smtp.gmail.com with ESMTPSA id v43sm134470pjb.1.2019.09.12.13.01.18
-	(version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-	Thu, 12 Sep 2019 13:01:30 -0700 (PDT)
-To: Joe Perches <joe@perches.com>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>,
-	Dan Williams <dan.j.williams@intel.com>
+	Fri, 13 Sep 2019 07:09:43 +0000 (UTC)
+Received: from localhost.localdomain (localhost [127.0.0.1])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ms.lwn.net (Postfix) with ESMTPSA id D794177D;
+	Fri, 13 Sep 2019 07:09:40 +0000 (UTC)
+Date: Fri, 13 Sep 2019 01:09:37 -0600
+From: Jonathan Corbet <corbet@lwn.net>
+To: Jens Axboe <axboe@kernel.dk>
+Message-ID: <20190913010937.7fc20d93@lwn.net>
+In-Reply-To: <9132e214-9b57-07dc-7ee2-f6bc52e960c5@kernel.dk>
 References: <156821692280.2951081.18036584954940423225.stgit@dwillia2-desk3.amr.corp.intel.com>
-	<yq1o8zqeqhb.fsf@oracle.com>
-	<6fe45562-9493-25cf-afdb-6c0e702a49b4@acm.org>
-	<44c08faf43fa77fb271f8dbb579079fb09007716.camel@perches.com>
-From: Bart Van Assche <bvanassche@acm.org>
-Message-ID: <74984dc0-d5e4-f272-34b9-9a78619d5a83@acm.org>
-Date: Thu, 12 Sep 2019 13:01:07 -0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
-	Thunderbird/60.8.0
+	<156821693963.2951081.11214256396118531359.stgit@dwillia2-desk3.amr.corp.intel.com>
+	<20190911184332.GL20699@kadam>
+	<9132e214-9b57-07dc-7ee2-f6bc52e960c5@kernel.dk>
+Organization: LWN.net
+X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-In-Reply-To: <44c08faf43fa77fb271f8dbb579079fb09007716.camel@perches.com>
-Content-Language: en-US
-X-Spam-Status: No, score=-1.9 required=5.0 tests=BAYES_00,FREEMAIL_FROM,
-	RCVD_IN_DNSWL_NONE autolearn=ham version=3.3.1
+X-Spam-Status: No, score=-1.9 required=5.0 tests=BAYES_00 autolearn=ham
+	version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
 	smtp1.linux-foundation.org
 Cc: Dave Jiang <dave.jiang@intel.com>,
 	ksummit-discuss@lists.linuxfoundation.org, linux-nvdimm@lists.01.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-kernel@vger.kernel.org, Steve French <stfrench@microsoft.com>,
 	Vishal Verma <vishal.l.verma@intel.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Dmitry Vyukov <dvyukov@google.com>, "Tobin C. Harding" <me@tobin.cc>
-Subject: Re: [Ksummit-discuss] [PATCH v2 0/3] Maintainer Entry Profiles
+	linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
+	Dan Carpenter <dan.carpenter@oracle.com>
+Subject: Re: [Ksummit-discuss] [PATCH v2 3/3] libnvdimm,
+ MAINTAINERS: Maintainer Entry Profile
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.12
 Precedence: list
@@ -87,26 +63,37 @@ Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-On 9/12/19 8:34 AM, Joe Perches wrote:
-> On Thu, 2019-09-12 at 14:31 +0100, Bart Van Assche wrote:
->> On 9/11/19 5:40 PM, Martin K. Petersen wrote:
->>> * The patch must compile without warnings (make C=1 CF="-D__CHECK_ENDIAN__")
->>>   and does not incur any zeroday test robot complaints.
->>
->> How about adding W=1 to that make command?
+On Wed, 11 Sep 2019 16:11:29 -0600
+Jens Axboe <axboe@kernel.dk> wrote:
+
+> On 9/11/19 12:43 PM, Dan Carpenter wrote:
+> > 
+> > I kind of hate all this extra documentation because now everyone thinks
+> > they can invent new hoops to jump through.  
 > 
-> That's rather too compiler version dependent and new
-> warnings frequently get introduced by new compiler versions.
+> FWIW, I completely agree with Dan (Carpenter) here. I absolutely
+> dislike having these kinds of files, and with subsystems imposing weird
+> restrictions on style (like the quoted example, yuck).
+> 
+> Additionally, it would seem saner to standardize rules around when
+> code is expected to hit the maintainers hands for kernel releases. Both
+> yours and Martins deals with that, there really shouldn't be the need
+> to have this specified in detail per sub-system.
 
-I've never observed this myself. If a new compiler warning is added to
-gcc and if it produces warnings that are not useful for kernel code
-usually Linus or someone else is quick to suppress that warning.
+This sort of objection came up at the maintainers summit yesterday; the
+consensus was that, while we might not like subsystem-specific rules, they
+do currently exist and we're just documenting reality.  To paraphrase
+Phillip K. Dick, reality is that which, when you refuse to document it,
+doesn't go away.
 
-Another argument in favor of W=1 is that the formatting of kernel-doc
-headers is checked only if W=1 is passed to make.
+So I'm expecting to take this kind of stuff into Documentation/.  My own
+personal hope is that it can maybe serve to shame some of these "local
+quirks" out of existence.  The evidence from this brief discussion suggests
+that this might indeed happen.
 
-Bart.
+Thanks,
 
+jon
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
