@@ -2,80 +2,77 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id 39769B2622
-	for <lists@lfdr.de>; Fri, 13 Sep 2019 21:33:28 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id C1C80B26E3
+	for <lists@lfdr.de>; Fri, 13 Sep 2019 22:51:45 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id E585AE8C;
-	Fri, 13 Sep 2019 19:33:08 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id 364FDE55;
+	Fri, 13 Sep 2019 20:51:31 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
-Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
-	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id DA1BDE3D
+Received: from smtp2.linuxfoundation.org (smtp2.linux-foundation.org
+	[172.17.192.36])
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id 5ADC6CF6
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri, 13 Sep 2019 19:33:06 +0000 (UTC)
-X-Greylist: whitelisted by SQLgrey-1.7.6
-Received: from mail-yw1-f67.google.com (mail-yw1-f67.google.com
-	[209.85.161.67])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id 5B6ED7D2
+	Fri, 13 Sep 2019 20:51:28 +0000 (UTC)
+X-Greylist: delayed 21:49:39 by SQLgrey-1.7.6
+Received: from smtprelay.hostedemail.com (smtprelay0199.hostedemail.com
+	[216.40.44.199])
+	by smtp2.linuxfoundation.org (Postfix) with ESMTPS id 21CBF1DCF0
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri, 13 Sep 2019 19:33:06 +0000 (UTC)
-Received: by mail-yw1-f67.google.com with SMTP id e205so7660395ywc.7
+	Fri, 13 Sep 2019 20:51:27 +0000 (UTC)
+Received: from smtprelay.hostedemail.com (10.5.19.251.rfc1918.com
+	[10.5.19.251])
+	by smtpgrave04.hostedemail.com (Postfix) with ESMTP id 98B991801548E
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri, 13 Sep 2019 12:33:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
-	h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-	:cc; bh=u15qLOoIkxp7cEiegHHFsMr736/3RxJj/WpvpjNuB/w=;
-	b=q4dk0LhsoDsIEBV4EyhB9244sene9/mxhEF+KQV4YKoKPHE7SK7jkZFRbWgUQxR1fB
-	yOE/YcUNteeeI3lU1PU9VBugQ+9OUWfGYuD++yg30ZEG4nGnzy5YgkSDAuryxrvfGslY
-	m/m4CPUYI/Z5PdoIMxNaDoNyKIEX2zHa7aIf4Yrl7kJGDVDRHoGkujUbm4Q9yjFfh4RG
-	FTsL8M2++sRCEMxWENJkGzYqQZywmdwLrDmLkkQZxRgyhGoBw7L6gjDcqrnPTHGdeJJL
-	Lc6uQCZg8/11s0MbsSl1Kry0emON3LcNoRIzhfrf2BX0LNuU5YWF7MvHjZoU63S0X9jD
-	xdTw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=1e100.net; s=20161025;
-	h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-	:message-id:subject:to:cc;
-	bh=u15qLOoIkxp7cEiegHHFsMr736/3RxJj/WpvpjNuB/w=;
-	b=W11MHwa2qX5h35uH5oGjSVO5c+oPxISkTYoSAguyU2FG61t1CUDnFwTEQMmsZBU+xo
-	05WwEnxsRfpjPeVI5hkNzI7ZAIsd27BOVLFfgxiOvGUPcZq1Ib9RxRMGtf3WzyN9XNE5
-	aU6V419jzKQjY/lVhH1r2TtWXV5udF9tTy3W6XdROaYCKIdICQdDI9WftidHjp4ZPmtH
-	Q8eV2waDr+6zXBTIk/r+odg9dToc2v5xaqg1n9y5N4EBKnNi6UNCIDbdzaz4rSm3U/aT
-	tKSnBpKUM1prFNMLp1BnS+q5S1uncvd7LKJlgQKD95E6O6aAh/wzSofIADJ9GYB8oR1y
-	9kfA==
-X-Gm-Message-State: APjAAAUxVGelZL1R5zr8WEcyp+2LClEchmZ7skJLidYR25c/6tqznw21
-	cfw+DERFTJBqkKlxOLkocYOBPWBXZQUDSJF2ug==
-X-Google-Smtp-Source: APXvYqzl9Gmz00Dm5vFdc8rEO+frJ4ZNkwLJ1YEPQUO83/7IjTjFzgLFJ+QiOPrUAgRD1X21OU3A4ibVOH9g531GgIE=
-X-Received: by 2002:a81:9182:: with SMTP id
-	i124mr31070145ywg.279.1568403185288; 
-	Fri, 13 Sep 2019 12:33:05 -0700 (PDT)
-MIME-Version: 1.0
+	Fri, 13 Sep 2019 20:33:20 +0000 (UTC)
+Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net
+	[216.40.38.60])
+	by smtprelay06.hostedemail.com (Postfix) with ESMTP id F12BD18224D86;
+	Fri, 13 Sep 2019 20:33:17 +0000 (UTC)
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Spam-Summary: 2, 0, 0, , d41d8cd98f00b204, joe@perches.com,
+	:::::::::::::::::::::::::::,
+	RULES_HIT:41:355:379:599:800:960:968:973:988:989:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1534:1541:1593:1594:1711:1730:1747:1777:1792:2393:2553:2559:2562:2828:3138:3139:3140:3141:3142:3353:3622:3653:3865:3866:3867:3868:3870:3872:3874:4321:4419:4605:5007:6119:6742:7903:10004:10400:10562:10848:10946:10967:11232:11658:11914:12297:12740:12760:12895:13069:13311:13357:13439:14181:14659:14721:21080:21627:30054:30090:30091,
+	0,
+	RBL:47.151.152.152:@perches.com:.lbl8.mailshell.net-62.8.0.100
+	64.201.201.201, CacheIP:none, Bayesian:0.5, 0.5, 0.5,
+	Netcheck:none, DomainCache:0, MSF:not bulk, SPF:fn, MSBL:0,
+	DNSBL:neutral, Custom_rules:0:0:0, LFtime:25, LUA_SUMMARY:none
+X-HE-Tag: tub87_73cd010985e19
+X-Filterd-Recvd-Size: 3342
+Received: from XPS-9350.home (unknown [47.151.152.152])
+	(Authenticated sender: joe@perches.com)
+	by omf10.hostedemail.com (Postfix) with ESMTPA;
+	Fri, 13 Sep 2019 20:33:15 +0000 (UTC)
+Message-ID: <8be2df9936fb405ffaee75d6e24bbac0e938a653.camel@perches.com>
+From: Joe Perches <joe@perches.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>
+Date: Fri, 13 Sep 2019 13:33:14 -0700
+In-Reply-To: <20190913161731.6e3405a3@coco.lan>
 References: <156821692280.2951081.18036584954940423225.stgit@dwillia2-desk3.amr.corp.intel.com>
-	<156821693963.2951081.11214256396118531359.stgit@dwillia2-desk3.amr.corp.intel.com>
-	<20190911184332.GL20699@kadam>
-	<9132e214-9b57-07dc-7ee2-f6bc52e960c5@kernel.dk>
-	<20190913010937.7fc20d93@lwn.net> <20190913114849.GP20699@kadam>
-	<b579153b-3f6d-722c-aea8-abc0d026fa0d@infradead.org>
-	<CAL_JsqLo9-zQYGj2vaEWppbioO0rXu-QNbHhydYdMgrZo0_ESg@mail.gmail.com>
-	<f0ad46a34078a2c1eaa013f9b1a5a52becbcd1c5.camel@perches.com>
-In-Reply-To: <f0ad46a34078a2c1eaa013f9b1a5a52becbcd1c5.camel@perches.com>
-From: Rob Herring <robherring2@gmail.com>
-Date: Fri, 13 Sep 2019 14:32:53 -0500
-Message-ID: <CAL_JsqKOyLefjdW3a7m8fmqSGXAo4CCx2mZzi-JPf5qKD1NWxA@mail.gmail.com>
-To: Joe Perches <joe@perches.com>
-X-Spam-Status: No, score=-1.7 required=5.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,FREEMAIL_ENVFROM_END_DIGIT,FREEMAIL_FROM,
-	RCVD_IN_DNSWL_NONE autolearn=no version=3.3.1
+	<yq1o8zqeqhb.fsf@oracle.com>
+	<6fe45562-9493-25cf-afdb-6c0e702a49b4@acm.org>
+	<44c08faf43fa77fb271f8dbb579079fb09007716.camel@perches.com>
+	<74984dc0-d5e4-f272-34b9-9a78619d5a83@acm.org>
+	<4299c79e33f22e237e42515ea436f187d8beb32e.camel@perches.com>
+	<CAL_JsqJju36BZPK6DJab28Ne-ORpEyPpxH0H4DuymxFMabpMRQ@mail.gmail.com>
+	<78f67ee934f167b433517da81c6a0d3f35c4b123.camel@perches.com>
+	<20190913161731.6e3405a3@coco.lan>
+User-Agent: Evolution 3.32.1-2 
+MIME-Version: 1.0
+X-Spam-Status: No, score=-1.9 required=5.0 tests=BAYES_00,RCVD_IN_DNSWL_NONE
+	autolearn=unavailable version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
-	smtp1.linux-foundation.org
-Cc: Dave Jiang <dave.jiang@intel.com>,
+	smtp2.linux-foundation.org
+Cc: Dave Jiang <dave.jiang@intel.com>, Bart Van Assche <bvanassche@acm.org>,
 	ksummit <ksummit-discuss@lists.linuxfoundation.org>,
 	linux-nvdimm <linux-nvdimm@lists.01.org>,
-	Vishal Verma <vishal.l.verma@intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	bpf@vger.kernel.org, Dan Carpenter <dan.carpenter@oracle.com>
-Subject: Re: [Ksummit-discuss] [PATCH v2 3/3] libnvdimm,
- MAINTAINERS: Maintainer Entry Profile
+	Vishal Verma <vishal.l.verma@intel.com>,
+	Dmitry Vyukov <dvyukov@google.com>, Steve French <stfrench@microsoft.com>,
+	"Tobin C. Harding" <me@tobin.cc>
+Subject: Re: [Ksummit-discuss] [PATCH v2 0/3] Maintainer Entry Profiles
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.12
 Precedence: list
@@ -92,53 +89,53 @@ Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-On Fri, Sep 13, 2019 at 11:42 AM Joe Perches <joe@perches.com> wrote:
->
-> On Fri, 2019-09-13 at 16:46 +0100, Rob Herring wrote:
-> > On Fri, Sep 13, 2019 at 4:00 PM Randy Dunlap <rdunlap@infradead.org> wrote:
-> > > On 9/13/19 4:48 AM, Dan Carpenter wrote:
-> > >
-> > > > > So I'm expecting to take this kind of stuff into Documentation/.  My own
-> > > > > personal hope is that it can maybe serve to shame some of these "local
-> > > > > quirks" out of existence.  The evidence from this brief discussion suggests
-> > > > > that this might indeed happen.
-> > > >
-> > > > I don't think it's shaming, I think it's validating.  Everyone just
-> > > > insists that since it's written in the Book of Rules then it's our fault
-> > > > for not reading it.  It's like those EULA things where there is more
-> > > > text than anyone can physically read in a life time.
-> > >
-> > > Yes, agreed.
-> > >
-> > > > And the documentation doesn't help.  For example, I knew people's rules
-> > > > about capitalizing the subject but I'd just forget.  I say that if you
-> > > > can't be bothered to add it to checkpatch then it means you don't really
-> > > > care that strongly.
-> > >
-> > > If a subsystem requires a certain spelling/capitalization in patch email
-> > > subjects, it should be added to MAINTAINERS IMO.  E.g.,
-> > > E:      NuBus
-> >
-> > +1
-> >
-> > Better make this a regex to deal with (net|net-next).
-> >
-> > We could probably script populating MAINTAINERS with this using how it
-> > is done manually: git log --oneline <dir>
->
-> I made a similar proposal nearly a decade ago to add a grammar
-> to MAINTAINERS sections for patch subject prefixes.
->
-> https://lore.kernel.org/lkml/1289919077.28741.50.camel@Joe-Laptop/
+On Fri, 2019-09-13 at 16:17 -0300, Mauro Carvalho Chehab wrote:
+> Em Fri, 13 Sep 2019 11:42:38 -0700
+> Joe Perches <joe@perches.com> escreveu:
+[]
+> > Just fyi:  for an x86-64 defconfig with gcc 8.3
+> > 
+> > $ { make clean ; make defconfig ; make -j4 W=1 ; } > make.log 2>&1
+> > 
+> > There are ~300 W=1 for non kernel-doc -W<foo> warnings.
+> > 
+> > $ grep -i -P -oh '\[\-W[\w\-]+\]' make.log |sort | uniq -c | sort -rn
+> >     163 [-Wmissing-prototypes]
+> >      69 [-Wunused-but-set-variable]
+> >      16 [-Wempty-body]
+> >      10 [-Wtype-limits]
+> >       6 [-Woverride-init]
+> >       2 [-Wstringop-truncation]
+> >       2 [-Wcast-function-type]
+> >       1 [-Wunused-but-set-parameter]
+> 
+> On my eyes, it doesn't sound too much.
 
-Perhaps there's more support for it now. I didn't get through all the
-thread, but the positions seemed to range from "who cares, subjects
-are easy to edit" to "seems like a good idea and doesn't hurt". I
-probably would have implemented something, but perl (tacking on to
-checkpatch and having you tell me everything wrong is about all I can
-do :)).
+In general, I agree and most of these are pretty
+trivial to remove.  It'd just take some time to
+remove most of the missing-prototypes and
+unused-but-set warnings before being able to
+enable the warnings at the default W=0.
 
-Rob
+> I suspect that, 
+> with gcc-9, it should produce more warnings, though.
+
+It doesn't though.
+At least not so far as I can tell.
+gcc-9.1 produces the same output.
+
+$ { make clean ; make defconfig ; make CC=/usr/bin/gcc-9 -j4 W=1 V=1 ; } > make_gcc9.log 2>&1
+$  grep -i -P -oh '\[\-W[\w\-]+\]' make_gcc9.log | sort | uniq -c | sort -rn
+    163 [-Wmissing-prototypes]
+     69 [-Wunused-but-set-variable]
+     16 [-Wempty-body]
+     10 [-Wtype-limits]
+      6 [-Woverride-init]
+      2 [-Wstringop-truncation]
+      2 [-Wcast-function-type]
+      1 [-Wunused-but-set-parameter]
+
+
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
