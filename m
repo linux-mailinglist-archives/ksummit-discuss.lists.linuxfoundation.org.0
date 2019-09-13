@@ -2,52 +2,73 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from mail.linuxfoundation.org (mail.linuxfoundation.org [140.211.169.12])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6ADC0B2422
-	for <lists@lfdr.de>; Fri, 13 Sep 2019 18:35:05 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 2CE94B2475
+	for <lists@lfdr.de>; Fri, 13 Sep 2019 19:02:07 +0200 (CEST)
 Received: from mail.linux-foundation.org (localhost [127.0.0.1])
-	by mail.linuxfoundation.org (Postfix) with ESMTP id 25E21CDE;
-	Fri, 13 Sep 2019 16:34:51 +0000 (UTC)
+	by mail.linuxfoundation.org (Postfix) with ESMTP id 6AD5BD8D;
+	Fri, 13 Sep 2019 17:01:51 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@mail.linuxfoundation.org
-Received: from smtp1.linuxfoundation.org (smtp1.linux-foundation.org
-	[172.17.192.35])
-	by mail.linuxfoundation.org (Postfix) with ESMTPS id 2BAD63EE
+Received: from smtp2.linuxfoundation.org (smtp2.linux-foundation.org
+	[172.17.192.36])
+	by mail.linuxfoundation.org (Postfix) with ESMTPS id 00F32D7F
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri, 13 Sep 2019 16:34:49 +0000 (UTC)
-X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
-Received: from perceval.ideasonboard.com (perceval.ideasonboard.com
-	[213.167.242.64])
-	by smtp1.linuxfoundation.org (Postfix) with ESMTPS id A7C028A2
+	Fri, 13 Sep 2019 17:01:48 +0000 (UTC)
+X-Greylist: delayed 10:59:56 by SQLgrey-1.7.6
+Received: from smtprelay.hostedemail.com (smtprelay0147.hostedemail.com
+	[216.40.44.147])
+	by smtp2.linuxfoundation.org (Postfix) with ESMTPS id 6CF831DCF0
 	for <ksummit-discuss@lists.linuxfoundation.org>;
-	Fri, 13 Sep 2019 16:34:47 +0000 (UTC)
-Received: from pendragon.ideasonboard.com (unknown
-	[IPv6:2001:8a0:6be4:9301:a728:6099:33:a27c])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id AAB08325;
-	Fri, 13 Sep 2019 18:34:44 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1568392485;
-	bh=K8gOQxOcWJu3IyXo8VIA5Fl4toULtVUKNL9ZTJL5US0=;
-	h=Date:From:To:Subject:References:In-Reply-To:From;
-	b=FBAwbrSurlPI5IpkArDcRclCpyVKqAIYvGeoabGZ8ZOMJ1eZpB/oXToJEm098u/ES
-	BJ/aDUdYkRNc0TXZKppkho8ZqjfyMenQ64Qln5eArlmIUc7UDfTDpLe9CsNFHO0OOz
-	hrENweUJ0Z1yzi+stj83s7GU20qx/mzm0TJUgrF4=
-Date: Fri, 13 Sep 2019 19:34:37 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: "Theodore Y. Ts'o" <tytso@mit.edu>,
-	ksummit-discuss@lists.linuxfoundation.org
-Message-ID: <20190913163437.GA17711@pendragon.ideasonboard.com>
-References: <20190911150804.GA10046@mit.edu>
-	<20190912120602.GC29277@pure.paranoia.local>
+	Fri, 13 Sep 2019 17:01:48 +0000 (UTC)
+Received: from smtprelay.hostedemail.com (10.5.19.251.rfc1918.com
+	[10.5.19.251])
+	by smtpgrave01.hostedemail.com (Postfix) with ESMTP id 127A51813A7DE
+	for <ksummit-discuss@lists.linuxfoundation.org>;
+	Fri, 13 Sep 2019 16:42:33 +0000 (UTC)
+Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net
+	[216.40.38.60])
+	by smtprelay01.hostedemail.com (Postfix) with ESMTP id 641DF100E86C3;
+	Fri, 13 Sep 2019 16:42:30 +0000 (UTC)
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Spam-Summary: 2, 0, 0, , d41d8cd98f00b204, joe@perches.com, :::::::::::::::::,
+	RULES_HIT:41:355:379:599:800:960:967:973:982:988:989:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1534:1541:1593:1594:1711:1730:1747:1777:1792:2393:2525:2553:2559:2563:2682:2685:2736:2828:2859:2917:2933:2937:2939:2942:2945:2947:2951:2954:3022:3138:3139:3140:3141:3142:3353:3622:3865:3866:3867:3868:3870:3871:3872:3873:3874:3934:3936:3938:3941:3944:3947:3950:3953:3956:3959:4250:4321:4605:5007:8957:8985:9025:10004:10400:10562:10848:11232:11473:11658:11914:12043:12297:12555:12663:12740:12760:12895:12986:13069:13255:13311:13357:13439:14096:14097:14181:14659:14721:14777:21080:21433:21627:21771:21811:21819:30022:30054:30090:30091,
+	0,
+	RBL:47.151.152.152:@perches.com:.lbl8.mailshell.net-62.8.0.100
+	64.201.201.201, CacheIP:none, Bayesian:0.5, 0.5, 0.5,
+	Netcheck:none, DomainCache:0, MSF:not bulk, SPF:fn, MSBL:0,
+	DNSBL:neutral, Custom_rules:0:0:0, LFtime:25, LUA_SUMMARY:none
+X-HE-Tag: work92_8a11f0cf4e453
+X-Filterd-Recvd-Size: 3136
+Received: from XPS-9350.home (unknown [47.151.152.152])
+	(Authenticated sender: joe@perches.com)
+	by omf01.hostedemail.com (Postfix) with ESMTPA;
+	Fri, 13 Sep 2019 16:42:28 +0000 (UTC)
+Message-ID: <f0ad46a34078a2c1eaa013f9b1a5a52becbcd1c5.camel@perches.com>
+From: Joe Perches <joe@perches.com>
+To: Rob Herring <robherring2@gmail.com>, Randy Dunlap <rdunlap@infradead.org>
+Date: Fri, 13 Sep 2019 09:42:27 -0700
+In-Reply-To: <CAL_JsqLo9-zQYGj2vaEWppbioO0rXu-QNbHhydYdMgrZo0_ESg@mail.gmail.com>
+References: <156821692280.2951081.18036584954940423225.stgit@dwillia2-desk3.amr.corp.intel.com>
+	<156821693963.2951081.11214256396118531359.stgit@dwillia2-desk3.amr.corp.intel.com>
+	<20190911184332.GL20699@kadam>
+	<9132e214-9b57-07dc-7ee2-f6bc52e960c5@kernel.dk>
+	<20190913010937.7fc20d93@lwn.net> <20190913114849.GP20699@kadam>
+	<b579153b-3f6d-722c-aea8-abc0d026fa0d@infradead.org>
+	<CAL_JsqLo9-zQYGj2vaEWppbioO0rXu-QNbHhydYdMgrZo0_ESg@mail.gmail.com>
+User-Agent: Evolution 3.32.1-2 
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20190912120602.GC29277@pure.paranoia.local>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Spam-Status: No, score=-2.0 required=5.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU autolearn=ham version=3.3.1
+X-Spam-Status: No, score=-1.9 required=5.0 tests=BAYES_00,RCVD_IN_DNSWL_NONE
+	autolearn=ham version=3.3.1
 X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
-	smtp1.linux-foundation.org
-Subject: Re: [Ksummit-discuss] [MAINTAINERS SUMMIT] Reflections on kernel
- development processes
+	smtp2.linux-foundation.org
+Cc: Dave Jiang <dave.jiang@intel.com>,
+	ksummit <ksummit-discuss@lists.linuxfoundation.org>,
+	linux-nvdimm <linux-nvdimm@lists.01.org>,
+	Vishal Verma <vishal.l.verma@intel.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	bpf@vger.kernel.org, Dan Carpenter <dan.carpenter@oracle.com>
+Subject: Re: [Ksummit-discuss] [PATCH v2 3/3] libnvdimm,
+ MAINTAINERS: Maintainer Entry Profile
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.12
 Precedence: list
@@ -64,104 +85,44 @@ Content-Transfer-Encoding: 7bit
 Sender: ksummit-discuss-bounces@lists.linuxfoundation.org
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 
-Hi Konstantin,
-
-On Thu, Sep 12, 2019 at 08:06:02AM -0400, Konstantin Ryabitsev wrote:
-> On Wed, Sep 11, 2019 at 11:08:04AM -0400, Theodore Y. Ts'o wrote:
-> > Hi all,
+On Fri, 2019-09-13 at 16:46 +0100, Rob Herring wrote:
+> On Fri, Sep 13, 2019 at 4:00 PM Randy Dunlap <rdunlap@infradead.org> wrote:
+> > On 9/13/19 4:48 AM, Dan Carpenter wrote:
 > > 
-> > Many of you attended Dmitry Vyukov's talk at the Kernel Summit track
-> > today, "Reflections on Kernel Development Process, Quality, and
-> > Testing".  (For those of you who haven't, the slides are available
-> > here[1].)
+> > > > So I'm expecting to take this kind of stuff into Documentation/.  My own
+> > > > personal hope is that it can maybe serve to shame some of these "local
+> > > > quirks" out of existence.  The evidence from this brief discussion suggests
+> > > > that this might indeed happen.
+> > > 
+> > > I don't think it's shaming, I think it's validating.  Everyone just
+> > > insists that since it's written in the Book of Rules then it's our fault
+> > > for not reading it.  It's like those EULA things where there is more
+> > > text than anyone can physically read in a life time.
 > > 
-> > [1] https://linuxplumbersconf.org/event/4/contributions/554/attachments/353/584/Reflections__Kernel_Summit_2019.pdf
+> > Yes, agreed.
 > > 
-> > Greg K-H has suggested, and I strongly agree, that it would be
-> > worthwhile to add this to the agenda of the Maintainer's Summit.  In
-> > particular, what next steps should we take and what should be the
-> > criteria and the process for trying to further standardize our tools
-> > and processes in order to make make our development processes more
-> > mature and to improve developer productivity and happiness.
+> > > And the documentation doesn't help.  For example, I knew people's rules
+> > > about capitalizing the subject but I'd just forget.  I say that if you
+> > > can't be bothered to add it to checkpatch then it means you don't really
+> > > care that strongly.
 > > 
-> > If you didn't attend the talk, I encourage you to take a look at the
-> > slide, so we don't have to spend time trying to bring people up to
-> > speed on the discussion to date.  My plan is to schedule this as our
-> > first topic tomorrow afternoon.
+> > If a subsystem requires a certain spelling/capitalization in patch email
+> > subjects, it should be added to MAINTAINERS IMO.  E.g.,
+> > E:      NuBus
 > 
-> To follow-up, this is a very rough outline of a proposal that I am going
-> to submit to the Foundation in hopes to fund maintainer tool
-> development. It follows along some of the lines highlighted in Dmitry's
-> talk.
+> +1
 > 
-> --------
+> Better make this a regex to deal with (net|net-next).
 > 
-> # Stage 1 (Normal brain): "local patchwork"
-> 
-> - Implement a mutt-like tool ("putt"?) that uses locally cloned
->   public-inbox archives to track patches/series submitted to mailing
->   lists
->     - Pre-filters by keywords and paths in patches
->     - Tracks and automatically inserts taglines
->       (Reviewed-by, Acked-by, Tested-by)
->     - Can ignore a patch/series until it sees certain taglines
->       (Tested-by: zeroday bot, Reviewed-by: Trusty Intern)
->     - Automatically tracks latest series and offers an interdiff view
->       between series revisions ("show me what changed between v1 and v2")
->     - Allows responding to patches and conversations a-la mutt
->     - Allows applying patches/series to local repos
+> We could probably script populating MAINTAINERS with this using how it
+> is done manually: git log --oneline <dir>
 
-Do you plan for this tool to support shallow clones ? Some mailing lists
-have really high traffic an have been around for years, one may not want
-to clone a full public-inbox archives when interested in patches
-submitted for the last N months only.
+I made a similar proposal nearly a decade ago to add a grammar
+to MAINTAINERS sections for patch subject prefixes.
 
-> # Stage 2 (Enlightened brain): "now with CI and workflows"
-> 
-> - Add configurable workflow functionality allowing maintainers to run
->   local or remote tasks on patches and series, before maintainer sees
->   the patches, e.g.:
->     - Create a branch and attempt to apply series
->     - If succeeds, run a batch of CI tests
->     - If succeeds, mark as "CI passed" and show the maintainer
->     - If fails, reject automatically using a "sorry, tests failed"
->       template, including relevant error messages
-> 
-> - All of the above runs outside of the UI tool ("putt-cid"?) and defines CI
->   routines that can run in cloudy environments or locally using
->   containers.
-> - Putt communicates with putt-cid locally or remotely to identify
->   patches/series that the maintainer should review
-> 
-> 
-> # Stage 3 (Galaxy brain): "email as a secondary channel"
-> 
-> - Support additional distributed communication mechanisms in conjunction
->   with existing mailing lists.
->   - SSB is a peer-to-peer replication framework that has built-in
->     cryptographic integrity and attestation ("immutable git-like
->     chains per participating developer")
->     - offers native support for structured data like bug reports, CI
->       results, code review comments, etc.
->     - can easily support email-to-SSB and web-to-SSB bridges, so
->       developers can choose to participate using familiar tools
->     - has known limitations in v1 of the protocol, but v2 is being
->       actively developed to address them.
->     - or we can take it as a base and develop an SSB-like protocol that
->       better suits distributed development needs.
-> 
->   - Radicle is another interesting alternative that creates a mechanism
->     for automating some maintainer tasks by defining "state machines,"
->     e.g.:
->     - automatically merge a revision if all tests pass and at least 2
->       Reviewed-by's are seen.
->     - May have been sipping the blockchain cool-aid a bit too much
->       ("Immutable append-only records").
+https://lore.kernel.org/lkml/1289919077.28741.50.camel@Joe-Laptop/
 
--- 
-Regards,
 
-Laurent Pinchart
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
