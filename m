@@ -1,97 +1,62 @@
 Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
-Received: from fraxinus.osuosl.org (smtp4.osuosl.org [140.211.166.137])
-	by mail.lfdr.de (Postfix) with ESMTPS id 138D41843DA
-	for <lists@lfdr.de>; Fri, 13 Mar 2020 10:36:00 +0100 (CET)
-Received: from localhost (localhost [127.0.0.1])
-	by fraxinus.osuosl.org (Postfix) with ESMTP id 49B5187490;
-	Fri, 13 Mar 2020 09:35:58 +0000 (UTC)
-X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from fraxinus.osuosl.org ([127.0.0.1])
-	by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id yo1dmahcrvNV; Fri, 13 Mar 2020 09:35:56 +0000 (UTC)
-Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
-	by fraxinus.osuosl.org (Postfix) with ESMTP id 9F1F98742A;
-	Fri, 13 Mar 2020 09:35:54 +0000 (UTC)
-Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id 7C0DEC0177;
-	Fri, 13 Mar 2020 09:35:54 +0000 (UTC)
-X-Original-To: ksummit-discuss@lists.linuxfoundation.org
-Delivered-To: ksummit-discuss@lists.linuxfoundation.org
 Received: from hemlock.osuosl.org (smtp2.osuosl.org [140.211.166.133])
- by lists.linuxfoundation.org (Postfix) with ESMTP id CEC26C0177;
- Fri, 13 Mar 2020 09:35:52 +0000 (UTC)
+	by mail.lfdr.de (Postfix) with ESMTPS id CC7B71843F1
+	for <lists@lfdr.de>; Fri, 13 Mar 2020 10:42:08 +0100 (CET)
 Received: from localhost (localhost [127.0.0.1])
- by hemlock.osuosl.org (Postfix) with ESMTP id B92E1894D6;
- Fri, 13 Mar 2020 09:35:52 +0000 (UTC)
+	by hemlock.osuosl.org (Postfix) with ESMTP id 0585787D80;
+	Fri, 13 Mar 2020 09:42:07 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
 Received: from hemlock.osuosl.org ([127.0.0.1])
+	by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id XqMy+87dX-KZ; Fri, 13 Mar 2020 09:42:06 +0000 (UTC)
+Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
+	by hemlock.osuosl.org (Postfix) with ESMTP id 1AA1488499;
+	Fri, 13 Mar 2020 09:42:04 +0000 (UTC)
+Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
+	by lists.linuxfoundation.org (Postfix) with ESMTP id EC7D4C1D85;
+	Fri, 13 Mar 2020 09:42:03 +0000 (UTC)
+X-Original-To: ksummit-discuss@lists.linuxfoundation.org
+Delivered-To: ksummit-discuss@lists.linuxfoundation.org
+Received: from silver.osuosl.org (smtp3.osuosl.org [140.211.166.136])
+ by lists.linuxfoundation.org (Postfix) with ESMTP id 68732C0177;
+ Fri, 13 Mar 2020 09:42:01 +0000 (UTC)
+Received: from localhost (localhost [127.0.0.1])
+ by silver.osuosl.org (Postfix) with ESMTP id 5482F2318D;
+ Fri, 13 Mar 2020 09:42:01 +0000 (UTC)
+X-Virus-Scanned: amavisd-new at osuosl.org
+Received: from silver.osuosl.org ([127.0.0.1])
  by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id xenmdDd80k7S; Fri, 13 Mar 2020 09:35:52 +0000 (UTC)
-X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
-X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
-Received: from out3-smtp.messagingengine.com (out3-smtp.messagingengine.com
- [66.111.4.27])
- by hemlock.osuosl.org (Postfix) with ESMTPS id D8F4B894D0;
- Fri, 13 Mar 2020 09:35:51 +0000 (UTC)
-Received: from compute1.internal (compute1.nyi.internal [10.202.2.41])
- by mailout.nyi.internal (Postfix) with ESMTP id C416522651;
- Fri, 13 Mar 2020 05:35:50 -0400 (EDT)
-Received: from mailfrontend2 ([10.202.2.163])
- by compute1.internal (MEProxy); Fri, 13 Mar 2020 05:35:50 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kroah.com; h=
- date:from:to:cc:subject:message-id:references:mime-version
- :content-type:in-reply-to; s=fm3; bh=4cvIqCPlZ1xEDgbaZiR2YWeDjPs
- At/ZNURBlpwOqIAU=; b=OjOAr+rccJlzOQ1KOUhlTdkUn48hIYnjGG0OWLKiUNk
- CLD82NW7rWwkLXz7BUdmolRgIe/QNGhtgpZWIaAUeRDcwHBgRUWtVh3y1Nstyeph
- ZIIDC8ml26TsYnmQOpWBiQQpvneBHMGN/oni2TN5kEdWSqx8NaIR1egC0deoXnmp
- h06A/kXVptapTlOms0ygp/Rq2C9oEv5SfNiLVk2A90wouGlndbNnT0rSU2b1eb60
- IdN6Sk4ClntlCTvwOIQKTrDwucDDYeENOHyKbjgFbDO3lnNdP6pZqIV1rmMvgJQW
- +TF5JcOB7pGvI7EDETqygiJzMLlPUMCt7X8gLMAxHCA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
- messagingengine.com; h=cc:content-type:date:from:in-reply-to
- :message-id:mime-version:references:subject:to:x-me-proxy
- :x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; bh=4cvIqC
- PlZ1xEDgbaZiR2YWeDjPsAt/ZNURBlpwOqIAU=; b=gvLUyjpARPBP77DHPsudCJ
- ZCm0565nVJbDiMj5STbf3tb4o/9tYf+QJeZcLe/MG33evCyqDbr0oxbGFaNiAraO
- C08ZyFL4ioHfE5D61Jvy6hSEuwAeDMyLXa2WiMAK3sBkmvjVvpDMORgth47i/iN/
- 6ddm3ujA7E0nmxAGl8WhJZkIsoR113n/JbB3v/85TKf3oJapUJcAs4LVabLMucu6
- WgMOvhnkbRGGTYz/scjOPbbgzsOAHzztPW3x8vFt0ef34X/Vz81qdERNmBO4onAh
- AfIHUeYUjcfmkj1joHBxZB/MsX5obUPjaTjol5GbdQLZMYSSiqGml+W9ZxVRCqjw
- ==
-X-ME-Sender: <xms:9lNrXvtBoB6NTEMVnsWFCbyhQyFhZ0t4eBroPV69T_5fLaAlemjpAg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedugedruddvjedgtdehucetufdoteggodetrfdotf
- fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
- uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
- cujfgurhepfffhvffukfhfgggtuggjsehttdertddttddvnecuhfhrohhmpefirhgvghcu
- mffjuceoghhrvghgsehkrhhorghhrdgtohhmqeenucffohhmrghinhepkhgvrhhnvghlrd
- horhhgnecukfhppeekfedrkeeirdekledruddtjeenucevlhhushhtvghrufhiiigvpedt
- necurfgrrhgrmhepmhgrihhlfhhrohhmpehgrhgvgheskhhrohgrhhdrtghomh
-X-ME-Proxy: <xmx:9lNrXqR0N9HwYTe7fcggnFo0rJmrBEGbg4je67zd4HJxUCmBRkSeTQ>
- <xmx:9lNrXuP-WnqRYp-xjOJK4pu6MfK8sfwGcO4dvmy1XhVxcZthlEyvkw>
- <xmx:9lNrXqkDuMnGDeDY7dCNacSPchzZnG5DdRIf1zLAJ60IniEhRSd6tQ>
- <xmx:9lNrXkhuEN2Ii-Q6SY0esMAZb6rqjdt99pdOrv2iNM-zNiPwlfDfVA>
-Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl
- [83.86.89.107])
- by mail.messagingengine.com (Postfix) with ESMTPA id C5EE83060F09;
- Fri, 13 Mar 2020 05:35:49 -0400 (EDT)
-Date: Fri, 13 Mar 2020 10:35:48 +0100
-From: Greg KH <greg@kroah.com>
-To: Jani Nikula <jani.nikula@intel.com>
-Message-ID: <20200313093548.GA2089143@kroah.com>
+ with ESMTP id sq3NjUIj76YM; Fri, 13 Mar 2020 09:42:00 +0000 (UTC)
+X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
+X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
+Received: from mx2.suse.de (mx2.suse.de [195.135.220.15])
+ by silver.osuosl.org (Postfix) with ESMTPS id 0ABC3204E9;
+ Fri, 13 Mar 2020 09:41:59 +0000 (UTC)
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.220.254])
+ by mx2.suse.de (Postfix) with ESMTP id 23046ABF4;
+ Fri, 13 Mar 2020 09:41:57 +0000 (UTC)
+To: Greg KH <greg@kroah.com>, Jani Nikula <jani.nikula@intel.com>
 References: <6d6dd6fa-880f-01fe-6177-281572aed703@labbott.name>
  <20200312003436.GF1639@pendragon.ideasonboard.com>
  <MWHPR13MB0895E133EC528ECF50A22100FDFD0@MWHPR13MB0895.namprd13.prod.outlook.com>
  <20200313031947.GC225435@mit.edu> <87d09gljhj.fsf@intel.com>
+ <20200313093548.GA2089143@kroah.com>
+From: Vlastimil Babka <vbabka@suse.cz>
+Message-ID: <24c64c56-947b-4267-33b8-49a22f719c81@suse.cz>
+Date: Fri, 13 Mar 2020 10:41:57 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.5.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <87d09gljhj.fsf@intel.com>
+In-Reply-To: <20200313093548.GA2089143@kroah.com>
+Content-Language: en-US
 Cc: "Bird, Tim" <Tim.Bird@sony.com>,
- "tech-board-discuss@lists.linuxfoundation.org"
- <tech-board-discuss@lists.linuxfoundation.org>,
  "ksummit-discuss@lists.linuxfoundation.org"
  <ksummit-discuss@lists.linuxfoundation.org>,
+ "tech-board-discuss@lists.linuxfoundation.org"
+ <tech-board-discuss@lists.linuxfoundation.org>,
  "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
 Subject: Re: [Ksummit-discuss] [Tech-board-discuss] Linux Foundation
  Technical Advisory Board Elections -- Change to charter
@@ -111,59 +76,25 @@ Content-Transfer-Encoding: 7bit
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
-On Fri, Mar 13, 2020 at 10:58:00AM +0200, Jani Nikula wrote:
-> On Thu, 12 Mar 2020, "Theodore Y. Ts'o" <tytso@mit.edu> wrote:
-> > So that means we need to be smart about how we pick the criteria.
-> > Using a kernel.org account might be a good approach, since it would be
-> > a lot harder for a huge number of sock puppet accounts to meet that
-> > criteria.
+On 3/13/20 10:35 AM, Greg KH wrote:
+>> Not that I'm saying there's an easy solution, but obviously kernel.org
+>> account is not as problem free as you might think.
 > 
-> Per [1] and [2], kernel.org accounts "are usually reserved for subsystem
-> maintainers or high-profile developers", but apparently it's at the
-> kernel.org admins discretion to decide whether one is ultimately
-> eligible or not. Do we want the kernel.org admin to have the final say
-> on who gets to vote? Do we want to encourage people to have kernel.org
-> accounts for no other reason than to vote?
+> We are not saying it is "problem free", but what really is the problem
+> with it?
 
-We are using the "kernel.org account" as a way to verify that you really
-are part of our developer/maintainer community and that you are part of
-the "web of trust" and an actual person.
+IIUC there is no problem for its current use, but it would be rather restrictive
+if it was used as the only criterion for being able to vote for TAB remotely.
 
-That is the goal here, if you know of some other way to determine this,
-please let us know.  We went through many iterations of this and at the
-moment, it is the best we can come up with.
+> thanks,
+> 
+> greg k-h
+> _______________________________________________
+> Ksummit-discuss mailing list
+> Ksummit-discuss@lists.linuxfoundation.org
+> https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss
+> 
 
-Also, note that the "kernel.org admin" is really a team of people who
-have been doing this for 9 years, it's not a single person responsible
-for giving out new accounts to people that do not meet the obvious
-requirement levels as published on kernel.org
-
-> Furthermore, having a kernel.org account imposes the additional
-> requirement that you're part of the kernel developers web of trust,
-
-That is exactly what we want.
-
-> i.e. that you've met other kernel developers in person. Which is a kind
-> of awkward requirement for enabling electronic voting to be inclusive to
-> people who can't attend in person.
-
-Yes, we know that, but it does mean that you are "known" to someone
-else, which is the key here.
-
-> Seems like having a kernel.org account is just a proxy for the criteria,
-> and one that also lacks transparency, and has problems of its own.
-
-What is not transparent about how to get a kernel.org account?
-
-> Not that I'm saying there's an easy solution, but obviously kernel.org
-> account is not as problem free as you might think.
-
-We are not saying it is "problem free", but what really is the problem
-with it?
-
-thanks,
-
-greg k-h
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
