@@ -1,63 +1,65 @@
 Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
-Received: from fraxinus.osuosl.org (smtp4.osuosl.org [140.211.166.137])
-	by mail.lfdr.de (Postfix) with ESMTPS id BC7E1184693
-	for <lists@lfdr.de>; Fri, 13 Mar 2020 13:12:29 +0100 (CET)
+Received: from hemlock.osuosl.org (smtp2.osuosl.org [140.211.166.133])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1C768184767
+	for <lists@lfdr.de>; Fri, 13 Mar 2020 14:05:47 +0100 (CET)
 Received: from localhost (localhost [127.0.0.1])
-	by fraxinus.osuosl.org (Postfix) with ESMTP id 7156087552;
-	Fri, 13 Mar 2020 12:12:26 +0000 (UTC)
+	by hemlock.osuosl.org (Postfix) with ESMTP id 1870D894D8;
+	Fri, 13 Mar 2020 13:05:43 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from fraxinus.osuosl.org ([127.0.0.1])
+Received: from hemlock.osuosl.org ([127.0.0.1])
 	by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id lq3nnmC6hoR5; Fri, 13 Mar 2020 12:12:25 +0000 (UTC)
+	with ESMTP id L+nVdK0eZp+7; Fri, 13 Mar 2020 13:05:42 +0000 (UTC)
 Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
-	by fraxinus.osuosl.org (Postfix) with ESMTP id 9564C87514;
-	Fri, 13 Mar 2020 12:12:24 +0000 (UTC)
+	by hemlock.osuosl.org (Postfix) with ESMTP id 6627D894CA;
+	Fri, 13 Mar 2020 13:05:42 +0000 (UTC)
 Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id 8619FC0177;
-	Fri, 13 Mar 2020 12:12:24 +0000 (UTC)
+	by lists.linuxfoundation.org (Postfix) with ESMTP id 59226C0177;
+	Fri, 13 Mar 2020 13:05:42 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@lists.linuxfoundation.org
-Received: from whitealder.osuosl.org (smtp1.osuosl.org [140.211.166.138])
- by lists.linuxfoundation.org (Postfix) with ESMTP id 1C5E2C0177;
- Fri, 13 Mar 2020 12:12:20 +0000 (UTC)
+Received: from hemlock.osuosl.org (smtp2.osuosl.org [140.211.166.133])
+ by lists.linuxfoundation.org (Postfix) with ESMTP id 3D908C0177;
+ Fri, 13 Mar 2020 13:05:38 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
- by whitealder.osuosl.org (Postfix) with ESMTP id 1635188BAE;
- Fri, 13 Mar 2020 12:12:20 +0000 (UTC)
+ by hemlock.osuosl.org (Postfix) with ESMTP id 273EF89452;
+ Fri, 13 Mar 2020 13:05:38 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from whitealder.osuosl.org ([127.0.0.1])
+Received: from hemlock.osuosl.org ([127.0.0.1])
  by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id 7+RPlNUCrOx0; Fri, 13 Mar 2020 12:12:19 +0000 (UTC)
+ with ESMTP id IsHAbAwEThvs; Fri, 13 Mar 2020 13:05:37 +0000 (UTC)
 X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
 X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
- by whitealder.osuosl.org (Postfix) with ESMTPS id 0C46F88BAD;
- Fri, 13 Mar 2020 12:12:19 +0000 (UTC)
-Received: from gandalf.local.home (cpe-66-24-58-225.stny.res.rr.com
- [66.24.58.225])
+ by hemlock.osuosl.org (Postfix) with ESMTPS id 9EE8F89447;
+ Fri, 13 Mar 2020 13:05:37 +0000 (UTC)
+Received: from localhost (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 4EA0820746;
- Fri, 13 Mar 2020 12:12:18 +0000 (UTC)
-Date: Fri, 13 Mar 2020 08:12:16 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Message-ID: <20200313081216.627c5bdf@gandalf.local.home>
-In-Reply-To: <CAMuHMdW6Br+x+_9xP+X4xr6FP_uNpZ6q6065RJH-9yFy_8fiZA@mail.gmail.com>
+ by mail.kernel.org (Postfix) with ESMTPSA id 20BD520724;
+ Fri, 13 Mar 2020 13:05:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1584104737;
+ bh=g5w22YsBnXA3tJ7GiCEWMSp8fKyae5t0PtEULq1PwZ0=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=q5cRqMylfvpZ5+ItbTy3OywUOyRXwOExSRxjFEEoZ0CtNoYt/T+COEom+ufdqH5SZ
+ FzY0uGG2cGJCh/L8yvBNUZpO8syfbHI4gqB+r+md/k67HBzmKyqS7HUeOuWgNqrvpq
+ OUudYWRnt4bCaFXRtXlb+xx1h7YYC+CI3UyFjnaQ=
+Date: Fri, 13 Mar 2020 09:05:36 -0400
+From: Sasha Levin <sashal@kernel.org>
+To: Jani Nikula <jani.nikula@intel.com>
+Message-ID: <20200313130536.GD1349@sasha-vm>
 References: <6d6dd6fa-880f-01fe-6177-281572aed703@labbott.name>
  <20200312003436.GF1639@pendragon.ideasonboard.com>
  <MWHPR13MB0895E133EC528ECF50A22100FDFD0@MWHPR13MB0895.namprd13.prod.outlook.com>
  <20200313031947.GC225435@mit.edu> <87d09gljhj.fsf@intel.com>
- <20200313093548.GA2089143@kroah.com>
- <24c64c56-947b-4267-33b8-49a22f719c81@suse.cz>
- <20200313100755.GA2161605@kroah.com>
- <CAMuHMdVSxS1R2osYJh29aKGaqMw3NkTRgqgRWuhu4euygAAXVg@mail.gmail.com>
- <20200313103720.GA2215823@kroah.com>
- <CAMuHMdW6Br+x+_9xP+X4xr6FP_uNpZ6q6065RJH-9yFy_8fiZA@mail.gmail.com>
-X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+ <20200313093548.GA2089143@kroah.com> <877dzolf7n.fsf@intel.com>
 MIME-Version: 1.0
-Cc: Vlastimil Babka <vbabka@suse.cz>,
+Content-Disposition: inline
+In-Reply-To: <877dzolf7n.fsf@intel.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+Cc: "Bird, Tim" <Tim.Bird@sony.com>,
  "ksummit-discuss@lists.linuxfoundation.org"
  <ksummit-discuss@lists.linuxfoundation.org>,
  "tech-board-discuss@lists.linuxfoundation.org"
@@ -76,52 +78,34 @@ List-Post: <mailto:ksummit-discuss@lists.linuxfoundation.org>
 List-Help: <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=help>
 List-Subscribe: <https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss>, 
  <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
-On Fri, 13 Mar 2020 11:50:45 +0100
-Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+On Fri, Mar 13, 2020 at 12:30:20PM +0200, Jani Nikula wrote:
+>On Fri, 13 Mar 2020, Greg KH <greg@kroah.com> wrote:
+>There is no way of knowing whether you're eligible to vote until you
+>apply for a kernel.org account and either get approved or rejected.
+>
+>The current "obvious" requirement levels are not obvious to me. How many
+>contributions is enough? Is everyone in MAINTAINERS eligible, or do you
+>have to be a high-profile maintainer/developer? What is a high-profile
+>developer? How many people in the web of trust must you have met in
+>person?
 
-> > > > Given that before now, there has not be any way to vote for the TAB
-> > > > remotely, it's less restrictive :)  
-> > >
-> > > But people without kernel.org accounts could still vote in person before,
-> > > right?  
-> >
-> > Yes, and they still can today, this is expanding the pool, not
-> > restricting it.  
-> 
-> Oh right, assumed we'll still have a conference in person, and unrestricted
-> travel.
+Personally, I think that our definition of who can vote should be "any
+member of our community", but it's not practical, right?
 
-Correct. But if we don't change the voting requirements, and the conference
-is canceled, or people are restricted from traveling, then those people
-will not be able to vote with the current charter.
+This process will take years, and each year I would expect us to
+increase the voting pool by a significant amount. Maybe we should focus
+too much on what restrictions are in affect in the current year, but
+rather on trying to learn how well these restrictions worked and which
+of them we can lift.
 
-We are trying to extend who can vote beyond those that the charter allows.
-We are not preventing those that can vote under the current rules from
-voting.  IIUC, we are trying to create absentee voting which we never had
-before. Thus, you can either vote the current way by getting travel to
-wherever Kernel Summit is and attending the conference, or we can extend
-the charter so that if you can not come for whatever reason, you have an
-option to vote remotely, if you satisfy the new requirements. Remember, not
-attending means you do not satisfy the current requirements.
-
-The TAB has bikeshed this a bit internally, and came up with the conclusion
-that kernel.org accounts is a very good "first step". If this proves to be
-a problem, we can look at something else. This is why we are being a bit
-vague in the changes so that if something better comes along we can switch
-to that. After some experience in various methods (if we try various
-methods), we could always make whatever method works best as an official
-method at a later time.
-
-But for now, we need to come up with something that makes it hard for
-ballot stuffing, and a kernel.org account (plus activity in the kernel)
-appears to be the best solution we know of.
-
--- Steve
+-- 
+Thanks,
+Sasha
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
