@@ -1,89 +1,57 @@
 Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
-Received: from whitealder.osuosl.org (smtp1.osuosl.org [140.211.166.138])
-	by mail.lfdr.de (Postfix) with ESMTPS id 804FB183CE5
-	for <lists@lfdr.de>; Thu, 12 Mar 2020 23:58:57 +0100 (CET)
+Received: from hemlock.osuosl.org (smtp2.osuosl.org [140.211.166.133])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2CDB9183F89
+	for <lists@lfdr.de>; Fri, 13 Mar 2020 04:20:11 +0100 (CET)
 Received: from localhost (localhost [127.0.0.1])
-	by whitealder.osuosl.org (Postfix) with ESMTP id E889F85BDF;
-	Thu, 12 Mar 2020 22:58:55 +0000 (UTC)
+	by hemlock.osuosl.org (Postfix) with ESMTP id 1F20889436;
+	Fri, 13 Mar 2020 03:20:04 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from whitealder.osuosl.org ([127.0.0.1])
+Received: from hemlock.osuosl.org ([127.0.0.1])
 	by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id Y+eaWTwUvR7B; Thu, 12 Mar 2020 22:58:54 +0000 (UTC)
+	with ESMTP id HFvQBLe+F+Z2; Fri, 13 Mar 2020 03:20:03 +0000 (UTC)
 Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
-	by whitealder.osuosl.org (Postfix) with ESMTP id CCB8B858AE;
-	Thu, 12 Mar 2020 22:58:54 +0000 (UTC)
+	by hemlock.osuosl.org (Postfix) with ESMTP id 6F93A8943C;
+	Fri, 13 Mar 2020 03:20:01 +0000 (UTC)
 Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id AD334C1D85;
-	Thu, 12 Mar 2020 22:58:54 +0000 (UTC)
+	by lists.linuxfoundation.org (Postfix) with ESMTP id 4A9F2C18D3;
+	Fri, 13 Mar 2020 03:20:01 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@lists.linuxfoundation.org
-Received: from silver.osuosl.org (smtp3.osuosl.org [140.211.166.136])
- by lists.linuxfoundation.org (Postfix) with ESMTP id 0EC71C0177
- for <ksummit-discuss@lists.linuxfoundation.org>;
- Thu, 12 Mar 2020 22:58:51 +0000 (UTC)
+Received: from whitealder.osuosl.org (smtp1.osuosl.org [140.211.166.138])
+ by lists.linuxfoundation.org (Postfix) with ESMTP id 927F1C0177;
+ Fri, 13 Mar 2020 03:19:58 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
- by silver.osuosl.org (Postfix) with ESMTP id 0A7B92038F
- for <ksummit-discuss@lists.linuxfoundation.org>;
- Thu, 12 Mar 2020 22:58:51 +0000 (UTC)
+ by whitealder.osuosl.org (Postfix) with ESMTP id 8138E87D1A;
+ Fri, 13 Mar 2020 03:19:58 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from silver.osuosl.org ([127.0.0.1])
+Received: from whitealder.osuosl.org ([127.0.0.1])
  by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id aOLk49ZeWCXd
- for <ksummit-discuss@lists.linuxfoundation.org>;
- Thu, 12 Mar 2020 22:58:49 +0000 (UTC)
-X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
-Received: from mail-qt1-f175.google.com (mail-qt1-f175.google.com
- [209.85.160.175])
- by silver.osuosl.org (Postfix) with ESMTPS id AAE2B20020
- for <ksummit-discuss@lists.linuxfoundation.org>;
- Thu, 12 Mar 2020 22:58:49 +0000 (UTC)
-Received: by mail-qt1-f175.google.com with SMTP id e20so5942181qto.5
- for <ksummit-discuss@lists.linuxfoundation.org>;
- Thu, 12 Mar 2020 15:58:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=labbott.name; s=google;
- h=subject:to:cc:references:from:message-id:date:user-agent
- :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=Dk3L/+5tmSg8tFJvvcXXWBuwuWvbWcVQihQHFRntHW8=;
- b=NNrUXuA3zH1/qGmp2fXsA18RnT434FdrUYosUAnjUU19VTN2HleoY57BystuHr9Xrm
- zo1oJGG9cYhimAvB8zIAHz4rJ150AKVZEDVU0CS1lnEpjLaFM5OuEek3pUdjjko5OGy9
- H9ZBT87VEZceTBBEp763ANpRKGC4fUBigj+r4=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:to:cc:references:from:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=Dk3L/+5tmSg8tFJvvcXXWBuwuWvbWcVQihQHFRntHW8=;
- b=jxF7uqLg/5bkK9vJJGp0cZHniOYf9sgbFuMORTa92Bf6i11zK/x6RhwcrUEDZ2poJf
- d109xmXqAQRjxsf3jPw4svl30PACVOXBCoAordEtPp3vs1051jZa3AW7UHvSANgc2LMH
- xJ2SDC8sVJxxRBSlEg2XyXnIceQxMO50dEQqUtlBAtDlPF4/+dSdUPND8CCXUrhFlLVh
- +MmXaj5NTp4yBovJVIlVB+U6XrwkX54Zj/PgG0qSwxfxIuLRxUcPln9aU7i7pDCnu2i7
- J+YurCP3XMMac6LEhTxUOWJI20iQKYKGOmzxTt0ASeSY3B1BZFttRmJB+dSFhr+rUE0w
- 4n/g==
-X-Gm-Message-State: ANhLgQ2+4g2ckLc2wecsYxHUAEoOwgzHjY5OJdcaWz5zr8yuuQHtbKaw
- B59A68sGOQRcIkBpUdfaC18Dkg==
-X-Google-Smtp-Source: ADFU+vvexg2dmePLYL1jff9r/ch5AsR5XOURVjASlZiQnFtqaWMCHaxppl6V/txhNOCy9Gt/9V+e0g==
-X-Received: by 2002:ac8:47cc:: with SMTP id d12mr3719471qtr.234.1584053928443; 
- Thu, 12 Mar 2020 15:58:48 -0700 (PDT)
-Received: from [192.168.1.168] (pool-96-235-39-235.pitbpa.fios.verizon.net.
- [96.235.39.235])
- by smtp.gmail.com with ESMTPSA id x11sm14330050qkf.67.2020.03.12.15.58.47
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Thu, 12 Mar 2020 15:58:48 -0700 (PDT)
-To: "Bird, Tim" <Tim.Bird@sony.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+ with ESMTP id FlUDMLophbsq; Fri, 13 Mar 2020 03:19:57 +0000 (UTC)
+X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
+X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
+Received: from outgoing.mit.edu (outgoing-auth-1.mit.edu [18.9.28.11])
+ by whitealder.osuosl.org (Postfix) with ESMTPS id 4E75587A87;
+ Fri, 13 Mar 2020 03:19:57 +0000 (UTC)
+Received: from callcc.thunk.org (pool-72-93-95-157.bstnma.fios.verizon.net
+ [72.93.95.157]) (authenticated bits=0)
+ (User authenticated as tytso@ATHENA.MIT.EDU)
+ by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id 02D3Jl1l001090
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Thu, 12 Mar 2020 23:19:48 -0400
+Received: by callcc.thunk.org (Postfix, from userid 15806)
+ id 140EE420E5E; Thu, 12 Mar 2020 23:19:47 -0400 (EDT)
+Date: Thu, 12 Mar 2020 23:19:47 -0400
+From: "Theodore Y. Ts'o" <tytso@mit.edu>
+To: "Bird, Tim" <Tim.Bird@sony.com>
+Message-ID: <20200313031947.GC225435@mit.edu>
 References: <6d6dd6fa-880f-01fe-6177-281572aed703@labbott.name>
  <20200312003436.GF1639@pendragon.ideasonboard.com>
  <MWHPR13MB0895E133EC528ECF50A22100FDFD0@MWHPR13MB0895.namprd13.prod.outlook.com>
-From: Laura Abbott <laura@labbott.name>
-Message-ID: <e932f9db-b06d-b4bb-d1ca-755cc54347c2@labbott.name>
-Date: Thu, 12 Mar 2020 18:58:47 -0400
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.5.0
 MIME-Version: 1.0
+Content-Disposition: inline
 In-Reply-To: <MWHPR13MB0895E133EC528ECF50A22100FDFD0@MWHPR13MB0895.namprd13.prod.outlook.com>
-Content-Language: en-US
 Cc: "tech-board-discuss@lists.linuxfoundation.org"
  <tech-board-discuss@lists.linuxfoundation.org>,
  "ksummit-discuss@lists.linuxfoundation.org"
@@ -102,47 +70,12 @@ List-Post: <mailto:ksummit-discuss@lists.linuxfoundation.org>
 List-Help: <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=help>
 List-Subscribe: <https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss>, 
  <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
-
-
-On 3/12/20 5:28 PM, Bird, Tim wrote:
->> -----Original Message-----
->> From:  Laurent Pinchart
->>
->> Hi Laura,
->>
->> On Wed, Mar 11, 2020 at 08:19:46PM -0400, Laura Abbott wrote:
->>> On behalf of the Linux Foundation Technical Advisory Board (TAB), I
->>> would like to announce the following changes to our charter, available
->>> at https://urldefense.proofpoint.com/v2/url?u=https-3A__wiki.linuxfoundation.org_tab_start&d=DwICAg&c=fP4tf--
->> 1dS0biCFlB0saz0I0kjO5v7-GLPtvShAo4cc&r=rUvFawR4KzgZu1gSN5tuozUn7iTTP0Y-INWqfY8MsF0&m=rEcpcrRVZ-R-
->> msxXCoATt2eqeJ0slEmwjZvSIsW2FnA&s=uCuhAV3NJJQ8ZD7FRbWtcW1p_3-DDKj2EsqssXv_hm0&e=
->>>
->>> - Line 2b that previously read "All members shall be elected by a vote
->>> amongst all invitees of the Linux Kernel Summit." is changed to "All
->>> members shall be elected by a vote amongst all attendees of the Linux
->>> Kernel Summit."
->>>
->>> This clarifies that kernel summit is no longer invite only.
->>
->> This is a good clarification, no issue with it.
->>
->>> - Under meetings and membership, the following line is added
->>> "The TAB, at its discretion, may set criteria to allow for absentee
->>> voting for those who are unable to attend the Linux Kernel Summit."
->>
->> This is however a bit more problematic. I understand the intent, which I
->> believe is good, but it would make ballot stuffing very easy. At the
->> same time I understood it will not be an easy task to set clear written
->> rules that wouldn't be over complex and would still allow reaching the
->> end goal of expanding the election to the whole community through
->> electronic voting. I'm afraid I don't have a solution to propose to this
->> problem at this time.
-> 
+On Thu, Mar 12, 2020 at 09:28:09PM +0000, Bird, Tim wrote:
 > I agree with Laurent.  I'm not sure how to solve this problem, but
 > I think you need something to indicate the voter approval policy
 > besides "the TAB will decide it, and can change it when they like".
@@ -158,40 +91,96 @@ On 3/12/20 5:28 PM, Bird, Tim wrote:
 > skewing the election results.  That is, I don't think the kernel summit invitation
 > committee, or the LF event staff, ever considered TAB voting in their KS attendee
 > selection or event pairing choices.
-> 
-> I don't think that the current TAB would do anything wacky here.  And I suspect
-> it's probably not a huge concern even for future TABs whose constitution we don't
-> know yet. I do think, however, it would be better to have a written policy
-> for the voting eligibility, that the TAB members can't change on a whim.
->   -- Tim
->   
 
-(my own opinion again)
+(Speaking personally for myself)
 
-We intentionally wanted to keep it vague to avoid having to change the
-charter every time we wanted to tweak the absentee voting requirements.
-This is because while everyone is in favor of absentee voting in theory
-there were concerns about trying to get the numbers right.
+The choice to include whatever LF event the Kernel Summit was
+colocated with was a choice that was made by the TAB on an ad-hoc
+basis.  There is nothing about that in the TAB charter at all.  So
+we've *already* been doing things in a way that is not consistent with
+TAB charter --- for years and years.
 
-I'd argue that the way the charter is currently written the TAB
-members can really change the election on a whim. The wording "All
-members shall be elected by a vote amongst all invitees of the Linux
-Kernel Summit" basically says nothing about how the vote is conducted.
-The TAB does run the election and the community has trusted that we
-set up proctors who aren't up for election and that we are using a
-voting procedure that is actually fair as opposed to, say, voting
-proportional to lines of code removed last year. I don't think this
-is necessarily a _good_ situation since it could be easily abused
-but I also think that absentee voting falls into the same category
-of trusting the TAB to not come up with some arbitrary voting method
-designed to get the outcome they want.
+Starting last year, we experimented with electronic voting.  We didn't
+change the composition of who could vote (it was anyone attending
+Plumbers), but one of the reasons was that we didn't want to change
+two variables at once.
 
-Maybe the real question is if the community would rather see all
-election procedures specified explicitly rather than just placing
-trust in the TAB.
+We haven't made any final decisions yet about how the pool of voters
+might be expanded.  But it might include (for example) people who have
+user accounts on kernel.org.  Or historically, one of the pools from
+which the kernel summitte attendee list would be drawn included
+everyone who at least N Signed-off-by:, Reviewed-by:, etc.  Since
+there was a Kernel Summit program committee filtering who got invites
+(and there was non-trivial overlap between the program committee and
+the TAB), in theory that very much could influence the TAB elections.
+Expanding the pool to those who were interested and who were attending
+the colocated event very much decreased that effect, but there has
+always been a human filtering element.
 
-Thanks,
-Laura
+One of the potential failures that having a human filtering element
+prevents is the Sad/Rabid Puppies scenario:
+
+https://slate.com/culture/2016/04/sad-and-rabid-puppies-are-trying-to-game-the-hugo-award-shortlists-again-in-2016.html
+
+So for example, if we set some rule like, a single Signed-off-by: is
+enough to get a vote, what would happen over a few months, a thousand
+spelling/whitespace "trivial" patches, all from different sock puppet
+accounts, show up and get absorbed into the tree?  With a human
+program committee, it's easy for humans to say, "Ha, ha.  No."  But if
+we use a mechnical rule, and badly chosen criteria, it might be really
+easy for some mischief makers to carry out a Sad Puppies style attack
+on the voting system.
+
+On the flip side, having humans deciding who can and can't vote has
+other really bad effects regarding the election's legitimacy.  It
+worked 5+ years ago, because it was simpler times, and the formal
+reason for the selection was attendance to a closed technical meeting,
+and we later decided to hang the TAB elections off of it.
+
+So that means we need to be smart about how we pick the criteria.
+Using a kernel.org account might be a good approach, since it would be
+a lot harder for a huge number of sock puppet accounts to meet that
+criteria.  We don't have a final proposal for something which can be
+objectively measured, but can't be easily gamed by someone who is
+trying to subvert the system.  It is pretty clear, though, that we
+need to have that clearly articulated, in writing, *before* we start
+the nomination for the next round of TAB candidates.
+
+I will also point out that we may not have much of a choice about
+switching to something besides "people who attend the colocated event
+where the Kernel Summit is held".  The program/organizing committees
+for LPC, KS, and MS, are continuing to make plans in the hope that the
+COVID-19 pandemic will have subsided enough that it will be safe to
+hold an conference of 400-500 people in Halifax.  However, nobody
+knows if that is the case.  If you look at this article from the
+Lanclet medical journal article, "How will country-based mitigation
+measures influence the course of the COVID-19 epidemic?":
+
+https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30567-5/fulltext
+
+The takeaway is it's really not clear how long it will take for the
+COVID-19 pandemic to run its course --- but some of their sample
+curves extend out for of 5-6 months or longer.  So while we are
+continuing to plan that LPC will take place, it's only responsible to
+consider what we should do if in fact health and safety restrictions
+are such that we might not be able to hold *any* Linux systems
+conferences in 2020.
+
+In that case, we might be forced to either keep TAB members in place
+beyond their original elected term, or we might have to go to a pure
+electronic voting for the upcoming TAB election.  I very much hope
+that won't be the case, but we need to be prepared for that
+eventuality.
+
+(I'll keep silent about what I think of the current US
+Administration's competence in steering us through this crisis, except
+to note that in South Korea, they are testing 10,000 people a day,
+using drive-through centers, and we haven't been able to test that
+many *total* so far in the US, and there are Biogen employees in
+Boston and Life Care Center employees in Kirkland, Washington, who are
+still waiting for COVID-19 test availability....)
+
+						- Ted
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
