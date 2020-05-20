@@ -1,89 +1,88 @@
 Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
-Received: from silver.osuosl.org (smtp3.osuosl.org [140.211.166.136])
-	by mail.lfdr.de (Postfix) with ESMTPS id DB3331DC1EB
-	for <lists@lfdr.de>; Thu, 21 May 2020 00:13:06 +0200 (CEST)
+Received: from fraxinus.osuosl.org (smtp4.osuosl.org [140.211.166.137])
+	by mail.lfdr.de (Postfix) with ESMTPS id 01CBC1DC30A
+	for <lists@lfdr.de>; Thu, 21 May 2020 01:39:34 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
-	by silver.osuosl.org (Postfix) with ESMTP id 105D024C39;
-	Wed, 20 May 2020 22:13:05 +0000 (UTC)
+	by fraxinus.osuosl.org (Postfix) with ESMTP id 3F5DA87160;
+	Wed, 20 May 2020 23:39:29 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from silver.osuosl.org ([127.0.0.1])
+Received: from fraxinus.osuosl.org ([127.0.0.1])
 	by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id rcibgh5BuGau; Wed, 20 May 2020 22:13:04 +0000 (UTC)
+	with ESMTP id L8u4MBT7Sl25; Wed, 20 May 2020 23:39:27 +0000 (UTC)
 Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
-	by silver.osuosl.org (Postfix) with ESMTP id B15D325075;
-	Wed, 20 May 2020 22:13:04 +0000 (UTC)
+	by fraxinus.osuosl.org (Postfix) with ESMTP id 5F62B8719A;
+	Wed, 20 May 2020 23:39:27 +0000 (UTC)
 Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id 52BCDC0176;
-	Wed, 20 May 2020 22:13:04 +0000 (UTC)
+	by lists.linuxfoundation.org (Postfix) with ESMTP id 15AF7C07FF;
+	Wed, 20 May 2020 23:39:27 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@lists.linuxfoundation.org
-Received: from hemlock.osuosl.org (smtp2.osuosl.org [140.211.166.133])
- by lists.linuxfoundation.org (Postfix) with ESMTP id B52BFC0176
+Received: from fraxinus.osuosl.org (smtp4.osuosl.org [140.211.166.137])
+ by lists.linuxfoundation.org (Postfix) with ESMTP id 6DB91C0176
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Wed, 20 May 2020 22:13:01 +0000 (UTC)
+ Wed, 20 May 2020 23:39:24 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
- by hemlock.osuosl.org (Postfix) with ESMTP id A1CFF8868C
+ by fraxinus.osuosl.org (Postfix) with ESMTP id 5922A8712E
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Wed, 20 May 2020 22:13:01 +0000 (UTC)
+ Wed, 20 May 2020 23:39:24 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from hemlock.osuosl.org ([127.0.0.1])
+Received: from fraxinus.osuosl.org ([127.0.0.1])
  by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id QhxhD95rY1iQ
+ with ESMTP id XxTI_4-3ryHQ
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Wed, 20 May 2020 22:13:00 +0000 (UTC)
+ Wed, 20 May 2020 23:39:23 +0000 (UTC)
 X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
-Received: from mail-pf1-f196.google.com (mail-pf1-f196.google.com
- [209.85.210.196])
- by hemlock.osuosl.org (Postfix) with ESMTPS id D461388689
+Received: from mail-pf1-f193.google.com (mail-pf1-f193.google.com
+ [209.85.210.193])
+ by fraxinus.osuosl.org (Postfix) with ESMTPS id 8B7FA87122
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Wed, 20 May 2020 22:13:00 +0000 (UTC)
-Received: by mail-pf1-f196.google.com with SMTP id y18so2257568pfl.9
+ Wed, 20 May 2020 23:39:23 +0000 (UTC)
+Received: by mail-pf1-f193.google.com with SMTP id e11so1407067pfn.3
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Wed, 20 May 2020 15:13:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ Wed, 20 May 2020 16:39:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
  h=date:from:to:cc:subject:message-id:references:mime-version
  :content-disposition:in-reply-to;
- bh=XErmAxfkk3Y+wyR1/r9vGDck/MULwvoNu6L4T+bWwB8=;
- b=p25d0wMMu9Ivnvc9QM5hFo009ybgJCCis3tX2tcF/iyFyGIWyeeNIWpURCAOKOIBgD
- 23gplry9xVsZHhMXH2zz798QYbhKQuyWbMREO3ma4kFg1nRqsQ3qpB96ibht2v2XPuFA
- 836QctUy9QmyothByWvR2drELutgPQPGRvdY5zZqKfCbOn/pHpLlbU0VekSHBy5hrZRU
- uTo0c+mT2eFQlXKKXIjQuVjosC26E4OMcpeG4yD4/O6GCRlXnkwBHK7letR8xxqLv1vH
- m63Xj5H6D7AiL4GpALWByxLMrk83wGHOYgELse08EHuuTV6vAtOE3E/FNHEAuLcHKkDt
- jESA==
+ bh=BKxmEd0cc9JnFOdDSJAY2t96ddzYOTGSRva5EGtl4sM=;
+ b=k5WCTRegL4qtiRs71zAbn+o1yYFdrunCtzMnu61qwQABmg0/GIzFNa0WkCBD9u3xZf
+ yvj0drwJ4TrgNEpv503jpUYD/nCqkyM6Q+yD/uU7x30EjlWYk8ZwA4D7Czhgvf+HQvjD
+ n7AgloIUMkOGZWu54iKydCRmC2t+A3dwWw40A=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to;
- bh=XErmAxfkk3Y+wyR1/r9vGDck/MULwvoNu6L4T+bWwB8=;
- b=Mw4KG99z4bX7kT21R9qRsOYpkA3GWBzFfD8lwhDFbNMFmdWln4mGqzOBCX+fi80Tyq
- kmYnSMAgSs62CmOihYBlzn9ksXe74wr2cZgEaRG7TKL4Whg3en5VtUmZDymPUoKQuKZf
- j15LXpeWuTC+WKPYP+UH7eoE54Ksd1vrSE8L+QR0pt49etSm7tCd27t2GIOwVyLeC0ps
- Og61+ho1JxYMYeGWA39BwgSnoT50mdIHur7j2GqKsFmg9xjCI15vVKig/4d7UCu7y6EM
- ljVWt8IBmW2YaVsjNwya/vP6yi5OqqG9QNkvE63VYpsvefAnYvID/dFh8ASCnlXfGqCg
- GYNg==
-X-Gm-Message-State: AOAM531hC/3hQ5PauESDBx1YFqTlnRKxkNq45ciSLlqpkGD6ErDDFXrZ
- TImBbK1lrMV2uH8ZPYZsd2Y=
-X-Google-Smtp-Source: ABdhPJwtKE3/H6cEoLNr7R9vXvdgYq8VWxdeheSKabOuJZHBWvyItRelaxpFaDEPkdO+HsZVL/ozig==
-X-Received: by 2002:a63:514:: with SMTP id 20mr5928674pgf.150.1590012780204;
- Wed, 20 May 2020 15:13:00 -0700 (PDT)
-Received: from ast-mbp.dhcp.thefacebook.com ([2620:10d:c090:400::5:e680])
- by smtp.gmail.com with ESMTPSA id e1sm2792380pjv.54.2020.05.20.15.12.58
+ bh=BKxmEd0cc9JnFOdDSJAY2t96ddzYOTGSRva5EGtl4sM=;
+ b=fureTGKVK1Vpeidp1AoFUPeUfBo0JxPmZRQMpZfmf+asN8PU6ySvYa7gM2bg45aQ7M
+ ff1J2RiOwbtlLIN/kmJ/jfCdLeJXIDJaNYt/wKDLw2qbS6MCK2MPCq7tuq3Odx6LzPmS
+ iWm09r+W+U9N/fEFNbI/T2L98GkQDdNuyBWgztNSFwQsHdjfthlymCn10/XlTxzxrhUN
+ QeIyIb5eqlrrjRqkqqVufzrVhb0t0PByOQO+wVjQV60MchS4m/h1c7gfUum1ZCT6Y0Mf
+ jusmy5lChWhRbbsVu4lkkItgX4fjltkqI921dsFDCO/+7/wh5crBqGC1Y0oBt9JzJqiM
+ DU0w==
+X-Gm-Message-State: AOAM5330V39oDanltpCogx8mZ+eaMo693i+XVDxHVLsHYGKNQQjsQoZc
+ Kze22XoBdh6S0vaqTr/xC7b8tg==
+X-Google-Smtp-Source: ABdhPJyQ3ePD22xinBBFKs4ZY83hieCkmjLI4/2NO3mxxs7+J15byFMue/V9Rx9ipe7u3fy7XNppDg==
+X-Received: by 2002:a05:6a00:1490:: with SMTP id
+ v16mr6377464pfu.173.1590017963037; 
+ Wed, 20 May 2020 16:39:23 -0700 (PDT)
+Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
+ by smtp.gmail.com with ESMTPSA id k30sm2915743pfh.49.2020.05.20.16.39.21
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 20 May 2020 15:12:59 -0700 (PDT)
-Date: Wed, 20 May 2020 15:12:56 -0700
-From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-To: Kees Cook <keescook@chromium.org>
-Message-ID: <20200520221256.tzqkjpeswv3d6ne2@ast-mbp.dhcp.thefacebook.com>
+ Wed, 20 May 2020 16:39:22 -0700 (PDT)
+Date: Wed, 20 May 2020 16:39:20 -0700
+From: Kees Cook <keescook@chromium.org>
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Message-ID: <202005201540.EF1BD18B44@keescook>
 References: <202005200917.71E6A5B20@keescook>
  <20200520163102.GZ23230@ZenIV.linux.org.uk>
  <202005201104.72FED15776@keescook>
  <CAHk-=wierGOJZhzrj1+R18id-WdfmK=eWT9YfWdCfMvEO+jLLg@mail.gmail.com>
  <202005201151.AFA3C9E@keescook>
+ <20200520221256.tzqkjpeswv3d6ne2@ast-mbp.dhcp.thefacebook.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <202005201151.AFA3C9E@keescook>
+In-Reply-To: <20200520221256.tzqkjpeswv3d6ne2@ast-mbp.dhcp.thefacebook.com>
 Cc: bpf@vger.kernel.org, ksummit <ksummit-discuss@lists.linuxfoundation.org>
 Subject: Re: [Ksummit-discuss] [TECH TOPIC] seccomp feature development
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
@@ -102,53 +101,97 @@ Content-Transfer-Encoding: 7bit
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
-On Wed, May 20, 2020 at 12:04:04PM -0700, Kees Cook wrote:
-> On Wed, May 20, 2020 at 11:27:03AM -0700, Linus Torvalds wrote:
-> > Don't make this some kind of abstract conceptual problem thing.
-> > Because it's not.
+On Wed, May 20, 2020 at 03:12:56PM -0700, Alexei Starovoitov wrote:
+> On Wed, May 20, 2020 at 12:04:04PM -0700, Kees Cook wrote:
+> > On Wed, May 20, 2020 at 11:27:03AM -0700, Linus Torvalds wrote:
+> > > Don't make this some kind of abstract conceptual problem thing.
+> > > Because it's not.
+> > 
+> > I have no intention of making this abstract (the requests for expanding
+> > seccomp coverage have been for only a select class of syscalls, and
+> > specifically clone3 and openat2) nor more complicated than it needs to be
+> > (I regularly resist expanding the seccomp BPF dialect into eBPF).
 > 
-> I have no intention of making this abstract (the requests for expanding
-> seccomp coverage have been for only a select class of syscalls, and
-> specifically clone3 and openat2) nor more complicated than it needs to be
-> (I regularly resist expanding the seccomp BPF dialect into eBPF).
+> Kees, since you've forked the thread I'm adding bpf mailing list back and
+> re-iterating my point:
+> ** Nack to cBPF extensions **
 
-Kees, since you've forked the thread I'm adding bpf mailing list back and
-re-iterating my point:
-** Nack to cBPF extensions **
-How that is relevant?
-You're proposing to add copy_from_user() to selected syscalls, like clone3,
-and present large __u32 array to cBPF program.
-In other words existing fixed sized 'struct seccomp_data' will become
-either variable length or jumbo fixed size like one page.
-In the fomer case it would mean that cBPF would need to be extended
-with variable length logic. Which in turn means it will suffer from
-spectre v1 issues.
-We've spent a lot of time fixing spectre v1 issues with eBPF. Including
-teaching the verifier to recognize speculative patterns inside the programs
-so that malicious bpf progs trying to exploit spec v1 will be caught
-at load time. There is no other tool (compiler or static analysis) that
-can do similar analysis. I suggest that you look into what eBPF
-is actually doing instead of trying to reinvent the wheel.
-If you go with latter approach of presenting cBPF with giant
-'struct seccomp_data + page' that extra page would need to be zeroed out
-before invocation of bpf program which will make seccomp even less usable
-that it is today. Currently it's slow and unusable in production datacenter.
-People suggested for years to adopt eBPF in seccomp to accelerate it,
-but, as you confessed, you resisted and sounds like now you want to
-implement seccomp specific syscall bitmask?
-Which means more kernel code, more bugs, more security issues.
-imo that's another reinvented wheel when eBPF can do it already. I don't think
-it's a good idea to add kernel code when eBPF-based solution exists and capable
-of examining any level of nested args.
+Yes, I know. I agreed[1] with you on this point.
 
-> Perhaps the question is "how deeply does seccomp need to inspect?"
-> and maybe it does not get to see anything beyond just the "top level"
-> struct (i.e. struct clone_args) and all pointers within THAT become
-> opaque? That certainly simplifies the design.
+> How that is relevant?
+> You're proposing to add copy_from_user() to selected syscalls, like clone3,
+> and present large __u32 array to cBPF program.
+> In other words existing fixed sized 'struct seccomp_data' will become
+> either variable length or jumbo fixed size like one page.
+> In the fomer case it would mean that cBPF would need to be extended
+> with variable length logic. Which in turn means it will suffer from
+> spectre v1 issues.
 
-clone3's 'struct clone_args' has set_tid pointer as a second level.
-I don't think that sticking to first level of pointers for this particular
-syscall will make seccomp filtering any more practical.
+I don't expect to need to do anything with variable lengths in the
+seccomp BPF dialect. As I said in the other thread, if we are faced with
+design trade-offs that require extending the seccomp filter language, we
+would switch to eBPF.
+
+> If you go with latter approach of presenting cBPF with giant
+> 'struct seccomp_data + page' that extra page would need to be zeroed out
+> before invocation of bpf program which will make seccomp even less usable
+> that it is today. Currently it's slow and unusable in production datacenter.
+
+Making universal declarations based on your opinion does not help
+convince people of your position. Saying it's "unusable in production
+datacenter" is perhaps true for you, but hardly true for the many
+datacenters that do use it.
+
+Additionally, we're obviously not interested in making seccomp _slower_.
+The entire point of an investigation of the design is to examine our
+options and find the right solution.
+
+> People suggested for years to adopt eBPF in seccomp to accelerate it,
+> but, as you confessed, you resisted and sounds like now you want to
+> implement seccomp specific syscall bitmask?
+
+Yes -- because it's an order of magnitude faster than even a single
+instruction BPF seccomp filter. The vast majority of seccomp filters need
+nothing more than a single yes/no, and right now the bulk of processing
+time is spent running the BPF filter. I would prefer to avoid BPF
+entirely where possible for seccomp.
+
+> Which means more kernel code, more bugs, more security issues.
+
+Right. This is a solid design principle, and one I agree with: avoid
+adding code, keep things simple, everything will have bugs. And, as it
+stands, seccomp has had a significantly safer history than eBPF, largely
+due to its goal of staying as utterly small and simple as possible. I
+don't intend to discard that stance, and it's why I would rather continue
+to shield seccomp from the regularly occurring eBPF flaws.
+
+> imo that's another reinvented wheel when eBPF can do it already. I don't think
+> it's a good idea to add kernel code when eBPF-based solution exists and capable
+> of examining any level of nested args.
+
+Thanks to the neighboring thread here, the requirements no longer[2]
+include nested args. Also, you're mixing bitmasks (to accelerate the
+overwhelmingly common case) with the deep argument inspection (which is
+a rare but needed case).
+
+> > Perhaps the question is "how deeply does seccomp need to inspect?"
+> > and maybe it does not get to see anything beyond just the "top level"
+> > struct (i.e. struct clone_args) and all pointers within THAT become
+> > opaque? That certainly simplifies the design.
+> 
+> clone3's 'struct clone_args' has set_tid pointer as a second level.
+> I don't think that sticking to first level of pointers for this particular
+> syscall will make seccomp filtering any more practical.
+
+Yup, we all agree. :)
+
+-Kees
+
+[1] https://lore.kernel.org/lkml/202005191434.57253AD@keescook/
+[2] https://lore.kernel.org/ksummit-discuss/20200520221256.tzqkjpeswv3d6ne2@ast-mbp.dhcp.thefacebook.com/T/#m01a045c8715cfff8399ba86171039110befecbcf
+
+-- 
+Kees Cook
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
