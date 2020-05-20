@@ -1,63 +1,90 @@
 Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
-Received: from whitealder.osuosl.org (smtp1.osuosl.org [140.211.166.138])
-	by mail.lfdr.de (Postfix) with ESMTPS id 405FB1DC00A
-	for <lists@lfdr.de>; Wed, 20 May 2020 22:24:12 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by whitealder.osuosl.org (Postfix) with ESMTP id 3AEAE88326;
-	Wed, 20 May 2020 20:24:10 +0000 (UTC)
-X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from whitealder.osuosl.org ([127.0.0.1])
-	by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id We1Ui00ZCOAb; Wed, 20 May 2020 20:24:09 +0000 (UTC)
-Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
-	by whitealder.osuosl.org (Postfix) with ESMTP id 2B1D086D6F;
-	Wed, 20 May 2020 20:24:08 +0000 (UTC)
-Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id F2336C0893;
-	Wed, 20 May 2020 20:24:07 +0000 (UTC)
-X-Original-To: ksummit-discuss@lists.linuxfoundation.org
-Delivered-To: ksummit-discuss@lists.linuxfoundation.org
 Received: from hemlock.osuosl.org (smtp2.osuosl.org [140.211.166.133])
- by lists.linuxfoundation.org (Postfix) with ESMTP id 141EDC0176
- for <ksummit-discuss@lists.linuxfoundation.org>;
- Wed, 20 May 2020 20:24:06 +0000 (UTC)
+	by mail.lfdr.de (Postfix) with ESMTPS id BF04A1DC091
+	for <lists@lfdr.de>; Wed, 20 May 2020 22:52:38 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
- by hemlock.osuosl.org (Postfix) with ESMTP id 02C7287ECD
- for <ksummit-discuss@lists.linuxfoundation.org>;
- Wed, 20 May 2020 20:24:06 +0000 (UTC)
+	by hemlock.osuosl.org (Postfix) with ESMTP id 47F3588364;
+	Wed, 20 May 2020 20:52:37 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
 Received: from hemlock.osuosl.org ([127.0.0.1])
+	by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 5evNByxrP7-2; Wed, 20 May 2020 20:52:37 +0000 (UTC)
+Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
+	by hemlock.osuosl.org (Postfix) with ESMTP id 0862A884A9;
+	Wed, 20 May 2020 20:52:37 +0000 (UTC)
+Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
+	by lists.linuxfoundation.org (Postfix) with ESMTP id D134BC0893;
+	Wed, 20 May 2020 20:52:36 +0000 (UTC)
+X-Original-To: ksummit-discuss@lists.linuxfoundation.org
+Delivered-To: ksummit-discuss@lists.linuxfoundation.org
+Received: from silver.osuosl.org (smtp3.osuosl.org [140.211.166.136])
+ by lists.linuxfoundation.org (Postfix) with ESMTP id 6F37FC0176
+ for <ksummit-discuss@lists.linuxfoundation.org>;
+ Wed, 20 May 2020 20:52:34 +0000 (UTC)
+Received: from localhost (localhost [127.0.0.1])
+ by silver.osuosl.org (Postfix) with ESMTP id 5DF9B25043
+ for <ksummit-discuss@lists.linuxfoundation.org>;
+ Wed, 20 May 2020 20:52:34 +0000 (UTC)
+X-Virus-Scanned: amavisd-new at osuosl.org
+Received: from silver.osuosl.org ([127.0.0.1])
  by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id M2lt3DGRVne3
+ with ESMTP id JIbR-HCotsI2
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Wed, 20 May 2020 20:24:05 +0000 (UTC)
+ Wed, 20 May 2020 20:52:33 +0000 (UTC)
 X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
-Received: from youngberry.canonical.com (youngberry.canonical.com
- [91.189.89.112])
- by hemlock.osuosl.org (Postfix) with ESMTPS id E560187EC4
+Received: from mail-pl1-f194.google.com (mail-pl1-f194.google.com
+ [209.85.214.194])
+ by silver.osuosl.org (Postfix) with ESMTPS id 50F9C2280C
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Wed, 20 May 2020 20:24:04 +0000 (UTC)
-Received: from ip5f5af183.dynamic.kabel-deutschland.de ([95.90.241.131]
- helo=wittgenstein) by youngberry.canonical.com with esmtpsa
- (TLS1.2:ECDHE_RSA_AES_128_GCM_SHA256:128) (Exim 4.86_2)
- (envelope-from <christian.brauner@ubuntu.com>)
- id 1jbVFy-0004Za-Ns; Wed, 20 May 2020 20:24:02 +0000
-Date: Wed, 20 May 2020 22:24:01 +0200
-From: Christian Brauner <christian.brauner@ubuntu.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>,
- Kees Cook <keescook@chromium.org>
-Message-ID: <20200520202401.s22hstao4kzr5uma@wittgenstein>
+ Wed, 20 May 2020 20:52:33 +0000 (UTC)
+Received: by mail-pl1-f194.google.com with SMTP id f15so1848496plr.3
+ for <ksummit-discuss@lists.linuxfoundation.org>;
+ Wed, 20 May 2020 13:52:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=vnQUW5CK1pS7+Sn9xKj2wpfOKK3Ind/d2FMT+TOwiXc=;
+ b=nFBSt/FD6k2Zulxh/4n1iPmDFkyRuv7AB6nqa/vy+rUEeRNSK6aIGCtxlnyjwJHPYG
+ PfQ5fdjs6KITfvt68F28I/8hwA+5pMoPriJ7sdJI51jRXZUMEqXYN3vFxfROW1beb0Gs
+ LVstTU6TTwtgGqtvqSsRdWwbnBhH5RULK6sPw=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=vnQUW5CK1pS7+Sn9xKj2wpfOKK3Ind/d2FMT+TOwiXc=;
+ b=eVm1inorJh6TPY9t008GyCHA2/IILF5rE1c0uBJp+p4snAaPaNX8T8wU35k2MXB5Ah
+ hDu0DJKk1bqoSVHbNzxQj/hdfEFDVDXHVxH8ZSAYjFrPI+b5Huhtcy8mwZ4mlaS75jJJ
+ ojJErcy9k/Ym9zJDWS0pp9GieeeZHU5s3V6AGuEONTLEDhMzVwz3F9/up5hU7BPtNEKN
+ 1Is/Q4GdSyysSIghfg7EvjGzb/cPOIQVYLXGQ7XHnr9+qvqm6nbEYG9YySCFncI//4sc
+ 3fwJGOA68BMej1oycjsWnPwa9j3WPGTSxaLnWUO53Gd4lMw5tQ6A/0AJkfzqswHWONFp
+ Bqow==
+X-Gm-Message-State: AOAM533Y8+MqIrIMzj0pheW0nDFlVYOQ2j+5VJ6IdR6sqe9+mEp0pix0
+ z4vnN36YbtoF6oz8iWeh4LJGwymBpcErVQ==
+X-Google-Smtp-Source: ABdhPJxBF6oeKERDxYBGVdpGyrVqr000Fx7x6OnIvfL3rrCYhKpE9qGgRDjqjTjqMt5tzlj8rAiR9Q==
+X-Received: by 2002:a17:90a:2a0d:: with SMTP id
+ i13mr7294058pjd.94.1590007952804; 
+ Wed, 20 May 2020 13:52:32 -0700 (PDT)
+Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
+ by smtp.gmail.com with ESMTPSA id d18sm2835131pjv.34.2020.05.20.13.52.31
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 20 May 2020 13:52:31 -0700 (PDT)
+Date: Wed, 20 May 2020 13:52:30 -0700
+From: Kees Cook <keescook@chromium.org>
+To: Aleksa Sarai <cyphar@cyphar.com>,
+ Christian Brauner <christian.brauner@ubuntu.com>
+Message-ID: <202005201340.ED17EDC@keescook>
 References: <202005200917.71E6A5B20@keescook>
  <20200520163102.GZ23230@ZenIV.linux.org.uk>
  <202005201104.72FED15776@keescook>
  <CAHk-=wierGOJZhzrj1+R18id-WdfmK=eWT9YfWdCfMvEO+jLLg@mail.gmail.com>
  <202005201151.AFA3C9E@keescook>
  <CAHk-=wgwS8RJNuaLT1zV_bWGiEb3DndfQ3N85WK9aKP5Kurk_A@mail.gmail.com>
+ <20200520202401.s22hstao4kzr5uma@wittgenstein>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAHk-=wgwS8RJNuaLT1zV_bWGiEb3DndfQ3N85WK9aKP5Kurk_A@mail.gmail.com>
+In-Reply-To: <20200520202401.s22hstao4kzr5uma@wittgenstein>
 Cc: ksummit <ksummit-discuss@lists.linuxfoundation.org>
 Subject: Re: [Ksummit-discuss] [TECH TOPIC] seccomp feature development
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
@@ -76,52 +103,40 @@ Content-Transfer-Encoding: 7bit
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
-On Wed, May 20, 2020 at 12:08:52PM -0700, Linus Torvalds wrote:
-> On Wed, May 20, 2020 at 12:04 PM Kees Cook <keescook@chromium.org> wrote:
-> >
-> > Things seccomp is NOT expected to introspect due to complexity would be
-> > stuff like the bpf() syscall.
+On Wed, May 20, 2020 at 10:24:01PM +0200, Christian Brauner wrote:
+> On Wed, May 20, 2020 at 12:08:52PM -0700, Linus Torvalds wrote:
+> > On Wed, May 20, 2020 at 12:04 PM Kees Cook <keescook@chromium.org> wrote:
+> > > Perhaps the question is "how deeply does seccomp need to inspect?"
+> > > and maybe it does not get to see anything beyond just the "top level"
+> > > struct (i.e. struct clone_args) and all pointers within THAT become
+> > > opaque? That certainly simplifies the design.
+> > 
+> > Exactly. I think that's the most common situation by far. Does anybody
+> > really really need to care at a deep level, and why?
 > 
-> Right.
-> 
-> I don't dispute at all that those kinds of pointer-to-pointer things
-> exist all over.
-> 
-> But:
-> 
-> > Perhaps the question is "how deeply does seccomp need to inspect?"
-> > and maybe it does not get to see anything beyond just the "top level"
-> > struct (i.e. struct clone_args) and all pointers within THAT become
-> > opaque? That certainly simplifies the design.
-> 
-> Exactly. I think that's the most common situation by far. Does anybody
-> really really need to care at a deep level, and why?
+> We mostly don't and making all second-level pointers opaque is ok imho.
 
+That'll make things MUCH easier. :)
 
-We mostly don't and making all second-level pointers opaque is ok imho.
-First, I don't think we need to really nest structs. (We have netlink
-for that.)
-Second, features for such syscall that require other pointers can and
-usually will be placed under a flag in the first-level struct. If that's
-filterable you have the option to turn that of based on the flag. As
-long as the flag identifies one feature and not one feature that can
-have other features it's no different from filtering a simple flag
-anyway. Even for clone3() it only has one feature that has a pointer in
-the struct and that's for checkpoint/restore and lets them select a
-specific pid and it comes with a size argument that is capped by the
-maximum nesting depth of pid namespaces in the kernel. So if you see
-that the size argument is not 0 in the first level struct you can
-disallow that too same as if it were placed under the flag. So no
-second-level nesting required. Probably the first level pointer is
-alreay making some people vomit but it's useful and for some syscalls
-almost cannot be avoided.
+> But I think that we need some documented consensus on all that stuff
+> which I stressed in other mails before. I'll hand something in about
+> this, if that's ok than we can hash this out.
 
-But I think that we need some documented consensus on all that stuff
-which I stressed in other mails before. I'll hand something in about
-this, if that's ok than we can hash this out.
+Aleksa, I know you had an entire presentation[1] on the extensible
+argument syscalls, but was there any text-based design doc that you made?
 
-Christian
+It would be really nice to update Documentation/process/adding-syscalls.rst
+with the specifics[2], and to (now) include the "no nested flags"
+requirement. What do you think?
 
+-Kees
+
+[1] https://github.com/cyphar/talks/tree/master/2020/01-linux-conf-au/syscall-extensions
+    https://www.youtube.com/watch?v=ggD-eb3yPVs
+[2] https://www.kernel.org/doc/html/latest/process/adding-syscalls.html?highlight=syscall#designing-the-api-planning-for-extension
+
+-- 
+Kees Cook
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
