@@ -1,68 +1,79 @@
 Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
-Received: from hemlock.osuosl.org (smtp2.osuosl.org [140.211.166.133])
-	by mail.lfdr.de (Postfix) with ESMTPS id AE8A51DE554
-	for <lists@lfdr.de>; Fri, 22 May 2020 13:27:17 +0200 (CEST)
+Received: from fraxinus.osuosl.org (smtp4.osuosl.org [140.211.166.137])
+	by mail.lfdr.de (Postfix) with ESMTPS id CEB0C1E38EC
+	for <lists@lfdr.de>; Wed, 27 May 2020 08:19:27 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
-	by hemlock.osuosl.org (Postfix) with ESMTP id 5BD39891B8;
-	Fri, 22 May 2020 11:27:16 +0000 (UTC)
+	by fraxinus.osuosl.org (Postfix) with ESMTP id 9861D86AE4;
+	Wed, 27 May 2020 06:19:25 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from hemlock.osuosl.org ([127.0.0.1])
+Received: from fraxinus.osuosl.org ([127.0.0.1])
 	by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id c61A-e00vS4S; Fri, 22 May 2020 11:27:15 +0000 (UTC)
+	with ESMTP id E6IVTVGga-pr; Wed, 27 May 2020 06:19:23 +0000 (UTC)
 Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
-	by hemlock.osuosl.org (Postfix) with ESMTP id 93C238918F;
-	Fri, 22 May 2020 11:27:15 +0000 (UTC)
+	by fraxinus.osuosl.org (Postfix) with ESMTP id 1216386AC4;
+	Wed, 27 May 2020 06:19:23 +0000 (UTC)
 Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id 6D74DC088B;
-	Fri, 22 May 2020 11:27:15 +0000 (UTC)
+	by lists.linuxfoundation.org (Postfix) with ESMTP id E6B7EC016F;
+	Wed, 27 May 2020 06:19:22 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@lists.linuxfoundation.org
-Received: from hemlock.osuosl.org (smtp2.osuosl.org [140.211.166.133])
- by lists.linuxfoundation.org (Postfix) with ESMTP id 1FCF1C0176
+Received: from fraxinus.osuosl.org (smtp4.osuosl.org [140.211.166.137])
+ by lists.linuxfoundation.org (Postfix) with ESMTP id 87B75C016F
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Fri, 22 May 2020 11:27:13 +0000 (UTC)
+ Wed, 27 May 2020 06:19:20 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
- by hemlock.osuosl.org (Postfix) with ESMTP id 0EE3C89183
+ by fraxinus.osuosl.org (Postfix) with ESMTP id 779F98647F
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Fri, 22 May 2020 11:27:13 +0000 (UTC)
+ Wed, 27 May 2020 06:19:20 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from hemlock.osuosl.org ([127.0.0.1])
+Received: from fraxinus.osuosl.org ([127.0.0.1])
  by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id GXzAnROQ1B6d
+ with ESMTP id 6eTIVtG6wkmU
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Fri, 22 May 2020 11:27:12 +0000 (UTC)
-X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
-Received: from youngberry.canonical.com (youngberry.canonical.com
- [91.189.89.112])
- by hemlock.osuosl.org (Postfix) with ESMTPS id 017B98917D
+ Wed, 27 May 2020 06:19:19 +0000 (UTC)
+X-Greylist: whitelisted by SQLgrey-1.7.6
+Received: from smtp-fw-4101.amazon.com (smtp-fw-4101.amazon.com [72.21.198.25])
+ by fraxinus.osuosl.org (Postfix) with ESMTPS id 7386A86135
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Fri, 22 May 2020 11:27:11 +0000 (UTC)
-Received: from ip5f5af183.dynamic.kabel-deutschland.de ([95.90.241.131]
- helo=wittgenstein) by youngberry.canonical.com with esmtpsa
- (TLS1.2:ECDHE_RSA_AES_128_GCM_SHA256:128) (Exim 4.86_2)
- (envelope-from <christian.brauner@ubuntu.com>)
- id 1jc5pU-0004pz-I4; Fri, 22 May 2020 11:27:08 +0000
-Date: Fri, 22 May 2020 13:27:07 +0200
-From: Christian Brauner <christian.brauner@ubuntu.com>
-To: Aleksa Sarai <cyphar@cyphar.com>
-Message-ID: <20200522112707.zeoynrhxwe7f4w46@wittgenstein>
-References: <202005200917.71E6A5B20@keescook>
- <20200520163102.GZ23230@ZenIV.linux.org.uk>
- <202005201104.72FED15776@keescook>
- <CAHk-=wierGOJZhzrj1+R18id-WdfmK=eWT9YfWdCfMvEO+jLLg@mail.gmail.com>
- <202005201151.AFA3C9E@keescook>
- <CAHk-=wgwS8RJNuaLT1zV_bWGiEb3DndfQ3N85WK9aKP5Kurk_A@mail.gmail.com>
- <20200520202401.s22hstao4kzr5uma@wittgenstein>
- <202005201340.ED17EDC@keescook>
- <20200522040606.ec64dvpbldn3ufh3@yavin.dot.cyphar.com>
- <20200522073534.2ebkd6epuezso6sk@wittgenstein>
+ Wed, 27 May 2020 06:19:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
+ t=1590560359; x=1622096359;
+ h=from:to:subject:date:message-id:mime-version;
+ bh=VuWaQg1CC/bhu9TLqrNHDupjwyFFlDcSYv3CCfQWgHo=;
+ b=fbRcGokx4edaYodaezcnYAQAXFMBpRm5BDYHaNp7aJRsL3Tid5d8O60E
+ TWaqhhe3KY0mFseaWOVL8XF0ItHjhxLd8+BZ7G+lcp7F2+65bBZVhnhQf
+ qDAGLswz1Pr7IZBJLN/+9nMFRwIhcB/tnrxcV+bdc3I/NTeeZk43GU/dM E=;
+IronPort-SDR: A97WUcZ/IfTg/7QPuQAdsJWqmWk+itOdtfHIHvbRHWleZf0rygsZiqvfHqL/MnpnexgjXm4Tpu
+ 3uAaCbUSyU2A==
+X-IronPort-AV: E=Sophos;i="5.73,440,1583193600"; d="scan'208";a="32467840"
+Received: from iad12-co-svc-p1-lb1-vlan3.amazon.com (HELO
+ email-inbound-relay-2a-c5104f52.us-west-2.amazon.com) ([10.43.8.6])
+ by smtp-border-fw-out-4101.iad4.amazon.com with ESMTP;
+ 27 May 2020 06:19:06 +0000
+Received: from EX13MTAUEA002.ant.amazon.com
+ (pdx4-ws-svc-p6-lb7-vlan3.pdx.amazon.com [10.170.41.166])
+ by email-inbound-relay-2a-c5104f52.us-west-2.amazon.com (Postfix) with ESMTPS
+ id 59738A1782 for <ksummit-discuss@lists.linuxfoundation.org>;
+ Wed, 27 May 2020 06:19:06 +0000 (UTC)
+Received: from EX13D31EUA001.ant.amazon.com (10.43.165.15) by
+ EX13MTAUEA002.ant.amazon.com (10.43.61.77) with Microsoft SMTP Server (TLS)
+ id 15.0.1497.2; Wed, 27 May 2020 06:19:05 +0000
+Received: from u886c93fd17d25d.ant.amazon.com (10.43.162.200) by
+ EX13D31EUA001.ant.amazon.com (10.43.165.15) with Microsoft SMTP Server (TLS)
+ id 15.0.1497.2; Wed, 27 May 2020 06:19:03 +0000
+To: <ksummit-discuss@lists.linuxfoundation.org>
+Date: Wed, 27 May 2020 08:18:41 +0200
+Message-ID: <20200527061841.9212-1-sjpark@amazon.com>
+X-Mailer: git-send-email 2.17.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20200522073534.2ebkd6epuezso6sk@wittgenstein>
-Cc: ksummit <ksummit-discuss@lists.linuxfoundation.org>
-Subject: Re: [Ksummit-discuss] [TECH TOPIC] seccomp feature development
+X-Originating-IP: [10.43.162.200]
+X-ClientProxiedBy: EX13D08UWC001.ant.amazon.com (10.43.162.110) To
+ EX13D31EUA001.ant.amazon.com (10.43.165.15)
+Subject: [Ksummit-discuss] [TECH TOPIC] DAMON: Data Access Monitoring
+	Framework for Fun and Memory Management Optimizations
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.15
 Precedence: list
@@ -74,70 +85,119 @@ List-Post: <mailto:ksummit-discuss@lists.linuxfoundation.org>
 List-Help: <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=help>
 List-Subscribe: <https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss>, 
  <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=subscribe>
+From: SeongJae Park via Ksummit-discuss
+ <ksummit-discuss@lists.linuxfoundation.org>
+Reply-To: SeongJae Park <sjpark@amazon.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
-On Fri, May 22, 2020 at 09:35:35AM +0200, Christian Brauner wrote:
-> On Fri, May 22, 2020 at 02:06:06PM +1000, Aleksa Sarai wrote:
-> > On 2020-05-20, Kees Cook <keescook@chromium.org> wrote:
-> > > On Wed, May 20, 2020 at 10:24:01PM +0200, Christian Brauner wrote:
-> > > > On Wed, May 20, 2020 at 12:08:52PM -0700, Linus Torvalds wrote:
-> > > > > On Wed, May 20, 2020 at 12:04 PM Kees Cook <keescook@chromium.org> wrote:
-> > > > > > Perhaps the question is "how deeply does seccomp need to inspect?"
-> > > > > > and maybe it does not get to see anything beyond just the "top level"
-> > > > > > struct (i.e. struct clone_args) and all pointers within THAT become
-> > > > > > opaque? That certainly simplifies the design.
-> > > > > 
-> > > > > Exactly. I think that's the most common situation by far. Does anybody
-> > > > > really really need to care at a deep level, and why?
-> > > > 
-> > > > We mostly don't and making all second-level pointers opaque is ok imho.
-> > > 
-> > > That'll make things MUCH easier. :)
-> > 
-> > To be clear, my insistence on the second-level pointers topic is coming
-> > from the view that we should make sure whatever model we use for the
-> > first iteration of deep argument inspection can be expanded to
-> > second-level pointers if we need them. The jump-table proposal I had was
-> > just an example of how we could plan out a design that could be
-> > implemented piece-meal (heck, we don't even need jump-tables in the
-> > first iteration -- so long as we have an idea for how they'd work).
-> > 
-> > I also hasten to point out that if we make all second-level pointers
-> > opaque then you won't be able to filter clone3() based on ->set_tid.
-> 
-> That's not an interesting second-level case. Either turn it on or off;
-> base it on set_tid_size which tells you whether someone requested it or
-> not. There's absolutely no reason to filter around in set_tid size ([1]).
-> That was considered when adding this for checkpoint restore. You either
-> allow someone that is sufficiently capable in the owning user namespace
-> of each pid namespace it wants to select specific pids in or you simply
-> deny it. That's not a great strawman.
-> 
-> Interesting second level pointers are where you have second level
-> pointers that can point to differnet things or multiple features at once
-> based on an opaque switch. If you're looking for interesting second
-> level pointers look at bpf(). One example, is just the
-> BPF_OBJ_GET_INFO_BY_FD command wich passes a struct info which contains
-> an fd and depending on what type of fd that is, info can be either
-> struct bpf_prog_info, struct bpf_map_info, or struct bpf_btf_info some
-> of which can have other third level pointers in there.
+Background
+==========
 
-Other examples include (possibly epoll_ctl's struct epoll_event),
-struct iovec in general, {get,set}_robust_list(), kexec_load()'s struct
-kexec_segment, and sendmsg()'s and recvmsg()'s sruct msghdr with a large
-number of additional substructs passed through passing a struct iovec.
-Most of these I reckon are uninteresting and will just in general be not
-allowed if there's a problem.
+In an ideal world, memory management provides the optimal placement of data
+objects under accurate predictions of future data access.  Current practical
+implementations, however, rely on coarse information and heuristics to keep the
+instrumentation overhead minimal.  A number of memory management optimization
+works were therefore proposed, based on the finer-grained access information.
+Lots of those, however, incur high data access pattern instrumentation
+overhead, especially when the target workload is huge.  A few of the others
+were able to keep the overhead small by inventing efficient instrumentation
+mechanisms for their use case, but such mechanisms are usually applicable to
+their use cases only.
 
-> 
-> [1]: There already wouldn't be any point to this if it were a first
->      level pointer because you always need to determine the pid
->      namespace hierarchy of the caller first to know whether or not you
->      want to deny choosing a specific pid in a given namespace. That's
->      nonsense.
+We can list up below four requirements for the data access information
+instrumentation that must be fulfilled to allow adoption into a wide range of
+production environments:
+
+- Accuracy. The instrumented information should be useful for DRAM level memory
+  management.  Cache-level accuracy would not highly required, though.
+- Light-weight overhead.  The instrumentation overhead should be low enough to
+  be applied online while making no impact on the performance of the main
+  workload.
+- Scalability.  The upper-bound of the instrumentation overhead should be
+  controllable regardless of the size of target workloads, to be adopted in
+  general environments that could have huge workloads.
+- Generality.  The mechanism should be widely applicable.
+
+DAMON: Data Access MONitor
+==========================
+
+DAMON is a data access monitoring framework subsystem for the Linux kernel that
+designed to mitigate this problem.  The core mechanisms of DAMON called 'region
+based sampling' and 'adaptive regions adjustment' make it fulfill the
+requirements.  Moreover, its general design and flexible interface allow not
+only the kernel code but also the user space can use it.
+
+Using this framework, therefore, the kernel's core memory management mechanisms
+including reclamation and THP can be optimized for better memory management.
+The memory management optimization works that incurring high instrumentation
+overhead will be able to have another try.  In user space, meanwhile, users who
+have some special workloads will be able to write personalized tools or
+applications for deeper understanding and specialized optimizations of their
+systems.
+
+In addition to the basic monitoring, DAMON also provides a feature dedicated
+to semi-automated memory management optimizations, called DAMON-based Operation
+Schemes (DAMOS).  Using this feature, the DAMON users can implement complex
+data access aware optimizations in only a few lines of human-readable schemes
+descriptions.
+
+Overhead and Performance
+========================
+
+We evaluated DAMON's overhead, monitoring quality, and usefulness using 25
+realistic workloads on my QEMU/KVM based virtual machine.
+
+DAMON is lightweight. It increases system memory usage by only -0.39% and
+consumes less than 1% CPU time in the typical case.  It slows target workloads
+down by only 0.63%.
+
+DAMON is accurate and useful for memory management optimizations.  An
+experimental DAMON-based operation scheme for THP removes 69.43% of THP memory
+overhead while preserving 37.11% of THP speedup.  Another experimental
+DAMON-based reclamation scheme reduces 89.30% of residential sets and 22.40% of
+system memory footprint while incurring only 1.98% runtime overhead in the best
+case.
+
+Current Status of The Project
+=============================
+
+Development of DAMON started in 2019, and several iterations were presented in
+academic papers[1,2,3], the kernel summit of last year[4], and an LWN
+article[4].  The source code is available[6] for use and modification, the
+patchsets[7] are periodically being posted for review.
+
+Agenda
+======
+
+I will briefly introduce DAMON and share how it has evolved since last year's
+kernel summit talk.  I will introduce some new features, including the
+DAMON-based operation schemes.  There will be a live demonstration and I will
+show performance evaluation results.  I will outline plans and the roadmap of
+this project, leading to a Q&A session to collect feedback with a view on
+getting it ready for general use and upstream inclusion.
+
+
+[1] SeongJae Park, Yunjae Lee, Yunhee Kim, Heon Y. Yeom, Profiling Dynamic Data
+    Access Patterns with Bounded Overhead and Accuracy. In IEEE International
+    Workshop on Foundations and Applications of Self-* Systems (FAS* 2019),
+    June 2019. https://ieeexplore.ieee.org/abstract/document/8791992
+[2] SeongJae Park, Yunjae Lee, Heon Y. Yeom, Profiling Dynamic Data Access
+    Patterns with Controlled Overhead and Quality. In 20th ACM/IFIP
+    International Middleware Conference Industry, December 2019.
+    https://dl.acm.org/citation.cfm?id=3368125
+[3] Yunjae Lee, Yunhee Kim, and Heon. Y. Yeom, Lightweight Memory Tracing for
+    Hot Data Identification, In Cluster computing, 2020. (Accepted but not
+    published yet)
+[4] SeongJae Park, Tracing Data Access Pattern with Bounded Overhead and
+    Best-effort Accuracy. In The Linux Kernel Summit, September 2019.
+    https://linuxplumbersconf.org/event/4/contributions/548/
+[5] Jonathan Corbet, Memory-management optimization with DAMON. In Linux
+    Weekly News, February 2020. https://lwn.net/Articles/812707/
+[6] https://github.com/sjp38/linux/tree/damon/master
+[7] https://lore.kernel.org/linux-mm/20200525091512.30391-1-sjpark@amazon.com/
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
