@@ -2,78 +2,87 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from fraxinus.osuosl.org (smtp4.osuosl.org [140.211.166.137])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6B8C81F6A47
-	for <lists@lfdr.de>; Thu, 11 Jun 2020 16:48:41 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 504F61F6D23
+	for <lists@lfdr.de>; Thu, 11 Jun 2020 20:03:34 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
-	by fraxinus.osuosl.org (Postfix) with ESMTP id 5294487A80;
-	Thu, 11 Jun 2020 14:48:39 +0000 (UTC)
+	by fraxinus.osuosl.org (Postfix) with ESMTP id 3CC6487981;
+	Thu, 11 Jun 2020 18:03:31 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
 Received: from fraxinus.osuosl.org ([127.0.0.1])
 	by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id RrwB9Y92S29e; Thu, 11 Jun 2020 14:48:38 +0000 (UTC)
+	with ESMTP id A5_mMDc4IhJ7; Thu, 11 Jun 2020 18:03:30 +0000 (UTC)
 Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
-	by fraxinus.osuosl.org (Postfix) with ESMTP id C57D587A76;
-	Thu, 11 Jun 2020 14:48:38 +0000 (UTC)
+	by fraxinus.osuosl.org (Postfix) with ESMTP id 0282087A0D;
+	Thu, 11 Jun 2020 18:03:28 +0000 (UTC)
 Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id 8E90EC0893;
-	Thu, 11 Jun 2020 14:48:38 +0000 (UTC)
+	by lists.linuxfoundation.org (Postfix) with ESMTP id A4D58C016F;
+	Thu, 11 Jun 2020 18:03:27 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@lists.linuxfoundation.org
 Received: from whitealder.osuosl.org (smtp1.osuosl.org [140.211.166.138])
- by lists.linuxfoundation.org (Postfix) with ESMTP id 313CDC016F
+ by lists.linuxfoundation.org (Postfix) with ESMTP id C0DEBC016F
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Thu, 11 Jun 2020 14:48:36 +0000 (UTC)
+ Thu, 11 Jun 2020 18:03:24 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
- by whitealder.osuosl.org (Postfix) with ESMTP id 1BFFE88530
+ by whitealder.osuosl.org (Postfix) with ESMTP id A846A88705
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Thu, 11 Jun 2020 14:48:36 +0000 (UTC)
+ Thu, 11 Jun 2020 18:03:24 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
 Received: from whitealder.osuosl.org ([127.0.0.1])
  by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id jpma7j03E04Z
+ with ESMTP id Tr3exLkWacji
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Thu, 11 Jun 2020 14:48:35 +0000 (UTC)
+ Thu, 11 Jun 2020 18:03:24 +0000 (UTC)
 X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
-Received: from mail-lf1-f65.google.com (mail-lf1-f65.google.com
- [209.85.167.65])
- by whitealder.osuosl.org (Postfix) with ESMTPS id 115E88837C
+Received: from mail-oi1-f193.google.com (mail-oi1-f193.google.com
+ [209.85.167.193])
+ by whitealder.osuosl.org (Postfix) with ESMTPS id E65F0886EC
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Thu, 11 Jun 2020 14:48:35 +0000 (UTC)
-Received: by mail-lf1-f65.google.com with SMTP id z206so3664164lfc.6
+ Thu, 11 Jun 2020 18:03:23 +0000 (UTC)
+Received: by mail-oi1-f193.google.com with SMTP id a137so6241595oii.3
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Thu, 11 Jun 2020 07:48:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=SsjapID2C1+lzEI0Y6+LBgYZpWcvqWg5SYqB6L2wQ6M=;
- b=AHu9aoMD765gN68lPkrjapQwmVS4siD7pRJQ1NSA6SmFU6wEeF0p0VlceKMlqKp8qy
- 9I24yPcPxTIVmrJAQwZ1jo0MMgdn9vEy+/KrKBDELZLL8eRTgulutB2yDHDGU+3S++pA
- V6G00fy6LLRoBFjbbIveGStuZxWqH33FhrKbKDq2SoB3Ys3i4vv3kJ6zrmdAY8tIKgKV
- SKqwgfXo93DOtnh9pBhYhCTDsQfYpvxbGA1YSOaxu4OEihCScRieWDhj8PwLiF2kijSB
- lLh8KQbmQwrIbjUiA9NKlOhNtWCKUEU934EzXr7Q8t4fLslvtqpReJgYtI+XuI0x2Hgl
- TaiQ==
+ Thu, 11 Jun 2020 11:03:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=linuxfoundation.org; s=google;
+ h=subject:to:cc:references:from:message-id:date:user-agent
+ :mime-version:in-reply-to:content-language:content-transfer-encoding;
+ bh=JycxGLE6SJCJ4XeYlrlthMxV5MU5nKoxAEQe24XeKBw=;
+ b=Tb4qXnR1AzJIIaEGK5SzXs89Q7m+nuQuhu+jkl8hbsRLODkSFIX/N1He9EpTZGDvhu
+ ysitR9mta3cjaZZVMceysNeG+4WoL9qJki6bf/lBuyirdkmzCCDWxANnv4if5ovI3oGo
+ DizjxzVPsaugQPYGWJQx0vex6aKDoTXHAMmYE=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=SsjapID2C1+lzEI0Y6+LBgYZpWcvqWg5SYqB6L2wQ6M=;
- b=U9ChGogarK52mXYTAVvLxvOVQ2NrYgApjik+BaCzPcrhBIcKuzDQugh4a1TAN0G9Ea
- 5TVo5k0PtDKPWHvLk4YR4sMUjfFj0QGaCSiKjYW7wAPIsK/OdH3P28V5Dc12XS/fo1HF
- bm+7MC95M5XCqcxJOJSa1tNIgtxUNgAEPeReVidgmM+PpwxQyjrhWQnPGu8QKdt/INNP
- BvpqeiaBJXehV6sCCKWweMm8Z3kOf40E46QzBZN99LbqrtwkPguAg5Jj1Bpq1HwcU3a8
- N0mtHQOp+e4XwgCK4cQse1wEhauGZd/idD7mnAhkfbrYUi7orKrLNYsrPzqU1CFcid0g
- ewYQ==
-X-Gm-Message-State: AOAM531XapV3IMyk7TUuXW54IX8b0AWgRx86cIh//UTvL7Q79qTauuHG
- 2EanHmTiVAfoMBcs4d/lQt+G0map2fwJMKcNAg2kmr2TXB308g==
-X-Google-Smtp-Source: ABdhPJzhkKyGb+eeg0r4vO4g3q4Ce1s0kZXRl239HrjTgaLRTxZhzXrcR8IRVv4YRHMBv5x+RcoyUZ2CrWKY9gYK+eM=
-X-Received: by 2002:ac2:5cd1:: with SMTP id f17mr4250509lfq.4.1591886912776;
- Thu, 11 Jun 2020 07:48:32 -0700 (PDT)
-MIME-Version: 1.0
+ h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+ :user-agent:mime-version:in-reply-to:content-language
+ :content-transfer-encoding;
+ bh=JycxGLE6SJCJ4XeYlrlthMxV5MU5nKoxAEQe24XeKBw=;
+ b=BbUjA6aSjNC4T/cSIiGNSkGQ+cD0TEB/EOp+fhQO67W6DBD3lVd+7asZjJOq5IgU1E
+ jxYQFbhR6ycSPNubRu6IU1dstqWYV/4n0Z4rcWFjGCV/m3KyJWSZjYGbR+BWWTENolwL
+ Erion3/3BngSey5F0JweBUHfHABzZKoCaICRpz9XKazJSHjMyrszcgiceXLAnkhlYCT9
+ 0BEojDpnjVDh0uVZ35Xq9mTfJR0NBrqNHfpR3fFgCDw6KsXNsxPPVtzES4IS1EyKmHyb
+ /YhWfmVdmeo6hTGLTxjNEyqxUc8g9b6+u5KHpVSTRpXlhOkmMiF8wezyqNpTMCXXI3Vs
+ XUfg==
+X-Gm-Message-State: AOAM531LLoKrj9/lse+tocMYdCG+O79bj0MZvZqHspyTEp68MK5LdPwI
+ pH8G7vISQh1BtdXFT1Xzgfkg1zuc
+X-Google-Smtp-Source: ABdhPJzlhGPXGIFcJAIPagZJiC/Hy330fuSHPClVTiIRh2p2tF+3i9NKUBFbF79tZggFX4mdWZoY+Q==
+X-Received: by 2002:aca:7554:: with SMTP id q81mr7202681oic.61.1591898603066; 
+ Thu, 11 Jun 2020 11:03:23 -0700 (PDT)
+Received: from [192.168.1.112] (c-24-9-64-241.hsd1.co.comcast.net.
+ [24.9.64.241])
+ by smtp.gmail.com with ESMTPSA id g51sm808861otg.17.2020.06.11.11.03.22
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Thu, 11 Jun 2020 11:03:22 -0700 (PDT)
+To: Linus Walleij <linus.walleij@linaro.org>, Jonathan Corbet <corbet@lwn.net>
 References: <20200609145353.628a342d@lwn.net>
-In-Reply-To: <20200609145353.628a342d@lwn.net>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Thu, 11 Jun 2020 16:48:21 +0200
-Message-ID: <CACRpkdZOxaA9fpd0zFa_GGo1boOEbOoxNbaUavXbewp=CLbEDg@mail.gmail.com>
-To: Jonathan Corbet <corbet@lwn.net>
+ <CACRpkdZOxaA9fpd0zFa_GGo1boOEbOoxNbaUavXbewp=CLbEDg@mail.gmail.com>
+From: Shuah Khan <skhan@linuxfoundation.org>
+Message-ID: <8f68863a-d04c-4502-f88e-2a8b0e3c7968@linuxfoundation.org>
+Date: Thu, 11 Jun 2020 12:03:21 -0600
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.8.0
+MIME-Version: 1.0
+In-Reply-To: <CACRpkdZOxaA9fpd0zFa_GGo1boOEbOoxNbaUavXbewp=CLbEDg@mail.gmail.com>
+Content-Language: en-US
 Cc: ksummit <ksummit-discuss@lists.linuxfoundation.org>
 Subject: Re: [Ksummit-discuss] [TECH TOPIC] Documentation
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
@@ -87,39 +96,72 @@ List-Post: <mailto:ksummit-discuss@lists.linuxfoundation.org>
 List-Help: <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=help>
 List-Subscribe: <https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss>, 
  <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
-On Tue, Jun 9, 2020 at 10:54 PM Jonathan Corbet <corbet@lwn.net> wrote:
+On 6/11/20 8:48 AM, Linus Walleij wrote:
+> On Tue, Jun 9, 2020 at 10:54 PM Jonathan Corbet <corbet@lwn.net> wrote:
+> 
+>> What are the next steps for kernel documentation?  What would we really
+>> like our docs to look like, and how might we find the resources to get
+>> them to that point?
+> 
+> We have a whole slew of quite basic introductory materials to the very
+> fundamental kernel data structures that are scattered all over the planet
+> and in the LWN kernel archive. All in often slightly dated variants.
+> Examples:
+> https://www.kernel.org/doc/gorman/html/understand/understand006.html
+> http://vger.kernel.org/~davem/skb_data.html
+> 
+> I suppose technical writers could benefit from a global TODO list with
+> this kind of subjects such as "document the basic arch interface",
+> "document what an skb is", "document how the page directory works".
+> 
 
-> What are the next steps for kernel documentation?  What would we really
-> like our docs to look like, and how might we find the resources to get
-> them to that point?
+I totally agree. A solid TODO list is necessary to channel efforts.
 
-We have a whole slew of quite basic introductory materials to the very
-fundamental kernel data structures that are scattered all over the planet
-and in the LWN kernel archive. All in often slightly dated variants.
-Examples:
-https://www.kernel.org/doc/gorman/html/understand/understand006.html
-http://vger.kernel.org/~davem/skb_data.html
+> Right now it is a mixture of read the code, "everybody knows how that
+> works" and random sources on the Internet, which isn't very helpful
+> to newcomers.
+> 
 
-I suppose technical writers could benefit from a global TODO list with
-this kind of subjects such as "document the basic arch interface",
-"document what an skb is", "document how the page directory works".
+Also true. I New comers are intimidated to ask questions in the first
+place and they might not get responses. It boils down to bandwidth
+more often than not. People that know the sub-systems well might not
+have time to document and more importantly keeping the documents
+updated.
 
-Right now it is a mixture of read the code, "everybody knows how that
-works" and random sources on the Internet, which isn't very helpful
-to newcomers.
+> I second Vetters point to tie this documentation in tightly with the code
+> implementing it even pretty substantial text chunks IMO, the idea can be
+> attributed to Donald Knuth's book on literate programming from 1984,
+> and while he was a bit enthusiastic the idea isn't bad at all.
+> 
 
-I second Vetters point to tie this documentation in tightly with the code
-implementing it even pretty substantial text chunks IMO, the idea can be
-attributed to Donald Knuth's book on literate programming from 1984,
-and while he was a bit enthusiastic the idea isn't bad at all.
+It definitely helps to that. I do see lots of calls without no comments
+and usage information. For this to work, we have to give feedback during
+the review process. This is necessary for commit logs as well.
 
-Yours,
-Linus Walleij
+I am interested in this topic as I help new developers and I often hear
+the same concern that there aren't resources for them to learn and
+understand kernel subsystems.
+
+I have been reaching out to new contributors to kernel for the last
+6 releases starting with Linux 5.1 asking
+
+"What suggestions do you have for improving the materials and guidance
+available to new contributors?"
+
+The feedback always is request for updated information in kernel
+documentation and online resources. I will be glad to share detailed
+feedback if there is interest.
+
+Addressing the need in providing kernel documentation could address
+the need.
+
+thanks,
+-- Shuah
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
