@@ -1,77 +1,81 @@
 Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
-Received: from silver.osuosl.org (smtp3.osuosl.org [140.211.166.136])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3E04521493D
-	for <lists@lfdr.de>; Sun,  5 Jul 2020 02:09:09 +0200 (CEST)
+Received: from fraxinus.osuosl.org (smtp4.osuosl.org [140.211.166.137])
+	by mail.lfdr.de (Postfix) with ESMTPS id 36F0321493F
+	for <lists@lfdr.de>; Sun,  5 Jul 2020 02:10:54 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
-	by silver.osuosl.org (Postfix) with ESMTP id BC28921F76;
-	Sun,  5 Jul 2020 00:09:07 +0000 (UTC)
+	by fraxinus.osuosl.org (Postfix) with ESMTP id F047E86C7E;
+	Sun,  5 Jul 2020 00:10:51 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from silver.osuosl.org ([127.0.0.1])
+Received: from fraxinus.osuosl.org ([127.0.0.1])
 	by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id INFH3LzDeT8h; Sun,  5 Jul 2020 00:09:06 +0000 (UTC)
+	with ESMTP id P17XDhHhqlGy; Sun,  5 Jul 2020 00:10:51 +0000 (UTC)
 Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
-	by silver.osuosl.org (Postfix) with ESMTP id 0D53822624;
-	Sun,  5 Jul 2020 00:09:06 +0000 (UTC)
+	by fraxinus.osuosl.org (Postfix) with ESMTP id 0409787650;
+	Sun,  5 Jul 2020 00:10:51 +0000 (UTC)
 Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id EB1BDC088C;
-	Sun,  5 Jul 2020 00:09:05 +0000 (UTC)
+	by lists.linuxfoundation.org (Postfix) with ESMTP id B3478C0733;
+	Sun,  5 Jul 2020 00:10:50 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@lists.linuxfoundation.org
 Received: from silver.osuosl.org (smtp3.osuosl.org [140.211.166.136])
- by lists.linuxfoundation.org (Postfix) with ESMTP id 7DBABC0733;
- Sun,  5 Jul 2020 00:09:04 +0000 (UTC)
+ by lists.linuxfoundation.org (Postfix) with ESMTP id 7C92CC0733;
+ Sun,  5 Jul 2020 00:10:49 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
- by silver.osuosl.org (Postfix) with ESMTP id 4216821F76;
- Sun,  5 Jul 2020 00:09:04 +0000 (UTC)
+ by silver.osuosl.org (Postfix) with ESMTP id 70D4722658;
+ Sun,  5 Jul 2020 00:10:49 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
 Received: from silver.osuosl.org ([127.0.0.1])
  by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id tw5ST-jeq0zS; Sun,  5 Jul 2020 00:09:03 +0000 (UTC)
-X-Greylist: delayed 02:17:48 by SQLgrey-1.7.6
-X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
-Received: from smtprelay.hostedemail.com (smtprelay0121.hostedemail.com
- [216.40.44.121])
- by silver.osuosl.org (Postfix) with ESMTPS id 29AAF203B4;
- Sun,  5 Jul 2020 00:09:03 +0000 (UTC)
-Received: from smtprelay.hostedemail.com (10.5.19.251.rfc1918.com
- [10.5.19.251])
- by smtpgrave03.hostedemail.com (Postfix) with ESMTP id 6C979181CA08C;
- Sun,  5 Jul 2020 00:09:01 +0000 (UTC)
-Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net
- [216.40.38.60])
- by smtprelay08.hostedemail.com (Postfix) with ESMTP id BEE0D182CED28;
- Sun,  5 Jul 2020 00:08:58 +0000 (UTC)
-X-Session-Marker: 6A6F6540706572636865732E636F6D
-X-Spam-Summary: 2, 0, 0, , d41d8cd98f00b204, joe@perches.com, ,
- RULES_HIT:41:355:379:599:988:989:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1534:1537:1561:1593:1594:1711:1714:1730:1747:1777:1792:1963:2393:2559:2562:2828:3138:3139:3140:3141:3142:3622:3865:3867:3870:4321:5007:6119:10004:10400:10848:11232:11658:11914:12297:12740:12760:12895:13069:13255:13311:13357:13439:14659:14721:21080:21433:21627:30054:30091,
- 0, RBL:none, CacheIP:none, Bayesian:0.5, 0.5, 0.5, Netcheck:none,
- DomainCache:0, MSF:not bulk, SPF:, MSBL:0, DNSBL:none, Custom_rules:0:0:0,
- LFtime:1, LUA_SUMMARY:none
-X-HE-Tag: kitty07_070d31526e9e
-X-Filterd-Recvd-Size: 1631
-Received: from XPS-9350.home (unknown [47.151.133.149])
- (Authenticated sender: joe@perches.com)
- by omf13.hostedemail.com (Postfix) with ESMTPA;
- Sun,  5 Jul 2020 00:08:57 +0000 (UTC)
-Message-ID: <5499a8192434347d864cf1b2ce78c5ef135197ae.camel@perches.com>
-From: Joe Perches <joe@perches.com>
-To: Dave Airlie <airlied@gmail.com>, James Bottomley
- <James.Bottomley@hansenpartnership.com>
-Date: Sat, 04 Jul 2020 17:08:56 -0700
-In-Reply-To: <CAPM=9tyjdzU-O2nAWFngGSE=aSfUsaRer9x3bk8hpyhCOX0Bew@mail.gmail.com>
-References: <159389297140.2210796.13590142254668787525.stgit@dwillia2-desk3.amr.corp.intel.com>
- <1593897917.7058.11.camel@HansenPartnership.com>
- <CAPM=9tyjdzU-O2nAWFngGSE=aSfUsaRer9x3bk8hpyhCOX0Bew@mail.gmail.com>
-User-Agent: Evolution 3.36.3-0ubuntu1 
+ with ESMTP id 0l3eg-1pgcUZ; Sun,  5 Jul 2020 00:10:47 +0000 (UTC)
+X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
+X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
+Received: from mail-ot1-f43.google.com (mail-ot1-f43.google.com
+ [209.85.210.43])
+ by silver.osuosl.org (Postfix) with ESMTPS id 4CEC32262E;
+ Sun,  5 Jul 2020 00:10:47 +0000 (UTC)
+Received: by mail-ot1-f43.google.com with SMTP id 95so18484734otw.10;
+ Sat, 04 Jul 2020 17:10:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=AAfvD7eVUzykpqTaydQQI48xJpTAV1lbxBxPht4H96U=;
+ b=QUj/PKjNgozBmv2sAuPUPnOlMX/emem4MsXvBMPpj7opOz960SIeDY55KmJvUnEdMI
+ 0DCfxdAo+ZUPGZb5xGL6Pw5A04K14pXnxR+IOJNSEQLA/7+9krrk4ctECZSv3HhoqAt+
+ Y8xBAv2qiA7jbXOptaVcmK2c5xtTtAzLl0P8vxy81sKxDee8M3sywC6Q2ss4nvaoIFLr
+ gvhIJi8dlNkppW8RFqxn1xNP7HwQu/LZXcV4ClADkbpLhb/5zum9sDtSBTErONNRspGu
+ LGimdttxOUYQjAedcAGCuvU8hiHk5FYWZXNYMdqWYMMWVpCPX11YV2hZnglbZE8rF3Ze
+ SSbg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=AAfvD7eVUzykpqTaydQQI48xJpTAV1lbxBxPht4H96U=;
+ b=Y8WHl5U1CXLDhclEnipNvybpi+CVwdT6pCzDcCA6MLUHTJggTcJ+CW0phSahJnWitc
+ Z0oHehA3zkAg/hzDwsi6f9XYARzhxC86d6bBB7H/ckrp0EGFp4ic8Zkbdg0sN6gjrRMe
+ o/YtNfTTITzIzsEFaenMq3e+FVkRL6Pwre24cTUdpxamxBxtC5zo5DywCDKikhCgtYTF
+ s/Njzx4oInjWXxrgV+G5OHUHDTt9Hx8Pks8FzMjfXuZdDZHomP61tsOoJSOPc5GKHeZS
+ 30PahneZWz7Yi3EcJRho0O+E+JEFS18/+fFMOx1BA5zQe1/Jk0pRang9I0BNoNjq/5u4
+ 17MA==
+X-Gm-Message-State: AOAM532U9N+DcArFV8eHrxcP7WLkAaaqgn2qfTWVRQr8AFF3ysvScaDr
+ 8iAD+gSjNtX/nJHsWMtQLX7wYbnHkiphfNvcUhE=
+X-Google-Smtp-Source: ABdhPJx4P9xmjxbshaRZ038bQLfWtJruGUTpuYqvvf/NdpzL1WljsizMm2LPGPUMc1qfAJqlQysj/qLd+xMieg17ssg=
+X-Received: by 2002:a9d:424:: with SMTP id 33mr19473364otc.76.1593907846387;
+ Sat, 04 Jul 2020 17:10:46 -0700 (PDT)
 MIME-Version: 1.0
+References: <159389297140.2210796.13590142254668787525.stgit@dwillia2-desk3.amr.corp.intel.com>
+ <920e6dc0-628b-9bad-926a-d1238a373cda@infradead.org>
+ <CAPM=9ty0tiL_qM_UFv0S0VtARKz_f-Anngc+amDM5LjGAHazhA@mail.gmail.com>
+In-Reply-To: <CAPM=9ty0tiL_qM_UFv0S0VtARKz_f-Anngc+amDM5LjGAHazhA@mail.gmail.com>
+From: Matthew Wilcox <willy6545@gmail.com>
+Date: Sat, 4 Jul 2020 20:10:33 -0400
+Message-ID: <CAFhKne9MA_G-UsvBFfX-gZRcu9Gb7Xt7UxQ14MTppdU3X1VYdQ@mail.gmail.com>
+To: Dave Airlie <airlied@gmail.com>
 Cc: ksummit <ksummit-discuss@lists.linuxfoundation.org>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  LKML <linux-kernel@vger.kernel.org>,
  tech-board-discuss@lists.linuxfoundation.org, Chris Mason <clm@fb.clm>
-Subject: Re: [Ksummit-discuss] [Tech-board-discuss] [PATCH] CodingStyle:
- Inclusive Terminology
+Subject: Re: [Ksummit-discuss] [PATCH] CodingStyle: Inclusive Terminology
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.15
 Precedence: list
@@ -83,24 +87,114 @@ List-Post: <mailto:ksummit-discuss@lists.linuxfoundation.org>
 List-Help: <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=help>
 List-Subscribe: <https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss>, 
  <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5092817359549992651=="
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
-On Sun, 2020-07-05 at 09:39 +1000, Dave Airlie wrote:
-> Why haven't they submitted patches
-> removing slavery terminology from the kernel before?
+--===============5092817359549992651==
+Content-Type: multipart/alternative; boundary="000000000000fd19d205a9a696ba"
 
-Because inhuman devices in a master/slave hierarchy isn't
-anything like chattel slavery?
+--000000000000fd19d205a9a696ba
+Content-Type: text/plain; charset="UTF-8"
 
-Blacklist/whitelist has nothing to do with skin color?
+Erm, red-black trees don't have a derivation from gambling terminology
+either. The wikipedia article says:
 
-Are red-black trees next?
+In a 1978 paper, "A Dichromatic Framework for Balanced Trees",[6] Leonidas
+J. Guibas and Robert Sedgewick derived the red-black tree from the
+symmetric binary B-tree.[7] The color "red" was chosen because it was the
+best-looking color produced by the color laser printer available to the
+authors while working at Xerox PARC.[8] Another response from Guibas states
+that it was because of the red and black pens available to them to draw the
+trees.[9]
 
+Left-right tree makes no sense. It doesn't distinguish the rbtree from its
+predecessor the avl tree.  I don't think it's helpful to rename a standard
+piece of computing terminology unless it's actually hurting us to have it.
+Obviously if it were called a "master-slave" tree, I would be in favour of
+renaming it.
+
+On Sat., Jul. 4, 2020, 19:42 Dave Airlie, <airlied@gmail.com> wrote:
+
+> '. Colors to represent a policy requires an indirection. The
+> >
+> > how about:
+> >               Using colors to represent a policy requires an indirection.
+>
+> I'd totally submit that red/black trees while in no way racist, are a
+> horrible indirection, as it means nothing if you've never interacted
+> with gambling culture, (and maybe James Bond movies).
+>
+> left/right trees make naturally more sense and translate into more
+> languages, so yes I think removal of color naming is a good thing even
+> for non-racist reasonings.
+>
+> Dave.
+> _______________________________________________
+> Ksummit-discuss mailing list
+> Ksummit-discuss@lists.linuxfoundation.org
+> https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss
+>
+
+--000000000000fd19d205a9a696ba
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto">Erm, red-black trees don&#39;t have a derivation from gam=
+bling terminology either. The wikipedia article says:<div dir=3D"auto"><br>=
+</div><div dir=3D"auto">In a 1978 paper, &quot;A Dichromatic Framework for =
+Balanced Trees&quot;,[6] Leonidas J. Guibas and Robert Sedgewick derived th=
+e red-black tree from the symmetric binary B-tree.[7] The color &quot;red&q=
+uot; was chosen because it was the best-looking color produced by the color=
+ laser printer available to the authors while working at Xerox PARC.[8] Ano=
+ther response from Guibas states that it was because of the red and black p=
+ens available to them to draw the trees.[9]<br></div><div dir=3D"auto"><br>=
+</div><div dir=3D"auto">Left-right tree makes no sense. It doesn&#39;t dist=
+inguish the rbtree from its predecessor the avl tree.=C2=A0 I don&#39;t thi=
+nk it&#39;s helpful to rename a standard piece of computing terminology unl=
+ess it&#39;s actually hurting us to have it. Obviously if it were called a =
+&quot;master-slave&quot; tree, I would be in favour of renaming it.</div></=
+div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On=
+ Sat., Jul. 4, 2020, 19:42 Dave Airlie, &lt;<a href=3D"mailto:airlied@gmail=
+.com">airlied@gmail.com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_=
+quote" style=3D"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1=
+ex">&#39;. Colors to represent a policy requires an indirection. The<br>
+&gt;<br>
+&gt; how about:<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0Using colors to =
+represent a policy requires an indirection.<br>
+<br>
+I&#39;d totally submit that red/black trees while in no way racist, are a<b=
+r>
+horrible indirection, as it means nothing if you&#39;ve never interacted<br=
+>
+with gambling culture, (and maybe James Bond movies).<br>
+<br>
+left/right trees make naturally more sense and translate into more<br>
+languages, so yes I think removal of color naming is a good thing even<br>
+for non-racist reasonings.<br>
+<br>
+Dave.<br>
+_______________________________________________<br>
+Ksummit-discuss mailing list<br>
+<a href=3D"mailto:Ksummit-discuss@lists.linuxfoundation.org" target=3D"_bla=
+nk" rel=3D"noreferrer">Ksummit-discuss@lists.linuxfoundation.org</a><br>
+<a href=3D"https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discu=
+ss" rel=3D"noreferrer noreferrer" target=3D"_blank">https://lists.linuxfoun=
+dation.org/mailman/listinfo/ksummit-discuss</a><br>
+</blockquote></div>
+
+--000000000000fd19d205a9a696ba--
+
+--===============5092817359549992651==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
 https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss
+
+--===============5092817359549992651==--
