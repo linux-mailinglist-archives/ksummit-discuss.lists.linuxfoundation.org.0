@@ -2,67 +2,81 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from hemlock.osuosl.org (smtp2.osuosl.org [140.211.166.133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5F6EC2158E3
-	for <lists@lfdr.de>; Mon,  6 Jul 2020 15:55:47 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 3B2242158E6
+	for <lists@lfdr.de>; Mon,  6 Jul 2020 15:56:46 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
-	by hemlock.osuosl.org (Postfix) with ESMTP id DBF8D88F7E;
-	Mon,  6 Jul 2020 13:55:38 +0000 (UTC)
+	by hemlock.osuosl.org (Postfix) with ESMTP id B20A5892B5;
+	Mon,  6 Jul 2020 13:55:40 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
 Received: from hemlock.osuosl.org ([127.0.0.1])
 	by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id h91Gp4wXeoFz; Mon,  6 Jul 2020 13:55:38 +0000 (UTC)
+	with ESMTP id iEkUk8x4gVS6; Mon,  6 Jul 2020 13:55:38 +0000 (UTC)
 Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
-	by hemlock.osuosl.org (Postfix) with ESMTP id 8F28A88F87;
-	Mon,  6 Jul 2020 13:55:36 +0000 (UTC)
+	by hemlock.osuosl.org (Postfix) with ESMTP id 3A12E8917D;
+	Mon,  6 Jul 2020 13:55:37 +0000 (UTC)
 Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id 62E9DC08A8;
+	by lists.linuxfoundation.org (Postfix) with ESMTP id D3E2EC016F;
 	Mon,  6 Jul 2020 13:55:36 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@lists.linuxfoundation.org
-Received: from hemlock.osuosl.org (smtp2.osuosl.org [140.211.166.133])
- by lists.linuxfoundation.org (Postfix) with ESMTP id 1EFE0C016F;
- Sun,  5 Jul 2020 18:00:12 +0000 (UTC)
+Received: from whitealder.osuosl.org (smtp1.osuosl.org [140.211.166.138])
+ by lists.linuxfoundation.org (Postfix) with ESMTP id 9192CC016F
+ for <ksummit-discuss@lists.linuxfoundation.org>;
+ Mon,  6 Jul 2020 03:18:40 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
- by hemlock.osuosl.org (Postfix) with ESMTP id 0C9D788661;
- Sun,  5 Jul 2020 18:00:12 +0000 (UTC)
+ by whitealder.osuosl.org (Postfix) with ESMTP id 79F9A88504
+ for <ksummit-discuss@lists.linuxfoundation.org>;
+ Mon,  6 Jul 2020 03:18:40 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from hemlock.osuosl.org ([127.0.0.1])
+Received: from whitealder.osuosl.org ([127.0.0.1])
  by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id Wtn92Cg5evZY; Sun,  5 Jul 2020 18:00:10 +0000 (UTC)
-X-Greylist: delayed 00:09:25 by SQLgrey-1.7.6
-X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
-Received: from mx1.volatile.bz (mx1.volatile.bz [185.163.46.101])
- by hemlock.osuosl.org (Postfix) with ESMTPS id D82438853D;
- Sun,  5 Jul 2020 18:00:09 +0000 (UTC)
-Received: from mahin.wowana.me (unknown [IPv6:2001:67c:2db8:301:1845::2])
- by mx1.volatile.bz (Postfix) with ESMTPSA id B94DF4E7;
- Sun,  5 Jul 2020 17:50:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=wowana.me; s=default;
- t=1593971441; bh=bSmlbJyHSCXLfi+Y6gH6+D6+oj2SR366tyTPTaadWy4=;
- h=Date:From:To:Cc:Subject:In-Reply-To:References;
- b=Ye8SGNdcjLPDZsaSQcm65BclPp1Q4z1zdGR4HRjwcDJ+MQFHZDa53Jilbamfb8Wtw
- 3XZunKgbB2GzDEcOsoWWXDz8y0DJMXU4SjyVGvluekEX0eVVauHG8NHqTaomq6Zq5R
- AC2DvGzMSPl42Sd9FAp9uRtjySWuCXzNShDb5TKY=
-Date: Sun, 5 Jul 2020 17:50:31 +0000
-From: opal hart <opal@wowana.me>
-To: Dave Airlie <airlied@gmail.com>
-Message-ID: <20200705175031.4d7fa711@mahin.wowana.me>
-In-Reply-To: <CAPM=9tyjdzU-O2nAWFngGSE=aSfUsaRer9x3bk8hpyhCOX0Bew@mail.gmail.com>
-References: <159389297140.2210796.13590142254668787525.stgit@dwillia2-desk3.amr.corp.intel.com>
- <1593897917.7058.11.camel@HansenPartnership.com>
- <CAPM=9tyjdzU-O2nAWFngGSE=aSfUsaRer9x3bk8hpyhCOX0Bew@mail.gmail.com>
-Organization: Volatile
-X-Mailer: Claws Mail 3.17.5 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
-X-Face: &TPnio^VF7_~k^se; yA:fep*U;
- :Kzv1Q3'cYEY/#q"NyebT}po2wD}dNr}JF,f?%"Dh}(dq1C(0[dS`.(SJ2CDil=W'B9>O7p^P-+|v6Tj}|EJg8.&>YXtniHyR:=nf1,HE(NWu#C.GW
+ with ESMTP id WLDAk9lUMFSZ
+ for <ksummit-discuss@lists.linuxfoundation.org>;
+ Mon,  6 Jul 2020 03:18:39 +0000 (UTC)
+X-Greylist: delayed 00:05:05 by SQLgrey-1.7.6
+Received: from mail-wm1-f65.google.com (mail-wm1-f65.google.com
+ [209.85.128.65])
+ by whitealder.osuosl.org (Postfix) with ESMTPS id 02F398746B
+ for <ksummit-discuss@lists.linuxfoundation.org>;
+ Mon,  6 Jul 2020 03:18:38 +0000 (UTC)
+Received: by mail-wm1-f65.google.com with SMTP id f139so40344742wmf.5
+ for <ksummit-discuss@lists.linuxfoundation.org>;
+ Sun, 05 Jul 2020 20:18:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=0x0f.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=nr50V7tn4Q86r235t3i6fTqGi0eaGxnf83LBZQTEWJ4=;
+ b=IVgCIdZ1fdyJ/ueZWXvNLujhD/ItQZmfywlnzlVUzj+QJMzwEGuIugD99RDKVCO8yD
+ BbF9C4isTrmHGMPCIPtVz7K6fslSXe0FsAuDoDkrcH1HIHWVzh2ytCipq/wdVlMLI6jT
+ QdGrlarHQN7K13Wb/uTZell3eXj7NOvl5N8yE=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=nr50V7tn4Q86r235t3i6fTqGi0eaGxnf83LBZQTEWJ4=;
+ b=BOmpveKfAq9pLStyX0wUBAIQrsZ0qPkkefzqs2t3JJLFZPOMkqv6SyVuh3wpVS1eh8
+ 0KQ2fumjMm7/Drz7u+AmPX5rtPp7kz6Fd1+cSwJNEM/CG+C2TwsGXXUPZIIygy7qrb6w
+ NQ9jJ9VsXjfsR1O+TGNGw21b7VggAZZMt6hfxBlnuEibC3gxANj5H8IFzVc173i3g4xs
+ y8Q4rzgcFsHh0gcWIdAJ3CpWCNwEq9lcNXRE/zL+CPZnJtfTFLxyR7vmRZq4FvZItcms
+ PfAZLsPMq5WvguytJqZzMg8TkOCIL/BSB67/MMSFsH4l75o57nF1Vzoj9hyLyepzzAUO
+ BU3A==
+X-Gm-Message-State: AOAM532CJIS8szP688cf9v3QQPKr9JLCucJM56Gpr/4SC2FsbDW7djwe
+ qZApAEdA08ZBgjpwA5vMSEYT2UVJjB7/CDbbXgl7uM8C2dmPsQ==
+X-Google-Smtp-Source: ABdhPJyN99BeGm9A2Rz/YYoo8bjGijPt5/+BN2tFGB56CztqStsKXLo+n5eHwOgVVwENrY+PfxE1PRUw1XTAhP2rD14=
+X-Received: by 2002:a1c:1f09:: with SMTP id f9mr49533729wmf.137.1594005212447; 
+ Sun, 05 Jul 2020 20:13:32 -0700 (PDT)
 MIME-Version: 1.0
+References: <159389297140.2210796.13590142254668787525.stgit@dwillia2-desk3.amr.corp.intel.com>
+ <20200705045505.GA2962@1wt.eu>
+In-Reply-To: <20200705045505.GA2962@1wt.eu>
+From: Daniel Palmer <daniel@0x0f.com>
+Date: Mon, 6 Jul 2020 12:13:21 +0900
+Message-ID: <CAFr9PXnr0R71_o_0-Xmw0tcN9UUTMu1ahgp3ig5kE0LG=6N5WA@mail.gmail.com>
+To: Willy Tarreau <w@1wt.eu>
 X-Mailman-Approved-At: Mon, 06 Jul 2020 13:55:33 +0000
-Cc: ksummit <ksummit-discuss@lists.linuxfoundation.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- LKML <linux-kernel@vger.kernel.org>,
+Cc: ksummit-discuss@lists.linuxfoundation.org,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
  tech-board-discuss@lists.linuxfoundation.org, Chris Mason <clm@fb.clm>
-Subject: Re: [Ksummit-discuss] [Tech-board-discuss] [PATCH] CodingStyle:
- Inclusive Terminology
+Subject: Re: [Ksummit-discuss] [PATCH] CodingStyle: Inclusive Terminology
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.15
 Precedence: list
@@ -79,25 +93,34 @@ Content-Transfer-Encoding: 7bit
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
-On Sun, 5 Jul 2020 09:39:29 +1000
-Dave Airlie <airlied@gmail.com> wrote:
+Hi Willy,
 
-> I don't totally agree on that, because like the CoC discussion, people
-> need concrete examples. People need reasons, saying simply "be
-> inclusive" doesn't work.
+On Sun, 5 Jul 2020 at 13:55, Willy Tarreau <w@1wt.eu> wrote:
 
-Which people? because so far the only people I've seen take these
-terminologies out of computing context, are those who are only voicing
-their "concern" out of bad faith, as well as those who fall for the
-concern-trolling bait. The meta-discussion serves to stir up noise and
-waste time that's better spent on other things.
+> I'm personally thinking that for a non-native speaker it's already
+> difficult to find the best term to describe something,
 
-History pains, sure, but I believe it serves no justice to erase every
-trace of bad things that happened in history. That includes use of
-words tangentially related to such events.
+I'm a nobody in the kernel world but this point made me think.
 
--- 
-wowaname <https://wowana.me/pgp.xht>
+I'm a native English speaker but I don't live in an English speaking
+place and my experience is that a lot of technology terms have been
+directly imported from English into the local language almost as-is.
+
+In my case master/slave have been directly transliterated into
+Japanese as masuta and sureebu and exists like that in technical
+documentation for example:
+https://www.analog.com/jp/analog-dialogue/articles/introduction-to-spi-interface.html#
+
+I can imagine that by changing terminology that has been in use for so
+long that it's been imported into other languages directly or is
+common enough that non-native speakers know what it means might have
+exactly the opposite result by excluding people that aren't native
+English speakers and can't decode synonyms that are obvious to a
+native speaker.
+
+Cheers,
+
+Daniel
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
