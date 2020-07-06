@@ -1,77 +1,79 @@
 Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
-Received: from silver.osuosl.org (smtp3.osuosl.org [140.211.166.136])
-	by mail.lfdr.de (Postfix) with ESMTPS id B9D3B2175D0
-	for <lists@lfdr.de>; Tue,  7 Jul 2020 20:04:25 +0200 (CEST)
+Received: from whitealder.osuosl.org (smtp1.osuosl.org [140.211.166.138])
+	by mail.lfdr.de (Postfix) with ESMTPS id 44A282175D4
+	for <lists@lfdr.de>; Tue,  7 Jul 2020 20:05:19 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
-	by silver.osuosl.org (Postfix) with ESMTP id CBB5A2A0FA;
-	Tue,  7 Jul 2020 18:04:23 +0000 (UTC)
+	by whitealder.osuosl.org (Postfix) with ESMTP id 80ACB88111;
+	Tue,  7 Jul 2020 18:04:26 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from silver.osuosl.org ([127.0.0.1])
+Received: from whitealder.osuosl.org ([127.0.0.1])
 	by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id ojxtxBtrRliA; Tue,  7 Jul 2020 18:04:20 +0000 (UTC)
+	with ESMTP id 5x+TbnYZ+dHh; Tue,  7 Jul 2020 18:04:22 +0000 (UTC)
 Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
-	by silver.osuosl.org (Postfix) with ESMTP id 1FFF029439;
+	by whitealder.osuosl.org (Postfix) with ESMTP id 78DE58825E;
 	Tue,  7 Jul 2020 18:04:17 +0000 (UTC)
 Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id DF841C07FF;
-	Tue,  7 Jul 2020 18:04:16 +0000 (UTC)
+	by lists.linuxfoundation.org (Postfix) with ESMTP id 65308C016F;
+	Tue,  7 Jul 2020 18:04:17 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@lists.linuxfoundation.org
-Received: from silver.osuosl.org (smtp3.osuosl.org [140.211.166.136])
- by lists.linuxfoundation.org (Postfix) with ESMTP id 50F18C016F;
- Mon,  6 Jul 2020 22:19:32 +0000 (UTC)
+Received: from whitealder.osuosl.org (smtp1.osuosl.org [140.211.166.138])
+ by lists.linuxfoundation.org (Postfix) with ESMTP id 91469C016F;
+ Mon,  6 Jul 2020 23:05:20 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
- by silver.osuosl.org (Postfix) with ESMTP id 2E8282156E;
- Mon,  6 Jul 2020 22:19:32 +0000 (UTC)
+ by whitealder.osuosl.org (Postfix) with ESMTP id 7CB2088A92;
+ Mon,  6 Jul 2020 23:05:20 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from silver.osuosl.org ([127.0.0.1])
+Received: from whitealder.osuosl.org ([127.0.0.1])
  by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id 4Q8PRg29ZMPJ; Mon,  6 Jul 2020 22:19:31 +0000 (UTC)
+ with ESMTP id 3Tbi--5jPEOS; Mon,  6 Jul 2020 23:05:19 +0000 (UTC)
 X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
 X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
-Received: from mail-wm1-f67.google.com (mail-wm1-f67.google.com
- [209.85.128.67])
- by silver.osuosl.org (Postfix) with ESMTPS id 01B642107F;
- Mon,  6 Jul 2020 22:19:30 +0000 (UTC)
-Received: by mail-wm1-f67.google.com with SMTP id f139so43678385wmf.5;
- Mon, 06 Jul 2020 15:19:30 -0700 (PDT)
+Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com
+ [209.85.221.46])
+ by whitealder.osuosl.org (Postfix) with ESMTPS id 7FE7988882;
+ Mon,  6 Jul 2020 23:05:19 +0000 (UTC)
+Received: by mail-wr1-f46.google.com with SMTP id f18so35010466wrs.0;
+ Mon, 06 Jul 2020 16:05:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=to:cc:references:from:autocrypt:subject:message-id:date:user-agent
  :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=NqkdrA2uQUAlO29c73BYFCQkyR4aI/R5ksyegWujHhc=;
- b=Ds37gxbH8kTdcboaWyOmLBOzVYn9G+4iXCiPt13iNouloS7ZbQcuSTawYya6KXtEMz
- A3piReLOmoQgab9DG8ciDCZDKwkjY6Rya+/M3KutAHdKZczKStcrny8AoHPf5ybVTEes
- 6RuV9SHhlf379uLqKg4D+Buufaie/5cayx6/GWolZGapGg+ZHbkNJrrOQznIJY1T9QNQ
- hk+0jw207drzYEjLYCkhF/gG1YNy5vClgzSzBcqqV2AeLXkQpk35orU12X6r+k1ig/ed
- n9PhBsiQnCbnQaLuaG0cZviqbLyPZ6LCQJGJW5W00VMszvM+XfhLk2QYQOj9rhJJqNv2
- HFLg==
+ bh=n8WSN9OO6JhOeCOLUTvTw9tkEo0SsW93xx3ZZdZXMI0=;
+ b=t4uNP1fYn/DHReNGk+z+aOSomulpnZvJb/3FC2AfFWFF4Sef1vc45vJ+rjsWKgFI+F
+ /VdeeKzg1BDJL8sYxVoyd421IhRJgvmMvkZgD2aDuZCFicU1g0P6+FmclLiVm39jGywg
+ dTfI0c7acnoU2SMjIZO7lNh1vxjxkgOaq/ljeNzSILFs++HGhRFj35HYvB2vl5yOJ54t
+ TcV/PAd3L2OGXQIVCkT3iR2JFopblVRi1/lNiqhbWN0NrcbtZJuwwyWbHWFuZs7vLq64
+ +z0tec/IpCRc/Oj1U2jtfBmf5WG35Knyp8CF8Q45ATSVHAncjfMaPV23iknlltkzuFlW
+ a/Sw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:to:cc:references:from:autocrypt:subject
  :message-id:date:user-agent:mime-version:in-reply-to
  :content-language:content-transfer-encoding;
- bh=NqkdrA2uQUAlO29c73BYFCQkyR4aI/R5ksyegWujHhc=;
- b=UKwZQXsdn7I+C6rDsMar78GouhuHoQUlRniKbiMT0zq3EkVBQjGYQ6TchTSBJHbZqj
- +fYn0BG0ZNnYt+j0crBRLfbY/uEuu6gVQJ+G+QdT6aTjTTi4RyD8lhOaD37I5pXYB15E
- 4T7+8E3IpTszSt9SJ5ETU3LRFOJfFZpqS4kgfHPHh0i5YgN1vpahju7waqu8wFQ4/hC4
- sy3nNm48ZjcOVgWgJmPwRlzU8aIe/KGY0PPUtHV0Xjkn21xUKXSiClusadp2IVZFnFmt
- A7Y7Zd5aj85c2P14h+0vBJc4OeWxOuEHeWelwPPsl6k/aUOzjcre8sRsMBSY0HKKjwbH
- Z5aA==
-X-Gm-Message-State: AOAM532bDIu9X5XzYsi6Oc697Q/al9/qjMH2pX5DvsKgORsgDhvf2i3w
- +dWyFygnw2o11ciEy6YUzpk=
-X-Google-Smtp-Source: ABdhPJwWsS622bx5CftTPVMMiQZSAV+jKSgMB9jDIkg7FX7h066J9fqLIlkg/sLfE1HURTbSoiapTQ==
-X-Received: by 2002:a1c:b686:: with SMTP id g128mr1202202wmf.145.1594073969184; 
- Mon, 06 Jul 2020 15:19:29 -0700 (PDT)
+ bh=n8WSN9OO6JhOeCOLUTvTw9tkEo0SsW93xx3ZZdZXMI0=;
+ b=bx7s/lMESZyY6j3d+3gOFiUuPSg19XK0bdz28mBWJYjOQ3jGyKNuqAjrMuvbo2X2Fj
+ 6LydsfTFcaofndYtxlTMd8cRZhnCYlPI+1m+6L2Z2jWZzHpoU64yke90RImIt+5tE0+4
+ DaER3igSdN0RVLTu8/1vCb5hMYeCPL9cxGWPX71nJ1HgzuSv8oMa1oUAwt4Op9o5gkpL
+ Vhftps0RIYfyln1D1YwF4rU3gymRVc3GDffFqnm+YB2zuXZIBc/exMEn6qSRqKJQ6mZa
+ 5nVY4huvdxidn4BToon1VnX0Muk3g1rPpEFY2IObNT6zwDTdUZQuwYAjSI7e3QL9EcqV
+ YAhw==
+X-Gm-Message-State: AOAM530MiVfPYYEghW9GG0J4AYDOH3IkkgoLoQQLHzjyWxS+kTeKS1c7
+ AXA8mRBkS+uws8qRPNWfmR8=
+X-Google-Smtp-Source: ABdhPJwMAv/rva34lQSp9P1OS5Iq4KaOvM/gVesHTFox3fcEvXJQTtyhz33re5Mh3bwjCAfr1p7ztA==
+X-Received: by 2002:a5d:44c7:: with SMTP id z7mr54613087wrr.226.1594076717820; 
+ Mon, 06 Jul 2020 16:05:17 -0700 (PDT)
 Received: from [192.168.43.52] ([5.100.193.69])
- by smtp.gmail.com with ESMTPSA id j4sm21235712wrp.51.2020.07.06.15.19.27
+ by smtp.gmail.com with ESMTPSA id g14sm23186818wrw.83.2020.07.06.16.05.16
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Mon, 06 Jul 2020 15:19:28 -0700 (PDT)
+ Mon, 06 Jul 2020 16:05:17 -0700 (PDT)
 To: Steven Rostedt <rostedt@goodmis.org>
 References: <159389297140.2210796.13590142254668787525.stgit@dwillia2-desk3.amr.corp.intel.com>
  <1cceba0f-c8ad-260d-9a09-5417bee32d50@gmail.com>
  <20200706181052.174c290a@oasis.local.home>
+ <717030b7-ecba-2ca4-39ff-6a5a04a732d4@gmail.com>
+ <20200706182819.3467fa32@oasis.local.home>
 From: Pavel Begunkov <asml.silence@gmail.com>
 Autocrypt: addr=asml.silence@gmail.com; prefer-encrypt=mutual; keydata=
  mQINBFmKBOQBEAC76ZFxLAKpDw0bKQ8CEiYJRGn8MHTUhURL02/7n1t0HkKQx2K1fCXClbps
@@ -116,17 +118,17 @@ Autocrypt: addr=asml.silence@gmail.com; prefer-encrypt=mutual; keydata=
  UVMKkOCdFhutRmYp0mbv2e87IK4erwNHQRkHUkzbsuym8RVpAZbLzLPIYK/J3RTErL6Z99N2
  m3J6pjwSJY/zNwuFPs9zGEnRO4g0BUbwGdbuvDzaq6/3OJLKohr5eLXNU3JkT+3HezydWm3W
  OPhauth7W0db74Qd49HXK0xe/aPrK+Cp+kU1HRactyNtF8jZQbhMCC8vMGukZtWaAwpjWiiH bA==
-Message-ID: <717030b7-ecba-2ca4-39ff-6a5a04a732d4@gmail.com>
-Date: Tue, 7 Jul 2020 01:17:47 +0300
+Message-ID: <4592008a-16ee-d8c4-4ec3-5e36a268e5d6@gmail.com>
+Date: Tue, 7 Jul 2020 02:03:36 +0300
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
  Thunderbird/68.3.0
 MIME-Version: 1.0
-In-Reply-To: <20200706181052.174c290a@oasis.local.home>
+In-Reply-To: <20200706182819.3467fa32@oasis.local.home>
 Content-Language: en-US
 X-Mailman-Approved-At: Tue, 07 Jul 2020 18:04:13 +0000
 Cc: ksummit-discuss@lists.linuxfoundation.org,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
- tech-board-discuss@lists.linuxfoundation.org, Chris Mason <clm@fb.clm>
+ tech-board-discuss@lists.linuxfoundation.org
 Subject: Re: [Ksummit-discuss] [Tech-board-discuss] [PATCH] CodingStyle:
 	Inclusive Terminology
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
@@ -145,30 +147,37 @@ Content-Transfer-Encoding: 7bit
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
-On 07/07/2020 01:10, Steven Rostedt wrote:
-> On Tue, 7 Jul 2020 00:31:49 +0300
+On 07/07/2020 01:28, Steven Rostedt wrote:
+> On Tue, 7 Jul 2020 01:17:47 +0300
 > Pavel Begunkov <asml.silence@gmail.com> wrote:
->>> diff --git a/Documentation/process/coding-style.rst b/Documentation/process/coding-style.rst
->>> index 2657a55c6f12..4b15ab671089 100644
->>> --- a/Documentation/process/coding-style.rst
->>> +++ b/Documentation/process/coding-style.rst
->>> @@ -319,6 +319,18 @@ If you are afraid to mix up your local variable names, you have another
->>>  problem, which is called the function-growth-hormone-imbalance syndrome.
->>>  See chapter 6 (Functions).
->>>  
->>> +For symbol names, avoid introducing new usage of the words 'slave' and
->>> +'blacklist'. Recommended replacements for 'slave' are: 'secondary',
->>> +'subordinate', 'replica', 'responder', 'follower', 'proxy', or
->>> +'performer'.  Recommended replacements for blacklist are: 'blocklist' or
->>> +'denylist'.  
->>
->> "Subordinate" means that they are unequal, and inequality is a big issue. This
 > 
-> And if two objects are unequal, then that seems to be an appropriate
-> term. We are not concerned about the inequality of devices.
+>> Totally agree with you! But do we care then whether two _devices_ or _objects_
+>> are slave-master? Can't see how it fundamentally differs.
+> 
+> The term slave carries a lot more meaning than subordinate. I replied to
+> someone else but later realized that the person sent me their reply
+> offlist, so my reply to them was also offlist. What I told them was,
+> back in college (decades ago), when I first mentioned "master/slave" in
+> conversation (I think it was about hard drives), a person in that
+> conversation stated that those were not very nice terms to use. I blew
+> it off back then, but after listening to more people, I found that
+> using "slave" even to describe a device is not something that people
+> care to hear about.
 
-Totally agree with you! But do we care then whether two _devices_ or _objects_
-are slave-master? Can't see how it fundamentally differs.
+That's cultural, but honestly I've never seen such a person. I still
+don't understand, why having secondary or subordinate object belittling
+the owned side by not providing it the same rights and freedom is OK,
+but slave/master objects are not. Where is the line?
+
+
+> 
+> And in actuality, does one device actually enslave another device? I
+> think that terminology is misleading to begin with.
+
+As mentioned, I do like good clear terminology, and if it conveys the idea
+better, etc., then it's worth to try. And IMHO that's the right reasoning
+that should be behind. Otherwise, for almost every word we can find a person
+seeing something subjectively offensive or at least bad in it.
 
 -- 
 Pavel Begunkov
