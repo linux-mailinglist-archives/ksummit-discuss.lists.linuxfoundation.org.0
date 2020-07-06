@@ -2,80 +2,55 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from hemlock.osuosl.org (smtp2.osuosl.org [140.211.166.133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3B2242158E6
-	for <lists@lfdr.de>; Mon,  6 Jul 2020 15:56:46 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 70B192158E8
+	for <lists@lfdr.de>; Mon,  6 Jul 2020 15:57:20 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
-	by hemlock.osuosl.org (Postfix) with ESMTP id B20A5892B5;
-	Mon,  6 Jul 2020 13:55:40 +0000 (UTC)
+	by hemlock.osuosl.org (Postfix) with ESMTP id 20B1B89354;
+	Mon,  6 Jul 2020 13:55:44 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
 Received: from hemlock.osuosl.org ([127.0.0.1])
 	by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id iEkUk8x4gVS6; Mon,  6 Jul 2020 13:55:38 +0000 (UTC)
+	with ESMTP id gh9Pp1421aMb; Mon,  6 Jul 2020 13:55:40 +0000 (UTC)
 Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
-	by hemlock.osuosl.org (Postfix) with ESMTP id 3A12E8917D;
+	by hemlock.osuosl.org (Postfix) with ESMTP id 753E289236;
 	Mon,  6 Jul 2020 13:55:37 +0000 (UTC)
 Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id D3E2EC016F;
-	Mon,  6 Jul 2020 13:55:36 +0000 (UTC)
+	by lists.linuxfoundation.org (Postfix) with ESMTP id 4BBA0C0893;
+	Mon,  6 Jul 2020 13:55:37 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@lists.linuxfoundation.org
-Received: from whitealder.osuosl.org (smtp1.osuosl.org [140.211.166.138])
- by lists.linuxfoundation.org (Postfix) with ESMTP id 9192CC016F
- for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon,  6 Jul 2020 03:18:40 +0000 (UTC)
+Received: from hemlock.osuosl.org (smtp2.osuosl.org [140.211.166.133])
+ by lists.linuxfoundation.org (Postfix) with ESMTP id D1427C016F;
+ Mon,  6 Jul 2020 07:06:57 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
- by whitealder.osuosl.org (Postfix) with ESMTP id 79F9A88504
- for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon,  6 Jul 2020 03:18:40 +0000 (UTC)
+ by hemlock.osuosl.org (Postfix) with ESMTP id C824388520;
+ Mon,  6 Jul 2020 07:06:57 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from whitealder.osuosl.org ([127.0.0.1])
+Received: from hemlock.osuosl.org ([127.0.0.1])
  by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id WLDAk9lUMFSZ
- for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon,  6 Jul 2020 03:18:39 +0000 (UTC)
-X-Greylist: delayed 00:05:05 by SQLgrey-1.7.6
-Received: from mail-wm1-f65.google.com (mail-wm1-f65.google.com
- [209.85.128.65])
- by whitealder.osuosl.org (Postfix) with ESMTPS id 02F398746B
- for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon,  6 Jul 2020 03:18:38 +0000 (UTC)
-Received: by mail-wm1-f65.google.com with SMTP id f139so40344742wmf.5
- for <ksummit-discuss@lists.linuxfoundation.org>;
- Sun, 05 Jul 2020 20:18:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=0x0f.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=nr50V7tn4Q86r235t3i6fTqGi0eaGxnf83LBZQTEWJ4=;
- b=IVgCIdZ1fdyJ/ueZWXvNLujhD/ItQZmfywlnzlVUzj+QJMzwEGuIugD99RDKVCO8yD
- BbF9C4isTrmHGMPCIPtVz7K6fslSXe0FsAuDoDkrcH1HIHWVzh2ytCipq/wdVlMLI6jT
- QdGrlarHQN7K13Wb/uTZell3eXj7NOvl5N8yE=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=nr50V7tn4Q86r235t3i6fTqGi0eaGxnf83LBZQTEWJ4=;
- b=BOmpveKfAq9pLStyX0wUBAIQrsZ0qPkkefzqs2t3JJLFZPOMkqv6SyVuh3wpVS1eh8
- 0KQ2fumjMm7/Drz7u+AmPX5rtPp7kz6Fd1+cSwJNEM/CG+C2TwsGXXUPZIIygy7qrb6w
- NQ9jJ9VsXjfsR1O+TGNGw21b7VggAZZMt6hfxBlnuEibC3gxANj5H8IFzVc173i3g4xs
- y8Q4rzgcFsHh0gcWIdAJ3CpWCNwEq9lcNXRE/zL+CPZnJtfTFLxyR7vmRZq4FvZItcms
- PfAZLsPMq5WvguytJqZzMg8TkOCIL/BSB67/MMSFsH4l75o57nF1Vzoj9hyLyepzzAUO
- BU3A==
-X-Gm-Message-State: AOAM532CJIS8szP688cf9v3QQPKr9JLCucJM56Gpr/4SC2FsbDW7djwe
- qZApAEdA08ZBgjpwA5vMSEYT2UVJjB7/CDbbXgl7uM8C2dmPsQ==
-X-Google-Smtp-Source: ABdhPJyN99BeGm9A2Rz/YYoo8bjGijPt5/+BN2tFGB56CztqStsKXLo+n5eHwOgVVwENrY+PfxE1PRUw1XTAhP2rD14=
-X-Received: by 2002:a1c:1f09:: with SMTP id f9mr49533729wmf.137.1594005212447; 
- Sun, 05 Jul 2020 20:13:32 -0700 (PDT)
-MIME-Version: 1.0
+ with ESMTP id C9y6X7U5Ut3W; Mon,  6 Jul 2020 07:06:56 +0000 (UTC)
+X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
+X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
+Received: from mx2.suse.de (mx2.suse.de [195.135.220.15])
+ by hemlock.osuosl.org (Postfix) with ESMTPS id 8771A884A6;
+ Mon,  6 Jul 2020 07:06:56 +0000 (UTC)
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.221.27])
+ by mx2.suse.de (Postfix) with ESMTP id AEFE1AC9F;
+ Mon,  6 Jul 2020 07:06:54 +0000 (UTC)
+From: NeilBrown <neilb@suse.de>
+To: Matthew Wilcox <willy6545@gmail.com>,
+ Dan Williams <dan.j.williams@intel.com>
+Date: Mon, 06 Jul 2020 17:06:45 +1000
+In-Reply-To: <CAFhKne_ZVWVhZX5hNEbeGBfU6BMRN9JKQeTsVYOcMmEH1cd3xg@mail.gmail.com>
 References: <159389297140.2210796.13590142254668787525.stgit@dwillia2-desk3.amr.corp.intel.com>
- <20200705045505.GA2962@1wt.eu>
-In-Reply-To: <20200705045505.GA2962@1wt.eu>
-From: Daniel Palmer <daniel@0x0f.com>
-Date: Mon, 6 Jul 2020 12:13:21 +0900
-Message-ID: <CAFr9PXnr0R71_o_0-Xmw0tcN9UUTMu1ahgp3ig5kE0LG=6N5WA@mail.gmail.com>
-To: Willy Tarreau <w@1wt.eu>
+ <CAFhKne_ZVWVhZX5hNEbeGBfU6BMRN9JKQeTsVYOcMmEH1cd3xg@mail.gmail.com>
+Message-ID: <87imf115ru.fsf@notabene.neil.brown.name>
+MIME-Version: 1.0
 X-Mailman-Approved-At: Mon, 06 Jul 2020 13:55:33 +0000
-Cc: ksummit-discuss@lists.linuxfoundation.org,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
- tech-board-discuss@lists.linuxfoundation.org, Chris Mason <clm@fb.clm>
+Cc: Chris Mason <clm@fb.clm>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ tech-board-discuss@lists.linuxfoundation.org, linux-kernel@vger.kernel.org,
+ ksummit <ksummit-discuss@lists.linuxfoundation.org>
 Subject: Re: [Ksummit-discuss] [PATCH] CodingStyle: Inclusive Terminology
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.15
@@ -88,40 +63,203 @@ List-Post: <mailto:ksummit-discuss@lists.linuxfoundation.org>
 List-Help: <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=help>
 List-Subscribe: <https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss>, 
  <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7879043615997676652=="
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
-Hi Willy,
+--===============7879043615997676652==
+Content-Type: multipart/signed; boundary="=-=-=";
+	micalg=pgp-sha256; protocol="application/pgp-signature"
 
-On Sun, 5 Jul 2020 at 13:55, Willy Tarreau <w@1wt.eu> wrote:
+--=-=-=
+Content-Type: text/plain
 
-> I'm personally thinking that for a non-native speaker it's already
-> difficult to find the best term to describe something,
+On Sat, Jul 04 2020, Matthew Wilcox wrote:
 
-I'm a nobody in the kernel world but this point made me think.
+> Another suggestion for "slave" replacement should be "device". This is in
+> the context of the w1 bus which is by far the largest user of the
+> master/slave terminology in the kernel.
 
-I'm a native English speaker but I don't live in an English speaking
-place and my experience is that a lot of technology terms have been
-directly imported from English into the local language almost as-is.
+Ugh.  Please, no.  "device" doesn't mean anything, in that you can use
+it to refer to any thing.  (i.e. it is almost semantically equivalent to
+"thing").
+Look in /sys/devices.  Everything in there is a device, and (nearly)
+every thing is in there.
 
-In my case master/slave have been directly transliterated into
-Japanese as masuta and sureebu and exists like that in technical
-documentation for example:
-https://www.analog.com/jp/analog-dialogue/articles/introduction-to-spi-interface.html#
+NeilBrown
 
-I can imagine that by changing terminology that has been in use for so
-long that it's been imported into other languages directly or is
-common enough that non-native speakers know what it means might have
-exactly the opposite result by excluding people that aren't native
-English speakers and can't decode synonyms that are obvious to a
-native speaker.
+>
+> On Sat., Jul. 4, 2020, 16:19 Dan Williams, <dan.j.williams@intel.com> wrote:
+>
+>> Recent events have prompted a Linux position statement on inclusive
+>> terminology. Given that Linux maintains a coding-style and its own
+>> idiomatic set of terminology here is a proposal to answer the call to
+>> replace non-inclusive terminology.
+>>
+>> Cc: Jonathan Corbet <corbet@lwn.net>
+>> Cc: Kees Cook <keescook@chromium.org>
+>> Signed-off-by: Chris Mason <clm@fb.clm>
+>> Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+>> Signed-off-by: Dan Williams <dan.j.williams@intel.com>
+>> ---
+>>  Documentation/process/coding-style.rst          |   12 ++++
+>>  Documentation/process/inclusive-terminology.rst |   64
+>> +++++++++++++++++++++++
+>>  Documentation/process/index.rst                 |    1
+>>  3 files changed, 77 insertions(+)
+>>  create mode 100644 Documentation/process/inclusive-terminology.rst
+>>
+>> diff --git a/Documentation/process/coding-style.rst
+>> b/Documentation/process/coding-style.rst
+>> index 2657a55c6f12..4b15ab671089 100644
+>> --- a/Documentation/process/coding-style.rst
+>> +++ b/Documentation/process/coding-style.rst
+>> @@ -319,6 +319,18 @@ If you are afraid to mix up your local variable
+>> names, you have another
+>>  problem, which is called the function-growth-hormone-imbalance syndrome.
+>>  See chapter 6 (Functions).
+>>
+>> +For symbol names, avoid introducing new usage of the words 'slave' and
+>> +'blacklist'. Recommended replacements for 'slave' are: 'secondary',
+>> +'subordinate', 'replica', 'responder', 'follower', 'proxy', or
+>> +'performer'.  Recommended replacements for blacklist are: 'blocklist' or
+>> +'denylist'.
+>> +
+>> +Exceptions for introducing new usage is to maintain a userspace ABI, or
+>> +when updating code for an existing (as of 2020) hardware or protocol
+>> +specification that mandates those terms. For new specifications consider
+>> +translating specification usage of the terminology to the kernel coding
+>> +standard where possible. See :ref:`process/inclusive-terminology.rst
+>> +<inclusiveterminology>` for details.
+>>
+>>  5) Typedefs
+>>  -----------
+>> diff --git a/Documentation/process/inclusive-terminology.rst
+>> b/Documentation/process/inclusive-terminology.rst
+>> new file mode 100644
+>> index 000000000000..a8eb26690eb4
+>> --- /dev/null
+>> +++ b/Documentation/process/inclusive-terminology.rst
+>> @@ -0,0 +1,64 @@
+>> +.. _inclusiveterminology:
+>> +
+>> +Linux kernel inclusive terminology
+>> +==================================
+>> +
+>> +The Linux kernel is a global software project, and in 2020 there was a
+>> +global reckoning on race relations that caused many organizations to
+>> +re-evaluate their policies and practices relative to the inclusion of
+>> +people of African descent. This document describes why the 'Naming'
+>> +section in :ref:`process/coding-style.rst <codingstyle>` recommends
+>> +avoiding usage of 'slave' and 'blacklist' in new additions to the Linux
+>> +kernel.
+>> +
+>> +On the triviality of replacing words
+>> +====================================
+>> +
+>> +The African slave trade was a brutal system of human misery deployed at
+>> +global scale. Some word choice decisions in a modern software project
+>> +does next to nothing to compensate for that legacy. So why put any
+>> +effort into something so trivial in comparison? Because the goal is not
+>> +to repair, or erase the past. The goal is to maximize availability and
+>> +efficiency of the global developer community to participate in the Linux
+>> +kernel development process.
+>> +
+>> +Word choice and developer efficiency
+>> +====================================
+>> +
+>> +Why does any software project go through the trouble of developing a
+>> +document like :ref:`process/coding-style.rst <codingstyle>`? It does so
+>> +because a common coding style maximizes the efficiency of both
+>> +maintainers and developers. Developers learn common design patterns and
+>> +idiomatic expressions while maintainers can spot deviations from those
+>> +norms. Even non-compliant whitespace is considered a leading indicator
+>> +to deeper problems in a patchset. Coding style violations are known to
+>> +take a maintainer "out of the zone" of reviewing code. Maintainers are
+>> +also sensitive to word choice across specifications and often choose to
+>> +deploy Linux terminology to replace non-idiomatic word-choice in a
+>> +specification.
+>> +
+>> +Non-inclusive terminology has that same distracting effect which is why
+>> +it is a style issue for Linux, it injures developer efficiency.
+>> +
+>> +Of course it is around this point someone jumps in with an etymological
+>> +argument about why people should not be offended. Etymological arguments
+>> +do not scale. The scope and pace of Linux to reach new developers
+>> +exceeds the ability of historical terminology defenders to describe "no,
+>> +not that connotation". The revelation of 2020 was that black voices were
+>> +heard on a global scale and the Linux kernel project has done its small
+>> +part to answer that call as it wants black voices, among all voices, in
+>> +its developer community.
+>> +
+>> +Really, 'blacklist' too?
+>> +========================
+>> +
+>> +While 'slave' has a direct connection to human suffering the etymology
+>> +of 'blacklist' is devoid of a historical racial connection. However, one
+>> +thought exercise is to consider replacing 'blacklist/whitelist' with
+>> +'redlist/greenlist'. Realize that the replacement only makes sense if
+>> +you have been socialized with the concepts that 'red/green' implies
+>> +'stop/go'. Colors to represent a policy requires an indirection. The
+>> +socialization of 'black/white' to have the connotation of
+>> +'impermissible/permissible' does not support inclusion.
+>> +
+>> +Inclusion == global developer community efficiency.
+>> diff --git a/Documentation/process/index.rst
+>> b/Documentation/process/index.rst
+>> index f07c9250c3ac..ed861f6f8d25 100644
+>> --- a/Documentation/process/index.rst
+>> +++ b/Documentation/process/index.rst
+>> @@ -27,6 +27,7 @@ Below are the essential guides that every developer
+>> should read.
+>>     submitting-patches
+>>     programming-language
+>>     coding-style
+>> +   inclusive-terminology
+>>     maintainer-pgp-guide
+>>     email-clients
+>>     kernel-enforcement-statement
+>>
+>> _______________________________________________
+>> Ksummit-discuss mailing list
+>> Ksummit-discuss@lists.linuxfoundation.org
+>> https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss
+>>
+> _______________________________________________
+> Ksummit-discuss mailing list
+> Ksummit-discuss@lists.linuxfoundation.org
+> https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss
 
-Cheers,
+--=-=-=
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Daniel
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEEG8Yp69OQ2HB7X0l6Oeye3VZigbkFAl8CzYUACgkQOeye3VZi
+gbmscRAAoq9BjgfvwE8+ki/65ILY8dCDmw3GEwtn9KTodi7as+MAhT/i/O7lXG3Z
+FA0UpWB2JoaBijEp0U9Dy8uKfZN8RmYLTf80s0RxVHRN+2pIpKXc97uNUeHuD6SS
+zEfOicQ9OavlZuFVxm4RCFc3gOnuYJ/csVY7eMZm3L+4njSZizfqIRe5B25e9CLX
+AykL6DmEPR5QC9JG22F2BX0FtjelksCIDVjgPxseJqg3c3+iEHp4tqi3nIYnyTy9
+BNAXc/uqtJRtlzI1yfihtnXugEPEvbA1GArCHVgGbcEuziep2OoFljYun6Eeeo8e
+FsFsjtLJ5XSupuB1rGD8IdRrrsGf+wZWm0o9Bntmo3YZWJnVq+3ImbtW0ImSx7mg
+EWbVhA3p3cHA1fQVuQYGe8+00Kcm9JUpRWbl0kHJ3qcMr0LBsLNt+MRD+8eY2oZ9
+OVslkKVlUFHZqPtJmDlkWydeW9mxXh7ktd3KqksRGIM9npGKwfudx/gZzAmS7Gai
+8LovOrVtJSGYGzEPq7W0B3MwXjfA2ck8MEhEEVRbMntDuPRiWN5h+Tuf7yP7Ofee
+h2N0rWHGiOaAG16YzInS4jk6BxDOrT8+02fYvyQQ2FPYiaVqBoNj25YwnCzosCT1
+eJxPvI/gB7JfpWELhV3sXhAyvMEzVHbqV5+owIsgSylRrduK4Mg=
+=eOmT
+-----END PGP SIGNATURE-----
+--=-=-=--
+
+--===============7879043615997676652==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
 https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss
+
+--===============7879043615997676652==--
