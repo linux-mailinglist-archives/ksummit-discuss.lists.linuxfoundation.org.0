@@ -1,92 +1,68 @@
 Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
-Received: from silver.osuosl.org (smtp3.osuosl.org [140.211.166.136])
-	by mail.lfdr.de (Postfix) with ESMTPS id 707372184AD
-	for <lists@lfdr.de>; Wed,  8 Jul 2020 12:08:05 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by silver.osuosl.org (Postfix) with ESMTP id E1626204DE;
-	Wed,  8 Jul 2020 10:08:02 +0000 (UTC)
-X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from silver.osuosl.org ([127.0.0.1])
-	by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id QLyyoPQ15nj0; Wed,  8 Jul 2020 10:08:01 +0000 (UTC)
-Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
-	by silver.osuosl.org (Postfix) with ESMTP id 1CFC725ED0;
-	Wed,  8 Jul 2020 10:08:01 +0000 (UTC)
-Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id D12EEC077B;
-	Wed,  8 Jul 2020 10:08:00 +0000 (UTC)
-X-Original-To: ksummit-discuss@lists.linuxfoundation.org
-Delivered-To: ksummit-discuss@lists.linuxfoundation.org
 Received: from fraxinus.osuosl.org (smtp4.osuosl.org [140.211.166.137])
- by lists.linuxfoundation.org (Postfix) with ESMTP id B6B23C016F;
- Wed,  8 Jul 2020 10:07:58 +0000 (UTC)
+	by mail.lfdr.de (Postfix) with ESMTPS id 69E33218C47
+	for <lists@lfdr.de>; Wed,  8 Jul 2020 17:51:11 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
- by fraxinus.osuosl.org (Postfix) with ESMTP id A5EF886AE9;
- Wed,  8 Jul 2020 10:07:58 +0000 (UTC)
+	by fraxinus.osuosl.org (Postfix) with ESMTP id 93FC387CD9;
+	Wed,  8 Jul 2020 15:51:09 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
 Received: from fraxinus.osuosl.org ([127.0.0.1])
+	by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id zAOQzVbyfPR7; Wed,  8 Jul 2020 15:51:09 +0000 (UTC)
+Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
+	by fraxinus.osuosl.org (Postfix) with ESMTP id 253A187CDB;
+	Wed,  8 Jul 2020 15:51:08 +0000 (UTC)
+Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
+	by lists.linuxfoundation.org (Postfix) with ESMTP id DE67EC016F;
+	Wed,  8 Jul 2020 15:51:07 +0000 (UTC)
+X-Original-To: ksummit-discuss@lists.linuxfoundation.org
+Delivered-To: ksummit-discuss@lists.linuxfoundation.org
+Received: from whitealder.osuosl.org (smtp1.osuosl.org [140.211.166.138])
+ by lists.linuxfoundation.org (Postfix) with ESMTP id 2B0C9C016F;
+ Wed,  8 Jul 2020 15:51:06 +0000 (UTC)
+Received: from localhost (localhost [127.0.0.1])
+ by whitealder.osuosl.org (Postfix) with ESMTP id 25E9588D0A;
+ Wed,  8 Jul 2020 15:50:49 +0000 (UTC)
+X-Virus-Scanned: amavisd-new at osuosl.org
+Received: from whitealder.osuosl.org ([127.0.0.1])
  by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id vImXb9slaRIv; Wed,  8 Jul 2020 10:07:57 +0000 (UTC)
-X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
-X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
-Received: from userp2120.oracle.com (userp2120.oracle.com [156.151.31.85])
- by fraxinus.osuosl.org (Postfix) with ESMTPS id CF01286A56;
- Wed,  8 Jul 2020 10:07:57 +0000 (UTC)
-Received: from pps.filterd (userp2120.oracle.com [127.0.0.1])
- by userp2120.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 068A6Y1S093748;
- Wed, 8 Jul 2020 10:07:52 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com;
- h=date : from : to : cc
- : subject : message-id : references : mime-version : content-type :
- in-reply-to; s=corp-2020-01-29;
- bh=UiiAx4S9CeJLZhMFbJMVXNYNhsxc8DcSH+29LYnKZWw=;
- b=S66qSI3kqqhvCKSDwB1f0tN4GZSU2l/tzK9qjIcQpszhk0f2ZTQ/gUBH1aqTi8QHQ8Q/
- Ul3saoVdacozux61gicBELS22TPTD02Mcfyd2VKFxZS3uvT5QPiy09fCADWogXYKgQ2N
- mmtoeBDVrxrk3GT0dJQIQ/0CSLwgO8SL/Uclu7mYCPpJr6eD6IXwPc80uhO7IPEIFtw4
- Jy46ZFRiFtzkTuK/XN+1VfGwJ66rCfHNeH2SMzU/bMCJWJTQpxYw90cvaxuhmWT3q2My
- 53BO8Zeo3lstB4Ml86bsVtsgVhz6dxxJN9I34Yavc9TRvru/+WiaT8Js3i6dHGsmNFjv HA== 
-Received: from aserp3030.oracle.com (aserp3030.oracle.com [141.146.126.71])
- by userp2120.oracle.com with ESMTP id 325bgf05tp-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
- Wed, 08 Jul 2020 10:07:51 +0000
-Received: from pps.filterd (aserp3030.oracle.com [127.0.0.1])
- by aserp3030.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 0689xEv4066389;
- Wed, 8 Jul 2020 10:07:51 GMT
-Received: from aserv0122.oracle.com (aserv0122.oracle.com [141.146.126.236])
- by aserp3030.oracle.com with ESMTP id 3233bqkvrf-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Wed, 08 Jul 2020 10:07:51 +0000
-Received: from abhmp0005.oracle.com (abhmp0005.oracle.com [141.146.116.11])
- by aserv0122.oracle.com (8.14.4/8.14.4) with ESMTP id 068A7luJ032514;
- Wed, 8 Jul 2020 10:07:47 GMT
-Received: from kadam (/41.57.98.10) by default (Oracle Beehive Gateway v4.0)
- with ESMTP ; Wed, 08 Jul 2020 03:07:46 -0700
-Date: Wed, 8 Jul 2020 13:07:39 +0300
-From: Dan Carpenter <dan.carpenter@oracle.com>
-To: Dan Williams <dan.j.williams@intel.com>
-Message-ID: <20200708100739.GK2549@kadam>
-References: <159419296487.2464622.863943877093636532.stgit@dwillia2-desk3.amr.corp.intel.com>
-MIME-Version: 1.0
-Content-Disposition: inline
+ with ESMTP id FbWsoUAn6iSv; Wed,  8 Jul 2020 15:50:48 +0000 (UTC)
+X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
+X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
+Received: from smtprelay.hostedemail.com (smtprelay0252.hostedemail.com
+ [216.40.44.252])
+ by whitealder.osuosl.org (Postfix) with ESMTPS id E237288CF7;
+ Wed,  8 Jul 2020 15:50:47 +0000 (UTC)
+Received: from smtprelay.hostedemail.com (10.5.19.251.rfc1918.com
+ [10.5.19.251])
+ by smtpgrave02.hostedemail.com (Postfix) with ESMTP id 1C609180B8436;
+ Wed,  8 Jul 2020 11:04:56 +0000 (UTC)
+Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net
+ [216.40.38.60])
+ by smtprelay01.hostedemail.com (Postfix) with ESMTP id 69D20100E7B42;
+ Wed,  8 Jul 2020 11:04:53 +0000 (UTC)
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Spam-Summary: 50, 0, 0, , d41d8cd98f00b204, joe@perches.com, ,
+ RULES_HIT:41:334:355:368:369:379:599:800:960:967:973:982:988:989:1028:1260:1263:1277:1311:1313:1314:1345:1359:1431:1437:1515:1516:1518:1534:1542:1593:1594:1711:1730:1747:1777:1792:1969:1975:2195:2199:2393:2525:2560:2563:2682:2685:2691:2828:2859:2895:2902:2933:2937:2939:2942:2945:2947:2951:2954:3022:3138:3139:3140:3141:3142:3353:3622:3865:3866:3867:3868:3870:3871:3872:3873:3874:3934:3936:3938:3941:3944:3947:3950:3953:3956:3959:4321:5007:6119:6742:7875:8599:8957:9010:9025:10004:10400:10848:10913:11232:11473:11658:11914:12043:12297:12438:12555:12740:12760:12783:12895:12986:13019:13141:13149:13230:13439:14096:14097:14181:14659:14721:14849:21080:21433:21451:21627:21939:30012:30030:30045:30054:30062:30064:30070:30089:30091,
+ 0, RBL:none, CacheIP:none, Bayesian:0.5, 0.5, 0.5, Netcheck:none,
+ DomainCache:0, MSF:not bulk, SPF:, MSBL:0, DNSBL:none, Custom_rules:0:0:0,
+ LFtime:2, LUA_SUMMARY:none
+X-HE-Tag: water41_2400efa26ebc
+X-Filterd-Recvd-Size: 3704
+Received: from XPS-9350.home (unknown [47.151.133.149])
+ (Authenticated sender: joe@perches.com)
+ by omf04.hostedemail.com (Postfix) with ESMTPA;
+ Wed,  8 Jul 2020 11:04:51 +0000 (UTC)
+Message-ID: <b15e2652aba06dbe244f5ed447e6e96f12302198.camel@perches.com>
+From: Joe Perches <joe@perches.com>
+To: Dan Williams <dan.j.williams@intel.com>, Jonathan Corbet <corbet@lwn.net>
+Date: Wed, 08 Jul 2020 04:04:50 -0700
 In-Reply-To: <159419296487.2464622.863943877093636532.stgit@dwillia2-desk3.amr.corp.intel.com>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9675
- signatures=668680
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 phishscore=0
- mlxscore=0 adultscore=0
- malwarescore=0 spamscore=0 mlxlogscore=999 bulkscore=0 suspectscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2004280000
- definitions=main-2007080072
-X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9675
- signatures=668680
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0
- lowpriorityscore=0
- priorityscore=1501 impostorscore=0 cotscore=-2147483648 clxscore=1011
- mlxscore=0 spamscore=0 bulkscore=0 suspectscore=0 mlxlogscore=999
- malwarescore=0 phishscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.12.0-2004280000 definitions=main-2007080073
+References: <159419296487.2464622.863943877093636532.stgit@dwillia2-desk3.amr.corp.intel.com>
+User-Agent: Evolution 3.36.3-0ubuntu1 
+MIME-Version: 1.0
 Cc: ksummit-discuss@lists.linuxfoundation.org,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  SeongJae Park <sjpark@amazon.de>, linux-kernel@vger.kernel.org,
@@ -109,10 +85,58 @@ Content-Transfer-Encoding: 7bit
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
-Signed-off-by: Dan Carpenter <dan.carpenter@oracle.com>
+On Wed, 2020-07-08 at 00:23 -0700, Dan Williams wrote:
+> Linux maintains a coding-style and its own idiomatic set of terminology.
+> Update the style guidelines to recommend replacements for the terms
+> master/slave and blacklist/whitelist.
+> 
+> Link: http://lore.kernel.org/r/159389297140.2210796.13590142254668787525.stgit@dwillia2-desk3.amr.corp.intel.com
+> Cc: Jonathan Corbet <corbet@lwn.net>
+> Acked-by: Randy Dunlap <rdunlap@infradead.org>
+> Acked-by: Dave Airlie <airlied@redhat.com>
+> Acked-by: Kees Cook <keescook@chromium.org>
+> Acked-by: SeongJae Park <sjpark@amazon.de>
+> Signed-off-by: Olof Johansson <olof@lixom.net>
+> Signed-off-by: Chris Mason <clm@fb.clm>
+> Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+> Signed-off-by: Dan Williams <dan.j.williams@intel.com>
+> ---
+> Changes since v1 [1]
+> - Drop inclusive-terminology.rst, it is in the lore archives if the
+>   arguments are needed for future debates, but otherwise no pressing
+>   need to carry it in the tree (Linus, James)
 
-regards,
-dan carpenter
+Where did Linus publicly state this was unnecessary?
+
+> diff --git a/Documentation/process/coding-style.rst b/Documentation/process/coding-style.rst
+[]
+> @@ -319,6 +319,19 @@ If you are afraid to mix up your local variable names, you have another
+>  problem, which is called the function-growth-hormone-imbalance syndrome.
+>  See chapter 6 (Functions).
+>  
+> +For symbol names, avoid introducing new usage of 'master/slave' (or
+> +'slave' independent of 'master') and 'blacklist/whitelist'. Recommended
+> +replacements for 'master/slave' are: 'main/{secondary,subordinate}',
+> +'primary/replica', '{initiator,requester}/{target,responder}',
+> +'host/{device,proxy}', or 'leader/{performer,follower}'. Recommended
+> +replacements for 'blacklist/whitelist' are: 'denylist/allowlist' or
+> +'blocklist/passlist'.
+
+Adding a reference to SeongJae Park's introduction of
+scripts/deprecated_terms.txt or the like might help
+make this list unnecessary if more terms are added.
+
+> +Exceptions for introducing new usage is to maintain a userspace ABI/API,
+> +or when updating code for an existing (as of 2020) hardware or protocol
+> +specification that mandates those terms. For new specifications
+> +translate specification usage of the terminology to the kernel coding
+> +standard where possible.
+
+I believe any existing code should not be changed,
+not just code that is required to be maintained
+for userspace.
+
+
 
 _______________________________________________
 Ksummit-discuss mailing list
