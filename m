@@ -1,105 +1,96 @@
 Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
-Received: from hemlock.osuosl.org (smtp2.osuosl.org [140.211.166.133])
-	by mail.lfdr.de (Postfix) with ESMTPS id DC148219FC2
-	for <lists@lfdr.de>; Thu,  9 Jul 2020 14:13:33 +0200 (CEST)
+Received: from fraxinus.osuosl.org (smtp4.osuosl.org [140.211.166.137])
+	by mail.lfdr.de (Postfix) with ESMTPS id A538721A447
+	for <lists@lfdr.de>; Thu,  9 Jul 2020 18:02:18 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
-	by hemlock.osuosl.org (Postfix) with ESMTP id E6F2A86578;
-	Thu,  9 Jul 2020 12:11:50 +0000 (UTC)
+	by fraxinus.osuosl.org (Postfix) with ESMTP id AF6FB880CA;
+	Thu,  9 Jul 2020 16:02:14 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from hemlock.osuosl.org ([127.0.0.1])
+Received: from fraxinus.osuosl.org ([127.0.0.1])
 	by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id lMimh-U1rHks; Thu,  9 Jul 2020 12:11:48 +0000 (UTC)
+	with ESMTP id TJvaPO__XwuQ; Thu,  9 Jul 2020 16:02:13 +0000 (UTC)
 Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
-	by hemlock.osuosl.org (Postfix) with ESMTP id BA73A8659B;
-	Thu,  9 Jul 2020 12:11:48 +0000 (UTC)
+	by fraxinus.osuosl.org (Postfix) with ESMTP id 59570881BB;
+	Thu,  9 Jul 2020 16:02:12 +0000 (UTC)
 Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id 7B6A0C016F;
-	Thu,  9 Jul 2020 12:11:48 +0000 (UTC)
+	by lists.linuxfoundation.org (Postfix) with ESMTP id 25B39C016F;
+	Thu,  9 Jul 2020 16:02:12 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@lists.linuxfoundation.org
-Received: from whitealder.osuosl.org (smtp1.osuosl.org [140.211.166.138])
- by lists.linuxfoundation.org (Postfix) with ESMTP id 2838EC016F
+Received: from hemlock.osuosl.org (smtp2.osuosl.org [140.211.166.133])
+ by lists.linuxfoundation.org (Postfix) with ESMTP id 2716DC08A2
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Thu,  9 Jul 2020 12:11:47 +0000 (UTC)
+ Thu,  9 Jul 2020 16:02:09 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
- by whitealder.osuosl.org (Postfix) with ESMTP id 0FA1888A1F
+ by hemlock.osuosl.org (Postfix) with ESMTP id 7C92C8957A
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Thu,  9 Jul 2020 12:11:47 +0000 (UTC)
+ Thu,  9 Jul 2020 16:01:23 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from whitealder.osuosl.org ([127.0.0.1])
+Received: from hemlock.osuosl.org ([127.0.0.1])
  by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id Rd6KFO1fQGwm
+ with ESMTP id opcEjdvrH-un
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Thu,  9 Jul 2020 12:11:46 +0000 (UTC)
+ Thu,  9 Jul 2020 16:01:21 +0000 (UTC)
 X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com
- [148.163.156.1])
- by whitealder.osuosl.org (Postfix) with ESMTPS id 42D2E889FC
+Received: from mail-ot1-f65.google.com (mail-ot1-f65.google.com
+ [209.85.210.65])
+ by hemlock.osuosl.org (Postfix) with ESMTPS id 732598957C
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Thu,  9 Jul 2020 12:11:46 +0000 (UTC)
-Received: from pps.filterd (m0098399.ppops.net [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id
- 069C3W3d023762; Thu, 9 Jul 2020 08:11:45 -0400
-Received: from ppma06ams.nl.ibm.com (66.31.33a9.ip4.static.sl-reverse.com
- [169.51.49.102])
- by mx0a-001b2d01.pphosted.com with ESMTP id 325r2pa31h-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Thu, 09 Jul 2020 08:11:44 -0400
-Received: from pps.filterd (ppma06ams.nl.ibm.com [127.0.0.1])
- by ppma06ams.nl.ibm.com (8.16.0.42/8.16.0.42) with SMTP id 069C7XSu005768;
- Thu, 9 Jul 2020 12:11:41 GMT
-Received: from b06cxnps4076.portsmouth.uk.ibm.com
- (d06relay13.portsmouth.uk.ibm.com [9.149.109.198])
- by ppma06ams.nl.ibm.com with ESMTP id 325k0crvc2-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Thu, 09 Jul 2020 12:11:41 +0000
-Received: from d06av23.portsmouth.uk.ibm.com (d06av23.portsmouth.uk.ibm.com
- [9.149.105.59])
- by b06cxnps4076.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- 069CBdRU32375028
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Thu, 9 Jul 2020 12:11:39 GMT
-Received: from d06av23.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 1A60CA4051;
- Thu,  9 Jul 2020 12:11:39 +0000 (GMT)
-Received: from d06av23.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 9DA46A4053;
- Thu,  9 Jul 2020 12:11:38 +0000 (GMT)
-Received: from linux.ibm.com (unknown [9.148.204.222])
- by d06av23.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
- Thu,  9 Jul 2020 12:11:38 +0000 (GMT)
-Date: Thu, 9 Jul 2020 15:11:36 +0300
-From: Mike Rapoport <rppt@linux.ibm.com>
-To: Joe Perches <joe@perches.com>
-Message-ID: <20200709121136.GG781326@linux.ibm.com>
-References: <8f68863a-d04c-4502-f88e-2a8b0e3c7968@linuxfoundation.org>
- <928d6b2c9a8afb4262a0d931bce03987ef002c8f.camel@perches.com>
- <20200612090706.GF2051223@linux.ibm.com>
- <edbf4ead-6f2d-e548-ee40-517b3ee6ba07@linuxfoundation.org>
- <alpine.DEB.2.22.394.2006131838130.2659@hadrien>
- <8dff373fabbbe6ae20512848e93dac7544e0abce.camel@perches.com>
- <20200618090442.GF6493@linux.ibm.com>
- <1f7ace6cd84dfc83f91a8150f396074b05d06b97.camel@perches.com>
- <20200709122118.0ffaea91@coco.lan>
- <60434f00e5bc55d2ceac14bb6a8c00d4d17c4e96.camel@perches.com>
+ Thu,  9 Jul 2020 16:01:21 +0000 (UTC)
+Received: by mail-ot1-f65.google.com with SMTP id w17so2051842otl.4
+ for <ksummit-discuss@lists.linuxfoundation.org>;
+ Thu, 09 Jul 2020 09:01:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=linuxfoundation.org; s=google;
+ h=subject:to:cc:references:from:message-id:date:user-agent
+ :mime-version:in-reply-to:content-language:content-transfer-encoding;
+ bh=HGsTAj0a+RJU0QpPTNKQCpJ0VMDb7tRPj2FxIP6m4t4=;
+ b=Hut5TGrFUZogrXJQXiJE+1pBXG9vA76Jx7ZETGuglXnVW7ytEkhFxIDwsUz1tW+fdO
+ sAmFlnROS04w5zHgxmyNFSE60rNlwJzCzyZuEv8zQp19h6BO2BTMZqjp0MflhaEzmI77
+ aQPbvFT78Bl6N/NOg983Nu+i7kNkvSFuiEDNg=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+ :user-agent:mime-version:in-reply-to:content-language
+ :content-transfer-encoding;
+ bh=HGsTAj0a+RJU0QpPTNKQCpJ0VMDb7tRPj2FxIP6m4t4=;
+ b=giYY5FofyhT96vgXTRIPVk36VzKbAuKMEe2kmYgkFIusycYuc906PyoTuRxPvMyQOA
+ wIVMP+U7cAh+omj+Mc30wYRZQryyogz2A6MYOXkwGUeajkhr8mtn2cm0HtctAIfJUiaT
+ dcUffsv7YPh9IKpIKg6i+CSQ+Z1yeIri5jH22synljZA6bg2Z731dqPhdwsp1tCMbK2i
+ LZNq3MX0DFkN0GtBlDu2GNN49EBcMSPKPIoysN7EwTqTjD+2H/38U7CHW/+J6v0pMZJj
+ n27gpLqF70M8H6c0ghfxuaDflWdvfmvBOc91o4pl+e6/kkd+OGOe8Pr927whVuHHur1B
+ E1Mg==
+X-Gm-Message-State: AOAM532SdtviG/rbkWtKKtl1+XBQk81NeN8p3FZyc1h1mxzxwK16ldXn
+ YRrEoDmkgKZRh1sbS4kM98Be8RKZ
+X-Google-Smtp-Source: ABdhPJxSOkqrlj+FklRoHpl9zpHklPVNbBXZvIvMzH7Yy2NJWfyT4uBUMIfZY07N/M8ALuniqIU6Qw==
+X-Received: by 2002:a05:6830:1f22:: with SMTP id
+ e2mr17125025oth.62.1594310479762; 
+ Thu, 09 Jul 2020 09:01:19 -0700 (PDT)
+Received: from [192.168.1.112] (c-24-9-64-241.hsd1.co.comcast.net.
+ [24.9.64.241])
+ by smtp.gmail.com with ESMTPSA id n6sm578331otq.33.2020.07.09.09.01.18
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Thu, 09 Jul 2020 09:01:19 -0700 (PDT)
+To: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+ Tibor Raschko <tibrasch@gmail.com>
+References: <79214066-3886-e0ef-f26e-8cb3d53404be@linuxfoundation.org>
+ <e41ded21-1432-afa8-2e42-e509539281c4@gmail.com>
+ <20200709124327.369781a0@coco.lan>
+From: Shuah Khan <skhan@linuxfoundation.org>
+Message-ID: <93fc3afb-8c3f-0fb9-3b92-adfb6571e060@linuxfoundation.org>
+Date: Thu, 9 Jul 2020 10:01:18 -0600
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.8.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <60434f00e5bc55d2ceac14bb6a8c00d4d17c4e96.camel@perches.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.235, 18.0.687
- definitions=2020-07-09_06:2020-07-09,
- 2020-07-09 signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=2 clxscore=1015
- bulkscore=0 lowpriorityscore=0 adultscore=0 priorityscore=1501 mlxscore=0
- malwarescore=0 mlxlogscore=786 impostorscore=0 spamscore=0 phishscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2006250000
- definitions=main-2007090095
-Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
- ksummit <ksummit-discuss@lists.linuxfoundation.org>
-Subject: Re: [Ksummit-discuss] [TECH TOPIC] Documentation
+In-Reply-To: <20200709124327.369781a0@coco.lan>
+Content-Language: en-US
+Cc: ksummit-discuss@lists.linuxfoundation.org,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
+ tech-board-discuss@lists.linuxfoundation.org, Chris Mason <clm@fb.clm>
+Subject: Re: [Ksummit-discuss] [Tech-board-discuss] [PATCH] CodingStyle:
+ Inclusive Terminology
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.15
 Precedence: list
@@ -111,43 +102,47 @@ List-Post: <mailto:ksummit-discuss@lists.linuxfoundation.org>
 List-Help: <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=help>
 List-Subscribe: <https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss>, 
  <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
-On Thu, Jul 09, 2020 at 04:42:58AM -0700, Joe Perches wrote:
-> On Thu, 2020-07-09 at 12:21 +0200, Mauro Carvalho Chehab wrote:
-> > Em Thu, 18 Jun 2020 07:40:22 -0700
-> > Joe Perches <joe@perches.com> escreveu:
-> > 
-> > > On Thu, 2020-06-18 at 12:04 +0300, Mike Rapoport wrote:
-> > > > if a patch breaks the sync between the code and the
-> > > > kerneldoc can it be detected by checkpatch.pl?  
-> > > 
-> > > No, it can not.  Not directly.
-> > 
-> > Well, perhaps checkpatch.pl could run:
-> > 
-> > 	./scripts/kernel-doc -none
-> > 
-> > if it finds "/**" on a patch, showing the warnings produced by it, if any.
+On 7/9/20 4:43 AM, Mauro Carvalho Chehab wrote:
+> Em Tue, 7 Jul 2020 01:58:21 +0200
+> Tibor Raschko <tibrasch@gmail.com> escreveu:
 > 
-> checkpatch runs on patches.
-> Use the tools that are designed for this instead.
-
-The problem is that people usually do run checkpatch and do not run
-kernel-doc. That's where the idea to somehow put documentation checks
-into checkpatch came from.
-
-> > > As there already is an existing tool, that tool
-> > > should be used when possible.
+>>> Allowlist/denylist terms are intuitive and action based which have a
+>>> globally uniform meaning.
+>>
+>> Nobody has a problem understanding "blacklist" and "whitelist". These
+>> are universally understood words even outside of computing. Claiming
+>> that we need clearer alternatives is smoke and mirrors.
 > 
+> Actually, as a non-native English speaker, the first time I saw
+> "<color>list", I had to do some research in order to understand what it
+> means :-)
+
+Thanks for the perspective. This is why we need clear and uniform words.
+Our community is global. English isn't English everywhere either.
+
+> 
+> That reminds me: what about "graylist"?
+> 
+> For coherency, if "blacklist/whitelist" won't be used anymore, an
+> alternative to graylist should also be provided.
+> 
+> Right now, it seems that only ACPI uses it:
+> 
+> 	$ git grep -i graylist
+> 	drivers/clocksource/acpi_pm.c:static void acpi_pm_check_graylist(struct pci_dev *dev)
+> 	drivers/clocksource/acpi_pm.c:                  acpi_pm_check_graylist);
+> 	drivers/clocksource/acpi_pm.c:                  acpi_pm_check_graylist);
 > 
 
--- 
-Sincerely yours,
-Mike.
+What is "graylist"? Does it mean in between allow/deny?
+
+thanks,
+-- Shuah
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
