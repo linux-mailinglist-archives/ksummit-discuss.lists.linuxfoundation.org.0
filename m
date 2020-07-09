@@ -2,63 +2,86 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from whitealder.osuosl.org (smtp1.osuosl.org [140.211.166.138])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7A89721A4EE
-	for <lists@lfdr.de>; Thu,  9 Jul 2020 18:35:24 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 92BD121AB03
+	for <lists@lfdr.de>; Fri, 10 Jul 2020 00:55:50 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
-	by whitealder.osuosl.org (Postfix) with ESMTP id E93CE890A1;
-	Thu,  9 Jul 2020 16:35:22 +0000 (UTC)
+	by whitealder.osuosl.org (Postfix) with ESMTP id 493C989622;
+	Thu,  9 Jul 2020 22:55:49 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
 Received: from whitealder.osuosl.org ([127.0.0.1])
 	by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id 5E-ThE-ADAfv; Thu,  9 Jul 2020 16:35:22 +0000 (UTC)
+	with ESMTP id p0d-EEDP0h8I; Thu,  9 Jul 2020 22:55:48 +0000 (UTC)
 Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
-	by whitealder.osuosl.org (Postfix) with ESMTP id 28EB7891B9;
-	Thu,  9 Jul 2020 16:35:22 +0000 (UTC)
+	by whitealder.osuosl.org (Postfix) with ESMTP id A4A7588518;
+	Thu,  9 Jul 2020 22:55:48 +0000 (UTC)
 Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id DE1CEC0865;
-	Thu,  9 Jul 2020 16:35:21 +0000 (UTC)
+	by lists.linuxfoundation.org (Postfix) with ESMTP id 6130DC016F;
+	Thu,  9 Jul 2020 22:55:48 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@lists.linuxfoundation.org
 Received: from hemlock.osuosl.org (smtp2.osuosl.org [140.211.166.133])
- by lists.linuxfoundation.org (Postfix) with ESMTP id 06346C016F;
- Thu,  9 Jul 2020 16:35:20 +0000 (UTC)
+ by lists.linuxfoundation.org (Postfix) with ESMTP id C953EC016F
+ for <ksummit-discuss@lists.linuxfoundation.org>;
+ Thu,  9 Jul 2020 22:55:45 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
- by hemlock.osuosl.org (Postfix) with ESMTP id 014BB89A92;
- Thu,  9 Jul 2020 16:35:20 +0000 (UTC)
+ by hemlock.osuosl.org (Postfix) with ESMTP id B80FC898BC
+ for <ksummit-discuss@lists.linuxfoundation.org>;
+ Thu,  9 Jul 2020 22:55:45 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
 Received: from hemlock.osuosl.org ([127.0.0.1])
  by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id sBzS8ptWzAWn; Thu,  9 Jul 2020 16:35:19 +0000 (UTC)
-X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
-X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
-Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
- by hemlock.osuosl.org (Postfix) with ESMTPS id 7E5D189A1B;
- Thu,  9 Jul 2020 16:35:19 +0000 (UTC)
-Received: from oasis.local.home (cpe-66-24-58-225.stny.res.rr.com
- [66.24.58.225])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 519D62077D;
- Thu,  9 Jul 2020 16:35:18 +0000 (UTC)
-Date: Thu, 9 Jul 2020 12:35:16 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Mark Brown <broonie@kernel.org>
-Message-ID: <20200709123516.3972dee8@oasis.local.home>
-In-Reply-To: <20200709161351.GF4960@sirena.org.uk>
-References: <79214066-3886-e0ef-f26e-8cb3d53404be@linuxfoundation.org>
- <e41ded21-1432-afa8-2e42-e509539281c4@gmail.com>
- <20200709124327.369781a0@coco.lan>
- <93fc3afb-8c3f-0fb9-3b92-adfb6571e060@linuxfoundation.org>
- <20200709161351.GF4960@sirena.org.uk>
-X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+ with ESMTP id 051mbQuygPJi
+ for <ksummit-discuss@lists.linuxfoundation.org>;
+ Thu,  9 Jul 2020 22:55:44 +0000 (UTC)
+X-Greylist: delayed 02:19:58 by SQLgrey-1.7.6
+Received: from smtprelay.hostedemail.com (smtprelay0016.hostedemail.com
+ [216.40.44.16])
+ by hemlock.osuosl.org (Postfix) with ESMTPS id 917D28986A
+ for <ksummit-discuss@lists.linuxfoundation.org>;
+ Thu,  9 Jul 2020 22:55:44 +0000 (UTC)
+Received: from smtprelay.hostedemail.com (10.5.19.251.rfc1918.com
+ [10.5.19.251])
+ by smtpgrave06.hostedemail.com (Postfix) with ESMTP id 7DF9380127B6
+ for <ksummit-discuss@lists.linuxfoundation.org>;
+ Thu,  9 Jul 2020 16:59:52 +0000 (UTC)
+Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net
+ [216.40.38.60])
+ by smtprelay02.hostedemail.com (Postfix) with ESMTP id 18BD12C84;
+ Thu,  9 Jul 2020 16:59:50 +0000 (UTC)
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Spam-Summary: 50, 0, 0, , d41d8cd98f00b204, joe@perches.com, ,
+ RULES_HIT:41:355:379:599:800:960:967:973:982:988:989:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1534:1541:1593:1594:1711:1730:1747:1777:1792:2393:2525:2553:2560:2563:2682:2685:2828:2859:2933:2937:2939:2942:2945:2947:2951:2954:3022:3138:3139:3140:3141:3142:3353:3622:3865:3867:3868:3871:3872:3874:3934:3936:3938:3941:3944:3947:3950:3953:3956:3959:4321:5007:6117:7903:9025:10004:10400:10848:10967:11232:11658:11914:12043:12297:12555:12740:12760:12895:13069:13311:13357:13439:13845:14096:14097:14181:14659:14721:21080:21324:21627:21740:30012:30054:30090:30091,
+ 0, RBL:none, CacheIP:none, Bayesian:0.5, 0.5, 0.5, Netcheck:none,
+ DomainCache:0, MSF:not bulk, SPF:, MSBL:0, DNSBL:none, Custom_rules:0:0:0,
+ LFtime:1, LUA_SUMMARY:none
+X-HE-Tag: chess10_0e0c24626ec7
+X-Filterd-Recvd-Size: 2469
+Received: from XPS-9350.home (unknown [47.151.133.149])
+ (Authenticated sender: joe@perches.com)
+ by omf10.hostedemail.com (Postfix) with ESMTPA;
+ Thu,  9 Jul 2020 16:59:49 +0000 (UTC)
+Message-ID: <193e456a55a880b0f6755a3974f780bffbd8f19c.camel@perches.com>
+From: Joe Perches <joe@perches.com>
+To: Mike Rapoport <rppt@linux.ibm.com>, "Valdis.Kletnieks"
+ <Valdis.Kletnieks@vt.edu>
+Date: Thu, 09 Jul 2020 09:59:46 -0700
+In-Reply-To: <20200709121136.GG781326@linux.ibm.com>
+References: <8f68863a-d04c-4502-f88e-2a8b0e3c7968@linuxfoundation.org>
+ <928d6b2c9a8afb4262a0d931bce03987ef002c8f.camel@perches.com>
+ <20200612090706.GF2051223@linux.ibm.com>
+ <edbf4ead-6f2d-e548-ee40-517b3ee6ba07@linuxfoundation.org>
+ <alpine.DEB.2.22.394.2006131838130.2659@hadrien>
+ <8dff373fabbbe6ae20512848e93dac7544e0abce.camel@perches.com>
+ <20200618090442.GF6493@linux.ibm.com>
+ <1f7ace6cd84dfc83f91a8150f396074b05d06b97.camel@perches.com>
+ <20200709122118.0ffaea91@coco.lan>
+ <60434f00e5bc55d2ceac14bb6a8c00d4d17c4e96.camel@perches.com>
+ <20200709121136.GG781326@linux.ibm.com>
+User-Agent: Evolution 3.36.3-0ubuntu1 
 MIME-Version: 1.0
-Cc: ksummit-discuss@lists.linuxfoundation.org,
- Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
- tech-board-discuss@lists.linuxfoundation.org, Chris Mason <clm@fb.clm>,
- Tibor Raschko <tibrasch@gmail.com>
-Subject: Re: [Ksummit-discuss] [Tech-board-discuss] [PATCH] CodingStyle:
- Inclusive Terminology
+Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+ ksummit <ksummit-discuss@lists.linuxfoundation.org>
+Subject: Re: [Ksummit-discuss] [TECH TOPIC] Documentation
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.15
 Precedence: list
@@ -75,27 +98,35 @@ Content-Transfer-Encoding: 7bit
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
-On Thu, 9 Jul 2020 17:13:51 +0100
-Mark Brown <broonie@kernel.org> wrote:
-
-> On Thu, Jul 09, 2020 at 10:01:18AM -0600, Shuah Khan wrote:
-> > On 7/9/20 4:43 AM, Mauro Carvalho Chehab wrote:  
+On Thu, 2020-07-09 at 15:11 +0300, Mike Rapoport wrote:
+> On Thu, Jul 09, 2020 at 04:42:58AM -0700, Joe Perches wrote:
+> > On Thu, 2020-07-09 at 12:21 +0200, Mauro Carvalho Chehab wrote:
+> > > Em Thu, 18 Jun 2020 07:40:22 -0700
+> > > Joe Perches <joe@perches.com> escreveu:
+> > > 
+> > > > On Thu, 2020-06-18 at 12:04 +0300, Mike Rapoport wrote:
+> > > > > if a patch breaks the sync between the code and the
+> > > > > kerneldoc can it be detected by checkpatch.pl?  
+> > > > 
+> > > > No, it can not.  Not directly.
+> > > 
+> > > Well, perhaps checkpatch.pl could run:
+> > > 
+> > > 	./scripts/kernel-doc -none
+> > > 
+> > > if it finds "/**" on a patch, showing the warnings produced by it, if any.
+> > 
+> > checkpatch runs on patches.
+> > Use the tools that are designed for this instead.
 > 
-> > > For coherency, if "blacklist/whitelist" won't be used anymore, an
-> > > alternative to graylist should also be provided.  
-> 
-> > What is "graylist"? Does it mean in between allow/deny?  
-> 
-> Yes.  Typically it's used in situations where you don't want to deny
-> something but might for example want to do extra checks to verify that
-> things are OK.
+> The problem is that people usually do run checkpatch and do not run
+> kernel-doc. That's where the idea to somehow put documentation checks
+> into checkpatch came from.
 
-The only time I use greylist is for postgrey, that when an email comes
-in, it will initially reject it, expecting the mail server to try
-again, and the second time it lets it through. This does stop a lot of
-spam, at the cost of waiting up to a few hours for email :-/
+I much prefer this patch:
+https://lore.kernel.org/patchwork/patch/1260408/
 
--- Steve
+
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
