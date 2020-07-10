@@ -2,78 +2,81 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from fraxinus.osuosl.org (smtp4.osuosl.org [140.211.166.137])
-	by mail.lfdr.de (Postfix) with ESMTPS id E2C2821BA40
-	for <lists@lfdr.de>; Fri, 10 Jul 2020 18:03:16 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0E20421BA7D
+	for <lists@lfdr.de>; Fri, 10 Jul 2020 18:13:44 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
-	by fraxinus.osuosl.org (Postfix) with ESMTP id 1B34087909;
-	Fri, 10 Jul 2020 16:02:49 +0000 (UTC)
+	by fraxinus.osuosl.org (Postfix) with ESMTP id CF77F888B6;
+	Fri, 10 Jul 2020 16:13:35 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
 Received: from fraxinus.osuosl.org ([127.0.0.1])
 	by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id OLNNj4Z5den5; Fri, 10 Jul 2020 16:02:48 +0000 (UTC)
+	with ESMTP id FdVTXZCGQKwi; Fri, 10 Jul 2020 16:13:34 +0000 (UTC)
 Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
-	by fraxinus.osuosl.org (Postfix) with ESMTP id 90ADB86D23;
-	Fri, 10 Jul 2020 16:02:48 +0000 (UTC)
+	by fraxinus.osuosl.org (Postfix) with ESMTP id AA47B887F4;
+	Fri, 10 Jul 2020 16:13:34 +0000 (UTC)
 Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id 5A509C016F;
-	Fri, 10 Jul 2020 16:02:48 +0000 (UTC)
+	by lists.linuxfoundation.org (Postfix) with ESMTP id 5984DC016F;
+	Fri, 10 Jul 2020 16:13:34 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@lists.linuxfoundation.org
 Received: from silver.osuosl.org (smtp3.osuosl.org [140.211.166.136])
- by lists.linuxfoundation.org (Postfix) with ESMTP id 04ABEC016F
+ by lists.linuxfoundation.org (Postfix) with ESMTP id 388ADC016F
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Fri, 10 Jul 2020 16:02:46 +0000 (UTC)
+ Fri, 10 Jul 2020 16:13:33 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
- by silver.osuosl.org (Postfix) with ESMTP id E180F2045E
+ by silver.osuosl.org (Postfix) with ESMTP id 26F94221CC
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Fri, 10 Jul 2020 16:02:45 +0000 (UTC)
+ Fri, 10 Jul 2020 16:13:33 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
 Received: from silver.osuosl.org ([127.0.0.1])
  by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id QlAjNZJk7Clv
+ with ESMTP id WgZvyq7BXP-k
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Fri, 10 Jul 2020 16:02:41 +0000 (UTC)
-X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
-Received: from mail-lj1-f193.google.com (mail-lj1-f193.google.com
- [209.85.208.193])
- by silver.osuosl.org (Postfix) with ESMTPS id 6E0C520420
+ Fri, 10 Jul 2020 16:13:30 +0000 (UTC)
+X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
+Received: from mail-ej1-f67.google.com (mail-ej1-f67.google.com
+ [209.85.218.67])
+ by silver.osuosl.org (Postfix) with ESMTPS id 9E91E22176
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Fri, 10 Jul 2020 16:02:41 +0000 (UTC)
-Received: by mail-lj1-f193.google.com with SMTP id 9so7035878ljv.5
+ Fri, 10 Jul 2020 16:13:30 +0000 (UTC)
+Received: by mail-ej1-f67.google.com with SMTP id w6so6684040ejq.6
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Fri, 10 Jul 2020 09:02:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
+ Fri, 10 Jul 2020 09:13:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=intel-com.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=dP/Cwrj374IdB7UlLTFuDEBsi+Cb3XJB3iKosVI1sUk=;
- b=C016bLjS1iSmlTj0cYHyYgpPqWoY/JAMQZDnD7WVqXT+pAak4ctDI2JY5PrUCGEqjQ
- kK1fGu7t89n/K2qg2s0gtOMBRkEH4Gux1s7dsDRhKk8lkH3i0vAs+rdiFO6xBSDOqp72
- MiuNlhIBNiLc6XYJgQY1TRcEIm6QIoZsFQtuImstn9NX9d/xjTVXRbm5A+W66VrnUjNA
- oTskdRfKYWp5HN6JqO0FzrYzjTURpSMwqj4S2IntcSUJ8C+j2dRGORfVgAod0hF5t8oY
- U5JvZb1Zx66ljOmk9sECCvq3zuZ+EyViOSvG1wYgBRDMgwDb888R3tqYosDQzX4f3vAk
- D3Bw==
+ :cc; bh=GuTemQ7KYRFEUiSXBnnfVYEJAwLMSHFjzyXd2qUpBJM=;
+ b=isKdQKPNlEDojcebZaIkUqT/0t9js4SLcA3mJCOcioV+3ATcqDxdJCxfd3ILcFOLZl
+ tOpvnVcodD05qit011zarA1ggkgVfVB/d4xaBV61gDXqcNoMFLprTwjguRUNpThyMqMu
+ PLeoxfuiYD6PlKu9hCxjjBVXvghQXzHmu0ZumROT5OsnGOCmp/D3KHgodO5B+HlQV/bg
+ oHmKnl0wQA3PwOvL7o9tUKflDiU1CorxFe6/pjsSstrrmP7voSAFGFNLqT9anvtjtEFb
+ VWqtGh9BTarWrZSz+pkTQqFks18quP+n6EtZwUo8oBZS84qr8b0L/WVkJrXHWuIx6JrO
+ vRYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=dP/Cwrj374IdB7UlLTFuDEBsi+Cb3XJB3iKosVI1sUk=;
- b=Ipwoy3+F0PFk399xrOKaO2eiw8wtdWXdxFSZF2Z5GDs50XTrNzYETRWMaYqrSi7f3Z
- xjbcPO6+GgmZKneZWhdJSW+rOEEqO6+A8CZfYQ7NITWt0tfExnEzB5vxF93dYhXcvBp+
- gCBk4Pdn8qtGS9juzNry/8IslFk60iUxlT1SZ6pONHXCN7B8Qh9kivA00dPOuEkDohzo
- qC+hI+xvjlYUC2ldfjUMuCqNXdilTtMQZJkg+KH0hpmcchrNmLthchszhkgzNK1tuDo2
- oKrI9EdA6apvGqujjFHtsFZItESZpI39Nt5syoWu31DYmGTiMi4WYZu0r9XnTMvSQ1D4
- msUw==
-X-Gm-Message-State: AOAM531q1mb4ocOuz5O+rRsr5kQLJyg3N5x5pD0Savf+HH7nXICyTgtI
- qgtJCFgXgpoEpwuBeAcw1Jp+aPZTbh42XTb848s48w==
-X-Google-Smtp-Source: ABdhPJxrjkl/SqLB51dbIteb5teAD4c/1Mys6FI12CCbyigPoK1IQmofSn+hyrV2N/0Fs+ibrYIikoRo5cMZoGwR1cY=
-X-Received: by 2002:a2e:8046:: with SMTP id p6mr26850311ljg.100.1594396959423; 
- Fri, 10 Jul 2020 09:02:39 -0700 (PDT)
+ bh=GuTemQ7KYRFEUiSXBnnfVYEJAwLMSHFjzyXd2qUpBJM=;
+ b=ESly3cs41b/3aooWdwfBxbcEKKP5ZGY5ex+1VfQN42tQBfsk5mWjLHvc3lVctrSKvi
+ FrpbCt4rXnNdJlzHXasBt0B+RNrEgA4yrVo+HWcYLih7AtpbL017N3SzV21JlRY9mJG2
+ qZS13G18j7DbjQwr1dHx7171P38zXoclPKp4KvRvJYbciWpBwC2Lb8X4iCXL/wfB7ycK
+ nRELIAEz27lm0HxpVaH+oy0BGpx7uNfiXF8vwowoiIrnKcuwjUbnIbfP5IkS/ZRINTXU
+ C/2EWAM+BmvyNSjSHZB5mTmczzYUFljTmvM6kPShnpXophJsVKvYM6wRyUBQdLbCouFX
+ ZVcA==
+X-Gm-Message-State: AOAM532Vr8YP0TraksGvxqoRuMyhqxZAOB9ClKQW/Qbl3nM+nnS/uWk6
+ QIbKWTNyvNatkU2xIKJCZ3wj8Zf+Y2+Vuma1wZLJTA==
+X-Google-Smtp-Source: ABdhPJzCbKvo8U8scwvbkPOPP/8wbfKDhI1Qe8+dFjUDkLc3+GTw9TBaNPbuhtlMWViJabrxSULQvMydjEo4r5TzVxQ=
+X-Received: by 2002:a17:906:f98e:: with SMTP id
+ li14mr61467350ejb.174.1594397609098; 
+ Fri, 10 Jul 2020 09:13:29 -0700 (PDT)
 MIME-Version: 1.0
 References: <159419296487.2464622.863943877093636532.stgit@dwillia2-desk3.amr.corp.intel.com>
-In-Reply-To: <159419296487.2464622.863943877093636532.stgit@dwillia2-desk3.amr.corp.intel.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 10 Jul 2020 18:02:28 +0200
-Message-ID: <CACRpkdax9wSFtYxyCu18bWwc5T1GqNx7EDVA6JN+Qu42hOCh_A@mail.gmail.com>
-To: Dan Williams <dan.j.williams@intel.com>
+ <CACRpkdax9wSFtYxyCu18bWwc5T1GqNx7EDVA6JN+Qu42hOCh_A@mail.gmail.com>
+In-Reply-To: <CACRpkdax9wSFtYxyCu18bWwc5T1GqNx7EDVA6JN+Qu42hOCh_A@mail.gmail.com>
+From: Dan Williams <dan.j.williams@intel.com>
+Date: Fri, 10 Jul 2020 09:13:17 -0700
+Message-ID: <CAPcyv4jxnayrq6FKVkR-hCedm-XARd-wuQpFjfGVBg6j5ow0xw@mail.gmail.com>
+To: Linus Walleij <linus.walleij@linaro.org>
 Cc: ksummit <ksummit-discuss@lists.linuxfoundation.org>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  SeongJae Park <sjpark@amazon.de>,
@@ -97,34 +100,38 @@ Content-Transfer-Encoding: 7bit
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
-On Wed, Jul 8, 2020 at 9:40 AM Dan Williams <dan.j.williams@intel.com> wrote:
-
-> Linux maintains a coding-style and its own idiomatic set of terminology.
-> Update the style guidelines to recommend replacements for the terms
-> master/slave and blacklist/whitelist.
+On Fri, Jul 10, 2020 at 9:03 AM Linus Walleij <linus.walleij@linaro.org> wrote:
 >
-> Link: http://lore.kernel.org/r/159389297140.2210796.13590142254668787525.stgit@dwillia2-desk3.amr.corp.intel.com
-> Cc: Jonathan Corbet <corbet@lwn.net>
-> Acked-by: Randy Dunlap <rdunlap@infradead.org>
-> Acked-by: Dave Airlie <airlied@redhat.com>
-> Acked-by: Kees Cook <keescook@chromium.org>
-> Acked-by: SeongJae Park <sjpark@amazon.de>
-> Signed-off-by: Olof Johansson <olof@lixom.net>
-> Signed-off-by: Chris Mason <clm@fb.clm>
-> Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-> Signed-off-by: Dan Williams <dan.j.williams@intel.com>
+> On Wed, Jul 8, 2020 at 9:40 AM Dan Williams <dan.j.williams@intel.com> wrote:
+>
+> > Linux maintains a coding-style and its own idiomatic set of terminology.
+> > Update the style guidelines to recommend replacements for the terms
+> > master/slave and blacklist/whitelist.
+> >
+> > Link: http://lore.kernel.org/r/159389297140.2210796.13590142254668787525.stgit@dwillia2-desk3.amr.corp.intel.com
+> > Cc: Jonathan Corbet <corbet@lwn.net>
+> > Acked-by: Randy Dunlap <rdunlap@infradead.org>
+> > Acked-by: Dave Airlie <airlied@redhat.com>
+> > Acked-by: Kees Cook <keescook@chromium.org>
+> > Acked-by: SeongJae Park <sjpark@amazon.de>
+> > Signed-off-by: Olof Johansson <olof@lixom.net>
+> > Signed-off-by: Chris Mason <clm@fb.clm>
+> > Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+> > Signed-off-by: Dan Williams <dan.j.williams@intel.com>
+>
+> Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 
-Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+Thanks Linus.
 
-An interesting piece on the topic is Douglas R. Hofstadter's
-satirical "A Person paper On Purity in Language" from 1985,
-which is funny, witty, Jonathan Swift-like and at one point
-convinced me on the importance of proper language in
-my professional work.
-http://www.cs.virginia.edu/~evans/cs655/readings/purity.html
+>
+> An interesting piece on the topic is Douglas R. Hofstadter's
+> satirical "A Person paper On Purity in Language" from 1985,
+> which is funny, witty, Jonathan Swift-like and at one point
+> convinced me on the importance of proper language in
+> my professional work.
+> http://www.cs.virginia.edu/~evans/cs655/readings/purity.html
 
-Thanks,
-Linus Walleij
+...and thanks for that laugh.
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
