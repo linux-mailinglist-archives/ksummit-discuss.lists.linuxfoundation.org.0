@@ -1,137 +1,56 @@
 Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
-Received: from fraxinus.osuosl.org (smtp4.osuosl.org [140.211.166.137])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0E8722458DC
-	for <lists@lfdr.de>; Sun, 16 Aug 2020 19:51:41 +0200 (CEST)
+Received: from whitealder.osuosl.org (smtp1.osuosl.org [140.211.166.138])
+	by mail.lfdr.de (Postfix) with ESMTPS id C8CF0245986
+	for <lists@lfdr.de>; Sun, 16 Aug 2020 22:49:24 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
-	by fraxinus.osuosl.org (Postfix) with ESMTP id 2584785BCD;
-	Sun, 16 Aug 2020 17:51:38 +0000 (UTC)
+	by whitealder.osuosl.org (Postfix) with ESMTP id C7C0A876EB;
+	Sun, 16 Aug 2020 20:49:22 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from fraxinus.osuosl.org ([127.0.0.1])
+Received: from whitealder.osuosl.org ([127.0.0.1])
 	by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id 7cLQDZxCgdhA; Sun, 16 Aug 2020 17:51:37 +0000 (UTC)
+	with ESMTP id YoWeABBR5k59; Sun, 16 Aug 2020 20:49:21 +0000 (UTC)
 Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
-	by fraxinus.osuosl.org (Postfix) with ESMTP id 1A38885BD3;
-	Sun, 16 Aug 2020 17:51:37 +0000 (UTC)
+	by whitealder.osuosl.org (Postfix) with ESMTP id 5ECC187697;
+	Sun, 16 Aug 2020 20:49:21 +0000 (UTC)
 Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id DEF46C0890;
-	Sun, 16 Aug 2020 17:51:36 +0000 (UTC)
-X-Original-To: ksummit-discuss@lists.linux-foundation.org
+	by lists.linuxfoundation.org (Postfix) with ESMTP id 1BFF6C0051;
+	Sun, 16 Aug 2020 20:49:21 +0000 (UTC)
+X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@lists.linuxfoundation.org
-Received: from fraxinus.osuosl.org (smtp4.osuosl.org [140.211.166.137])
- by lists.linuxfoundation.org (Postfix) with ESMTP id 7440EC0051;
- Sun, 16 Aug 2020 17:51:35 +0000 (UTC)
+Received: from hemlock.osuosl.org (smtp2.osuosl.org [140.211.166.133])
+ by lists.linuxfoundation.org (Postfix) with ESMTP id 54FB8C0051
+ for <ksummit-discuss@lists.linuxfoundation.org>;
+ Sun, 16 Aug 2020 20:49:19 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
- by fraxinus.osuosl.org (Postfix) with ESMTP id 6976D85B80;
- Sun, 16 Aug 2020 17:51:35 +0000 (UTC)
+ by hemlock.osuosl.org (Postfix) with ESMTP id 4488287D5E
+ for <ksummit-discuss@lists.linuxfoundation.org>;
+ Sun, 16 Aug 2020 20:49:19 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from fraxinus.osuosl.org ([127.0.0.1])
+Received: from hemlock.osuosl.org ([127.0.0.1])
  by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id azb4ErrgMt5f; Sun, 16 Aug 2020 17:51:33 +0000 (UTC)
+ with ESMTP id LHMLFIsUAd06
+ for <ksummit-discuss@lists.linuxfoundation.org>;
+ Sun, 16 Aug 2020 20:49:18 +0000 (UTC)
 X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
-X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
-Received: from mx0a-00082601.pphosted.com (mx0a-00082601.pphosted.com
- [67.231.145.42])
- by fraxinus.osuosl.org (Postfix) with ESMTPS id 6C0D085B4A;
- Sun, 16 Aug 2020 17:51:33 +0000 (UTC)
-Received: from pps.filterd (m0109334.ppops.net [127.0.0.1])
- by mx0a-00082601.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id
- 07GHn6Ro011571; Sun, 16 Aug 2020 10:51:33 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fb.com;
- h=from : to : subject :
- date : message-id : content-type : content-transfer-encoding :
- mime-version; s=facebook; bh=vhEWYpzyeRHLgYu8mZkpDQ+KQSxqXNG7FgMSC7ccjNs=;
- b=JM5p1HBdCRFSwPJiiQV65BtONypNf6g6lXHdbmUTcxKJXWmf6Yj3JW0wjlNQm5vpyCLf
- Ib3AvWVbWCelxpS4DuSRIuv8B26Jdt6LP6dwAddzESYuKUJuLOXEp67/JsXOVTePm97v
- 8THxLa9skyChASkzAnRRXKuD4NlPFP8iziE= 
-Received: from maileast.thefacebook.com ([163.114.130.16])
- by mx0a-00082601.pphosted.com with ESMTP id 32xyhk1wpx-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
- Sun, 16 Aug 2020 10:51:32 -0700
-Received: from NAM02-BL2-obe.outbound.protection.outlook.com (100.104.31.183)
- by o365-in.thefacebook.com (100.104.36.101) with Microsoft SMTP
- Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.1979.3; Sun, 16 Aug 2020 10:51:31 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=V73zqZC1SlTglvkEwQR5uY1Rbr3U+w53ZcjG7ESYYgM8X43yecH9qC+XaXxoCIIzbU9veeZER/PsvVxBVKHSWr33XnW2lUs+X5exri4S9ihnv+Fx7xC4G9SIMdZgOLEyHE1zLdtEaPkP5Ai9MbEntPz35b/wI5HGaySIjplMSJMoBPYVbNSm5kaokeSpD4Sq7OCc+1uyafy2SNFxMWINYquBuNIwGa5sXPqSLaBnDVXCMNr/ETW4ZRiwV7kQRIsI3pyBggOi0sqdBDJw72n3bIz57AqrHIEoZf5+43iks2yDEyBeH83Na8nYpo1/g9FqUYnTAk5zbxQwUtSp79ZbPQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vhEWYpzyeRHLgYu8mZkpDQ+KQSxqXNG7FgMSC7ccjNs=;
- b=dVEHowRHjiXPXqbkM8/tqU/CrGHctRmy43lbUqXfpAolLCPzSTXGQzl2bvnIl4LfbzRfMDQjwNWFiMHUJR2QftC+OGCnbZRzcce6c4QIZkjcxkUqzfv3ChvJC41mmKWlu7KXhbwDmmddaTKEWdEkzQ2mSd/A04OZ3XSoIYATDKglKDZ2xbmTsSdVhFXiuuRd9VTZU8cKl0eGd4lTeU/IJHMW0SM+g5QqNAU91W2ZyeTWlDISU8rdj6XFfbrwfP/j8MEAe5vmpet7josA2+1FmkqHiFuBevuW+6EBrPemxtGRLFt3uODcEPp/A/MwUWRGUbnKyv4vS+B0bupTVY64QA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=fb.com; dmarc=pass action=none header.from=fb.com; dkim=pass
- header.d=fb.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fb.onmicrosoft.com;
- s=selector2-fb-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vhEWYpzyeRHLgYu8mZkpDQ+KQSxqXNG7FgMSC7ccjNs=;
- b=LBPLVNgsLrXITFIuNsDYztylRWT43zRJmhO97b4GznOxZnPSrKIIWjHAkCmHU0pems/XzXfhXywdAhB06WhW94Y/DZSlJzFDlF9GOu9Xh+4ZqKLYLHnVuCmElaWUgCWaJxeryRmPz0JOzXYMfLc6sZNtkE3XbOTEqayfqQWd6t8=
-Authentication-Results: lists.linux-foundation.org; dkim=none (message not
- signed) header.d=none;lists.linux-foundation.org; dmarc=none action=none
- header.from=fb.com;
-Received: from MN2PR15MB3582.namprd15.prod.outlook.com (2603:10b6:208:1b5::23)
- by BLAPR15MB3922.namprd15.prod.outlook.com (2603:10b6:208:254::23)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3283.16; Sun, 16 Aug
- 2020 17:51:16 +0000
-Received: from MN2PR15MB3582.namprd15.prod.outlook.com
- ([fe80::bd7a:9d1e:2fd0:34e6]) by MN2PR15MB3582.namprd15.prod.outlook.com
- ([fe80::bd7a:9d1e:2fd0:34e6%6]) with mapi id 15.20.3261.025; Sun, 16 Aug 2020
- 17:51:16 +0000
-To: Tech Board Discuss <tech-board-discuss@lists.linux-foundation.org>, Kernel
- Summit Discussions <ksummit-discuss@lists.linux-foundation.org>
-Date: Sun, 16 Aug 2020 13:51:11 -0400
-X-Mailer: MailMate (1.13.1r5671)
-Message-ID: <B52600FA-CC34-437A-B0AB-42FAF0D6A545@fb.com>
-X-ClientProxiedBy: CH2PR16CA0025.namprd16.prod.outlook.com
- (2603:10b6:610:50::35) To MN2PR15MB3582.namprd15.prod.outlook.com
- (2603:10b6:208:1b5::23)
+Received: from youngberry.canonical.com (youngberry.canonical.com
+ [91.189.89.112])
+ by hemlock.osuosl.org (Postfix) with ESMTPS id DC7B38798B
+ for <ksummit-discuss@lists.linuxfoundation.org>;
+ Sun, 16 Aug 2020 20:49:17 +0000 (UTC)
+Received: from ip5f5af70b.dynamic.kabel-deutschland.de ([95.90.247.11]
+ helo=wittgenstein) by youngberry.canonical.com with esmtpsa
+ (TLS1.2:ECDHE_RSA_AES_128_GCM_SHA256:128) (Exim 4.86_2)
+ (envelope-from <christian.brauner@ubuntu.com>) id 1k7Pad-0001II-S3
+ for ksummit-discuss@lists.linuxfoundation.org; Sun, 16 Aug 2020 20:49:15 +0000
+Date: Sun, 16 Aug 2020 22:49:15 +0200
+From: Christian Brauner <christian.brauner@ubuntu.com>
+To: ksummit-discuss@lists.linuxfoundation.org
+Message-ID: <20200816204915.hun44kawjmu46hpw@wittgenstein>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from [192.168.1.129] (172.101.208.204) by
- CH2PR16CA0025.namprd16.prod.outlook.com (2603:10b6:610:50::35) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.3283.16 via Frontend Transport; Sun, 16 Aug 2020 17:51:15 +0000
-X-Mailer: MailMate (1.13.1r5671)
-X-Originating-IP: [172.101.208.204]
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 423e2137-dfdf-4268-9b52-08d8420cf94e
-X-MS-TrafficTypeDiagnostic: BLAPR15MB3922:
-X-Microsoft-Antispam-PRVS: <BLAPR15MB39222AF26B3F09CCDB32EABFD35E0@BLAPR15MB3922.namprd15.prod.outlook.com>
-X-FB-Source: Internal
-X-MS-Oob-TLC-OOBClassifiers: OLM:8882;
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: KN8AM2cpyLRqDDQPErH5/WbtJdLeo9TxYdED7/b07Vp0CxCdZJOPmea9DF6dq7tdNOBRnUPBkApqxxVeFSqqJZ/o/QThk/XmQMDrHi0dV9u/dwgtHgV0EAz4ksJdoiKAFZyLecA3calG8GnrFz4gFnMWq11evpW3/s4AYbugxzwxOCJk17GXeFMmqNzvaY5UYIbyCgQX0XsYzlb0/2MB+56WLh0M4wUw2mUGEpGnpozH/2s9GZOZh+9l1Yx50vj90m9zIoN5SmhcBHcPnvZA3IoxirUm9Bb25GcxKaR7Esz6iysMj1fxQYCLZUPy7Ezq4fv0W+bX8QO7gftpMEJYjw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:MN2PR15MB3582.namprd15.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(39860400002)(396003)(366004)(136003)(346002)(376002)(16526019)(36756003)(52116002)(5660300002)(33656002)(4744005)(186003)(8936002)(2906002)(26005)(450100002)(956004)(2616005)(8676002)(110136005)(478600001)(86362001)(6666004)(6486002)(66476007)(66556008)(16576012)(316002)(66946007);
- DIR:OUT; SFP:1102; 
-X-MS-Exchange-AntiSpam-MessageData: 9E8LURf/ogARcevIe6w/Xa+woGmEC0F8EaCexsBhAKjVVDYOmMk4U5asCfzfzeLoUpKPehTjU3KDHBib5x2rLrWmxVI7TSHyMOZNhmjZBbb4Zs6IqeDLeLfA4JGhvIWBzotH90IKYyvdpBQ4kWKZPu6TizfbILGvo35Za2zrk3r41hZaD+NbdM7Zk7Ah6uL4npDTGOO4/04ezoy9WjZI81rrpUjUlO4riNhAYjxcNDo4O4cKfOej1Iw/ab8ARpmbF7+fRn1Ip+tw6Z0n8i1UMv/AWmNT3A88ZE82AgveB5heyE8e04qEt25KDw7WP3e0FfBHQZNucH+0WDmXXqdKjSLhEiJ1hKhGMGYieKP1O85YNlc2EyNpz7+qVtDKqwyfHOaQjFfpxCFshKhJ6mizWIEkxvY920ZE8tJNkFmFoB1btaVHGgrDK1377PhJHavli1o7NJ9Xmd5I/I/y4Jeyq3uTJJqt8pwsOhW7kP6qxZ/NBZoCFubV9joDMCvJCiWQGOXAS0qJLNUUULUQ6imGNpi8ZNRbML4b0e+icpx1sfQonRvGTwIc1Eeo0cdZxFSYUp3UCswsGTfKNww7Yk9Kvv+yQcSqyP8rKzv43vvhUSGXKT07eWIk7FoiywNg7hnmSR1RuIuOWkxBm/VdHsopEQ==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 423e2137-dfdf-4268-9b52-08d8420cf94e
-X-MS-Exchange-CrossTenant-AuthSource: MN2PR15MB3582.namprd15.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Aug 2020 17:51:16.5272 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8ae927fe-1255-47a7-a2af-5f3a069daaa2
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: rcPseAlLRAbibfUnE9KS1343rqAmMyDOPIb1JswXMiCs4VFhfFPz0Wo/FeJ8RDLK
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BLAPR15MB3922
-X-OriginatorOrg: fb.com
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.235, 18.0.687
- definitions=2020-08-16_07:2020-08-14,
- 2020-08-16 signatures=0
-X-Proofpoint-Spam-Details: rule=fb_default_notspam policy=fb_default score=0
- mlxscore=0 clxscore=1011
- mlxlogscore=901 spamscore=0 phishscore=0 bulkscore=0 suspectscore=0
- malwarescore=0 impostorscore=0 adultscore=0 lowpriorityscore=0
- priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2006250000 definitions=main-2008160147
-X-FB-Internal: deliver
-Subject: [Ksummit-discuss] self nomination for TAB elections
+Content-Disposition: inline
+Subject: [Ksummit-discuss] Self-nomination for 2020 TAB election
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.15
 Precedence: list
@@ -143,29 +62,52 @@ List-Post: <mailto:ksummit-discuss@lists.linuxfoundation.org>
 List-Help: <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=help>
 List-Subscribe: <https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss>, 
  <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=subscribe>
-From: Chris Mason via Ksummit-discuss
- <ksummit-discuss@lists.linuxfoundation.org>
-Reply-To: Chris Mason <clm@fb.com>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
-CkhlbGxvIGV2ZXJ5b25lLAoKSSdkIGxpa2UgdG8gc3RhbmQgZm9yIGVsZWN0aW9uIGFnYWluIHRo
-aXMgeWVhciwgYW5kIGhvcGUgdG8gc3RheSBpbiBteSAKcG9zaXRpb24gYXMgVEFCIGNoYWlyLiAg
-VGhlIExpbnV4IEZvdW5kYXRpb24gaXMgYSBrZXkgcGFydCBvZiB0aGUga2VybmVsIApjb21tdW5p
-dHksIGFuZCBJIGRlZXBseSB2YWx1ZSB0aGUgY2hhbmNlcyBJ4oCZdmUgaGFkIHRvIGhlbHAgdGhl
-IExGIGFuZCAKdGhlIGNvbW11bml0eSB3b3JrIHRvZ2V0aGVyLiAgSeKAmW0gZXNwZWNpYWxseSBn
-cmF0ZWZ1bCBmb3IgdGhlIG90aGVyIAptZW1iZXJzIG9mIHRoZSBUQUIsIHdobyBhbHdheXMgaGF2
-ZSBncmVhdCBhZHZpY2UgYW5kIGlkZWFzLgoKU2luY2Ugc3RhcnRpbmcgb24gdGhlIGtlcm5lbCBm
-dWxsIHRpbWUgaW4gMjAwMCwgSeKAmXZlIG1vc3RseSB3b3JrZWQgb24gCmZpbGVzeXN0ZW1zIGFu
-ZCBzdG9yYWdlLCBhbmQgZXNwZWNpYWxseSBvbiB0aGUgQnRyZnMgZmlsZXN5c3RlbS4gIEnigJl2
-ZSAKc3BlbnQgdGhlIGxhc3Qgc2V2ZW4geWVhcnMgd2l0aCBGYWNlYm9va+KAmXMga2VybmVsIHRl
-YW0sIGFuZCBJ4oCZbSAKcmVhbGx5IHByb3VkIG9mIG91ciB3b3JrIHdl4oCZcmUgZG9pbmcgdG8g
-bWFpbnRhaW4gYSBjeWNsZSBvZiBmZWF0dXJlcyAKYW5kIGJ1ZyBmaXhlcyBiZXR3ZWVuIG91ciBw
-cm9kdWN0aW9uIGtlcm5lbHMgYW5kIHVwc3RyZWFtLgoKUGxlYXNlIGZlZWwgZnJlZSB0byBlbWFp
-bCBtZSB3aXRoIHF1ZXN0aW9ucyBvciBjb21tZW50cy4KClRoYW5rcywKQ2hyaXMKX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KS3N1bW1pdC1kaXNjdXNzIG1h
-aWxpbmcgbGlzdApLc3VtbWl0LWRpc2N1c3NAbGlzdHMubGludXhmb3VuZGF0aW9uLm9yZwpodHRw
-czovL2xpc3RzLmxpbnV4Zm91bmRhdGlvbi5vcmcvbWFpbG1hbi9saXN0aW5mby9rc3VtbWl0LWRp
-c2N1c3MK
+Hey,
+
+I would like to stand for election to the Technical Advisory Board.
+
+I have been an active kernel contributor for about 5 years and a
+maintainer for about 2 years. I've been working on various parts of the
+kernel spanning multiple subsystems but often like to concentrate on
+process management, parts of the vfs, and security.
+I'm involved in developing and maintaining core technologies in the
+kernel that are in use in virtually all container runtimes and most
+sandboxing solutions across userspace. As a member of the TAB I'd like
+to help further the adoption of security relevant container features
+across the industry.
+
+Being a maintainer of large userspace projects too, I have worked to
+bring kernel development and low-level userspace closer together. This
+aims to ensure improved API design and increased security for all
+distros and companies. This has already proven useful as we were adding
+various new userspace APIs that have seen rapid adoption over the last
+two years.
+
+I really enjoy being part of the organizing committee of the Linux
+Plumbers conference this year. A healthy relationship between the Linux
+Foundation and Linux Plumbers and other kernel conferences is vital for
+the kernel community. Being a member of the TAB I'd like to maintain and
+strengthen that relationship!
+
+Being on the TAB I would also like to enable more young developers to
+take on responsibility in the kernel community. The TAB also is a great
+opportunity to not just help bring in new ideas but also to listen and
+learn from already established members.
+
+I am extremely grateful for the encouragement and nudges from existing
+and former TAB members to stand for election this year!
+
+I'm always happy to answer any questions and welcome feedback of course.
+Just write me a mail or message me on Twitter (@brau_ner).
+
+Thank you!
+Christian
+_______________________________________________
+Ksummit-discuss mailing list
+Ksummit-discuss@lists.linuxfoundation.org
+https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss
