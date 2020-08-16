@@ -2,69 +2,136 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from fraxinus.osuosl.org (smtp4.osuosl.org [140.211.166.137])
-	by mail.lfdr.de (Postfix) with ESMTPS id 849E52457AD
-	for <lists@lfdr.de>; Sun, 16 Aug 2020 14:53:45 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0E8722458DC
+	for <lists@lfdr.de>; Sun, 16 Aug 2020 19:51:41 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
-	by fraxinus.osuosl.org (Postfix) with ESMTP id D097985531;
-	Sun, 16 Aug 2020 12:53:42 +0000 (UTC)
+	by fraxinus.osuosl.org (Postfix) with ESMTP id 2584785BCD;
+	Sun, 16 Aug 2020 17:51:38 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
 Received: from fraxinus.osuosl.org ([127.0.0.1])
 	by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id UiBBsHJwl6L8; Sun, 16 Aug 2020 12:53:42 +0000 (UTC)
+	with ESMTP id 7cLQDZxCgdhA; Sun, 16 Aug 2020 17:51:37 +0000 (UTC)
 Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
-	by fraxinus.osuosl.org (Postfix) with ESMTP id B2FD18565B;
-	Sun, 16 Aug 2020 12:53:41 +0000 (UTC)
+	by fraxinus.osuosl.org (Postfix) with ESMTP id 1A38885BD3;
+	Sun, 16 Aug 2020 17:51:37 +0000 (UTC)
 Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id 75200C088B;
-	Sun, 16 Aug 2020 12:53:41 +0000 (UTC)
-X-Original-To: ksummit-discuss@lists.linuxfoundation.org
+	by lists.linuxfoundation.org (Postfix) with ESMTP id DEF46C0890;
+	Sun, 16 Aug 2020 17:51:36 +0000 (UTC)
+X-Original-To: ksummit-discuss@lists.linux-foundation.org
 Delivered-To: ksummit-discuss@lists.linuxfoundation.org
-Received: from whitealder.osuosl.org (smtp1.osuosl.org [140.211.166.138])
- by lists.linuxfoundation.org (Postfix) with ESMTP id D7D84C0051
- for <ksummit-discuss@lists.linuxfoundation.org>;
- Sun, 16 Aug 2020 12:53:38 +0000 (UTC)
+Received: from fraxinus.osuosl.org (smtp4.osuosl.org [140.211.166.137])
+ by lists.linuxfoundation.org (Postfix) with ESMTP id 7440EC0051;
+ Sun, 16 Aug 2020 17:51:35 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
- by whitealder.osuosl.org (Postfix) with ESMTP id CD33587CB8
- for <ksummit-discuss@lists.linuxfoundation.org>;
- Sun, 16 Aug 2020 12:53:38 +0000 (UTC)
+ by fraxinus.osuosl.org (Postfix) with ESMTP id 6976D85B80;
+ Sun, 16 Aug 2020 17:51:35 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from whitealder.osuosl.org ([127.0.0.1])
+Received: from fraxinus.osuosl.org ([127.0.0.1])
  by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id rANxRoJwVHvA
- for <ksummit-discuss@lists.linuxfoundation.org>;
- Sun, 16 Aug 2020 12:53:37 +0000 (UTC)
-X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
-Received: from ozlabs.org (bilbo.ozlabs.org [203.11.71.1])
- by whitealder.osuosl.org (Postfix) with ESMTPS id A48BA87C4A
- for <ksummit-discuss@lists.linuxfoundation.org>;
- Sun, 16 Aug 2020 12:53:37 +0000 (UTC)
-Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest
- SHA256) (No client certificate requested)
- by mail.ozlabs.org (Postfix) with ESMTPSA id 4BTxtk1wzYz9sTR;
- Sun, 16 Aug 2020 22:53:32 +1000 (AEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ellerman.id.au;
- s=201909; t=1597582414;
- bh=xpLVIzLpo/1ZhQwWcKA7c8rb6SmsBOgSF5mqM7GHsWY=;
- h=From:To:Subject:In-Reply-To:References:Date:From;
- b=fb3+potxlS9NiACHDhstC8E0WATgvYJ9izglTZ2GSFNu31rYjqsHvMT3VxJ9fg6Od
- twnwYvGCoKrRjF7zJRv+8DnUIRRdHeBBq8NH+WFZ1q2oo8X6YmAmhM8rp6Ku5RSf9q
- HuktcBiE54nMDMbmWUpdYcah3fBc5THqFOJ0H77+s2WA2YKyTfQvbeT1z95WeSw58l
- brk3dL0BwZFiwYF58Cq08Mb1RLxfYAUOni1AlzkVVvSideVn8Qdn6kQP9Mo87oeOJm
- BNFEA037TPSBKGrvSeK5CpfSMa6c/xRWS7KYVHk9eqgVIVErt50sFLkjQaaygClnOW
- OjOMo8L55u9gg==
-From: Michael Ellerman <mpe@ellerman.id.au>
-To: Arnd Bergmann <arnd@arndb.de>,
- ksummit <ksummit-discuss@lists.linuxfoundation.org>,
- Mike Rapoport <rppt@linux.ibm.com>, linux-arch <linux-arch@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-In-Reply-To: <CAK8P3a2PK_bC5=3wcWm43=y5xk-Dq5-fGPExJMnOrNfGfB1m1A@mail.gmail.com>
-References: <CAK8P3a2PK_bC5=3wcWm43=y5xk-Dq5-fGPExJMnOrNfGfB1m1A@mail.gmail.com>
-Date: Sun, 16 Aug 2020 22:53:29 +1000
-Message-ID: <874kp2ah12.fsf@mpe.ellerman.id.au>
+ with ESMTP id azb4ErrgMt5f; Sun, 16 Aug 2020 17:51:33 +0000 (UTC)
+X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
+X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
+Received: from mx0a-00082601.pphosted.com (mx0a-00082601.pphosted.com
+ [67.231.145.42])
+ by fraxinus.osuosl.org (Postfix) with ESMTPS id 6C0D085B4A;
+ Sun, 16 Aug 2020 17:51:33 +0000 (UTC)
+Received: from pps.filterd (m0109334.ppops.net [127.0.0.1])
+ by mx0a-00082601.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id
+ 07GHn6Ro011571; Sun, 16 Aug 2020 10:51:33 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fb.com;
+ h=from : to : subject :
+ date : message-id : content-type : content-transfer-encoding :
+ mime-version; s=facebook; bh=vhEWYpzyeRHLgYu8mZkpDQ+KQSxqXNG7FgMSC7ccjNs=;
+ b=JM5p1HBdCRFSwPJiiQV65BtONypNf6g6lXHdbmUTcxKJXWmf6Yj3JW0wjlNQm5vpyCLf
+ Ib3AvWVbWCelxpS4DuSRIuv8B26Jdt6LP6dwAddzESYuKUJuLOXEp67/JsXOVTePm97v
+ 8THxLa9skyChASkzAnRRXKuD4NlPFP8iziE= 
+Received: from maileast.thefacebook.com ([163.114.130.16])
+ by mx0a-00082601.pphosted.com with ESMTP id 32xyhk1wpx-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+ Sun, 16 Aug 2020 10:51:32 -0700
+Received: from NAM02-BL2-obe.outbound.protection.outlook.com (100.104.31.183)
+ by o365-in.thefacebook.com (100.104.36.101) with Microsoft SMTP
+ Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.1979.3; Sun, 16 Aug 2020 10:51:31 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=V73zqZC1SlTglvkEwQR5uY1Rbr3U+w53ZcjG7ESYYgM8X43yecH9qC+XaXxoCIIzbU9veeZER/PsvVxBVKHSWr33XnW2lUs+X5exri4S9ihnv+Fx7xC4G9SIMdZgOLEyHE1zLdtEaPkP5Ai9MbEntPz35b/wI5HGaySIjplMSJMoBPYVbNSm5kaokeSpD4Sq7OCc+1uyafy2SNFxMWINYquBuNIwGa5sXPqSLaBnDVXCMNr/ETW4ZRiwV7kQRIsI3pyBggOi0sqdBDJw72n3bIz57AqrHIEoZf5+43iks2yDEyBeH83Na8nYpo1/g9FqUYnTAk5zbxQwUtSp79ZbPQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vhEWYpzyeRHLgYu8mZkpDQ+KQSxqXNG7FgMSC7ccjNs=;
+ b=dVEHowRHjiXPXqbkM8/tqU/CrGHctRmy43lbUqXfpAolLCPzSTXGQzl2bvnIl4LfbzRfMDQjwNWFiMHUJR2QftC+OGCnbZRzcce6c4QIZkjcxkUqzfv3ChvJC41mmKWlu7KXhbwDmmddaTKEWdEkzQ2mSd/A04OZ3XSoIYATDKglKDZ2xbmTsSdVhFXiuuRd9VTZU8cKl0eGd4lTeU/IJHMW0SM+g5QqNAU91W2ZyeTWlDISU8rdj6XFfbrwfP/j8MEAe5vmpet7josA2+1FmkqHiFuBevuW+6EBrPemxtGRLFt3uODcEPp/A/MwUWRGUbnKyv4vS+B0bupTVY64QA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fb.com; dmarc=pass action=none header.from=fb.com; dkim=pass
+ header.d=fb.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fb.onmicrosoft.com;
+ s=selector2-fb-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vhEWYpzyeRHLgYu8mZkpDQ+KQSxqXNG7FgMSC7ccjNs=;
+ b=LBPLVNgsLrXITFIuNsDYztylRWT43zRJmhO97b4GznOxZnPSrKIIWjHAkCmHU0pems/XzXfhXywdAhB06WhW94Y/DZSlJzFDlF9GOu9Xh+4ZqKLYLHnVuCmElaWUgCWaJxeryRmPz0JOzXYMfLc6sZNtkE3XbOTEqayfqQWd6t8=
+Authentication-Results: lists.linux-foundation.org; dkim=none (message not
+ signed) header.d=none;lists.linux-foundation.org; dmarc=none action=none
+ header.from=fb.com;
+Received: from MN2PR15MB3582.namprd15.prod.outlook.com (2603:10b6:208:1b5::23)
+ by BLAPR15MB3922.namprd15.prod.outlook.com (2603:10b6:208:254::23)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3283.16; Sun, 16 Aug
+ 2020 17:51:16 +0000
+Received: from MN2PR15MB3582.namprd15.prod.outlook.com
+ ([fe80::bd7a:9d1e:2fd0:34e6]) by MN2PR15MB3582.namprd15.prod.outlook.com
+ ([fe80::bd7a:9d1e:2fd0:34e6%6]) with mapi id 15.20.3261.025; Sun, 16 Aug 2020
+ 17:51:16 +0000
+To: Tech Board Discuss <tech-board-discuss@lists.linux-foundation.org>, Kernel
+ Summit Discussions <ksummit-discuss@lists.linux-foundation.org>
+Date: Sun, 16 Aug 2020 13:51:11 -0400
+X-Mailer: MailMate (1.13.1r5671)
+Message-ID: <B52600FA-CC34-437A-B0AB-42FAF0D6A545@fb.com>
+X-ClientProxiedBy: CH2PR16CA0025.namprd16.prod.outlook.com
+ (2603:10b6:610:50::35) To MN2PR15MB3582.namprd15.prod.outlook.com
+ (2603:10b6:208:1b5::23)
 MIME-Version: 1.0
-Subject: Re: [Ksummit-discuss] [TECH TOPIC] Planning code obsolescence
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from [192.168.1.129] (172.101.208.204) by
+ CH2PR16CA0025.namprd16.prod.outlook.com (2603:10b6:610:50::35) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.3283.16 via Frontend Transport; Sun, 16 Aug 2020 17:51:15 +0000
+X-Mailer: MailMate (1.13.1r5671)
+X-Originating-IP: [172.101.208.204]
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 423e2137-dfdf-4268-9b52-08d8420cf94e
+X-MS-TrafficTypeDiagnostic: BLAPR15MB3922:
+X-Microsoft-Antispam-PRVS: <BLAPR15MB39222AF26B3F09CCDB32EABFD35E0@BLAPR15MB3922.namprd15.prod.outlook.com>
+X-FB-Source: Internal
+X-MS-Oob-TLC-OOBClassifiers: OLM:8882;
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: KN8AM2cpyLRqDDQPErH5/WbtJdLeo9TxYdED7/b07Vp0CxCdZJOPmea9DF6dq7tdNOBRnUPBkApqxxVeFSqqJZ/o/QThk/XmQMDrHi0dV9u/dwgtHgV0EAz4ksJdoiKAFZyLecA3calG8GnrFz4gFnMWq11evpW3/s4AYbugxzwxOCJk17GXeFMmqNzvaY5UYIbyCgQX0XsYzlb0/2MB+56WLh0M4wUw2mUGEpGnpozH/2s9GZOZh+9l1Yx50vj90m9zIoN5SmhcBHcPnvZA3IoxirUm9Bb25GcxKaR7Esz6iysMj1fxQYCLZUPy7Ezq4fv0W+bX8QO7gftpMEJYjw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:MN2PR15MB3582.namprd15.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(39860400002)(396003)(366004)(136003)(346002)(376002)(16526019)(36756003)(52116002)(5660300002)(33656002)(4744005)(186003)(8936002)(2906002)(26005)(450100002)(956004)(2616005)(8676002)(110136005)(478600001)(86362001)(6666004)(6486002)(66476007)(66556008)(16576012)(316002)(66946007);
+ DIR:OUT; SFP:1102; 
+X-MS-Exchange-AntiSpam-MessageData: 9E8LURf/ogARcevIe6w/Xa+woGmEC0F8EaCexsBhAKjVVDYOmMk4U5asCfzfzeLoUpKPehTjU3KDHBib5x2rLrWmxVI7TSHyMOZNhmjZBbb4Zs6IqeDLeLfA4JGhvIWBzotH90IKYyvdpBQ4kWKZPu6TizfbILGvo35Za2zrk3r41hZaD+NbdM7Zk7Ah6uL4npDTGOO4/04ezoy9WjZI81rrpUjUlO4riNhAYjxcNDo4O4cKfOej1Iw/ab8ARpmbF7+fRn1Ip+tw6Z0n8i1UMv/AWmNT3A88ZE82AgveB5heyE8e04qEt25KDw7WP3e0FfBHQZNucH+0WDmXXqdKjSLhEiJ1hKhGMGYieKP1O85YNlc2EyNpz7+qVtDKqwyfHOaQjFfpxCFshKhJ6mizWIEkxvY920ZE8tJNkFmFoB1btaVHGgrDK1377PhJHavli1o7NJ9Xmd5I/I/y4Jeyq3uTJJqt8pwsOhW7kP6qxZ/NBZoCFubV9joDMCvJCiWQGOXAS0qJLNUUULUQ6imGNpi8ZNRbML4b0e+icpx1sfQonRvGTwIc1Eeo0cdZxFSYUp3UCswsGTfKNww7Yk9Kvv+yQcSqyP8rKzv43vvhUSGXKT07eWIk7FoiywNg7hnmSR1RuIuOWkxBm/VdHsopEQ==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 423e2137-dfdf-4268-9b52-08d8420cf94e
+X-MS-Exchange-CrossTenant-AuthSource: MN2PR15MB3582.namprd15.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Aug 2020 17:51:16.5272 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8ae927fe-1255-47a7-a2af-5f3a069daaa2
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: rcPseAlLRAbibfUnE9KS1343rqAmMyDOPIb1JswXMiCs4VFhfFPz0Wo/FeJ8RDLK
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BLAPR15MB3922
+X-OriginatorOrg: fb.com
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.235, 18.0.687
+ definitions=2020-08-16_07:2020-08-14,
+ 2020-08-16 signatures=0
+X-Proofpoint-Spam-Details: rule=fb_default_notspam policy=fb_default score=0
+ mlxscore=0 clxscore=1011
+ mlxlogscore=901 spamscore=0 phishscore=0 bulkscore=0 suspectscore=0
+ malwarescore=0 impostorscore=0 adultscore=0 lowpriorityscore=0
+ priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2006250000 definitions=main-2008160147
+X-FB-Internal: deliver
+Subject: [Ksummit-discuss] self nomination for TAB elections
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.15
 Precedence: list
@@ -76,85 +143,29 @@ List-Post: <mailto:ksummit-discuss@lists.linuxfoundation.org>
 List-Help: <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=help>
 List-Subscribe: <https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss>, 
  <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+From: Chris Mason via Ksummit-discuss
+ <ksummit-discuss@lists.linuxfoundation.org>
+Reply-To: Chris Mason <clm@fb.com>
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
-Arnd Bergmann <arnd@arndb.de> writes:
-> I have submitted the below as a topic for the linux/arch/* MC that Mike
-> and I run, but I suppose it also makes sense to discuss it on the
-> ksummit-discuss mailing list (cross-posted to linux-arch and lkml) as well
-> even if we don't discuss it at the main ksummit track.
->
->      Arnd
->
-> 8<---
-...
->
-> I propose adding a Documentation file that keeps track of any notable
-> kernel feature that could be classified as "obsolete", and listing
-> e.g. following properties:
->
-> * Kconfig symbol controlling the feature
->
-> * How long we expect to keep it as a minimum
->
-> * Known use cases, or other reasons this needs to stay
->
-> * Latest kernel in which it was known to have worked
->
-> * Contact information for known users (mailing list, personal email)
->
-> * Other features that may depend on this
->
-> * Possible benefits of eventually removing it
->
-> With that information, my hope is that it becomes easier to plan when
-> some code can be removed after the last users have stopped upgrading
-> their kernels, while also preventing code from being removed that is
-> actually still in active use.
->
-> In the discussion at the linux/arch/* MC, I would hope to answer these
-> questions:
->
-> * Do other developers find this useful to have?
-
-Yes!
-
-> * Where should the information be kept (Documentation/*, Kconfig,
-> MAINTAINERS, wiki.kernel.org, ...)
-
-Documentation/ seems like the obvious place. Possibly also somewhere on
-wiki.kernel.org or elsewhere so that people can contribute information
-without having to submit a formal patch.
-
-> * Which information should be part of an entry?
-
-Your list above is pretty good.
-
-For features that relate to specific hardware I think it would be useful
-to have some more information.
-
-For example when the hardware was last manufactured, who made it, how
-could it be purchased when it was available (eg. was it for sale to the
-public or in limited quantities or only to certain people or internal to
-a particular company).
-
-
-> * What granularity should this be applied to -- only high-level features
-> like CPU architectures and subsystems, or individual drivers and machines?
-
-I think it can make sense at many levels. It probably just depends on
-how much effort folks want to go to in order to track down the
-information.
-
-Looking at powerpc it would be useful to have that sort of info for
-individual boards, as well as each platform, CPU families and specific
-drivers.
-
-cheers
-_______________________________________________
-Ksummit-discuss mailing list
-Ksummit-discuss@lists.linuxfoundation.org
-https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss
+CkhlbGxvIGV2ZXJ5b25lLAoKSSdkIGxpa2UgdG8gc3RhbmQgZm9yIGVsZWN0aW9uIGFnYWluIHRo
+aXMgeWVhciwgYW5kIGhvcGUgdG8gc3RheSBpbiBteSAKcG9zaXRpb24gYXMgVEFCIGNoYWlyLiAg
+VGhlIExpbnV4IEZvdW5kYXRpb24gaXMgYSBrZXkgcGFydCBvZiB0aGUga2VybmVsIApjb21tdW5p
+dHksIGFuZCBJIGRlZXBseSB2YWx1ZSB0aGUgY2hhbmNlcyBJ4oCZdmUgaGFkIHRvIGhlbHAgdGhl
+IExGIGFuZCAKdGhlIGNvbW11bml0eSB3b3JrIHRvZ2V0aGVyLiAgSeKAmW0gZXNwZWNpYWxseSBn
+cmF0ZWZ1bCBmb3IgdGhlIG90aGVyIAptZW1iZXJzIG9mIHRoZSBUQUIsIHdobyBhbHdheXMgaGF2
+ZSBncmVhdCBhZHZpY2UgYW5kIGlkZWFzLgoKU2luY2Ugc3RhcnRpbmcgb24gdGhlIGtlcm5lbCBm
+dWxsIHRpbWUgaW4gMjAwMCwgSeKAmXZlIG1vc3RseSB3b3JrZWQgb24gCmZpbGVzeXN0ZW1zIGFu
+ZCBzdG9yYWdlLCBhbmQgZXNwZWNpYWxseSBvbiB0aGUgQnRyZnMgZmlsZXN5c3RlbS4gIEnigJl2
+ZSAKc3BlbnQgdGhlIGxhc3Qgc2V2ZW4geWVhcnMgd2l0aCBGYWNlYm9va+KAmXMga2VybmVsIHRl
+YW0sIGFuZCBJ4oCZbSAKcmVhbGx5IHByb3VkIG9mIG91ciB3b3JrIHdl4oCZcmUgZG9pbmcgdG8g
+bWFpbnRhaW4gYSBjeWNsZSBvZiBmZWF0dXJlcyAKYW5kIGJ1ZyBmaXhlcyBiZXR3ZWVuIG91ciBw
+cm9kdWN0aW9uIGtlcm5lbHMgYW5kIHVwc3RyZWFtLgoKUGxlYXNlIGZlZWwgZnJlZSB0byBlbWFp
+bCBtZSB3aXRoIHF1ZXN0aW9ucyBvciBjb21tZW50cy4KClRoYW5rcywKQ2hyaXMKX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KS3N1bW1pdC1kaXNjdXNzIG1h
+aWxpbmcgbGlzdApLc3VtbWl0LWRpc2N1c3NAbGlzdHMubGludXhmb3VuZGF0aW9uLm9yZwpodHRw
+czovL2xpc3RzLmxpbnV4Zm91bmRhdGlvbi5vcmcvbWFpbG1hbi9saXN0aW5mby9rc3VtbWl0LWRp
+c2N1c3MK
