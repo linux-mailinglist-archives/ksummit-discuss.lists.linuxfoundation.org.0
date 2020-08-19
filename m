@@ -1,80 +1,79 @@
 Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
-Received: from hemlock.osuosl.org (smtp2.osuosl.org [140.211.166.133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8C6962477F4
-	for <lists@lfdr.de>; Mon, 17 Aug 2020 22:11:14 +0200 (CEST)
+Received: from whitealder.osuosl.org (smtp1.osuosl.org [140.211.166.138])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1D3AD24A4BD
+	for <lists@lfdr.de>; Wed, 19 Aug 2020 19:15:57 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
-	by hemlock.osuosl.org (Postfix) with ESMTP id A66D387807;
-	Mon, 17 Aug 2020 20:11:12 +0000 (UTC)
+	by whitealder.osuosl.org (Postfix) with ESMTP id 75F1C875EA;
+	Wed, 19 Aug 2020 17:15:55 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from hemlock.osuosl.org ([127.0.0.1])
+Received: from whitealder.osuosl.org ([127.0.0.1])
 	by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id FfdD7oa5Umq5; Mon, 17 Aug 2020 20:11:12 +0000 (UTC)
+	with ESMTP id ic7ZW7jjkkfg; Wed, 19 Aug 2020 17:15:55 +0000 (UTC)
 Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
-	by hemlock.osuosl.org (Postfix) with ESMTP id 600DB877FF;
-	Mon, 17 Aug 2020 20:11:12 +0000 (UTC)
+	by whitealder.osuosl.org (Postfix) with ESMTP id 07569875EE;
+	Wed, 19 Aug 2020 17:15:55 +0000 (UTC)
 Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id 15953C07FF;
-	Mon, 17 Aug 2020 20:11:12 +0000 (UTC)
+	by lists.linuxfoundation.org (Postfix) with ESMTP id AF574C0051;
+	Wed, 19 Aug 2020 17:15:54 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@lists.linuxfoundation.org
-Received: from fraxinus.osuosl.org (smtp4.osuosl.org [140.211.166.137])
- by lists.linuxfoundation.org (Postfix) with ESMTP id BA2BCC07FF
+Received: from whitealder.osuosl.org (smtp1.osuosl.org [140.211.166.138])
+ by lists.linuxfoundation.org (Postfix) with ESMTP id 6EAEDC0051
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon, 17 Aug 2020 20:11:10 +0000 (UTC)
+ Wed, 19 Aug 2020 17:15:52 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
- by fraxinus.osuosl.org (Postfix) with ESMTP id A1D8A854CC
+ by whitealder.osuosl.org (Postfix) with ESMTP id 6BA5C875E0
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon, 17 Aug 2020 20:11:10 +0000 (UTC)
+ Wed, 19 Aug 2020 17:15:52 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from fraxinus.osuosl.org ([127.0.0.1])
+Received: from whitealder.osuosl.org ([127.0.0.1])
  by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id 6XM4yJi5KzBW
+ with ESMTP id lDtMXz48aNwP
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon, 17 Aug 2020 20:11:10 +0000 (UTC)
+ Wed, 19 Aug 2020 17:15:51 +0000 (UTC)
 X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
-Received: from mail-ed1-f42.google.com (mail-ed1-f42.google.com
- [209.85.208.42])
- by fraxinus.osuosl.org (Postfix) with ESMTPS id CC08F854C9
+Received: from mail-il1-f179.google.com (mail-il1-f179.google.com
+ [209.85.166.179])
+ by whitealder.osuosl.org (Postfix) with ESMTPS id B9EC7875E2
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon, 17 Aug 2020 20:11:09 +0000 (UTC)
-Received: by mail-ed1-f42.google.com with SMTP id m20so13399583eds.2
+ Wed, 19 Aug 2020 17:15:51 +0000 (UTC)
+Received: by mail-il1-f179.google.com with SMTP id c6so21274724ilo.13
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon, 17 Aug 2020 13:11:09 -0700 (PDT)
+ Wed, 19 Aug 2020 10:15:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=intel-com.20150623.gappssmtp.com; s=20150623;
- h=mime-version:from:date:message-id:subject:to:cc;
- bh=sPKc+6Es/epvp8Trrkwzsqy6x7tXaxd4ShL7VNT8OFM=;
- b=zvC99vrLQEWicOqF5CZFfs2kaD5dBY9DHAa1Ti66SdzUwXYjP+TnXdCfQ4IneEtMPd
- EIHPn7Rk2XJp77qPSyIdmAx5gwi2hNPd+v7k2NEYnW8o0CXHsSE3J7L/DaeA5+0LUhN/
- mynvJAsBlIX8kM6RRSVv74f8LNwbZTXEIHrfYoXkKb6xK2aRkb88/oYlANLlMOy+k1Pm
- RObFHly2jNM0ApEeCJaeU4h4jKX4j+6lakWQjKgdywG6TczJcT93PTl6VHdhBXz7B256
- H/iMsm+n+x4latzZ1h7gfZAPK2qB9JHs5N8peNWlBB5w9hlE6PE88W7Be92GhTjxN/46
- H/Sw==
+ d=lixom-net.20150623.gappssmtp.com; s=20150623;
+ h=mime-version:from:date:message-id:subject:to;
+ bh=q0lUMrBBrQFKnfz34i+FGQHN9o+WFlClC5Ed/U865Rg=;
+ b=0FjmoTfLCWqQcStHEBCPzB34yQFMzrZwwbnJzUG8kqXJeAv6wqFOZNKSoLyrO03P8t
+ gDeCBZq7LwiPe0FaPsB4+STvNvbRCQc2X8jsTBZJf/cG1YW19PIdnjK+xiplHbeI7VmE
+ /5r56hCYzH+US2AoYHohTwNmnWYfhq4E4cthg4TydgpG1oJ4c2ALWbPDOw9Yr+YbZpb2
+ nMLsO084e1C+jmDUe9fiu90bltRI0a9XEvILMGGM5EmvYIz2O4gNFmwgcaa+zvs70w1P
+ q4dh3M2o0enfIEjPKhPRNg2+3fwYC58B8b2sTIovfTkxP68msb9ejo+/I9Esgwen361F
+ OWAQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:from:date:message-id:subject:to:cc;
- bh=sPKc+6Es/epvp8Trrkwzsqy6x7tXaxd4ShL7VNT8OFM=;
- b=sp9/ClZQ7HGm9q1zHGi+jVKUCrI8hAqI5AO54qbO3DRRTiqUGWInWKt6SZr0FyfijA
- YAz6TRt83RXvbNPirjncPs6sbssC4EB9/PXMy7MX5hJPltHxppk2NiYjuiTrYh9p5OON
- GhHYt8OUjWKKH2PyrdswJXHOK4SKiVgu/K9vkCRpf0VmTpmrNVG9BGasqGJfk9hfsBww
- N/HY5wzVlOo3vAjJAUhp0S/Fd4UPkmlnTagx9CZils+xvBGdHWtpsU283oxjfBJlQj08
- kh3HObhwopTxSSJzQ5IX/eKFME/TfRVjTweMxevMCN5eCj6yR94TiyNS/P/Un39pfVjx
- ogkA==
-X-Gm-Message-State: AOAM531k9yoZoZVlMK3hUOjTptjtTecbD2v3kF4WNzroXwDo2Br5ltmi
- r8XTBAQ/2csi4iCiKivR+2oT3JeP9U31Y6FsdXKLqaQx36g=
-X-Google-Smtp-Source: ABdhPJxijJaPYVvhK8xDblRGDaWWJko40Fn67CRrT+uEOfwMJcwrB8jJc+1leDDFHIoWdnh6YSo1UngwOh/fj8npgi4=
-X-Received: by 2002:a05:6402:17a4:: with SMTP id
- j4mr4091135edy.52.1597695068316; 
- Mon, 17 Aug 2020 13:11:08 -0700 (PDT)
+ h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+ bh=q0lUMrBBrQFKnfz34i+FGQHN9o+WFlClC5Ed/U865Rg=;
+ b=aqzk+3WfnR6d5bSuLFdAA6zTLUb+ctSj2oxbgCZe1ah3tsjJRTPCVGItxsHnze+Va6
+ TpzP2GYT87j148kqMNZDA+ksHW6rh98hT6Las/YL+hsja9DT401j3lzDGvXIUI6Txp6b
+ dgWj/yprhfHZ/Z+RR3SXRome88yz/UMDkiQo8pVTQBn31CvSg0GnhJN3/Oj4ZMkuEgVC
+ yG8beHkq+fR7zGkRufnB1M0NwsJmVsVet/iLFDzw9Roy0Tk5iYUWNe9oThvMZAvCKxkN
+ ztTyvZ4NqIs91+sQbJ3SEEegL1HFSknVvv4UT/NFaLjEOuiqlCCHwdVa043Sx4PTWDXl
+ x+Fg==
+X-Gm-Message-State: AOAM532JJ1t0G+hYh/dJgiLP1pRxL/4BK1ianFLXftDjqfIKkYDxVIuG
+ huoNnZv2et0ND14yc1Mhxi5CWl4uU0S1YkJAyxAZ1uc/ni0=
+X-Google-Smtp-Source: ABdhPJxReJJ+BkVb3bZ8O9rcQ/jL0eA+wvVWf3HNVOYUiXfo3fpZyGs8qZ0AYFdrcwffT4hYPyQBJicEshnhaYHTyks=
+X-Received: by 2002:a92:90d:: with SMTP id y13mr2408762ilg.278.1597857350329; 
+ Wed, 19 Aug 2020 10:15:50 -0700 (PDT)
 MIME-Version: 1.0
-From: Dan Williams <dan.j.williams@intel.com>
-Date: Mon, 17 Aug 2020 13:10:56 -0700
-Message-ID: <CAPcyv4j5Cpo4F3VLOawK93BwtNXwMCi+4SNZEAQeV93T+BK9Wg@mail.gmail.com>
-To: tech-board-discuss@lists.linuxfoundation.org
-Cc: ksummit <ksummit-discuss@lists.linuxfoundation.org>
-Subject: [Ksummit-discuss] Self-nomination for 2020 TAB election
+From: Olof Johansson <olof@lixom.net>
+Date: Wed, 19 Aug 2020 10:15:39 -0700
+Message-ID: <CAOesGMgLevAS9x8bQitBaRQbTU7eeX4ayxGx4o2625AvVZtobA@mail.gmail.com>
+To: ksummit <ksummit-discuss@lists.linuxfoundation.org>, 
+ tech-board-discuss@lists.linuxfoundation.org
+Subject: [Ksummit-discuss] Self-nomination for the 2020 TAB election
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.15
 Precedence: list
@@ -91,24 +90,32 @@ Content-Transfer-Encoding: 7bit
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
-Hello,
+Hi,
 
-Please add me to the candidate list for this year's TAB elections.
+I would like to stand for re-election for the Technical Advisory Board
+this year. I have appreciated the opportunity to represent the kernel
+community through the TAB over the last 4 years, and would like to
+continue doing so.
 
-The Technical Advisory Board pools the experience and influence of a
-group of Linux kernel development community members to collaborate and
-respond to issues impacting the wider Linux community. I am motivated
-to continue in this role, motivated to offer my perspective and effort
-to positively impact the health of the community. In particular, I am
-interested in the topics of maintainer-contributor relations,
-inclusion, and the long term viability of the upstream / GPL Linux
-kernel development model.
+Over the years, I've been involved in various areas of the kernel,
+from PowerPC architecture and platform work, to SoC maintainer roles
+(mostly focused on ARM-based ones), with the last one still being my
+main contribution to the community these days. I'm also involved in a
+few other embedded projects such as Zephyr, but probably with a bit
+less visibility.
 
-Since 2005 my kernel development experience has ranged from low-level
-Arm / x86 enabling, to storage device-drivers, and most recently
-persistent memory and device memory management. I believe I bring a
-unique perspective to the TAB and am thankful for the opportunity to
-serve with your support.
+I enjoy engaging with vendors, in particular when we can find ways to
+get them involved in the community as developers and maintainers. Some
+of my proudest moments as a maintainer have been when we've been able
+to bring in some of these companies into our community instead of
+having them work in isolation.
+
+I find it valuable to make sure we have representation of
+embedded-focused viewpoints on the TAB, and making sure we have
+continue to have strong connections to those communities.
+
+
+-Olof
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
