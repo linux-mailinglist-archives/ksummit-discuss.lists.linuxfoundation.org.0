@@ -1,72 +1,69 @@
 Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
-Received: from fraxinus.osuosl.org (smtp4.osuosl.org [140.211.166.137])
-	by mail.lfdr.de (Postfix) with ESMTPS id 20CEC2C038B
-	for <lists@lfdr.de>; Mon, 23 Nov 2020 11:44:38 +0100 (CET)
-Received: from localhost (localhost [127.0.0.1])
-	by fraxinus.osuosl.org (Postfix) with ESMTP id 8DCA285624;
-	Mon, 23 Nov 2020 10:44:36 +0000 (UTC)
-X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from fraxinus.osuosl.org ([127.0.0.1])
-	by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id C-8PNjkbbuxw; Mon, 23 Nov 2020 10:44:34 +0000 (UTC)
-Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
-	by fraxinus.osuosl.org (Postfix) with ESMTP id 06650854EF;
-	Mon, 23 Nov 2020 10:44:34 +0000 (UTC)
-Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id BEFD2C0052;
-	Mon, 23 Nov 2020 10:44:33 +0000 (UTC)
-X-Original-To: ksummit-discuss@lists.linuxfoundation.org
-Delivered-To: ksummit-discuss@lists.linuxfoundation.org
 Received: from hemlock.osuosl.org (smtp2.osuosl.org [140.211.166.133])
- by lists.linuxfoundation.org (Postfix) with ESMTP id D45BFC0052
- for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon, 23 Nov 2020 10:44:31 +0000 (UTC)
+	by mail.lfdr.de (Postfix) with ESMTPS id 56B6B2C0510
+	for <lists@lfdr.de>; Mon, 23 Nov 2020 12:59:19 +0100 (CET)
 Received: from localhost (localhost [127.0.0.1])
- by hemlock.osuosl.org (Postfix) with ESMTP id BA77D870A1
- for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon, 23 Nov 2020 10:44:31 +0000 (UTC)
+	by hemlock.osuosl.org (Postfix) with ESMTP id 3007A870CF;
+	Mon, 23 Nov 2020 11:59:17 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
 Received: from hemlock.osuosl.org ([127.0.0.1])
+	by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id IdtdBCZBkQ2h; Mon, 23 Nov 2020 11:59:16 +0000 (UTC)
+Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
+	by hemlock.osuosl.org (Postfix) with ESMTP id B736E87051;
+	Mon, 23 Nov 2020 11:59:16 +0000 (UTC)
+Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
+	by lists.linuxfoundation.org (Postfix) with ESMTP id 7D818C0052;
+	Mon, 23 Nov 2020 11:59:16 +0000 (UTC)
+X-Original-To: ksummit-discuss@lists.linuxfoundation.org
+Delivered-To: ksummit-discuss@lists.linuxfoundation.org
+Received: from silver.osuosl.org (smtp3.osuosl.org [140.211.166.136])
+ by lists.linuxfoundation.org (Postfix) with ESMTP id 14340C0052
+ for <ksummit-discuss@lists.linuxfoundation.org>;
+ Mon, 23 Nov 2020 11:59:14 +0000 (UTC)
+Received: from localhost (localhost [127.0.0.1])
+ by silver.osuosl.org (Postfix) with ESMTP id E158A203C9
+ for <ksummit-discuss@lists.linuxfoundation.org>;
+ Mon, 23 Nov 2020 11:59:13 +0000 (UTC)
+X-Virus-Scanned: amavisd-new at osuosl.org
+Received: from silver.osuosl.org ([127.0.0.1])
  by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id cb4cqf9aLmqx
+ with ESMTP id 3H6U7WxVKR1p
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon, 23 Nov 2020 10:44:29 +0000 (UTC)
-X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
-Received: from mail-ot1-f44.google.com (mail-ot1-f44.google.com
- [209.85.210.44])
- by hemlock.osuosl.org (Postfix) with ESMTPS id AE51D8709D
+ Mon, 23 Nov 2020 11:59:12 +0000 (UTC)
+X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
+Received: from ozlabs.org (bilbo.ozlabs.org [203.11.71.1])
+ by silver.osuosl.org (Postfix) with ESMTPS id ACF681FEBF
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon, 23 Nov 2020 10:44:29 +0000 (UTC)
-Received: by mail-ot1-f44.google.com with SMTP id f16so15433702otl.11
- for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon, 23 Nov 2020 02:44:29 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=zg4vBn2BTnC6xfH9VgNqJXFdkto9KLIzrm0Lwwkr4I4=;
- b=LGVFatUVYCo+r3nOC+8KbCp4KnfZbJfBzlyERe3u2Enym2LmOPfaunyTiB9VmxHFHV
- Qja7JVbs8YTDl9v7/W6pPIjFS/wHuVICPTbQArOcJQ0mMMbQWwUcku8Gu/vbZZzzH1dC
- oI+5zZuvdv5ps2khZA9rZG4Q+iotspjJZWzGcPFHY+zDYsoW74BmJxMB6HAPepVeGXIF
- oiJRXkQii3/SRP4u/0KV1W6Dm31spOi+pDguYFwViBzkhziG3QnuHxq0nWmYUMqQOtok
- 0kg5XZmyL8lLXP3YKtUuAZjlEFqHbFh2ClhjcyQ0Gk+GLMQ5nlE9IrweoZTgHFy1Vqm6
- O6jg==
-X-Gm-Message-State: AOAM531afHfodqtl7O/QswCsUaw/u+KUrqFtpZqUKmu34KgHYSIjI8Tk
- DK12v2lIpfuJD563KhvcWQfax5mOefSLr+8vYZM=
-X-Google-Smtp-Source: ABdhPJzVYzAUT/tPxRIBNmRftMqvyvjUNunaa9JXr6n4wC1KzJ+8Lq3erDyqquQurQGTVtwd80bQ7SidSky1dTXJSpk=
-X-Received: by 2002:a9d:5e14:: with SMTP id d20mr21001859oti.107.1606128268658; 
- Mon, 23 Nov 2020 02:44:28 -0800 (PST)
-MIME-Version: 1.0
+ Mon, 23 Nov 2020 11:59:12 +0000 (UTC)
+Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest
+ SHA256) (No client certificate requested)
+ by mail.ozlabs.org (Postfix) with ESMTPSA id 4Cfm0D1R5lz9sRR;
+ Mon, 23 Nov 2020 22:59:08 +1100 (AEDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=canb.auug.org.au;
+ s=201702; t=1606132749;
+ bh=C/02EMvW4o+WQSdThZBP7+ma8iXHpAXlIFsLEtjz06Y=;
+ h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+ b=mfrjUAIFLQRg6Aj5Z9BjAisGK9DzYOlvkvNXTKvyOZIT0yLFqdYk5Z9aw8q3UZnvS
+ uHLaFp++oe0OxVCaMl9svrAyB6Vd+KB21yY1fIgizLP6A7OqkkE5PAurJQNXjbznOr
+ +yrxORNwjhPut7r4kqQKKfGFxAj2TqtRskwpAlHZkIZYuTsmJlVUm616c6A691W1DH
+ b8RQl06XPPR6LJtdiUSUZtn2E0Fo9nRLUWQ9egRkJPi8ibdpNyH1sX7cP1Bl8POpue
+ 67/2aev2YLPgkJNb3kpaWWqKTrTLSiSb9P9jCtKhqQoebGVhUhMSNiFYBEJIxyRMUR
+ qBzO46/N/qqMQ==
+Date: Mon, 23 Nov 2020 22:59:06 +1100
+From: Stephen Rothwell <sfr@canb.auug.org.au>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Message-ID: <20201123225906.7cd6d14e@canb.auug.org.au>
+In-Reply-To: <CAMuHMdUkQqJ_+8xy3q7tjCXCU4cZsnT7EOHtfTDroc4Ke0yPrw@mail.gmail.com>
 References: <551A9FAC.2010203@atmel.com>
  <f15a82c8-5960-34ea-e7fc-dffdfdd369c6@microchip.com>
  <20180823093045.00e751b0@canb.auug.org.au>
-In-Reply-To: <20180823093045.00e751b0@canb.auug.org.au>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 23 Nov 2020 11:44:17 +0100
-Message-ID: <CAMuHMdUkQqJ_+8xy3q7tjCXCU4cZsnT7EOHtfTDroc4Ke0yPrw@mail.gmail.com>
-To: Stephen Rothwell <sfr@canb.auug.org.au>
+ <CAMuHMdUkQqJ_+8xy3q7tjCXCU4cZsnT7EOHtfTDroc4Ke0yPrw@mail.gmail.com>
+MIME-Version: 1.0
 Cc: Ludovic Desroches <ludovic.desroches@microchip.com>,
  ksummit <ksummit-discuss@lists.linuxfoundation.org>,
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
@@ -82,72 +79,69 @@ List-Post: <mailto:ksummit-discuss@lists.linuxfoundation.org>
 List-Help: <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=help>
 List-Subscribe: <https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss>, 
  <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2995831672872332808=="
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
-Hi Stephen,
+--===============2995831672872332808==
+Content-Type: multipart/signed; boundary="Sig_/DvmE2Rgt16brmASEAq52yA+";
+ protocol="application/pgp-signature"; micalg=pgp-sha256
 
-On Thu, Aug 23, 2018 at 1:31 AM Stephen Rothwell <sfr@canb.auug.org.au> wrote:
-> On Wed, 22 Aug 2018 14:47:56 +0200 Nicolas Ferre <nicolas.ferre@microchip.com> wrote:
-> > Alexandre Ludovic and myself are the group of maintainers for Microchip
-> > ARM SoCs. The current tree that we have in linux-next is mine [1] and we
-> > are moving to a common group kernel.org tree.
-> >
-> > So, can you please add our new tree to linux-next:
-> > at91 git
-> > git://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git#at91-next
-> >
-> > instead of:
-> > git://git.kernel.org/pub/scm/linux/kernel/git/nferre/linux-at91.git#at91-next
-> >
-> > In addition to that, we also have now a "fixes" branch. Can you please
-> > add it to your "fixes" tree?
-> >
-> > at91 git
-> > git://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git#at91-fixes
-> >
-> > Thanks for your help, best regards,
-> >    Nicolas
-> >
-> >
-> > [1]
-> > https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/Next/Trees#n84
+--Sig_/DvmE2Rgt16brmASEAq52yA+
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
+
+Hi Geert,
+
+On Mon, 23 Nov 2020 11:44:17 +0100 Geert Uytterhoeven <geert@linux-m68k.org=
+> wrote:
 >
-> All done.  I added Alexandre and Ludovic as contacts for both trees as
-> well.
+> How is this working?
+>=20
+> From next-20201123:
+>=20
+>     Merging at91/at91-next (0698efbb33ef Merge branches 'at91-soc',
+> 'at91-dt' and 'at91-defconfig' into at91-next)
+>=20
+> which is indeed a recent commit, while Next/Trees has the wrong repo
+> (linux-at91.git instead of linux.git):
 
-How is this working?
+That is what happens when you store the (supposedly) same information
+in 2 places :-(  I have fixed the incorrect one.
 
-From next-20201123:
+Thanks for letting me know.
 
-    Merging at91/at91-next (0698efbb33ef Merge branches 'at91-soc',
-'at91-dt' and 'at91-defconfig' into at91-next)
+--=20
+Cheers,
+Stephen Rothwell
 
-which is indeed a recent commit, while Next/Trees has the wrong repo
-(linux-at91.git instead of linux.git):
+--Sig_/DvmE2Rgt16brmASEAq52yA+
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
 
-$ git show linux-next/master:Next/Trees | grep at91
-at91-fixes git git://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git#at91-fixes
-at91 git git://git.kernel.org/pub/scm/linux/kernel/git/at91/linux-at91.git#at91-next
-$ git ls-remote
-git://git.kernel.org/pub/scm/linux/kernel/git/at91/linux-at91.git
-fatal: remote error: access denied or repository not exported:
-/pub/scm/linux/kernel/git/at91/linux-at91.git
+-----BEGIN PGP SIGNATURE-----
 
-Gr{oetje,eeting}s,
+iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAl+7pAoACgkQAVBC80lX
+0GyJRAf/V/bhAYt+kbgrjswsfnSdam/Is8x0+KRy/IxG4qUvvsjGMM1sZRiC8cLj
+EkjTiQH0bEXNHxq2R6vHVidcmZ/z6Gez08Ra8bRmdhGu7CFraRB43LU6yRYd+UWY
+7SnDhWQP3jE1qMK1s2X/2cKJkmC7PW4e4ciG4TUjagyRexKb4wR+80P+jHZG/xqx
+by//TMGl9buOy0X7woWmmc/onM3hZBJt6JQ8A++DyP7gSCw0CsDpfxxqqyF3+WGd
+99EIZtXI5+qq+E8COHiQx1dI37ZZjlYAhE4mWejr/9lRjUOIJ0jzadwobX9FTghD
+lUMaFwNVAbcreWnNA8iV0e8s/CNe2w==
+=2oEC
+-----END PGP SIGNATURE-----
 
-                        Geert
+--Sig_/DvmE2Rgt16brmASEAq52yA+--
 
+--===============2995831672872332808==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
 https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss
+
+--===============2995831672872332808==--
