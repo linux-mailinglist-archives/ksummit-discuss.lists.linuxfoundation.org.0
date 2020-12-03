@@ -1,80 +1,75 @@
 Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
-Received: from whitealder.osuosl.org (smtp1.osuosl.org [140.211.166.138])
-	by mail.lfdr.de (Postfix) with ESMTPS id 554542CD848
-	for <lists@lfdr.de>; Thu,  3 Dec 2020 14:58:26 +0100 (CET)
+Received: from hemlock.osuosl.org (smtp2.osuosl.org [140.211.166.133])
+	by mail.lfdr.de (Postfix) with ESMTPS id EA66B2CDB9F
+	for <lists@lfdr.de>; Thu,  3 Dec 2020 17:56:09 +0100 (CET)
 Received: from localhost (localhost [127.0.0.1])
-	by whitealder.osuosl.org (Postfix) with ESMTP id 6398187C15;
-	Thu,  3 Dec 2020 13:58:24 +0000 (UTC)
+	by hemlock.osuosl.org (Postfix) with ESMTP id 8997787A05;
+	Thu,  3 Dec 2020 16:56:07 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from whitealder.osuosl.org ([127.0.0.1])
+Received: from hemlock.osuosl.org ([127.0.0.1])
 	by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id dPAj4II8WTo6; Thu,  3 Dec 2020 13:58:23 +0000 (UTC)
+	with ESMTP id zzKqOpaHmYBO; Thu,  3 Dec 2020 16:56:04 +0000 (UTC)
 Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
-	by whitealder.osuosl.org (Postfix) with ESMTP id 7673E87C25;
-	Thu,  3 Dec 2020 13:58:23 +0000 (UTC)
+	by hemlock.osuosl.org (Postfix) with ESMTP id F12A187A2C;
+	Thu,  3 Dec 2020 16:56:03 +0000 (UTC)
 Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id 23FB6C163C;
-	Thu,  3 Dec 2020 13:58:23 +0000 (UTC)
+	by lists.linuxfoundation.org (Postfix) with ESMTP id AF31CC1836;
+	Thu,  3 Dec 2020 16:56:03 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@lists.linuxfoundation.org
-Received: from fraxinus.osuosl.org (smtp4.osuosl.org [140.211.166.137])
- by lists.linuxfoundation.org (Postfix) with ESMTP id 5A2A7C0FA7
+Received: from hemlock.osuosl.org (smtp2.osuosl.org [140.211.166.133])
+ by lists.linuxfoundation.org (Postfix) with ESMTP id D4735C0FA7
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Thu,  3 Dec 2020 13:58:21 +0000 (UTC)
+ Thu,  3 Dec 2020 16:56:01 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
- by fraxinus.osuosl.org (Postfix) with ESMTP id 403BA874D2
+ by hemlock.osuosl.org (Postfix) with ESMTP id CA3BC878FA
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Thu,  3 Dec 2020 13:58:21 +0000 (UTC)
+ Thu,  3 Dec 2020 16:56:01 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from fraxinus.osuosl.org ([127.0.0.1])
+Received: from hemlock.osuosl.org ([127.0.0.1])
  by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id rMV71gEuXZ1D
+ with ESMTP id NJOW8DlN4ZhQ
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Thu,  3 Dec 2020 13:58:19 +0000 (UTC)
+ Thu,  3 Dec 2020 16:56:00 +0000 (UTC)
 X-Greylist: from auto-whitelisted by SQLgrey-1.7.6
-Received: from bedivere.hansenpartnership.com (bedivere.hansenpartnership.com
- [96.44.175.130])
- by fraxinus.osuosl.org (Postfix) with ESMTPS id 3E96386D38
+Received: from smtprelay.hostedemail.com (smtprelay0178.hostedemail.com
+ [216.40.44.178])
+ by hemlock.osuosl.org (Postfix) with ESMTPS id CDFFF877D3
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Thu,  3 Dec 2020 13:58:19 +0000 (UTC)
-Received: from localhost (localhost [127.0.0.1])
- by bedivere.hansenpartnership.com (Postfix) with ESMTP id 928DC128074A;
- Thu,  3 Dec 2020 05:58:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
- d=hansenpartnership.com; s=20151216; t=1607003898;
- bh=2e4QVL6oFGBsIaZX31w+Mg071wTO2ua7Y21muJ4Hi3I=;
- h=Message-ID:Subject:From:To:Date:In-Reply-To:References:From;
- b=eq3/hiAvSAZlIM2WTLDZAbxwmU9+teGEQmv447OEzXMBw9lA7GlbtvfOZo5xZsM8n
- 1qcWdTBPCWKk9qp/bDDP8cYKl3dDBrcdAIzQjRSgNDCipEIv4O5Fo8F0wcpzsoSEF6
- tUhvoBNxneFp5TIiDHyNcCRVg3BGb4rOpMIf2qjY=
-Received: from bedivere.hansenpartnership.com ([127.0.0.1])
- by localhost (bedivere.hansenpartnership.com [127.0.0.1]) (amavisd-new,
- port 10024)
- with ESMTP id uG4WwRwZhca0; Thu,  3 Dec 2020 05:58:18 -0800 (PST)
-Received: from jarvis.int.hansenpartnership.com (unknown
- [IPv6:2601:600:8280:66d1::527])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by bedivere.hansenpartnership.com (Postfix) with ESMTPSA id 40B4D1280742;
- Thu,  3 Dec 2020 05:58:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
- d=hansenpartnership.com; s=20151216; t=1607003898;
- bh=2e4QVL6oFGBsIaZX31w+Mg071wTO2ua7Y21muJ4Hi3I=;
- h=Message-ID:Subject:From:To:Date:In-Reply-To:References:From;
- b=eq3/hiAvSAZlIM2WTLDZAbxwmU9+teGEQmv447OEzXMBw9lA7GlbtvfOZo5xZsM8n
- 1qcWdTBPCWKk9qp/bDDP8cYKl3dDBrcdAIzQjRSgNDCipEIv4O5Fo8F0wcpzsoSEF6
- tUhvoBNxneFp5TIiDHyNcCRVg3BGb4rOpMIf2qjY=
-Message-ID: <694039d6e386d999fd74d038cf2627f5b3b0ca71.camel@HansenPartnership.com>
-From: James Bottomley <James.Bottomley@HansenPartnership.com>
-To: Vlastimil Babka <vbabka@suse.cz>, 
- "ksummit-discuss@lists.linuxfoundation.org"
+ Thu,  3 Dec 2020 16:56:00 +0000 (UTC)
+Received: from smtprelay.hostedemail.com (10.5.19.251.rfc1918.com
+ [10.5.19.251])
+ by smtpgrave05.hostedemail.com (Postfix) with ESMTP id A1D15182888AA
+ for <ksummit-discuss@lists.linuxfoundation.org>;
+ Thu,  3 Dec 2020 16:55:59 +0000 (UTC)
+Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net
+ [216.40.38.60])
+ by smtprelay06.hostedemail.com (Postfix) with ESMTP id 35ED118224D60;
+ Thu,  3 Dec 2020 16:55:57 +0000 (UTC)
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Spam-Summary: 2, 0, 0, , d41d8cd98f00b204, joe@perches.com, ,
+ RULES_HIT:41:355:379:599:973:979:988:989:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1534:1541:1593:1594:1711:1730:1747:1777:1792:2393:2559:2562:2693:2828:2892:2902:3138:3139:3140:3141:3142:3352:3622:3865:3866:3867:3868:3871:3874:4321:4383:4388:4395:5007:7875:10004:10400:10848:11232:11658:11914:12295:12297:12740:12760:12895:13069:13255:13311:13357:13439:14096:14097:14659:14777:21080:21433:21450:21451:21627:21819:21939:30022:30054:30056:30070:30075:30091,
+ 0, RBL:none, CacheIP:none, Bayesian:0.5, 0.5, 0.5, Netcheck:none,
+ DomainCache:0, MSF:not bulk, SPF:, MSBL:0, DNSBL:none, Custom_rules:0:0:0,
+ LFtime:1, LUA_SUMMARY:none
+X-HE-Tag: grain99_2c007c7273bd
+X-Filterd-Recvd-Size: 2150
+Received: from XPS-9350.home (unknown [47.151.137.21])
+ (Authenticated sender: joe@perches.com)
+ by omf15.hostedemail.com (Postfix) with ESMTPA;
+ Thu,  3 Dec 2020 16:55:56 +0000 (UTC)
+Message-ID: <3c11134905f06185dda4e9125f2fb7fd30fff979.camel@perches.com>
+From: Joe Perches <joe@perches.com>
+To: James Bottomley <James.Bottomley@HansenPartnership.com>, Vlastimil Babka
+ <vbabka@suse.cz>, "ksummit-discuss@lists.linuxfoundation.org"
  <ksummit-discuss@lists.linuxfoundation.org>
-Date: Thu, 03 Dec 2020 05:58:17 -0800
-In-Reply-To: <ea32eb02-5e44-0469-772b-34b5cb882543@suse.cz>
+Date: Thu, 03 Dec 2020 08:55:54 -0800
+In-Reply-To: <694039d6e386d999fd74d038cf2627f5b3b0ca71.camel@HansenPartnership.com>
 References: <ea32eb02-5e44-0469-772b-34b5cb882543@suse.cz>
-User-Agent: Evolution 3.34.4 
+ <694039d6e386d999fd74d038cf2627f5b3b0ca71.camel@HansenPartnership.com>
+User-Agent: Evolution 3.38.1-1 
 MIME-Version: 1.0
 Cc: LKML <linux-kernel@vger.kernel.org>
 Subject: Re: [Ksummit-discuss] crediting bug reports and fixes folded into
@@ -95,47 +90,31 @@ Content-Transfer-Encoding: 7bit
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
-On Thu, 2020-12-03 at 00:43 +0100, Vlastimil Babka wrote:
-> Hi,
-> 
-> there was a bit of debate on Twitter about this, so I thought I would
-> bring it here. Imagine a scenario where patch sits as a commit in
-> -next and there's a bug report or fix, possibly by a bot or with some
-> static analysis. The maintainer decides to fold it into the original
-> patch, which makes sense for e.g. bisectability. But there seem to be
-> no clear rules about attribution in this case, which looks like there
-> should be, probably in
-> Documentation/maintainer/modifying-patches.rst
-> 
-> The original bug fix might include a From: $author, a Reported-by:
-> (e.g. syzbot), Fixes: $next-commit, some tag such as Addresses-
-> Coverity: to credit the static analysis tool, and an SoB. After
-> folding, all that's left might be a line as "include fix from
-> $author" in the SoB area. This is a loss of metadata/attribution just
-> due to folding, and might make contributors unhappy. Had they sent
-> the fix after the original commit was mainline and immutable, all
-> the info above would "survive" in the form of new commit.
+On Thu, 2020-12-03 at 05:58 -0800, James Bottomley wrote:
+> So there are two embedded questions here: firstly, should we be as
+> wedded to clean history as we are, because showing the evolution would
+> simply solve this?  Secondly, if we are agreed on clean history, how
+> can we make engagement via email as important as engagement via commit
+> for the community managers so the Link tag is enough?  I've got to say
+> I think trying to add tags to recognize patch evolution is a mistake
+> and we instead investigate one of the two proposals above.
 
-It has been the case since forever that discussion which improves an
-uncommitted patch is only captured in email (which now may be preserved
-in a link tag).  Patch updates that come in after the patch is
-committed get their own commit.  We've tried to move people away from
-counting commits as an indicator of upstream eminence, but it's still a
-fact of life that this is what matters to a lot of open source
-community managers.  The tension we have is between liking a clean
-commit in the tree as opposed to a sequence of commits tracking the
-evolution of the patch and this community manager desire to track
-patches.
+I don't care that any trivial style notes I give to anyone
+are tracked for posterity.
 
-So there are two embedded questions here: firstly, should we be as
-wedded to clean history as we are, because showing the evolution would
-simply solve this?  Secondly, if we are agreed on clean history, how
-can we make engagement via email as important as engagement via commit
-for the community managers so the Link tag is enough?  I've got to say
-I think trying to add tags to recognize patch evolution is a mistake
-and we instead investigate one of the two proposals above.
+Who are these 'community managers' that use these?
 
-James
+Signatures are a mechanism for credit tracking isn't great.
+
+One style that seems to have been generally accepted is for
+patch revision change logs to be noted below a --- line.
+
+Often that change log will shows various improvements made
+to a patch and the people and reasoning that helped make
+those improvements.
+
+Perhaps automate a mechanism to capture that information as
+git notes for the patches when applied.
 
 
 _______________________________________________
