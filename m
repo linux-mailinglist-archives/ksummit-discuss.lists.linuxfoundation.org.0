@@ -2,75 +2,47 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from fraxinus.osuosl.org (smtp4.osuosl.org [140.211.166.137])
-	by mail.lfdr.de (Postfix) with ESMTPS id 179A92D3C95
-	for <lists@lfdr.de>; Wed,  9 Dec 2020 09:01:14 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id E9D462D3DC5
+	for <lists@lfdr.de>; Wed,  9 Dec 2020 09:45:13 +0100 (CET)
 Received: from localhost (localhost [127.0.0.1])
-	by fraxinus.osuosl.org (Postfix) with ESMTP id A8FCD86CD7;
-	Wed,  9 Dec 2020 08:01:11 +0000 (UTC)
+	by fraxinus.osuosl.org (Postfix) with ESMTP id 0E4E086C3B;
+	Wed,  9 Dec 2020 08:45:12 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
 Received: from fraxinus.osuosl.org ([127.0.0.1])
 	by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id 5W_KbFl0B4Ca; Wed,  9 Dec 2020 08:01:10 +0000 (UTC)
+	with ESMTP id rpUYBsvaTDDG; Wed,  9 Dec 2020 08:45:11 +0000 (UTC)
 Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
-	by fraxinus.osuosl.org (Postfix) with ESMTP id DD7DC86C71;
-	Wed,  9 Dec 2020 08:01:10 +0000 (UTC)
+	by fraxinus.osuosl.org (Postfix) with ESMTP id D4CA386937;
+	Wed,  9 Dec 2020 08:45:10 +0000 (UTC)
 Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id B7E79C0893;
-	Wed,  9 Dec 2020 08:01:10 +0000 (UTC)
+	by lists.linuxfoundation.org (Postfix) with ESMTP id A781BC0FA7;
+	Wed,  9 Dec 2020 08:45:10 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@lists.linuxfoundation.org
-Received: from whitealder.osuosl.org (smtp1.osuosl.org [140.211.166.138])
- by lists.linuxfoundation.org (Postfix) with ESMTP id 187E4C013B
+Received: from fraxinus.osuosl.org (smtp4.osuosl.org [140.211.166.137])
+ by lists.linuxfoundation.org (Postfix) with ESMTP id 1C007C013B
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Wed,  9 Dec 2020 08:01:09 +0000 (UTC)
+ Wed,  9 Dec 2020 08:45:08 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
- by whitealder.osuosl.org (Postfix) with ESMTP id 0509786CCF
+ by fraxinus.osuosl.org (Postfix) with ESMTP id 187BA86880
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Wed,  9 Dec 2020 08:01:09 +0000 (UTC)
+ Wed,  9 Dec 2020 08:45:08 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from whitealder.osuosl.org ([127.0.0.1])
+Received: from fraxinus.osuosl.org ([127.0.0.1])
  by localhost (.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id WfLZkUFxqr4Q
+ with ESMTP id ewIalxyMXkQV
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Wed,  9 Dec 2020 08:01:06 +0000 (UTC)
+ Wed,  9 Dec 2020 08:45:06 +0000 (UTC)
 X-Greylist: domain auto-whitelisted by SQLgrey-1.7.6
-Received: from userp2130.oracle.com (userp2130.oracle.com [156.151.31.86])
- by whitealder.osuosl.org (Postfix) with ESMTPS id 91C2286CC0
+Received: from mx2.suse.de (mx2.suse.de [195.135.220.15])
+ by fraxinus.osuosl.org (Postfix) with ESMTPS id AABA486813
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Wed,  9 Dec 2020 08:01:06 +0000 (UTC)
-Received: from pps.filterd (userp2130.oracle.com [127.0.0.1])
- by userp2130.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 0B97xu5N183566;
- Wed, 9 Dec 2020 08:01:00 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com;
- h=date : from : to : cc
- : subject : message-id : references : mime-version : content-type :
- in-reply-to; s=corp-2020-01-29;
- bh=0Lki9NGQpmR9mKfLYz22nD8e4XYLkisaaFThAETfzls=;
- b=oOGdSRt+RIyi6nMnwYQoI7JQX93yUe1PhOR6UGwgXjQVCBhc+kTuXvwc7zOCXBQQCBO9
- SmPES2/GabVS5f/6SlYsi+e5qAm/TBaF1xcY5ThcJmdhJ86xTO9yUVX4+EWFl7pBVY2I
- F6brhQiqoYgdyFgBy5OS9vlre7aTAQG9FyD3fcEVbKkLYhrBVSERPZx/mvjw9O9C6Ct1
- EYChvBPRBjkFURiLo8U9zM+DFXgQHXwjSz2Y7u+pvoQAMnX4nztaTQ1DEm5r6Jn7hft5
- MdC13o4bhGO0MHjVHfyVkT0sb6+R6kAC/K0jHx5J2NNXMibIhvGQV403OdKP5nUhrDVg 6Q== 
-Received: from userp3030.oracle.com (userp3030.oracle.com [156.151.31.80])
- by userp2130.oracle.com with ESMTP id 3581mqxnh3-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
- Wed, 09 Dec 2020 08:01:00 +0000
-Received: from pps.filterd (userp3030.oracle.com [127.0.0.1])
- by userp3030.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 0B97tjt8003308;
- Wed, 9 Dec 2020 07:58:59 GMT
-Received: from userv0122.oracle.com (userv0122.oracle.com [156.151.31.75])
- by userp3030.oracle.com with ESMTP id 358m505axn-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Wed, 09 Dec 2020 07:58:59 +0000
-Received: from abhmp0019.oracle.com (abhmp0019.oracle.com [141.146.116.25])
- by userv0122.oracle.com (8.14.4/8.14.4) with ESMTP id 0B97wvt5005154;
- Wed, 9 Dec 2020 07:58:57 GMT
-Received: from kadam (/102.36.221.92) by default (Oracle Beehive Gateway v4.0)
- with ESMTP ; Tue, 08 Dec 2020 23:58:56 -0800
-Date: Wed, 9 Dec 2020 10:58:49 +0300
-From: Dan Carpenter <dan.carpenter@oracle.com>
-To: Joe Perches <joe@perches.com>
-Message-ID: <20201209075849.GD2767@kadam>
+ Wed,  9 Dec 2020 08:45:06 +0000 (UTC)
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.221.27])
+ by mx2.suse.de (Postfix) with ESMTP id 33E76AC94;
+ Wed,  9 Dec 2020 08:45:04 +0000 (UTC)
+To: Dan Carpenter <dan.carpenter@oracle.com>, Joe Perches <joe@perches.com>
 References: <ea32eb02-5e44-0469-772b-34b5cb882543@suse.cz>
  <CAPcyv4jDHMt4PpR2Htvw27rn5i5sCkwXtoZH-rFbtG8Hj7x1sg@mail.gmail.com>
  <20201203093458.GA16543@unreal>
@@ -78,29 +50,20 @@ References: <ea32eb02-5e44-0469-772b-34b5cb882543@suse.cz>
  <20201203104047.GD16543@unreal> <X8ku1MmZeeIaMRF4@kroah.com>
  <202012081619.6593C87D3@keescook>
  <13d04c4cc769ebd1dd58470f4d22ada5c9cd28e7.camel@perches.com>
+ <20201209075849.GD2767@kadam>
+From: Vlastimil Babka <vbabka@suse.cz>
+Message-ID: <a6dfe760-c3b4-8bc4-3c7f-cc1208b626fa@suse.cz>
+Date: Wed, 9 Dec 2020 09:45:03 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <13d04c4cc769ebd1dd58470f4d22ada5c9cd28e7.camel@perches.com>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9829
- signatures=668683
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxscore=0
- spamscore=0 suspectscore=0
- bulkscore=0 malwarescore=0 phishscore=0 adultscore=0 mlxlogscore=999
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2009150000
- definitions=main-2012090055
-X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9829
- signatures=668683
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0
- mlxlogscore=999
- clxscore=1015 malwarescore=0 priorityscore=1501 adultscore=0
- lowpriorityscore=0 phishscore=0 spamscore=0 impostorscore=0 mlxscore=0
- bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2009150000 definitions=main-2012090056
-Cc: "ksummit-discuss@lists.linuxfoundation.org"
+In-Reply-To: <20201209075849.GD2767@kadam>
+Content-Language: en-US
+Cc: Greg KH <gregkh@linuxfoundation.org>,
+ Colin Ian King <colin.king@canonical.com>,
+ "ksummit-discuss@lists.linuxfoundation.org"
  <ksummit-discuss@lists.linuxfoundation.org>,
- Greg KH <gregkh@linuxfoundation.org>, LKML <linux-kernel@vger.kernel.org>,
- Colin Ian King <colin.king@canonical.com>, Vlastimil Babka <vbabka@suse.cz>
+ LKML <linux-kernel@vger.kernel.org>
 Subject: Re: [Ksummit-discuss] crediting bug reports and fixes folded into
  original patch
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
@@ -119,30 +82,49 @@ Content-Transfer-Encoding: 7bit
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
-On Tue, Dec 08, 2020 at 09:01:49PM -0800, Joe Perches wrote:
-> On Tue, 2020-12-08 at 16:34 -0800, Kees Cook wrote:
+On 12/9/20 8:58 AM, Dan Carpenter wrote:
+> On Tue, Dec 08, 2020 at 09:01:49PM -0800, Joe Perches wrote:
+>> On Tue, 2020-12-08 at 16:34 -0800, Kees Cook wrote:
+>> 
+>> > If not "Adjusted-by", what about "Tweaked-by", "Helped-by",
+>> > "Corrected-by"?
+>> 
+>> Improved-by: / Enhanced-by: / Revisions-by: 
+>> 
 > 
-> > If not "Adjusted-by", what about "Tweaked-by", "Helped-by",
-> > "Corrected-by"?
+> I don't think we should give any credit for improvements or enhancements,
+
+Well, some are actually useful and not about reviewer's preferred style :) But
+if an author redoes the patch as a result, it's their choice to mention useful
+improvements in the next version's change log.
+
+> only for fixes.  Complaining about style is its own reward.
+
+Right, let's focus on fixes and reports of bugs, that would have resulted in a
+standalone commit, but don't.
+
+> Having to redo a patch is already a huge headache.  Normally, I already
+> considered the reviewer's prefered style and decided I didn't like it.
+> Then to make me redo the patch in an ugly style and say thankyou on
+> top of that???  Forget about it.  Plus, as a reviewer I hate reviewing
+> patches over and over.
 > 
-> Improved-by: / Enhanced-by: / Revisions-by: 
+> I've argued for years that we should have a Fixes-from: tag.  The zero
+
+Standardizing the Fixes-from: tag (or any better name) would be a forward
+progress, yes.
+
+> day bot is already encouraging people to add Reported-by tags for this
+> and a lot of people do.
+
+"Reported-by:" becomes ambiguous once the bugfix for the reported issue in the
+patch is folded, as it's no longer clear whether the bot reported the original
+issue the patch is fixing, or a bug in the fix. So we should have a different
+variant. "Fixes-reported-by:" so it has the same prefix?
+
+> regards,
+> dan carpenter
 > 
-
-I don't think we should give any credit for improvements or enhancements,
-only for fixes.  Complaining about style is its own reward.
-
-Having to redo a patch is already a huge headache.  Normally, I already
-considered the reviewer's prefered style and decided I didn't like it.
-Then to make me redo the patch in an ugly style and say thankyou on
-top of that???  Forget about it.  Plus, as a reviewer I hate reviewing
-patches over and over.
-
-I've argued for years that we should have a Fixes-from: tag.  The zero
-day bot is already encouraging people to add Reported-by tags for this
-and a lot of people do.
-
-regards,
-dan carpenter
 
 _______________________________________________
 Ksummit-discuss mailing list
