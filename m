@@ -1,64 +1,87 @@
 Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
-Received: from smtp2.osuosl.org (smtp2.osuosl.org [140.211.166.133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 98295344966
-	for <lists@lfdr.de>; Mon, 22 Mar 2021 16:38:43 +0100 (CET)
+Received: from smtp1.osuosl.org (smtp1.osuosl.org [140.211.166.138])
+	by mail.lfdr.de (Postfix) with ESMTPS id 876CF344C64
+	for <lists@lfdr.de>; Mon, 22 Mar 2021 17:55:23 +0100 (CET)
 Received: from localhost (localhost [127.0.0.1])
-	by smtp2.osuosl.org (Postfix) with ESMTP id 694A94027A;
-	Mon, 22 Mar 2021 15:38:41 +0000 (UTC)
+	by smtp1.osuosl.org (Postfix) with ESMTP id 5CA6983252;
+	Mon, 22 Mar 2021 16:55:21 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from smtp2.osuosl.org ([127.0.0.1])
-	by localhost (smtp2.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id xMYUPQ0Qs-8B; Mon, 22 Mar 2021 15:38:40 +0000 (UTC)
-Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [IPv6:2605:bc80:3010:104::8cd3:938])
-	by smtp2.osuosl.org (Postfix) with ESMTP id 8841240281;
-	Mon, 22 Mar 2021 15:38:39 +0000 (UTC)
+Received: from smtp1.osuosl.org ([127.0.0.1])
+	by localhost (smtp1.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 03pLRiM6GI2I; Mon, 22 Mar 2021 16:55:20 +0000 (UTC)
+Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
+	by smtp1.osuosl.org (Postfix) with ESMTP id 36B34831FB;
+	Mon, 22 Mar 2021 16:55:19 +0000 (UTC)
 Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id 524E7C0001;
-	Mon, 22 Mar 2021 15:38:38 +0000 (UTC)
+	by lists.linuxfoundation.org (Postfix) with ESMTP id 06D95C0001;
+	Mon, 22 Mar 2021 16:55:18 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@lists.linuxfoundation.org
-Received: from smtp2.osuosl.org (smtp2.osuosl.org [140.211.166.133])
- by lists.linuxfoundation.org (Postfix) with ESMTP id 7F0D0C0001
+Received: from smtp1.osuosl.org (smtp1.osuosl.org [IPv6:2605:bc80:3010::138])
+ by lists.linuxfoundation.org (Postfix) with ESMTP id 7E73AC0001
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon, 22 Mar 2021 15:38:37 +0000 (UTC)
+ Mon, 22 Mar 2021 16:55:16 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
- by smtp2.osuosl.org (Postfix) with ESMTP id 657C340166
+ by smtp1.osuosl.org (Postfix) with ESMTP id 6C77883134
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon, 22 Mar 2021 15:38:37 +0000 (UTC)
+ Mon, 22 Mar 2021 16:55:16 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from smtp2.osuosl.org ([127.0.0.1])
- by localhost (smtp2.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id CUxvhhVslGaJ
+Received: from smtp1.osuosl.org ([127.0.0.1])
+ by localhost (smtp1.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id 2RTGKbBnkHEc
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon, 22 Mar 2021 15:38:35 +0000 (UTC)
-X-Greylist: delayed 00:20:12 by SQLgrey-1.8.0
-Received: from wp530.webpack.hosteurope.de (wp530.webpack.hosteurope.de
- [IPv6:2a01:488:42:1000:50ed:8234::])
- by smtp2.osuosl.org (Postfix) with ESMTPS id 8DEE540137
+ Mon, 22 Mar 2021 16:55:14 +0000 (UTC)
+X-Greylist: whitelisted by SQLgrey-1.8.0
+Received: from mail-il1-x131.google.com (mail-il1-x131.google.com
+ [IPv6:2607:f8b0:4864:20::131])
+ by smtp1.osuosl.org (Postfix) with ESMTPS id D5A4283096
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon, 22 Mar 2021 15:38:35 +0000 (UTC)
-Received: from ip4d142c50.dynamic.kabel-deutschland.de ([77.20.44.80]
- helo=[192.168.66.200]); authenticated
- by wp530.webpack.hosteurope.de running ExIM with esmtpsa
- (TLS1.3:ECDHE_RSA_AES_128_GCM_SHA256:128)
- id 1lOMJv-0006QD-Qm; Mon, 22 Mar 2021 16:18:19 +0100
-From: Thorsten Leemhuis <linux@leemhuis.info>
-To: Linus Torvalds <torvalds@linux-foundation.org>,
- Greg KH <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
- ksummit-discuss@lists.linuxfoundation.org, workflows@vger.kernel.org,
- Konstantin Ryabitsev <konstantin@linuxfoundation.org>
-Message-ID: <613fe50d-fc9c-6282-f1f3-34653acb2ee9@leemhuis.info>
-Date: Mon, 22 Mar 2021 16:18:14 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.7.0
+ Mon, 22 Mar 2021 16:55:14 +0000 (UTC)
+Received: by mail-il1-x131.google.com with SMTP id u10so15471017ilb.0
+ for <ksummit-discuss@lists.linuxfoundation.org>;
+ Mon, 22 Mar 2021 09:55:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=ngARvZf0Hr9eoT5wywWQfkd9nJk4dz1wJXXtIU4BmYk=;
+ b=htInPnZg4vA+r7OCPDFJS5+IlPc32tImgeocBgZqDXhlQuU7p+XXJBReMc1MYJti4O
+ Ut1bxDZCaEWVUImDpMrOHozfrOuDFW0XbytfEtkVQ6sHUNkdHsm+HRfsTghbR10Hy2zR
+ gux3CXoHNFlrQ/woLzePzXIXyTbVKcN9Rd/JaLQtAPScMbH9cTjrF2vLFIrkV2/m0nUM
+ a4Jb0G30nFUQ4hqO1RF1lctYzuVEhS9Cwrh/u/D7i1+vxXJSoO29Slngf/5QM3Tso+Sr
+ GfqASeS7M6XS3DnKDDN4yDiK4eKyIAadNYth7mLi7gMkyfnVtSThMeDYjzOIb8XWqoZn
+ owVg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=ngARvZf0Hr9eoT5wywWQfkd9nJk4dz1wJXXtIU4BmYk=;
+ b=jrFr4qE9xxhdxdmcyOmfTT+t3JLW2p2JObahy9OoG/aL2Al3ISaEjSu0z98ERG4IVH
+ 24Uu+Sq9rnBtaux/B+pwqE3GWhzKlfqB6xc5oezh1j85Um71lBng8xDUrKvWUrmMx8h9
+ /584tdUmz6bwxgWQNlqqIBT51yNPCrHggN5znn14U3TfzwAMOKHvPUUMOOfPet5rYwF8
+ xncnkGWglBfr3zsZO5xQMYajSyy8cYgiNyzIN/RqinsUvBRSCgVtkoQoV+13tpr++IrZ
+ a6JugJQN+flSipEp7ZGwfjqjtfvhLGGCTY5uoJTIKIrfQr63Njgv6qtPpOCaGbYNHfqz
+ oUZQ==
+X-Gm-Message-State: AOAM533fYr5LzR4dbZQiAHm5U5nl5+F1fKEn81lc1qapa+eZpTKJG23J
+ lir0P6cQqO71B+q6EbefOADGAKl15c1h/2z4iLg=
+X-Google-Smtp-Source: ABdhPJyuJC5hVCu0FCRaN9RV2YxF9x8kaHOn+ZjQHGxHWHv3o0Td39BXmxSaDgG62GosSCT8X7bL+vwO2jxcpkFsiSA=
+X-Received: by 2002:a05:6e02:1049:: with SMTP id
+ p9mr790208ilj.125.1616432113856; 
+ Mon, 22 Mar 2021 09:55:13 -0700 (PDT)
 MIME-Version: 1.0
-Content-Language: en-BS
-X-bounce-key: webpack.hosteurope.de;linux@leemhuis.info;1616427515;63b4fec0;
-X-HE-SMSGID: 1lOMJv-0006QD-Qm
-Subject: [Ksummit-discuss] RFC: create mailing list "linux-issues" focussed
- on issues/bugs and regressions
+References: <613fe50d-fc9c-6282-f1f3-34653acb2ee9@leemhuis.info>
+In-Reply-To: <613fe50d-fc9c-6282-f1f3-34653acb2ee9@leemhuis.info>
+From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Date: Mon, 22 Mar 2021 17:55:05 +0100
+Message-ID: <CAKXUXMw7kHBPov23kF1HUBrW9DL+huqAG8ZRLJwGgU67nCOPeg@mail.gmail.com>
+To: Thorsten Leemhuis <linux@leemhuis.info>
+Cc: ksummit-discuss@lists.linuxfoundation.org,
+ Greg KH <gregkh@linuxfoundation.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ workflows@vger.kernel.org,
+ Konstantin Ryabitsev <konstantin@linuxfoundation.org>
+Subject: Re: [Ksummit-discuss] RFC: create mailing list "linux-issues"
+ focussed on issues/bugs and regressions
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.15
 Precedence: list
@@ -75,88 +98,67 @@ Content-Transfer-Encoding: 7bit
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
+On Mon, Mar 22, 2021 at 4:38 PM Thorsten Leemhuis <linux@leemhuis.info> wrote:
+>
+>
+> Lo! I want to provide users with an easier way to search our multitude
+> of mailing lists for reports about issues (aka bugs), as reporting the
+> same kernel problem multiple times has known downsides for everyone
+> involved. That's why I propose to create this new mailing list:
+>
+> linux-issues@lists.linux.dev
+>
+> Developers and users reporting or handling issues then can CC it or
+> search it via lore. But this will only fly if the idea has buy-in from
+> at least the core kernel maintainers, to make sure they and the
+> developers actually use it. That's why I'm looking for feedback with
+> this mail and also CCed ksummit-discuss, as that's the easiest way to
+> make sure maintainers get aware of this idea and can raise their voice.
+>
+>
+> Note, there is a second reason why ksummit-discuss is CCed: another
+> reason why I want to create this new list is making it easier to find
+> and track regressions reported to our various mailing lists (often
+> without LKML in CC, as for some subsystems it's seems to be custom to
+> not CC it). Back on the maintainers summit in 2017 it was agreed to
+> create a dedicated list for this purpose
+> (https://lwn.net/Articles/738216/). I even requested a
+> "linux-regressions@vger.kernel.org" a while later, but didn't hear
+> anything back; and, sadly, about the same time I started having trouble
+> finding spare time for working on regression tracking. :-/
+>
+> But I soon will get back into that area:
+> https://linux-regtracking.leemhuis.info/post/hello-world/ Hence it's a
+> good time to prepare some groundwork for that. But these days I think
+> having something like linux-regressions@lists.linux.dev might be over
+> engineered, at least for now: a linux-issues@lists.linux.dev with a
+> simple "[regressions]" in the subject will suffice, as that tag is
+> something a lot of people are used to already. And if we think we need
+> that list we can still create it in the future. Or what do you folks
+> think about it?
+>
 
-Lo! I want to provide users with an easier way to search our multitude
-of mailing lists for reports about issues (aka bugs), as reporting the
-same kernel problem multiple times has known downsides for everyone
-involved. That's why I propose to create this new mailing list:
+Thorsten, I generally support this initiative. I am just wondering:
 
-linux-issues@lists.linux.dev
+What is the definition of an issue for you?
 
-Developers and users reporting or handling issues then can CC it or
-search it via lore. But this will only fly if the idea has buy-in from
-at least the core kernel maintainers, to make sure they and the
-developers actually use it. That's why I'm looking for feedback with
-this mail and also CCed ksummit-discuss, as that's the easiest way to
-make sure maintainers get aware of this idea and can raise their voice.
+Just four examples that come to my mind:
 
+- all the warnings that Stephen Rothwell reports on linux-next, such
+as https://lore.kernel.org/linux-next/20210322170452.726525e8@canb.auug.org.au/
+or https://lore.kernel.org/linux-next/20210322075108.3967d5d1@canb.auug.org.au/?
+- all the issues that the kernel test robot reports?
+- all the errors and warnings that kernel ci reports? Basically, each
+"issue" that is already aggregated in this email,
+https://lore.kernel.org/linux-next/6058787c.1c69fb81.d3f10.8c6d@mx.google.com/?
+- all the syzbot reports?
 
-Note, there is a second reason why ksummit-discuss is CCed: another
-reason why I want to create this new list is making it easier to find
-and track regressions reported to our various mailing lists (often
-without LKML in CC, as for some subsystems it's seems to be custom to
-not CC it). Back on the maintainers summit in 2017 it was agreed to
-create a dedicated list for this purpose
-(https://lwn.net/Articles/738216/). I even requested a
-"linux-regressions@vger.kernel.org" a while later, but didn't hear
-anything back; and, sadly, about the same time I started having trouble
-finding spare time for working on regression tracking. :-/
+Are you including all those automatic testing and checking efforts as
+reporting valid "issues"? Or would you like to keep this list only for
+reports from single individual human users that need to detect the
+"issue" without using one of the tools above?
 
-But I soon will get back into that area:
-https://linux-regtracking.leemhuis.info/post/hello-world/ Hence it's a
-good time to prepare some groundwork for that. But these days I think
-having something like linux-regressions@lists.linux.dev might be over
-engineered, at least for now: a linux-issues@lists.linux.dev with a
-simple "[regressions]" in the subject will suffice, as that tag is
-something a lot of people are used to already. And if we think we need
-that list we can still create it in the future. Or what do you folks
-think about it?
-
-
-
-We can obviously bikeshed about the name for the list. I'm sure some
-people will prefer to use "bugs" instead of "issues" there. I propose
-"issues" for now, because the new text I've written about reporting
-kernels issues/bugs uses the word "issues" in the filename, the title,
-and the body while avoiding "bug" (see
-Documentation/admin-guide/reporting-issues.rst or
-https://www.kernel.org/doc/html/latest/admin-guide/reporting-issues.html
-). I chose this approach as users are dealing with issues that might or
-might not be bugs in the kernel. We discussed this before above text was
-merged, but in the end stayed with issues:
-https://lore.kernel.org/linux-doc/b5f5dfad-07bb-b518-0dff-3aa340333046@infradead.org/
-BTW, creating this list will partly solve the second of the "FIXME
-warning boxes" currently left in that text (two others are solved by
-patches that are under review currently).
-
-
-The question "Why not simply LKML" will likely pop up, but the thing is:
-searching for reports there will often turn up patches that improve the
-kernel and don't fix anything. That makes it hard to find issue reports,
-especially for users that are not used to deal with mailing lists and
-their archives.
-
-And yes, I'm quite aware that searching linux-issues@lists.linux.dev
-list obviously won't turn up reports that are filed in
-bugzilla.kernel.org or some other bug tracking tool. That's okay, as the
-reporting-issues.rst tells users to look in those places as well.
-
-Another "and yes, I'm quite aware" note: sure reporting issues/bugs by
-mail has downsides and maybe instead of creating yet another mailing
-list it would be better if all the kernel issues would be reported to a
-central place like bugzilla.kernel.org. But that tracker doesn't work
-that well currently, as quite a few of the issues filed there afaics
-never reach the people that need to be handle them. I don't see that
-changing any time soon (we had a discussion about this recently:
-https://lore.kernel.org/linux-doc/20210111194822.4kvl2tx24anyu23k@chatter.i7.local/
-).
-
-Creating a new mailing list for issues OTOH is something that can be
-done quickly and easily to improve the situation without too much
-hassle. That's why that's my plan currently, unless the discussion that
-hopefully evolved due to this mail leads to something better. :-D
-
-Ciao, Thorsten
+Lukas
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
