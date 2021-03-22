@@ -1,60 +1,69 @@
 Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
-Received: from smtp1.osuosl.org (smtp1.osuosl.org [140.211.166.138])
-	by mail.lfdr.de (Postfix) with ESMTPS id DE09D344EB2
-	for <lists@lfdr.de>; Mon, 22 Mar 2021 19:41:06 +0100 (CET)
-Received: from localhost (localhost [127.0.0.1])
-	by smtp1.osuosl.org (Postfix) with ESMTP id 1853A82D14;
-	Mon, 22 Mar 2021 18:41:05 +0000 (UTC)
-X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from smtp1.osuosl.org ([127.0.0.1])
-	by localhost (smtp1.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id HVErSja2kor0; Mon, 22 Mar 2021 18:41:04 +0000 (UTC)
-Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [IPv6:2605:bc80:3010:104::8cd3:938])
-	by smtp1.osuosl.org (Postfix) with ESMTP id 6862582DB8;
-	Mon, 22 Mar 2021 18:41:03 +0000 (UTC)
-Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id 31D3AC0001;
-	Mon, 22 Mar 2021 18:41:02 +0000 (UTC)
-X-Original-To: ksummit-discuss@lists.linuxfoundation.org
-Delivered-To: ksummit-discuss@lists.linuxfoundation.org
 Received: from smtp2.osuosl.org (smtp2.osuosl.org [140.211.166.133])
- by lists.linuxfoundation.org (Postfix) with ESMTP id C610DC0001
- for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon, 22 Mar 2021 18:40:59 +0000 (UTC)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8FFF3344F4F
+	for <lists@lfdr.de>; Mon, 22 Mar 2021 19:55:44 +0100 (CET)
 Received: from localhost (localhost [127.0.0.1])
- by smtp2.osuosl.org (Postfix) with ESMTP id B9F46402D0
- for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon, 22 Mar 2021 18:40:59 +0000 (UTC)
+	by smtp2.osuosl.org (Postfix) with ESMTP id B41DF402F8;
+	Mon, 22 Mar 2021 18:55:42 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
 Received: from smtp2.osuosl.org ([127.0.0.1])
- by localhost (smtp2.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id gp9m8-6s1L7r
+	by localhost (smtp2.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id XHOqExbpRXPo; Mon, 22 Mar 2021 18:55:41 +0000 (UTC)
+Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [IPv6:2605:bc80:3010:104::8cd3:938])
+	by smtp2.osuosl.org (Postfix) with ESMTP id 08DD8402F6;
+	Mon, 22 Mar 2021 18:55:41 +0000 (UTC)
+Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
+	by lists.linuxfoundation.org (Postfix) with ESMTP id CD119C0001;
+	Mon, 22 Mar 2021 18:55:39 +0000 (UTC)
+X-Original-To: ksummit-discuss@lists.linuxfoundation.org
+Delivered-To: ksummit-discuss@lists.linuxfoundation.org
+Received: from smtp4.osuosl.org (smtp4.osuosl.org [140.211.166.137])
+ by lists.linuxfoundation.org (Postfix) with ESMTP id AF859C0001
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon, 22 Mar 2021 18:40:59 +0000 (UTC)
-X-Greylist: delayed 00:06:30 by SQLgrey-1.8.0
-Received: from dcvr.yhbt.net (dcvr.yhbt.net [64.71.152.64])
- by smtp2.osuosl.org (Postfix) with ESMTPS id E8AAB402CF
+ Mon, 22 Mar 2021 18:55:38 +0000 (UTC)
+Received: from localhost (localhost [127.0.0.1])
+ by smtp4.osuosl.org (Postfix) with ESMTP id 8F8A0403F3
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon, 22 Mar 2021 18:40:58 +0000 (UTC)
-Received: from localhost (dcvr.yhbt.net [127.0.0.1])
- by dcvr.yhbt.net (Postfix) with ESMTP id B5FFD1F9FC;
- Mon, 22 Mar 2021 18:34:27 +0000 (UTC)
-Date: Mon, 22 Mar 2021 18:34:27 +0000
-From: Eric Wong <e@80x24.org>
-To: James Bottomley <James.Bottomley@HansenPartnership.com>
-Message-ID: <20210322183427.GA1195@dcvr>
+ Mon, 22 Mar 2021 18:55:38 +0000 (UTC)
+X-Virus-Scanned: amavisd-new at osuosl.org
+Received: from smtp4.osuosl.org ([127.0.0.1])
+ by localhost (smtp4.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id aEDZ6O_iXUwf
+ for <ksummit-discuss@lists.linuxfoundation.org>;
+ Mon, 22 Mar 2021 18:55:36 +0000 (UTC)
+X-Greylist: from auto-whitelisted by SQLgrey-1.8.0
+Received: from wp530.webpack.hosteurope.de (wp530.webpack.hosteurope.de
+ [IPv6:2a01:488:42:1000:50ed:8234::])
+ by smtp4.osuosl.org (Postfix) with ESMTPS id B2A04403F0
+ for <ksummit-discuss@lists.linuxfoundation.org>;
+ Mon, 22 Mar 2021 18:55:36 +0000 (UTC)
+Received: from ip4d142c50.dynamic.kabel-deutschland.de ([77.20.44.80]
+ helo=[192.168.66.200]); authenticated
+ by wp530.webpack.hosteurope.de running ExIM with esmtpsa
+ (TLS1.3:ECDHE_RSA_AES_128_GCM_SHA256:128)
+ id 1lOPi6-0003ws-TQ; Mon, 22 Mar 2021 19:55:31 +0100
+To: Eric Wong <e@80x24.org>,
+ James Bottomley <James.Bottomley@HansenPartnership.com>
 References: <613fe50d-fc9c-6282-f1f3-34653acb2ee9@leemhuis.info>
  <20210322171636.fkep2lby6gnve4su@chatter.i7.local>
  <e93ad98a34828a4140fa59c1fb5b01f03c6f4245.camel@HansenPartnership.com>
+ <20210322183427.GA1195@dcvr>
+From: Thorsten Leemhuis <linux@leemhuis.info>
+Message-ID: <09a6256e-0015-d360-9347-f025a7d5adfd@leemhuis.info>
+Date: Mon, 22 Mar 2021 19:55:29 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.7.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <e93ad98a34828a4140fa59c1fb5b01f03c6f4245.camel@HansenPartnership.com>
-Cc: ksummit-discuss@lists.linuxfoundation.org,
- Greg KH <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
- Thorsten Leemhuis <linux@leemhuis.info>, workflows@vger.kernel.org,
- Konstantin Ryabitsev <konstantin@linuxfoundation.org>
+In-Reply-To: <20210322183427.GA1195@dcvr>
+Content-Language: en-BW
+X-bounce-key: webpack.hosteurope.de;linux@leemhuis.info;1616439336;1a56d2ee;
+X-HE-SMSGID: 1lOPi6-0003ws-TQ
+Cc: Greg KH <gregkh@linuxfoundation.org>, workflows@vger.kernel.org,
+ ksummit-discuss@lists.linuxfoundation.org,
+ Konstantin Ryabitsev <konstantin@linuxfoundation.org>,
+ linux-kernel@vger.kernel.org
 Subject: Re: [Ksummit-discuss] RFC: create mailing list "linux-issues"
  focussed on issues/bugs and regressions
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
@@ -73,51 +82,70 @@ Content-Transfer-Encoding: 7bit
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
-James Bottomley <James.Bottomley@HansenPartnership.com> wrote:
-> On Mon, 2021-03-22 at 13:16 -0400, Konstantin Ryabitsev wrote:
-> > On Mon, Mar 22, 2021 at 04:18:14PM +0100, Thorsten Leemhuis wrote:
-> > > Note, there is a second reason why ksummit-discuss is CCed: another
-> > > reason why I want to create this new list is making it easier to
-> > > find and track regressions reported to our various mailing lists
-> > > (often without LKML in CC, as for some subsystems it's seems to be
-> > > custom to not CC it). 
-> > 
-> > FYI, there will soon be a unified "search all of lore.kernel.org
-> > regardless of the list/feed source" capability that may make it
-> > unnecessary to create a separate list for this purpose. There's
-> > active ongoing work in the public-inbox project to provide parallel
-> > ways to follow aggregate topics, including query-based subscriptions
-> > (i.e. "put a thread into my inbox whenever someone mentions my
-> > favourite file/function/device name"). This work is not complete yet,
-> > but I have great hopes that it will become available in the next
-> > little while.
+On 22.03.21 19:34, Eric Wong wrote:
+> James Bottomley <James.Bottomley@HansenPartnership.com> wrote:
+>> On Mon, 2021-03-22 at 13:16 -0400, Konstantin Ryabitsev wrote:
+>>> On Mon, Mar 22, 2021 at 04:18:14PM +0100, Thorsten Leemhuis wrote:
+>>>> Note, there is a second reason why ksummit-discuss is CCed: another
+>>>> reason why I want to create this new list is making it easier to
+>>>> find and track regressions reported to our various mailing lists
+>>>> (often without LKML in CC, as for some subsystems it's seems to be
+>>>> custom to not CC it). 
+>>>
+>>> FYI, there will soon be a unified "search all of lore.kernel.org
+>>> regardless of the list/feed source" capability
 
-Yes, making progress and learning new tricks to make the WWW UI faster :>
+Ahh, nice, thx to everyone working on that!
 
-> > Once we have this ability, we should be able to plug in multiple
-> > sources beyond just mailing lists, including a feed of all
-> > bugzilla.kernel.org changes. This should allow someone an easy way to
-> > query specific bugs and may not require the creation of a separate
-> > list.
-> > 
-> > I'm not opposed to the creation of a new list, of course -- just want
-> > to make sure it's aligned with the improvements we are working to
-> > make available.
+> [...]
+>>> Once we have this ability, we should be able to plug in multiple
+>>> sources beyond just mailing lists, including a feed of all
+>>> bugzilla.kernel.org changes.
+
+Out of curiosity: will that work for other bug trackers as well? Like
+the gitlab instance used by the drm developers? It's not really
+important and I guess the answer will be "no", but the question came up
+while at it...
+
+>>> This should allow someone an easy way to
+>>> query specific bugs and may not require the creation of a separate
+>>> list.
+>>>
+>>> I'm not opposed to the creation of a new list, of course -- just want
+>>> to make sure it's aligned with the improvements we are working to
+>>> make available.
+>>
+>> I suspect the problem is that there's no known useful search string to
+>> find a bug report even given a searchable set of lists,
+
+Exactly. Due to my work on reporting-issues.rst I try to look at it from
+the users point of view. And they currently have no easy way to search
+for existing reports without getting lots of other stuff mixed into the
+results they are not interested in. That makes it hard. :-/
+
+>> so the main
+>> purpose of this list would be "if it's on here, it's a bug report" and
+>> the triage team
+
+If one exists ;-)
+
+>> can cc additional lists as appropriate.  Then we simply
+>> tell everyone to send kernel bugs to this list and ask maintainers to
+>> cc it if a bug report shows up on their list?
 > 
-> I suspect the problem is that there's no known useful search string to
-> find a bug report even given a searchable set of lists, so the main
-> purpose of this list would be "if it's on here, it's a bug report" and
-> the triage team can cc additional lists as appropriate.  Then we simply
-> tell everyone to send kernel bugs to this list and ask maintainers to
-> cc it if a bug report shows up on their list?
+> It seems having "bug" or "regression" in the subject could be sufficient?
+>
+> "s:Regression" or "s:Bug" can be used to query messages reasonably
+> quickly:
 
-It seems having "bug" or "regression" in the subject could be sufficient?
+Could, but I fear it might fail, as modifying the subject is a little
+unusual to the normal working style; but "adding people and appropriate
+mailing lists to the CC" OTOH is something that people do every day.
 
-"s:Regression" or "s:Bug" can be used to query messages reasonably
-quickly:
+And that's why I still think having a separate list is the best idea.
+But using tags is totally fine for me, if that the general consensus.
 
-https://80x24.org/lore/all/?q=s:Bug || https://yhbt.net/lore/all/?q=s:Bug
-http://rskvuqcfnfizkjg6h5jvovwb3wkikzcwskf54lfpymus6mxrzw67b5ad.onion/all/?q=s:Bug
+Ciao, Thorsten
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
