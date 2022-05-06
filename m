@@ -2,70 +2,84 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from smtp2.osuosl.org (smtp2.osuosl.org [IPv6:2605:bc80:3010::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id EC87D51D502
-	for <lists@lfdr.de>; Fri,  6 May 2022 11:53:18 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id C167751D73A
+	for <lists@lfdr.de>; Fri,  6 May 2022 14:02:24 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
-	by smtp2.osuosl.org (Postfix) with ESMTP id 899D840186;
-	Fri,  6 May 2022 09:53:17 +0000 (UTC)
+	by smtp2.osuosl.org (Postfix) with ESMTP id CA93440150;
+	Fri,  6 May 2022 12:02:22 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
 Received: from smtp2.osuosl.org ([127.0.0.1])
 	by localhost (smtp2.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id cLvRb1mnDkl6; Fri,  6 May 2022 09:53:16 +0000 (UTC)
+	with ESMTP id BDIVmKkVzcVf; Fri,  6 May 2022 12:02:22 +0000 (UTC)
 Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
-	by smtp2.osuosl.org (Postfix) with ESMTPS id E5C2740127;
-	Fri,  6 May 2022 09:53:15 +0000 (UTC)
+	by smtp2.osuosl.org (Postfix) with ESMTPS id 29B05404F8;
+	Fri,  6 May 2022 12:02:21 +0000 (UTC)
 Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id A0EABC002D;
-	Fri,  6 May 2022 09:53:14 +0000 (UTC)
+	by lists.linuxfoundation.org (Postfix) with ESMTP id CC3B3C002D;
+	Fri,  6 May 2022 12:02:19 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@lists.linuxfoundation.org
-Received: from smtp2.osuosl.org (smtp2.osuosl.org [IPv6:2605:bc80:3010::133])
- by lists.linuxfoundation.org (Postfix) with ESMTP id BF4B2C002D
+Received: from smtp1.osuosl.org (smtp1.osuosl.org [140.211.166.138])
+ by lists.linuxfoundation.org (Postfix) with ESMTP id 85E69C002D
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Fri,  6 May 2022 09:53:11 +0000 (UTC)
+ Fri,  6 May 2022 12:02:15 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
- by smtp2.osuosl.org (Postfix) with ESMTP id AD1084010C
+ by smtp1.osuosl.org (Postfix) with ESMTP id 74B7A82F87
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Fri,  6 May 2022 09:53:11 +0000 (UTC)
+ Fri,  6 May 2022 12:02:15 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from smtp2.osuosl.org ([127.0.0.1])
- by localhost (smtp2.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id CdER_3ER3d-c
+Received: from smtp1.osuosl.org ([127.0.0.1])
+ by localhost (smtp1.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id mbUXMe1VJOqO
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Fri,  6 May 2022 09:53:10 +0000 (UTC)
-X-Greylist: domain auto-whitelisted by SQLgrey-1.8.0
-Received: from mail3-relais-sop.national.inria.fr
- (mail3-relais-sop.national.inria.fr [192.134.164.104])
- by smtp2.osuosl.org (Postfix) with ESMTPS id 262C840025
+ Fri,  6 May 2022 12:02:12 +0000 (UTC)
+X-Greylist: delayed 00:05:04 by SQLgrey-1.8.0
+Received: from mout.kundenserver.de (mout.kundenserver.de [217.72.192.74])
+ by smtp1.osuosl.org (Postfix) with ESMTPS id 7AF4182BC8
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Fri,  6 May 2022 09:53:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=inria.fr; s=dc;
- h=date:from:to:cc:subject:in-reply-to:message-id:
- references:mime-version;
- bh=urze1RM/gX18V878AZ6j/ivdQDVcYKjIqHZDW8Da1MA=;
- b=SFavKmlT8DEGi/9oCpAqWxugYXIgZwXkngrNq+97vEdi+coaSSh0yHPm
- Yw2auqqwRB25aoji3y1v03veYx/7frj0JPM2Xgd7EetJo8k288K+8NpSa
- XcgrCEvdcGj4/RXiPprKkK3JI0Oi0lHcR/Pf/ls2Dhq4vqYpJh2PrP0AL A=;
-Authentication-Results: mail3-relais-sop.national.inria.fr;
- dkim=none (message not signed) header.i=none;
- spf=SoftFail smtp.mailfrom=julia.lawall@inria.fr;
- dmarc=fail (p=none dis=none) d=inria.fr
-X-IronPort-AV: E=Sophos;i="5.91,203,1647298800"; d="scan'208";a="13371044"
-Received: from 245.122.68.85.rev.sfr.net (HELO hadrien) ([85.68.122.245])
- by mail3-relais-sop.national.inria.fr with
- ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 May 2022 11:53:08 +0200
-Date: Fri, 6 May 2022 11:53:07 +0200 (CEST)
-From: Julia Lawall <julia.lawall@inria.fr>
-X-X-Sender: jll@hadrien
-To: Dan Carpenter <dan.carpenter@oracle.com>
-In-Reply-To: <20220506091338.GE4031@kadam>
-Message-ID: <alpine.DEB.2.22.394.2205061150230.2845@hadrien>
-References: <20220506091338.GE4031@kadam>
-User-Agent: Alpine 2.22 (DEB 394 2020-01-19)
+ Fri,  6 May 2022 12:02:11 +0000 (UTC)
+Received: from mail-yb1-f178.google.com ([209.85.219.178]) by
+ mrelayeu.kundenserver.de (mreue109 [213.165.67.113]) with ESMTPSA (Nemesis)
+ id 1N0G5h-1nzXTq2gTv-00xMGK for <ksummit-discuss@lists.linuxfoundation.org>;
+ Fri, 06 May 2022 13:57:05 +0200
+Received: by mail-yb1-f178.google.com with SMTP id m128so12412704ybm.5
+ for <ksummit-discuss@lists.linuxfoundation.org>;
+ Fri, 06 May 2022 04:57:05 -0700 (PDT)
+X-Gm-Message-State: AOAM533KGSFA6ckPuvUwtkamGMhchgiT0yhfmcBBY/p1bC+t69LD862x
+ OJNjaaXrRY+ck5CQ2vHnPvHX7Cov8qfW6yFtCGQ=
+X-Google-Smtp-Source: ABdhPJxRJvVp4WSdDwMumBobaUVH2AKop8JezHcIZ3thL7fqDYwNyZ/neaZTOOGPQg//WN+9ZbOU1lJxM8I51kYcvzY=
+X-Received: by 2002:a25:c50a:0:b0:647:b840:df2c with SMTP id
+ v10-20020a25c50a000000b00647b840df2cmr1936326ybe.106.1651838224389; Fri, 06
+ May 2022 04:57:04 -0700 (PDT)
 MIME-Version: 1.0
+References: <20220506091338.GE4031@kadam>
+In-Reply-To: <20220506091338.GE4031@kadam>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Fri, 6 May 2022 13:56:48 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a0DY2b15yyzpwsjOCqOALfTbsmYf1kTnQZF5wPW8mtFbQ@mail.gmail.com>
+Message-ID: <CAK8P3a0DY2b15yyzpwsjOCqOALfTbsmYf1kTnQZF5wPW8mtFbQ@mail.gmail.com>
+To: Dan Carpenter <dan.carpenter@oracle.com>
+X-Provags-ID: V03:K1:/7UnBfZ2tUTWW1aZQib0j9kXg7E9zVQI15C2t6IavXOL3HDZC7F
+ dlFkkmrTdx3POWF/KGP9e8KXnRbbJ8RMTpNkjXMzQ27YC87NBp63zEWYKuxtgU3ZPRmyuoO
+ krKyj1cQgAnPV0xgBdWWy9mXWqBkD0TJLrj4qr4xzpVPmDQmgIWBKzMIyRBQ5zVjiuHRDxQ
+ OfQx2sMfF9ZB5YrVkdzTQ==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:FRFNxN0mbgs=:TBIGn7D/mXUHMera5H0H7e
+ j1ZOYj1MFB6KdeyCG+24BoVIrpJR73h5hFcLzdcJFncq+/rsoPHL93bjxBCjnvpnKdrj+9fKf
+ ykVlNg4pIFg7nZzCVb4vj0Njvj8J9inn/JGD7Eih6wMsSy7gsE1V7PykHU75Ug5W9dXjatav+
+ wekX/sjf5IgIQ72ImXM1juiZ0EzHBkAAwgux8dGQLIZSKuC9ZNWrwsb13TXvKgzjJhToCQhTS
+ CFElQQAlCYDFwVXPktGJcT2EmHGSPFzxlweNbNEGzUiNjXL2z4ZTYD+eoPSFIM/G1OENgTFkJ
+ IBiHSwvoGwhjVHl5Kj8i2TNOYFpxklqpiRoPt+8CWP5+wnRdSRB9D1J85bw26AVEfPBTC9zeS
+ D7a7yJYTT5PvZZOf/JPrCIqdR7/3xbp73/r4Ga07a9s30b3WUvfCcm+awW90frmVg99gYMIcn
+ L8AmwGiwzxPPw8fiXd7WApolAbQsIpQBY/5VS8hgYeFlSzbam+MlwJAup5rsZ3F9yonHEZKtd
+ rkSiu8+QGojHPH04ocaGmyJ5vjZPkn9NDrzilzabgYTIPQ1o/xz6dxlEIqB4638mXqARhrMvG
+ gbNJss6UWXX3mdwKZT0X1eas4Xk827xD141YjrZ9wi8vgRHLzBrz8K+Hi+YU0ggKTK0lq/4zh
+ BDblEHcPxZ/V61Ho4N3OQCxQw5hjmBYQP8pkyARHvrjAorQQo0fkn+AeZiHvoOr2hiLoYklut
+ 2W2B4VcEnSAsVJ9PnIdTuc4FdRza/V+sRKd8NqsQkLtXGOZGBU1vJ7tIVtYExLi4FRIhUcD/h
+ lCFgId6XeMMhzdSaQjWv4PgnIJj3c/qSn3P4zBe57v0r+jUNBo=
 Cc: Nathan Chancellor <natechancellor@gmail.com>, kbuild@lists.01.org,
- linux-kernel@vger.kernel.org, ksummit-discuss@lists.linuxfoundation.org,
- lkp@intel.com
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ ksummit <ksummit-discuss@lists.linuxfoundation.org>,
+ kbuild test robot <lkp@intel.com>
 Subject: Re: [Ksummit-discuss] uninitialized variables bugs
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.15
@@ -83,28 +97,17 @@ Content-Transfer-Encoding: 7bit
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
+On Fri, May 6, 2022 at 11:13 AM Dan Carpenter <dan.carpenter@oracle.com> wrote:
 
-
-On Fri, 6 May 2022, Dan Carpenter wrote:
-
-> Ever since commit 78a5255ffb6a ("Stop the ad-hoc games with
-> -Wno-maybe-initialized"), GCC's uninitialized variable warnings have
-> been disabled by default.  Now, you have to turn on W=1 or W=2 to see
-> the warnings which nobody except Arnd does.
->
-> Disabling that has lead to a bunch of embarrassing bugs where variables
-> are *never* initialized.  Very unsubtle bugs.  The bugs doesn't reach
-> users because Nathan Chancellor and I review Clang and Smatch warnings
-> respectively.  Also the kbuild-bot reports uninitialized variables.
->
-> It's a lot to deal with.  Uninitialized variable bugs are probably the
-> most common bug I have to deal with.
 >
 > It's frustrating.  Sometimes the false positives are hard to analyse
 > because I have to read through multiple functions.  A lot of times
 > when I write a patch and a commit message Nathan has already fixed it
 > so it's just a waste of time.
->
+
+Agreed. I'm not actually checking for those warnings on gcc any more,
+but just the clang warnings point to a bigger problem.
+
 > It's risky as well.  The Smatch check for uninitialized variables was
 > broken for most of 2021.  Nathan sometimes goes on vacation.
 >
@@ -112,40 +115,33 @@ On Fri, 6 May 2022, Dan Carpenter wrote:
 > variable warnings again.  That would mean silencing false positives
 > which a lot of people don't want to do...  Maybe Clang has fewer false
 > positives than GCC?
->
-> The Smatch check for uninitialized variable was deliberately written to
-> be more strict than GCC because GCC was missing bugs.  So I think
-> leaving Smatch false positives is fine.  There is a trade off between
-> fewer false positives and missing bugs and Smatch is meant to err on the
-> side of finding bugs but with the cost of false positives.
->
-> Most of the Smatch uninitialized false positives are caused by loops:
->
-> 	int i, ret;
->
-> 	for (i = 0; i < bytes; i++) { // <-- what if bytes is zero?
-> 		if (...)
-> 			continue; // <-- can every iteration hit continue?
-> 		ret = frob();
-> 	}
->
-> 	return ret;
->
-> There is also stuff like this which is harmless:
->
-> 	uint val;
->
-> 	ret = read(&val);
-> 	*p = val;  // <-- uninitialized variable if read() fails
-> 	return ret;
->
-> Btw, here is how to run Smatch on your code:
-> https://staticthinking.wordpress.com/2022/04/25/how-to-run-smatch-on-your-code/
 
-Could smatch inform the user that some results are likely false positives,
-or even order the results according to their likely true positiveness?
+I think for the gcc warnings to become useful again, we may have to
+wait for a future compiler release. I have not checked gcc-12 for this,
+but it's a very old topic.
 
-julia
+Fundamentally, it's impossible for any compiler to do this correctly,
+because of the halting problem. gcc apparently has some heuristics
+that worked well enough in the past, but it misses some obvious
+cases and causes false positives in unexpected places, often
+depending on optimization flags.
+
+Recent gcc versions are much worse than older ones, since the
+inlining changed in a way that caused a ton of false-positives.
+
+clang is generally better at catching the simple cases reliably,
+and it does this independent of optimization flags. However, it
+stops at the function boundary, so it never catches some of the
+cases that gcc was good at.
+
+The gcc static analyzer apparently gained an option[1] that
+works similarly to what you have in smatch. I have not tried
+using this, but this may be something we can do in CI
+systems that may not want to run smatch for some reason.
+
+        Arnd
+
+[1] https://gcc.gnu.org/onlinedocs/gcc-12.1.0/gcc/Static-Analyzer-Options.html#index-Wanalyzer-use-of-uninitialized-value
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
