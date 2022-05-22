@@ -1,95 +1,76 @@
 Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
-Received: from smtp1.osuosl.org (smtp1.osuosl.org [IPv6:2605:bc80:3010::138])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5E5D251DD89
-	for <lists@lfdr.de>; Fri,  6 May 2022 18:23:53 +0200 (CEST)
+Received: from smtp4.osuosl.org (smtp4.osuosl.org [IPv6:2605:bc80:3010::137])
+	by mail.lfdr.de (Postfix) with ESMTPS id 14DFF5301FF
+	for <lists@lfdr.de>; Sun, 22 May 2022 11:08:10 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
-	by smtp1.osuosl.org (Postfix) with ESMTP id B847D83E6A;
-	Fri,  6 May 2022 16:23:51 +0000 (UTC)
+	by smtp4.osuosl.org (Postfix) with ESMTP id 583C14181F;
+	Sun, 22 May 2022 09:08:07 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from smtp1.osuosl.org ([127.0.0.1])
-	by localhost (smtp1.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id dS_NjSFRCTJm; Fri,  6 May 2022 16:23:50 +0000 (UTC)
-Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
-	by smtp1.osuosl.org (Postfix) with ESMTPS id 1819083E4C;
-	Fri,  6 May 2022 16:23:50 +0000 (UTC)
+Received: from smtp4.osuosl.org ([127.0.0.1])
+	by localhost (smtp4.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id xRKZVVH-bLJk; Sun, 22 May 2022 09:08:06 +0000 (UTC)
+Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [IPv6:2605:bc80:3010:104::8cd3:938])
+	by smtp4.osuosl.org (Postfix) with ESMTPS id 26C3A41823;
+	Sun, 22 May 2022 09:08:05 +0000 (UTC)
 Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id ACC96C002D;
-	Fri,  6 May 2022 16:23:48 +0000 (UTC)
+	by lists.linuxfoundation.org (Postfix) with ESMTP id 9B249C002D;
+	Sun, 22 May 2022 09:08:03 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@lists.linuxfoundation.org
-Received: from smtp4.osuosl.org (smtp4.osuosl.org [140.211.166.137])
- by lists.linuxfoundation.org (Postfix) with ESMTP id 73D54C002D
+Received: from smtp1.osuosl.org (smtp1.osuosl.org [IPv6:2605:bc80:3010::138])
+ by lists.linuxfoundation.org (Postfix) with ESMTP id A8986C002D
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Fri,  6 May 2022 16:23:46 +0000 (UTC)
+ Sun, 22 May 2022 09:08:02 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
- by smtp4.osuosl.org (Postfix) with ESMTP id 4C8B2415D4
+ by smtp1.osuosl.org (Postfix) with ESMTP id 88ED483388
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Fri,  6 May 2022 16:23:46 +0000 (UTC)
+ Sun, 22 May 2022 09:08:02 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Authentication-Results: smtp4.osuosl.org (amavisd-new);
- dkim=pass (1024-bit key) header.d=linuxfoundation.org
-Received: from smtp4.osuosl.org ([127.0.0.1])
- by localhost (smtp4.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id O8ZF3tbb99m9
+Authentication-Results: smtp1.osuosl.org (amavisd-new);
+ dkim=pass (2048-bit key) header.d=kernel.org
+Received: from smtp1.osuosl.org ([127.0.0.1])
+ by localhost (smtp1.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id WxjqmZIRoBqS
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Fri,  6 May 2022 16:23:45 +0000 (UTC)
-X-Greylist: whitelisted by SQLgrey-1.8.0
-Received: from mail-oi1-x22b.google.com (mail-oi1-x22b.google.com
- [IPv6:2607:f8b0:4864:20::22b])
- by smtp4.osuosl.org (Postfix) with ESMTPS id 55AD4415CF
+ Sun, 22 May 2022 09:08:01 +0000 (UTC)
+X-Greylist: domain auto-whitelisted by SQLgrey-1.8.0
+Received: from ams.source.kernel.org (ams.source.kernel.org
+ [IPv6:2604:1380:4601:e00::1])
+ by smtp1.osuosl.org (Postfix) with ESMTPS id 7CB198315C
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Fri,  6 May 2022 16:23:45 +0000 (UTC)
-Received: by mail-oi1-x22b.google.com with SMTP id y63so7993851oia.7
- for <ksummit-discuss@lists.linuxfoundation.org>;
- Fri, 06 May 2022 09:23:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=linuxfoundation.org; s=google;
- h=subject:to:cc:references:from:message-id:date:user-agent
- :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=YKR1p2XpapTkYTRRGdf56YSSJBMEPrgZBznxidBKLms=;
- b=FifVGujk5CYZw9INUWSaYsjuguzlc6FVqyvGQxK+CXMFIAj34CHTH4MURITWp/780b
- hpvkAYUtMaF6Y+GzmxmlMQgIa1gomt5iALx1LC0Z1BlYpyETqLgXJ3PoIz6nVH7f2OlB
- f3NTsF3hqDCdqtrJbaeOGeV+xAb4SKTXTKGG0=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:subject:to:cc:references:from:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=YKR1p2XpapTkYTRRGdf56YSSJBMEPrgZBznxidBKLms=;
- b=Dymc5ROrUTFJp/iJRC6hGgizJTV8P1+T2iBz0HdNGK3qFhDtgcTQe38Rx9Swcizw4p
- CM7DN5BovIouUZHz+VErNcIoGJcPoMqKFRazuiUbNMIhKtD7Jrx4Tzzcp6/Kr0L86/U5
- BQWoprjJEICc+6zeLgZgz+J10hfLoLzPhnHR660ps+zTdMcpzkk1L4JjzdvunCANc3My
- 53Q5gLKMGY3yJXayTLCn+78ryhjt+qYsmgqcZiB3fNNzF2LcDvk1+DOxJ+hqr2FQqv2O
- Ksf5PrLR0Y5Gj6BGC2RY6A2kCDTT3WoaZKKVUX1zTizZUUiBINQz/rSxoRDOS+CWhujh
- zHRg==
-X-Gm-Message-State: AOAM531XvUhcnSi331DVBn6/zPgE0bpd+rGp9FiI56jleD/8VPei0q6W
- SNxgRtG925QDLvBxrNuR3+41v4R8
-X-Google-Smtp-Source: ABdhPJzqYzGLNGpOMnI0vx6E0reoKjwmACMdIM1kV7RuedYut8iUJNPgJ5XCkhsQQDKfxu4zrzrGQg==
-X-Received: by 2002:a05:6808:180f:b0:326:60a9:501b with SMTP id
- bh15-20020a056808180f00b0032660a9501bmr5147973oib.91.1651854224289; 
- Fri, 06 May 2022 09:23:44 -0700 (PDT)
-Received: from [192.168.1.128] ([71.205.29.0])
- by smtp.gmail.com with ESMTPSA id
- p11-20020a4ab38b000000b0035eb4e5a6c2sm1981364ooo.24.2022.05.06.09.23.43
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Fri, 06 May 2022 09:23:43 -0700 (PDT)
-To: Arnd Bergmann <arnd@arndb.de>, Dan Carpenter <dan.carpenter@oracle.com>
-References: <20220506091338.GE4031@kadam>
- <CAK8P3a0DY2b15yyzpwsjOCqOALfTbsmYf1kTnQZF5wPW8mtFbQ@mail.gmail.com>
-From: Shuah Khan <skhan@linuxfoundation.org>
-Message-ID: <dc58c60e-a92c-92b8-ae5e-d7cf2ef5f051@linuxfoundation.org>
-Date: Fri, 6 May 2022 10:23:43 -0600
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.8.1
+ Sun, 22 May 2022 09:08:01 +0000 (UTC)
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 0DCA3B80ACB;
+ Sun, 22 May 2022 09:07:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52A0EC385AA;
+ Sun, 22 May 2022 09:07:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1653210476;
+ bh=Tnd9k7iRjgfdcQgXzfq2JZ4qYtO5XwbTFBmo19t2jIA=;
+ h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+ b=S8xXimqwBxzn98bU6z1yaq8fOwEkP+dYMHN4eCURaFRz1fCsgAvfxI9/nsO9Umk+2
+ SA1sZoI38b6YE61f3Lya/sy7xMavAKqSUYWRuKg3zXQwN9jIf337VBGkqckkyI6Yco
+ gFjd7P1zz1tNPnfmBUGwqel+eI3I5ACsqtRgOrSnpcMl2Jdjh7+joPY4TioEsLFQ//
+ i8+ZpTnOSrNQWUuShcWtDsJuzaS41D/07R1BjG1RnAXK/cpBCEnrasRXZqNAi4iMpU
+ 8ZNZzzXyYbLAEbPAbWYRW0XdJWbCqEIedtT3HnQ4A7UsGV2LLJGCTYJiF4ZSTiQc0a
+ NdZYWnmCuBQjQ==
+Message-ID: <a673356d-4534-afd9-b85f-b8de7f58c9a8@kernel.org>
+Date: Sun, 22 May 2022 11:07:52 +0200
 MIME-Version: 1.0
-In-Reply-To: <CAK8P3a0DY2b15yyzpwsjOCqOALfTbsmYf1kTnQZF5wPW8mtFbQ@mail.gmail.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.8.1
 Content-Language: en-US
-Cc: kbuild test robot <lkp@intel.com>,
- ksummit <ksummit-discuss@lists.linuxfoundation.org>, kbuild@lists.01.org,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Nathan Chancellor <natechancellor@gmail.com>
+To: Dan Carpenter <dan.carpenter@oracle.com>,
+ ksummit-discuss@lists.linuxfoundation.org, linux-kernel@vger.kernel.org
+References: <20220506091338.GE4031@kadam>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+In-Reply-To: <20220506091338.GE4031@kadam>
+Cc: Nathan Chancellor <natechancellor@gmail.com>, kbuild@lists.01.org,
+ lkp@intel.com
 Subject: Re: [Ksummit-discuss] uninitialized variables bugs
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.15
@@ -102,46 +83,40 @@ List-Post: <mailto:ksummit-discuss@lists.linuxfoundation.org>
 List-Help: <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=help>
 List-Subscribe: <https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss>, 
  <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
-On 5/6/22 5:56 AM, Arnd Bergmann wrote:
-> On Fri, May 6, 2022 at 11:13 AM Dan Carpenter <dan.carpenter@oracle.com> wrote:
+On 06/05/2022 11:13, Dan Carpenter wrote:
+> There is also stuff like this which is harmless:
 > 
->>
->> It's frustrating.  Sometimes the false positives are hard to analyse
->> because I have to read through multiple functions.  A lot of times
->> when I write a patch and a commit message Nathan has already fixed it
->> so it's just a waste of time.
+> 	uint val;
 > 
-> Agreed. I'm not actually checking for those warnings on gcc any more,
-> but just the clang warnings point to a bigger problem.
+> 	ret = read(&val);
+> 	*p = val;  // <-- uninitialized variable if read() fails
+> 	return ret;
 > 
->> It's risky as well.  The Smatch check for uninitialized variables was
->> broken for most of 2021.  Nathan sometimes goes on vacation.
->>
->> I guess I would hope that one day we can turn on the GCC uninitialized
->> variable warnings again.  That would mean silencing false positives
->> which a lot of people don't want to do...  Maybe Clang has fewer false
->> positives than GCC?
-> 
+> Btw, here is how to run Smatch on your code:
+> https://staticthinking.wordpress.com/2022/04/25/how-to-run-smatch-on-your-code/
 
-I would like to throw resource leak bugs in the mix. I am finding cppcheck
-has been effective in finding them.
+In the topic of suppressing false positives we also have several
+"fixes", sometimes pointed out incorrectly by Coverity, for missing
+check for of_device_get_match_data().
 
-I am seeing a lot of file pointer leaks  in error legs in kselftest code error
-paths. I have a few fixes in the works to send out.
+Compare:
+https://elixir.bootlin.com/linux/v5.18-rc7/source/drivers/clk/clk-aspeed.c#L415
+https://elixir.bootlin.com/linux/v5.18-rc7/source/drivers/clk/clk-oxnas.c#L216
 
-We could discuss this topic at the LPC Kernel Testing and Dependability mini-conf
-as well.
+Although in theory the of_device_get_match_data() can return NULL, in
+practice it is not possible because driver matches via OF thus there
+will be always of_device_id->driver data.
 
-thanks,
--- Shuah
+Coverity screams about it, people fix it by adding checks for NULL,
+which is pointless. Half of drivers add the !NULL check, half do not...
 
-
-
+Best regards,
+Krzysztof
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
