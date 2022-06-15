@@ -1,82 +1,72 @@
 Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
-Received: from smtp4.osuosl.org (smtp4.osuosl.org [IPv6:2605:bc80:3010::137])
-	by mail.lfdr.de (Postfix) with ESMTPS id 039E254C312
-	for <lists@lfdr.de>; Wed, 15 Jun 2022 10:05:35 +0200 (CEST)
+Received: from smtp3.osuosl.org (smtp3.osuosl.org [140.211.166.136])
+	by mail.lfdr.de (Postfix) with ESMTPS id 308A454C39F
+	for <lists@lfdr.de>; Wed, 15 Jun 2022 10:36:57 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
-	by smtp4.osuosl.org (Postfix) with ESMTP id 5874241901;
-	Wed, 15 Jun 2022 08:05:33 +0000 (UTC)
+	by smtp3.osuosl.org (Postfix) with ESMTP id D23496102B;
+	Wed, 15 Jun 2022 08:36:54 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from smtp4.osuosl.org ([127.0.0.1])
-	by localhost (smtp4.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id LODv484pby_a; Wed, 15 Jun 2022 08:05:32 +0000 (UTC)
+Received: from smtp3.osuosl.org ([127.0.0.1])
+	by localhost (smtp3.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id OkKP7V67916l; Wed, 15 Jun 2022 08:36:53 +0000 (UTC)
 Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [IPv6:2605:bc80:3010:104::8cd3:938])
-	by smtp4.osuosl.org (Postfix) with ESMTPS id 38154418FD;
-	Wed, 15 Jun 2022 08:05:31 +0000 (UTC)
+	by smtp3.osuosl.org (Postfix) with ESMTPS id D086C61020;
+	Wed, 15 Jun 2022 08:36:52 +0000 (UTC)
 Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id D8A48C002D;
-	Wed, 15 Jun 2022 08:05:29 +0000 (UTC)
+	by lists.linuxfoundation.org (Postfix) with ESMTP id 88526C002D;
+	Wed, 15 Jun 2022 08:36:51 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@lists.linuxfoundation.org
-Received: from smtp2.osuosl.org (smtp2.osuosl.org [140.211.166.133])
- by lists.linuxfoundation.org (Postfix) with ESMTP id 7544DC002D
+Received: from smtp4.osuosl.org (smtp4.osuosl.org [IPv6:2605:bc80:3010::137])
+ by lists.linuxfoundation.org (Postfix) with ESMTP id 434BDC002D
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Wed, 15 Jun 2022 08:05:28 +0000 (UTC)
+ Wed, 15 Jun 2022 08:36:50 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
- by smtp2.osuosl.org (Postfix) with ESMTP id 63D254028D
+ by smtp4.osuosl.org (Postfix) with ESMTP id 322A341918
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Wed, 15 Jun 2022 08:05:28 +0000 (UTC)
+ Wed, 15 Jun 2022 08:36:50 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Authentication-Results: smtp2.osuosl.org (amavisd-new);
- dkim=pass (2048-bit key) header.d=linaro.org
-Received: from smtp2.osuosl.org ([127.0.0.1])
- by localhost (smtp2.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id tub1geCPkw49
+Authentication-Results: smtp4.osuosl.org (amavisd-new);
+ dkim=pass (2048-bit key) header.d=kernel.org
+Received: from smtp4.osuosl.org ([127.0.0.1])
+ by localhost (smtp4.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id rGal4XWRqCvp
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Wed, 15 Jun 2022 08:05:27 +0000 (UTC)
-X-Greylist: whitelisted by SQLgrey-1.8.0
-Received: from mail-yb1-xb2b.google.com (mail-yb1-xb2b.google.com
- [IPv6:2607:f8b0:4864:20::b2b])
- by smtp2.osuosl.org (Postfix) with ESMTPS id 446AD4015A
+ Wed, 15 Jun 2022 08:36:48 +0000 (UTC)
+X-Greylist: domain auto-whitelisted by SQLgrey-1.8.0
+Received: from ams.source.kernel.org (ams.source.kernel.org
+ [IPv6:2604:1380:4601:e00::1])
+ by smtp4.osuosl.org (Postfix) with ESMTPS id 6006541903
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Wed, 15 Jun 2022 08:05:26 +0000 (UTC)
-Received: by mail-yb1-xb2b.google.com with SMTP id x38so19150086ybd.9
- for <ksummit-discuss@lists.linuxfoundation.org>;
- Wed, 15 Jun 2022 01:05:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=HmmOX4UCATqIjn65T3MSux3xoY3/WFMaQpG0DN7sH30=;
- b=ARKxm1ktTXpCBW63qWdDvhSs1RKJE8YrtIbSSNrLA23L6Rke+1za/o261oYxgRpr8W
- hX3cLBqeWccoazzyNHrxpd3nhNT1HlXT5HT1YrBLUgG6ecvIYs/0/o3w5cm5GvnKd2dI
- SLkijGI9wwI8VKSkMbTy2njYpULeI7HA4r/+QSrpluLI+N6CWA9V+zrU/1aGIaNQe5T5
- VHznIwDDnEIn+z3bwCLZmS0tEG2tkcFosz0AtPgSvHWuPO0yUnNIuxt9Sjk+pWfnr45M
- WJzNMkezdx9ivMFg0XF9TFk2t7uHMRJ5ehhVdDqv7f/wmvTtzeq9BfpgRNgfi/G0Vqnb
- zayg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=HmmOX4UCATqIjn65T3MSux3xoY3/WFMaQpG0DN7sH30=;
- b=Oqii2HFAGBqv2VZLdNt6lrS3LcQTS1QYqrIHuxHL+xO1ogaJI6j1FOiGPW6kcqwBB+
- A42Er5Noh/lQarYHT+T8ipCKnvbcoOuF5dxRNwFEmyZAkmFwUu4w+cud0/oX+q9Bq3wi
- A4g4nRFgGSA4DuikxVssf9smfc7iT+6HMOmc4s7XWx3uH2S7IZJJnun8FYIwjUKE6K6g
- rhq/wqxycmF8gXxYLQv0Y0lk8YEmZuLdz5GRkU0eGYa8N4QSHNuvZXsHWp3AueVdS/Bm
- gYKJBk3tncdPjphuUKeXGOsFq8wYoyJKHYw8WwWSgJCgjXbb2d1XyxlmI7TaE41gQTfk
- +zbQ==
-X-Gm-Message-State: AJIora8Tc7j2rgRKEJiosGb+Q+BeP+66EsKfXu+CORDlvwlb6kXCtZcc
- CL9AXGHHirVPVH9xJqNaNm5d2F/TCpHxx9OpAm8pdA==
-X-Google-Smtp-Source: AGRyM1tI24SsUON+kWHmdjmlfXpFooytlkvjaOiJqS+JuP6pSqqKaumRABalNo/DRKCUM0arYalaLPqvqGzp9TR8jV4=
-X-Received: by 2002:a25:650a:0:b0:663:461f:86f2 with SMTP id
- z10-20020a25650a000000b00663461f86f2mr9248263ybb.514.1655280325878; Wed, 15
- Jun 2022 01:05:25 -0700 (PDT)
-MIME-Version: 1.0
+ Wed, 15 Jun 2022 08:36:48 +0000 (UTC)
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 3D04FB817C9;
+ Wed, 15 Jun 2022 08:36:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78BC8C34115;
+ Wed, 15 Jun 2022 08:36:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1655282204;
+ bh=Sw+YW0AfJrXh3XMieu2mqiqD5iv5PL4RDU4UYuyz3CM=;
+ h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+ b=Y57wqqKLRDGFs6v3uK+72/ITFYS5ROd5nm+cDRmUMufpSk/KexMROZZyS5dGqA6eC
+ AvGr1tGOx3msk3D08VUPH0QJbhTLZOUTl8YeZbSPWrWu8MXy1HE306jOKQx/NEKiKo
+ xHzBglKrIfqrQed73z2hIswTqrmG0LEYLhSWdZm+oOjpEk7m96v7dKBz4w7fPRKOV9
+ wAQ404LusQwlCQZ3WgPlXWIbOnsr0Qp6UuNCf44rsUosf6Gs2aeFV5+aVS3dYkbYwc
+ HIHX3OmMtTvfRJ3MXEH2tIz6QHM4SOG6eePntRlNlT4vhlBlBmCF47pVwZWHf1r51D
+ 5ndqsdIItexxA==
+Date: Wed, 15 Jun 2022 10:36:41 +0200 (CEST)
+From: Jiri Kosina <jikos@kernel.org>
+To: Linus Walleij <linus.walleij@linaro.org>
+In-Reply-To: <CACRpkdaYx5uOt8Xi8AY3N2BcQjG7J5ZUwr6yueF_pet1HoOrFQ@mail.gmail.com>
+Message-ID: <nycvar.YFH.7.76.2206151023250.14340@cbobk.fhfr.pm>
 References: <nycvar.YFH.7.76.2206150834520.14340@cbobk.fhfr.pm>
-In-Reply-To: <nycvar.YFH.7.76.2206150834520.14340@cbobk.fhfr.pm>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 15 Jun 2022 10:05:14 +0200
-Message-ID: <CACRpkdaYx5uOt8Xi8AY3N2BcQjG7J5ZUwr6yueF_pet1HoOrFQ@mail.gmail.com>
-To: Jiri Kosina <jkosina@suse.cz>
+ <CACRpkdaYx5uOt8Xi8AY3N2BcQjG7J5ZUwr6yueF_pet1HoOrFQ@mail.gmail.com>
+User-Agent: Alpine 2.21 (LSU 202 2017-01-01)
+MIME-Version: 1.0
 Cc: Luca Weiss <luca@z3ntu.xyz>, Bartosz Golaszewski <brgl@bgdev.pl>,
  Benjamin Tissoires <benjamin.tissoires@redhat.com>,
  Christoph Hellwig <hch@lst.de>, ksummit-discuss@lists.linuxfoundation.org
@@ -97,96 +87,114 @@ Content-Transfer-Encoding: 7bit
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
-On Wed, Jun 15, 2022 at 8:55 AM Jiri Kosina <jkosina@suse.cz> wrote:
+On Wed, 15 Jun 2022, Linus Walleij wrote:
 
-> As everyone is pretty much aware, eBPF adoption is quickly expanding for
-> various usecases in the kernel. For example, there has recently been
-> effort invested into adding eBPF support to HID subsystem [1], in order to
-> make adding quirks for specific devices easier, not requiring a "full"
-> proper driver for devices that just need a tiny bit of special handling
-> here and there but apart from that can be handled by the generic driver
-> just fine.
+> > As everyone is pretty much aware, eBPF adoption is quickly expanding for
+> > various usecases in the kernel. For example, there has recently been
+> > effort invested into adding eBPF support to HID subsystem [1], in order to
+> > make adding quirks for specific devices easier, not requiring a "full"
+> > proper driver for devices that just need a tiny bit of special handling
+> > here and there but apart from that can be handled by the generic driver
+> > just fine.
+> 
+> I see your concern as subsystem maintainer not wanting HID to turn into 
+> a dumping ground for various vendor extensions. 
 
-I see your concern as subsystem maintainer not wanting HID to turn
-into a dumping ground for various vendor extensions. I submitted
-a Razer keyboard bling driver that was nixed with "put it in userspace",
-i.e. using hidraw, and I was directed to the project called "razertest"
-https://github.com/z3ntu/razer_test
-https://patchwork.kernel.org/project/linux-input/patch/20181128222443.13062-1-linus.walleij@linaro.org/
+Just to clarify the point I was trying to make here -- I am not saying 
+that I do not like this particular case (i.e. the HID-BFP patchset that 
+Benjamin is developing).
 
-One of the concerns raised was (Luca) "I wouldn't put too much functionality
-into the kernel driver as new devices are being released all the time and it
-would probably take very long for those patches to arrive at users of
-non-rolling distros."
+My point was that unless we properly define what are the reasonable 
+usecases for eBPF and what is the borderline beyond which we shouldn't go 
+if we want to maintain sanity of the ecosystem (and people having to 
+support the kernels :) ), we will be getting this discussion popping up 
+over and over again.
 
-The problem with this is that while the kernel has a highway into *all*
-distros and how many distros even carry "razer_test"? Not Fedora
-for example. That surely has not reached users of any distro AFAICT.
+> I submitted a Razer keyboard bling driver that was nixed with "put it in 
+> userspace", i.e. using hidraw, and I was directed to the project called 
+> "razertest" https://github.com/z3ntu/razer_test 
+> https://patchwork.kernel.org/project/linux-input/patch/20181128222443.13062-1-linus.walleij@linaro.org/
+> 
+> One of the concerns raised was (Luca) "I wouldn't put too much functionality
+> into the kernel driver as new devices are being released all the time and it
+> would probably take very long for those patches to arrive at users of
+> non-rolling distros."
 
-So what we have here is three prominent HID contributors: Benjamin,
-Luca and Jiri. One of you work for RedHat and one of you work for SuSE.
-And yet none of your distributions have packaged Luca's userspace project?
-Can't you see that this isn't working?
+I actually don't buy that as an argument. Distros are quite happily 
+backporting to their kernels whatever the users / customers request from 
+them, so I don't see why this would be an exception.
 
-I feel HID is maybe missing the point that creating new userspace
-projects is really hard and resource-craving, involving a lot of social
-problem, process and lobbying compared to maintaining
-a few more driver files in the kernel.
+If there is a good use for it in a particular distro, it's up to that 
+distro (or embedded vendor kernel) to have it ported.
 
-Referring people to misc half-adopted userspace projects for full support
-of the hardware on their desk isn't really sustainable, no matter if
-they use eBPF or not. (Asking them to go and create their own userspace
-driver extension libraries is even less helpful.)
+> The problem with this is that while the kernel has a highway into *all*
+> distros and how many distros even carry "razer_test"? Not Fedora
+> for example. That surely has not reached users of any distro AFAICT.
+> 
+> So what we have here is three prominent HID contributors: Benjamin,
+> Luca and Jiri. One of you work for RedHat and one of you work for SuSE.
+> And yet none of your distributions have packaged Luca's userspace project?
+> Can't you see that this isn't working?
 
-I once created libmtp for MTP communication with storage devices
-such as all Android phones. In a way it is a success since it is
-deployed in all distros and even used on Mac by Google for
-accessing Android devices. Would I implement it today I would
-seriously discuss with Greg to make this a kernel driver instead.
-Simply because the kernel has more momentum, community
-and attention. More bugs get fixed there, maintenance actually
-happens. I'm really suspicious of other microkernel-like projects
-such as libsane and cups as well, but they can talk for
-themselves.
+I am probably much more inclined into taking the drivers into kernel than 
+some of the others. I have always had issues with drivers in userspace (no 
+matter whether it's libusb, UIO, hidraw, or whatever else there is), 
+exactly because of the issues it brings when it comes to distributing it.
 
-To me the big question is rather: does HID have a working userspace
-project community outside of the kernel, which is adopted by all major
-distributions? I know it is a chicken and egg problem, and that you
-need to create something to get accepted but is there some
-momentum in these projects?
+With perhaps an exception of things that can be made to work with an udev 
+rule / script.
 
-At a minimum, do what Bartosz did for the libgpiod library that we
-(reluctantly) developed for userspace GPIO access, and put the git
-for the userspace on git.kernel.org so people know where to find it
-and get the cuddly feeling that it has something to do with the official
-Linux kernel.
+> To me the big question is rather: does HID have a working userspace 
+> project community outside of the kernel, which is adopted by all major 
+> distributions? I know it is a chicken and egg problem, and that you need 
+> to create something to get accepted but is there some momentum in these 
+> projects?
 
-> While there are many proponents of "eBPF is good for everything and your
-> grandma" aproach, this opinion is not universally shared. One big risk is
-> that this will eventually lead to possibility of having whole drivers /
-> core code written in eBPF, which could potentially lead to decreased
-> maintainability and supportability, also due to big fragmentation of the
-> code (eBPF programs might not necessarily be shipped together with the
-> kernel codebase).
-(...)
-> I feel like we are currently lacking a clear borderline, defining what is
-> still acceptable by the community to be implemented in terms of eBPF, and
-> what is over the line as it'd be causing big supportability and
-> maintainability concerns (see e.g. Christoph's concern to the HID eBPF
-> implementation implications [2]).
+Even though I brought HID as an example on which I wanted to just 
+demonstrate the point, I'd actually like to propose this discussion to 
+stay completely abstracted away from any particular subsystem.
 
-I must say from my own experience I side with Christoph here.
+I didn't bring it up because of HID specifically, but as a general issue 
+that spans across subsystems.
 
-I just want to add some code to the kernel so my hardware works
-(better) out of the box, is that really so voluminous for the HID maintainers
-to maintain that it need to be referred to userspace?
+> > While there are many proponents of "eBPF is good for everything and your
+> > grandma" aproach, this opinion is not universally shared. One big risk is
+> > that this will eventually lead to possibility of having whole drivers /
+> > core code written in eBPF, which could potentially lead to decreased
+> > maintainability and supportability, also due to big fragmentation of the
+> > code (eBPF programs might not necessarily be shipped together with the
+> > kernel codebase).
+> (...)
+> > I feel like we are currently lacking a clear borderline, defining what is
+> > still acceptable by the community to be implemented in terms of eBPF, and
+> > what is over the line as it'd be causing big supportability and
+> > maintainability concerns (see e.g. Christoph's concern to the HID eBPF
+> > implementation implications [2]).
+> 
+> I must say from my own experience I side with Christoph here.
+> 
+> I just want to add some code to the kernel so my hardware works (better) 
+> out of the box, is that really so voluminous for the HID maintainers to 
+> maintain that it need to be referred to userspace?
+> 
+> I kind of feel like rebasing and resubmitting my razer driver from 2018 
+> to raise a discussion here. 
 
-I kind of feel like rebasing and resubmitting my razer driver from 2018
-to raise a discussion here. Will I be asked to rewrite it in eBPF
-if I do?
+I actually don't remember that submission from back 2018, sorry, but I 
+personally wouldn't see a big problem accepting the driver as-is. But 
+that's a discussion to have on a regular thread after you (re)submit it, 
+but is probably not so relevant for the point I wanted to make here.
 
-Yours,
-Linus Walleij
+> Will I be asked to rewrite it in eBPF if I do?
+
+Definitely not by me :)
+
+Thanks,
+
+-- 
+Jiri Kosina
+SUSE Labs
+
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
