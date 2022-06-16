@@ -1,88 +1,76 @@
 Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
-Received: from smtp2.osuosl.org (smtp2.osuosl.org [140.211.166.133])
-	by mail.lfdr.de (Postfix) with ESMTPS id DB0C954D374
-	for <lists@lfdr.de>; Wed, 15 Jun 2022 23:16:16 +0200 (CEST)
+Received: from smtp2.osuosl.org (smtp2.osuosl.org [IPv6:2605:bc80:3010::133])
+	by mail.lfdr.de (Postfix) with ESMTPS id C545554DC69
+	for <lists@lfdr.de>; Thu, 16 Jun 2022 10:02:45 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
-	by smtp2.osuosl.org (Postfix) with ESMTP id 6A11440BDE;
-	Wed, 15 Jun 2022 21:16:14 +0000 (UTC)
+	by smtp2.osuosl.org (Postfix) with ESMTP id 2D00A40275;
+	Thu, 16 Jun 2022 08:02:44 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
 Received: from smtp2.osuosl.org ([127.0.0.1])
 	by localhost (smtp2.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id 9LhNJYDO6tdz; Wed, 15 Jun 2022 21:16:13 +0000 (UTC)
-Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
-	by smtp2.osuosl.org (Postfix) with ESMTPS id ACAD540A96;
-	Wed, 15 Jun 2022 21:16:12 +0000 (UTC)
+	with ESMTP id M1LCOXoHgnsC; Thu, 16 Jun 2022 08:02:43 +0000 (UTC)
+Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [IPv6:2605:bc80:3010:104::8cd3:938])
+	by smtp2.osuosl.org (Postfix) with ESMTPS id 59B8B404F5;
+	Thu, 16 Jun 2022 08:02:42 +0000 (UTC)
 Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id 48D82C002D;
-	Wed, 15 Jun 2022 21:16:11 +0000 (UTC)
+	by lists.linuxfoundation.org (Postfix) with ESMTP id 1CD70C002D;
+	Thu, 16 Jun 2022 08:02:41 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@lists.linuxfoundation.org
-Received: from smtp2.osuosl.org (smtp2.osuosl.org [140.211.166.133])
- by lists.linuxfoundation.org (Postfix) with ESMTP id E8EC9C002D
+Received: from smtp3.osuosl.org (smtp3.osuosl.org [140.211.166.136])
+ by lists.linuxfoundation.org (Postfix) with ESMTP id 82B8CC002D
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Wed, 15 Jun 2022 21:16:09 +0000 (UTC)
+ Thu, 16 Jun 2022 08:02:39 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
- by smtp2.osuosl.org (Postfix) with ESMTP id D08B8404B2
+ by smtp3.osuosl.org (Postfix) with ESMTP id 61DDA6112A
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Wed, 15 Jun 2022 21:16:09 +0000 (UTC)
+ Thu, 16 Jun 2022 08:02:39 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from smtp2.osuosl.org ([127.0.0.1])
- by localhost (smtp2.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id 30TXkWY32JSC
+Authentication-Results: smtp3.osuosl.org (amavisd-new);
+ dkim=pass (2048-bit key) header.d=kernel.org
+Received: from smtp3.osuosl.org ([127.0.0.1])
+ by localhost (smtp3.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id BLt3qpaBvZUe
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Wed, 15 Jun 2022 21:16:09 +0000 (UTC)
-X-Greylist: whitelisted by SQLgrey-1.8.0
-Received: from mail-qk1-x729.google.com (mail-qk1-x729.google.com
- [IPv6:2607:f8b0:4864:20::729])
- by smtp2.osuosl.org (Postfix) with ESMTPS id CEF664010C
+ Thu, 16 Jun 2022 08:02:36 +0000 (UTC)
+X-Greylist: domain auto-whitelisted by SQLgrey-1.8.0
+Received: from ams.source.kernel.org (ams.source.kernel.org [145.40.68.75])
+ by smtp3.osuosl.org (Postfix) with ESMTPS id 7ACD561116
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Wed, 15 Jun 2022 21:16:08 +0000 (UTC)
-Received: by mail-qk1-x729.google.com with SMTP id 15so9704667qki.6
- for <ksummit-discuss@lists.linuxfoundation.org>;
- Wed, 15 Jun 2022 14:16:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=toxicpanda-com.20210112.gappssmtp.com; s=20210112;
- h=date:from:to:subject:message-id:mime-version:content-disposition;
- bh=pp31Bh8X9186h3K1JReHD+SIwP9/8sT0sL348ehhZVE=;
- b=1D8M9p+Dsk5CFvieeERm1erUcq+TXMhgtZ52uoBx5rM5dChALXSbf290kvTcm48519
- 9qq4jclmh+AqdYolg9NFGGkh3/GgJU6kLxfrl11uFVOCK3QUifajfWnf8eHZxdFiEMrR
- 83sqbHibzUoH6VEz3xOT3uWhE/ej5jjHGT7e6uV72ZdMDYJ6isOF2Cvcc6etkMgHmjYi
- plU5SQUe8rKOVkh+2kH5PRzzu0wOfl+jI37B6/Wko+/9IQxp9r4bJkG4WQyl0bxrmcfQ
- nkDnVb0VuF4Fb7AZJ+P8+pSV2Ub5KlMvRJVFBFIxAPQiXr/l/jKmb6D6fI/mQHe9LNY6
- nmyw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:subject:message-id:mime-version
- :content-disposition;
- bh=pp31Bh8X9186h3K1JReHD+SIwP9/8sT0sL348ehhZVE=;
- b=M9uIYsenRZe8EsYWbykKFtGbZqYnmPPncNjdGb/Lkgw94iP+FK7KVfCyky8VwQRKil
- 6XaB4uU0XGhWYGgkhF9xO6hvGxC7XuS6VaOQX/TdeC163MxqsPoFonnfMJkXNHebrvOd
- Sr7ReQ9xs65NHq3SBwCrfK6kUd0DSRaslRjsX8Kx3LJivee1+oFfjEXVXClsZYPdLHqG
- vY1iPEA8AFN8j4FUeGKzF7u7Tqec1KkBqrJ0vGMGoYCBZM7dE01wnqzGMYGlAex6HsE6
- 16PDOZl3k9R6safM0V8Dh2//CWJmZsjoCKgYDQ9CMPaYrDdqkfBa8e66GKjHMGsqUido
- WQbQ==
-X-Gm-Message-State: AJIora9y4T9vxERsf3Pc3KM1XAYpA11nxNK1M3uZulOnGAY8sX4BW17y
- JMgI1OxwaUenProk725TsV0XzNpeyoFHXw==
-X-Google-Smtp-Source: AGRyM1syUrkKFdtlyXN8ezG7FBI89BtEanjTMjm+OFuOjjfvJIMDfutdxRUUlx6l13VW96xCBG0wBw==
-X-Received: by 2002:a37:5cb:0:b0:6a6:ae4a:2fa5 with SMTP id
- 194-20020a3705cb000000b006a6ae4a2fa5mr1280396qkf.753.1655327767285; 
- Wed, 15 Jun 2022 14:16:07 -0700 (PDT)
-Received: from localhost (cpe-174-109-172-136.nc.res.rr.com. [174.109.172.136])
- by smtp.gmail.com with ESMTPSA id
- u16-20020a05620a0c5000b006a785ba0c25sm10450027qki.77.2022.06.15.14.16.06
- for <ksummit-discuss@lists.linuxfoundation.org>
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 15 Jun 2022 14:16:06 -0700 (PDT)
-Date: Wed, 15 Jun 2022 17:16:06 -0400
-From: Josef Bacik <josef@toxicpanda.com>
-To: ksummit-discuss@lists.linuxfoundation.org
-Message-ID: <YqpMFk94RtPmbGxm@localhost.localdomain>
+ Thu, 16 Jun 2022 08:02:36 +0000 (UTC)
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id AFE0AB8216B;
+ Thu, 16 Jun 2022 08:02:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C558C34114;
+ Thu, 16 Jun 2022 08:02:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1655366551;
+ bh=l74osRM0v/IfVt0ettiOg3vPTMVRkB/OhD0yQi1450Y=;
+ h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+ b=FI/wa2z1FdQiCpeYFWzoayHPKgW5GZMd4GkNzVigIIW+sw8Je77Kbb2m7h1sT2ftk
+ 7d8Ed+Oscy3PXg4b21yMdO4g9+33o+bv51paZgo6sgNdUeLQosS28k+b7+uzUgIrWy
+ kWxcmcTDu/0OpR8r2lIF9yMvMh3e3h1ES6fZTUmXO744/9xF1mNtfivLUc0UU0WdH8
+ lCnMQg63b+h9DPmt4Jz2FM6u04q1tF79cfFStyLMlYwZ6OZzdk2eNDIYeOOBlwVlon
+ hmsVCLh1BUPZPfaocIEA/RgseLzbbPn3zCALguiNrlvWbzzuYFikI10UU+3+AlUqMH
+ E7XDGabN7XBug==
+Date: Thu, 16 Jun 2022 10:02:27 +0200 (CEST)
+From: Jiri Kosina <jikos@kernel.org>
+To: Benjamin Tissoires <benjamin.tissoires@redhat.com>
+In-Reply-To: <CAO-hwJJmW_STS=nT22n4pcaZf9gz953K4o2vhgmq-ig4OzxOLg@mail.gmail.com>
+Message-ID: <nycvar.YFH.7.76.2206160959080.14340@cbobk.fhfr.pm>
+References: <nycvar.YFH.7.76.2206150834520.14340@cbobk.fhfr.pm>
+ <CACRpkdaYx5uOt8Xi8AY3N2BcQjG7J5ZUwr6yueF_pet1HoOrFQ@mail.gmail.com>
+ <nycvar.YFH.7.76.2206151023250.14340@cbobk.fhfr.pm>
+ <CAO-hwJJmW_STS=nT22n4pcaZf9gz953K4o2vhgmq-ig4OzxOLg@mail.gmail.com>
+User-Agent: Alpine 2.21 (LSU 202 2017-01-01)
 MIME-Version: 1.0
-Content-Disposition: inline
-Subject: [Ksummit-discuss] [MAINTAINERS SUMMIT] The role of maintainers wrt
- technical and personal disagreements
+Cc: ksummit-discuss@lists.linuxfoundation.org, Luca Weiss <luca@z3ntu.xyz>,
+ Christoph Hellwig <hch@lst.de>, Bartosz Golaszewski <brgl@bgdev.pl>
+Subject: Re: [Ksummit-discuss] [MAINTAINERS SUMMIT] How far to go with eBPF
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.15
 Precedence: list
@@ -99,34 +87,37 @@ Content-Transfer-Encoding: 7bit
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
-Hello,
+On Wed, 15 Jun 2022, Benjamin Tissoires wrote:
 
-A topic we talked about a fair bit during LSFMM both in sessions and in the
-hallway was what we expect from our maintainers.  Historically this has been a
-lot of things, merge, review, and test patches.  Send patches to Linus, get
-yelled at when the testing was insufficient.  Attempt to wrangle the children
-playing in your sandbox.  Maintainer is the catch all developer for subsystems,
-and this leads to a variety of problems, like burnout or simply inactive
-maintainers.
+> One point that was also raised in the various HID-BPF patch series is 
+> that for "hardware enablement" like support, the eBPF programs would be 
+> in-tree, and automatically loaded by the kernel itself.
+> 
+> Alexei has some ideas on how to implement that, I had others, but the 
+> hallway track discussions showed that everybody has a different idea on 
+> the automatic mechanism, but it is a requirement and worth discussing :)
+> 
+> Which means that in that case, eBPF would be a more convenient way for 
+> users to fix their device, without having to rely on a full or partial 
+> kernel recompilation.
 
-Additionally there's a common attitude of letting developers fight it out to
-figure out the best way forward on a contentious topic.  I can think of a few
-major reworks or features in the last few years where things got pretty heated
-between a few developers.  And not new developers either, these are well
-experienced community members.  I understand the argument that we want to let
-developers figure out the best way forward amongst themselves, however it
-doesn't help if relationships are destroyed to the point that people can't be in
-the same room with each other.  I would like to see us move more towards
-maintainers, or even just technical leaders in the area, stepping in and setting
-the direction when there is conflict.  Oftentimes a third party can find a good
-compromise and a path forward that keeps everybody from killing each other, and
-keeps progress moving.
+That definitely does solve one of the issues. It's basically following the 
+model of perf, where the ABI must not be kept intact, because the user(s) 
+of it are in-tree and released in lockstep with the ABI changes.
 
-There's a lot of automation that we could build around the mechanical things
-that maintainers do to offload them and give them more time to devote to the
-soft skills of maintaining a subsystem.  Thanks,
+> While working on eBPF, I came to realize how hidraw is bad in terms of 
+> development model for userspace "drivers". 
 
-Josef
+As the original author of hidraw, I have to agree :) I didn't expect such 
+an explosion of userspace drivers being dependent on it, it was primarily 
+meant for debugging and tweaking.
+
+libusb is a similar example, I believe.
+
+-- 
+Jiri Kosina
+SUSE Labs
+
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
