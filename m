@@ -2,102 +2,59 @@ Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
 Received: from smtp4.osuosl.org (smtp4.osuosl.org [IPv6:2605:bc80:3010::137])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3138F54E09E
-	for <lists@lfdr.de>; Thu, 16 Jun 2022 14:14:53 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0B31054E114
+	for <lists@lfdr.de>; Thu, 16 Jun 2022 14:49:54 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
-	by smtp4.osuosl.org (Postfix) with ESMTP id 564D241A65;
-	Thu, 16 Jun 2022 12:14:51 +0000 (UTC)
+	by smtp4.osuosl.org (Postfix) with ESMTP id 14F534071E;
+	Thu, 16 Jun 2022 12:49:51 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
 Received: from smtp4.osuosl.org ([127.0.0.1])
 	by localhost (smtp4.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id N02vfcNo8enw; Thu, 16 Jun 2022 12:14:50 +0000 (UTC)
-Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
-	by smtp4.osuosl.org (Postfix) with ESMTPS id 726B141A59;
-	Thu, 16 Jun 2022 12:14:49 +0000 (UTC)
+	with ESMTP id qR6bYTSZEYJv; Thu, 16 Jun 2022 12:49:49 +0000 (UTC)
+Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [IPv6:2605:bc80:3010:104::8cd3:938])
+	by smtp4.osuosl.org (Postfix) with ESMTPS id B95D440868;
+	Thu, 16 Jun 2022 12:49:48 +0000 (UTC)
 Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id 265A4C002D;
-	Thu, 16 Jun 2022 12:14:48 +0000 (UTC)
+	by lists.linuxfoundation.org (Postfix) with ESMTP id 632C3C002D;
+	Thu, 16 Jun 2022 12:49:47 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@lists.linuxfoundation.org
-Received: from smtp4.osuosl.org (smtp4.osuosl.org [IPv6:2605:bc80:3010::137])
- by lists.linuxfoundation.org (Postfix) with ESMTP id 83614C002D
+Received: from smtp3.osuosl.org (smtp3.osuosl.org [IPv6:2605:bc80:3010::136])
+ by lists.linuxfoundation.org (Postfix) with ESMTP id 452D6C002D
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Thu, 16 Jun 2022 12:14:46 +0000 (UTC)
+ Thu, 16 Jun 2022 12:49:46 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
- by smtp4.osuosl.org (Postfix) with ESMTP id 64CA741A4B
+ by smtp3.osuosl.org (Postfix) with ESMTP id 2082660AB1
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Thu, 16 Jun 2022 12:14:46 +0000 (UTC)
+ Thu, 16 Jun 2022 12:49:46 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from smtp4.osuosl.org ([127.0.0.1])
- by localhost (smtp4.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id r3krwMMtwxqj
+Received: from smtp3.osuosl.org ([127.0.0.1])
+ by localhost (smtp3.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id jCKOPIf3vLLP
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Thu, 16 Jun 2022 12:14:45 +0000 (UTC)
+ Thu, 16 Jun 2022 12:49:44 +0000 (UTC)
 X-Greylist: domain auto-whitelisted by SQLgrey-1.8.0
-Received: from us-smtp-delivery-124.mimecast.com
- (us-smtp-delivery-124.mimecast.com [170.10.129.124])
- by smtp4.osuosl.org (Postfix) with ESMTPS id 73D85410DC
+Received: from wp530.webpack.hosteurope.de (wp530.webpack.hosteurope.de
+ [IPv6:2a01:488:42:1000:50ed:8234::])
+ by smtp3.osuosl.org (Postfix) with ESMTPS id A50FC60A7E
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Thu, 16 Jun 2022 12:14:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1655381684;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=8/61+EsKJotNEzZxYAG3VSutI95W65/m3BS81hk+zBI=;
- b=RzF7JzQj3w7zU75rcTjI34CbI4Xxma8v2sbuQYeNmNpKlQT0KzGbMSoZWfKURmBiRfg6aU
- s0sP7ReRa2TZQ45Cu9xjEIDftpPEbaLtcT1t85fL44Q3H7z7tUnJMwRsigMfr/NrcPebwS
- LkpSKLqrgnd0JnCzo9RlI4cqPwMUQH0=
-Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com
- [209.85.216.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-39-4cmUSIKVM6-p-BWkDRJ4rw-1; Thu, 16 Jun 2022 08:14:43 -0400
-X-MC-Unique: 4cmUSIKVM6-p-BWkDRJ4rw-1
-Received: by mail-pj1-f69.google.com with SMTP id
- y15-20020a17090a474f00b001eac1991515so821182pjg.1
- for <ksummit-discuss@lists.linuxfoundation.org>;
- Thu, 16 Jun 2022 05:14:42 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=8/61+EsKJotNEzZxYAG3VSutI95W65/m3BS81hk+zBI=;
- b=fLQ3CibAh7rCputIj8ljzOWExgxdAgkJSbVAi1elFj+pvz0TylDqLbhwpNvpi5r7ch
- FSZD/GhP4TUZ9ii+IoK2T9XVGP801n2IDtDcklav32RhCIJBUKfVM5Z1yZUn+GxFvEIo
- m9gRs5VhVRujAzb6KYctIXY2buC3SNzoPNAK7JSC3YK4rBw/iVn1wsbL0UBp8VYnON7A
- 38ZbJ/PjlnKj3wJSb9LhGn9vU8iG32A86VC1ZOYe5RdwSn7ZrH8yW4AxliqTniY/kAUD
- RJAkcTEBTQNe00DT+1X78j/InUtA0GJLgFk+K898Kb1BzDzpM1KnpudAZMl3qTnvprb/
- J0iA==
-X-Gm-Message-State: AJIora9xRLYF0aJp9GoRI0pyCcg1IrGOsZSnJQgBsvGs1zVUgs9UfoAi
- cXBeClU3HzZfMaRdigonXQzhAbtC2le/zyM8KjyIVpfPFvrH2I6NKoV5VaozUnWNPnfPh6yDDIt
- ufQkpwfSb3WUAg4YNcRmN4aGgJa/5itNxMEedELlONZaLKAca7Tah6qpkjA==
-X-Received: by 2002:a63:3344:0:b0:408:cd45:3e6b with SMTP id
- z65-20020a633344000000b00408cd453e6bmr4272106pgz.146.1655381681846; 
- Thu, 16 Jun 2022 05:14:41 -0700 (PDT)
-X-Google-Smtp-Source: AGRyM1suxpBIuOeEtU8NcI4yB3dBf+fjZotw1zWnXjrgSFWlfiJuYkiLnUfkFR65aWJzOahX1VzgXgfCmWOCo+9leiE=
-X-Received: by 2002:a63:3344:0:b0:408:cd45:3e6b with SMTP id
- z65-20020a633344000000b00408cd453e6bmr4272071pgz.146.1655381681537; Thu, 16
- Jun 2022 05:14:41 -0700 (PDT)
+ Thu, 16 Jun 2022 12:49:44 +0000 (UTC)
+Received: from [2a02:8108:963f:de38:eca4:7d19:f9a2:22c5]; authenticated
+ by wp530.webpack.hosteurope.de running ExIM with esmtpsa
+ (TLS1.3:ECDHE_RSA_AES_128_GCM_SHA256:128)
+ id 1o1owP-0002PS-O4; Thu, 16 Jun 2022 14:49:41 +0200
+Message-ID: <20a02cbc-c0d5-e6f9-93fa-c1bf7592cfab@leemhuis.info>
+Date: Thu, 16 Jun 2022 14:49:40 +0200
 MIME-Version: 1.0
-References: <nycvar.YFH.7.76.2206150834520.14340@cbobk.fhfr.pm>
- <CACRpkdaYx5uOt8Xi8AY3N2BcQjG7J5ZUwr6yueF_pet1HoOrFQ@mail.gmail.com>
- <nycvar.YFH.7.76.2206151023250.14340@cbobk.fhfr.pm>
- <20220615170407.ycbkgw5rofidkh7x@quack3.lan>
- <87h74lvnyf.fsf@meer.lwn.net> <20220615174358.GA26358@lst.de>
- <CAO-hwJKqA07KX+6QtotCS8PtHFtk3DLQPJ3W8puaHOv7tOdi+Q@mail.gmail.com>
- <20220616114856.GA11127@lst.de>
-In-Reply-To: <20220616114856.GA11127@lst.de>
-From: Benjamin Tissoires <benjamin.tissoires@redhat.com>
-Date: Thu, 16 Jun 2022 14:14:30 +0200
-Message-ID: <CAO-hwJKEOiAin_9Hq2tav2WQGV=17-EHoQ6qPYMZ5znLJUmYxA@mail.gmail.com>
-To: Christoph Hellwig <hch@lst.de>
-Authentication-Results: relay.mimecast.com;
- auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=btissoir@redhat.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Cc: ksummit-discuss@lists.linuxfoundation.org,
- Bartosz Golaszewski <brgl@bgdev.pl>, Luca Weiss <luca@z3ntu.xyz>
-Subject: Re: [Ksummit-discuss] [MAINTAINERS SUMMIT] How far to go with eBPF
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.10.0
+Content-Language: en-US
+From: Thorsten Leemhuis <linux@leemhuis.info>
+To: ksummit <ksummit-discuss@lists.linuxfoundation.org>
+X-bounce-key: webpack.hosteurope.de;linux@leemhuis.info;1655383784;47f28f06;
+X-HE-SMSGID: 1o1owP-0002PS-O4
+Subject: [Ksummit-discuss] [TECH TOPIC] Regression tracking & fixing:
+ current state, problems, and next steps
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.15
 Precedence: list
@@ -109,54 +66,106 @@ List-Post: <mailto:ksummit-discuss@lists.linuxfoundation.org>
 List-Help: <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=help>
 List-Subscribe: <https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss>, 
  <mailto:ksummit-discuss-request@lists.linuxfoundation.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
-On Thu, Jun 16, 2022 at 1:49 PM Christoph Hellwig <hch@lst.de> wrote:
->
-> On Wed, Jun 15, 2022 at 08:34:19PM +0200, Benjamin Tissoires wrote:
-> > Also, one of the things I'd like to have in kfuncs is to be able to
-> > restrict them to a set of tracepoints, not just "all tracing
-> > programs".
->
-> Yes.
->
-> > Because the thing I do not want is users hijacking the kfunc API I
-> > define in other use cases I haven't thought of, and this would prevent
-> > changes.
->
-> Yes.  And I also think the BTF_IDs for kfuncs need to become something
-> like EXPORT_SYMBOL_EPBF to be more explicit and greppable and need to
-> see the same process.  That is in-tree users and no guarantee of stability
-> for out of tree users.
-
-Sounds interesting :)
-
->
-> > And AFAICT, I consider everything eBPF I do in HID as ABI, and treat
-> > it as such, and document it from day one.
->
-> Yikes.  So you're adding a UDI-like stable driver ABI?
->
-
-No, I mean I am carefully defining the eBPF api I am willing to export
-to user space, and will restrain myself from shuffling arguments every
-single release.
-
-The last change in the HID core protocol was 20 years old, so we
-roughly know what it does. It is not so much of a task to define what
-will be unlikely to change.
-
-Maybe a better way of putting it: "I consider *almost* everything eBPF
-I do in HID as *UAPI*, and treat it as such, and document it from day
-one."
-
-Cheers,
-Benjamin
-
-_______________________________________________
-Ksummit-discuss mailing list
-Ksummit-discuss@lists.linuxfoundation.org
-https://lists.linuxfoundation.org/mailman/listinfo/ksummit-discuss
+SGkgYWxsISBJ4oCZZCBsaWtlIHRvIHByb3Bvc2UgYSBzZXNzaW9uIG9uIG15IHJlZ3Jlc3Npb24g
+dHJhY2tpbmcgZWZmb3J0cwpmb3IgdGhlIGtlcm5lbCBzdW1taXQ6CgoqIEkgd2FudCB0byBnaXZl
+IGEgcmVsYXRpdmUgc2hvcnQgInN0YXRlIG9mIHRoZSB1bmlvbiIgb3ZlcnZpZXcgYWJvdXQgbXkK
+cmVncmVzc2lvbiB0cmFja2luZyBlZmZvcnRzIC0tIGluY2x1ZGluZyBhIHF1aWNrIGRlcGljdGlv
+biBvZiB0aGUgKHN0aWxsCmltbWF0dXJlIGFuZCByb3VnaCkgInJlZ3pib3QiLCB3aGljaCBoYW5k
+bGVzIHNvbWUgb2YgdGhlIGhhcmQgd29yayBmb3IgbWUuCgoKKiBPdXRsaW5lIGFuZCBkaXNjdXNz
+IG9kZGl0aWVzIGFuZCBwcm9ibGVtcyBpbiBMaW51eCBkZXZlbG9wbWVudCBJCm5vdGljZWQgZHVy
+aW5nIG15IHJlZ3Jlc3Npb24gdHJhY2tpbmcgZWZmb3J0cy4gQW1vbmcgdGhlbToKCiAtIEhvdyBz
+bG93IHF1aXRlIGEgZmV3IG1haW5saW5lIHJlZ3Jlc3Npb25zIGFyZSByZXNvbHZlZCwgYXMgZXZl
+bgpzaW1wbGUgcmVncmVzc2lvbiBmaXhlcyBzb21ldGltZXMgbGluZ2VyIGluIC1uZXh0IGZvciB3
+ZWVrcyBiZWZvcmUgYmVpbmcKbWFpbmxpbmVkLiBTb21ldGltZXMgdGhleSBzaW1wbHkgaWRsZSB0
+aGVyZSB1bnRpbCB0aGUgbmV4dCBtZXJnZSB3aW5kb3cuCiBUaGlzIGVzcGVjaWFsbHkgaGFwcGVu
+cyBvZnRlbiBmb3IgcmVncmVzc2lvbnMgaW50cm9kdWNlZCBpbiBvbmUgY3ljbGUKYnV0IG9ubHkg
+Zm91bmQgYWZ0ZXIgdGhhdCBjeWNsZSBlbmRlZC4KCiAgIFRoZSByZWNlbnRseSBhZGRlZCBkb2N1
+bWVudApEb2N1bWVudGF0aW9uL3Byb2Nlc3MvaGFuZGxpbmctcmVncmVzc2lvbnMucnN0IGNvbnRh
+aW5zIGEgc2VjdGlvbgpleHBsYWluaW5nIGluZGlyZWN0bHkgdGhhdCB0aGlzIGlzIHVud2FudGVk
+LiBJcyB0aGF0IGVub3VnaCB0byBpbXByb3ZlCnRoaW5ncyBvdmVyIHRpbWUsIGlmIEkgYW5kIG90
+aGVycyBwcm9kIGRldmVsb3BlcnMgd2hlbiBhIGZpeCBpcwpwcm9ncmVzc2luZyBvbmx5IHNsb3ds
+eT8gT3IgaXMgbW9yZSB0aGFuIHRoaXMgbmVlZGVkPwoKIC0gQ2xvc2VseSByZWxhdGVkIHRvIHRo
+ZSBwcmV2aW91cyBwb2ludDogaXMgb3VyIHdvcmtmbG93IHdvcmtpbmcgd2VsbAplbm91Z2ggd2hl
+biBpdCBjb21lcyB0byByZWdyZXNzaW9ucyBpbiBzdGFibGUgc2VyaWVzIGNhdXNlZCBieSBwYXRj
+aGVzCnJlY2VudGx5IG1lcmdlZCB0byBtYWlubGluZSBhbmQgYmFja3BvcnRlZCBiZWZvcmUgaXQg
+YmVjYW1lIGtub3duIHRoYXQKdGhlIGNoYW5nZSBjYXVzZXMgYSByZWdyZXNzaW9uPyBTaG91bGQg
+dGhvc2UgcGF0Y2hlcyBtYXliZSBiZSByZXZlcnRlZAppbiBzdGFibGUgbW9yZSBvZnRlbiBhbmQg
+cmVhcHBsaWVkIGxhdGVyIG9uY2UgYSBmaXggZm9yIHRoZSByZWdyZXNzaW9uCndhcyBtYWlubGlu
+ZWQsIGFzIGl0IHNvbWV0aW1lcyB0YWtlcyBxdWl0ZSBhIHdoaWxlIHRvIGdldCB0aGVtIGZpeGVk
+CnRoZXJlIChzZWUgYWJvdmUpPyBCVFc6IGhvdyBzaG91bGQgcmVnemJvdCBoYW5kbGUgc3VjaCBy
+ZWdyZXNzaW9ucz8gU2hvdwp0aGVtIGZvciBib3RoIG1haW5saW5lIGFuZCBzdGFibGU/CgogLSBU
+aGUgYnVnemlsbGEua2VybmVsLm9yZyBzaXR1YXRpb246IG1hbnkgcmVwb3J0cyBmb3IgcmVncmVz
+c2lvbnMgKGFuZApyZWd1bGFyIGJ1Z3MsIHRvbykgc3VibWl0dGVkIHRoZXJlIGFyZSBub3QgYWN0
+ZWQgdXBvbiwgb2Z0ZW4gYmVjYXVzZSB0aGUKcmVwb3J0IGlzbid0IHNlbnQgdG8gdGhlIGFwcHJv
+cHJpYXRlIG1haW50YWluZXJzL2RldmVsb3BlcnMuIERvIHdlIGNhcmU/CkJhY2tzdG9yeToKaHR0
+cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzY4MDhjZDE3LWI0OGMtNjU3ZC1kZTYwLWVmOWQ4YmZh
+MTUxZUBsZWVtaHVpcy5pbmZvLwpOb3Rld29ydGh5IGhlcmUgaXMgS29uc3RhbnRpbuKAmXMgImhh
+dmUgYW4gYWN0dWFsIGtlcm5lbCBkZXZlbG9wZXIgYmUKcmVzcG9uc2libGUgZm9yIG1hbmFnaW5n
+IGJ1Z3ppbGxhIiBjb21tZW50IGluIHRoYXQgdGhyZWF0OgpodHRwczovL2xvcmUua2VybmVsLm9y
+Zy9hbGwvMjAyMjA0MjAxNjMyMjMua3ozMnFvbXpqM3k0aGpqNUBuaXRyby5sb2NhbC8KU2lkZSBu
+b3RlOiBpcyB0aGlzIHNvbWV0aGluZyB0aGF0IHNob3VsZCBiZSBkaXNjdXNzZWQgc2VwYXJhdGVs
+eT8gT3IKc29tZXRoaW5nIGp1c3QgZm9yIHRoZSBtYWludGFpbmVycyBzdW1taXQ/CgoKKiBPdXRs
+aW5lIGFuZCBkaXNjdXNzIHByb2JsZW1zIEkgZmFjZSBkdXJpbmcgbXkgcmVncmVzc2lvbiB0cmFj
+a2luZwplZmZvcnRzLiBBbW9uZyB0aGVtOgoKIC0gSG93IGRvIHdlIHdhbnQgdG8gZGVhbCB3aXRo
+IHJlZ3Jlc3Npb24gcmVwb3J0cyBmcm9tIENJIHN5c3RlbXM/ClNob3VsZCBJIGFuZCByZWd6Ym90
+IHN0YXJ0IGtlZXBpbmcgYW4gZXllIG9uIHRob3NlIHRoYXQgc2VlbSB0byBiZSBsZWdpdAooYW5k
+IG5vdCBqdXN0IHRoZW9yZXRpY2FsIHByb2JsZW1zIG9ubHkgdGVzdCBzeXN0ZW1zIHdpbGwgZmlu
+ZCk/IE9yIHdpbGwKdGhvc2UgdGhhdCBydW4gQ0kgc3lzdGVtcyBlbnN1cmUgdGhlIHJlZ3Jlc3Np
+b25zIHRoZXkgZmluZCBhcmUgZml4ZWQ/CgogLSBIb3cgZGV2ZWxvcGVycyBzb21ldGltZXMgbWFr
+ZSByZWdyZXNzaW9uIHRyYWNraW5nIHVuaW50ZW50aW9uYWxseQpoYXJkLiBNb3N0IGltcG9ydGFu
+dGx5OiBob3cgZG8gSSBtYWtlIG1vcmUgZGV2ZWxvcGVycyBhZGQgcHJvcGVyICJMaW5rOiIKdGFn
+cyB0byB0aGVpciBjb21taXQgZGVzY3JpcHRpb24gdG8gbGluayB0byB0aGUgcmVwb3J0LiBJIGNh
+cmUsIGJlY2F1c2UKcmVnemJvdCByZWxpZXMgb24gdGhlbSB0byBjb25uZWN0IHJlcG9ydHMgZm9y
+IHRyYWNrZWQgcmVncmVzc2lvbnMgd2l0aApwYXRjaGVzIHBvc3RlZCBhbmQgY29tbWl0dGVkIHRv
+IGZpeCB0aGUgcGFydGljdWxhciByZWdyZXNzaW9uLgoKICAgSSBxdWl0ZSBhIGZldyB0aW1lIGV2
+ZW4gaGFkIHRvIGFyZ3VlIHRoYXQgdGhpcyB0YWcgaXMgZXhhY3RseSBmb3IKdGhpcyBwdXJwb3Nl
+IChJIHJlY2VudGx5IHVwZGF0ZWQgdGhlCkRvY3VtZW50YXRpb24vcHJvY2Vzcy9zdWJtaXR0aW5n
+LXBhdGNoZXMucnN0IGFuZApEb2N1bWVudGF0aW9uL3Byb2Nlc3MvNS5Qb3N0aW5nLnJzdCBzdWJt
+aXR0aW5nLXBhdGNoZXMucnN0IHRvIGNsYXJpZnkKdGhpcyksIGJ1dCBtYW55IG1haW50YWluZXJz
+IGRvIG5vdCB1c2UgdGhlbSAoc2lkZSBub3RlOiBMaW51cyByZWFsbHkKd2FudHMgdGhlbSwgdG9v
+OgpodHRwczovL2xvcmUua2VybmVsLm9yZy9sa21sL0NBSGstPXdqUFIrYmo3UDFPPU1BUVdYcDBN
+eDJoSHVOUTFhY242Z1MrbVJvX2tibzVMZ0BtYWlsLmdtYWlsLmNvbS8pLgpTaG91bGQgY2hlY2tw
+YXRjaC5wbCBtYXliZSB3YXJuIGlmIGl0IHNlZXMgYSAiRml4ZXM6IiB0YWcgd2l0aG91dCBhbgph
+Y2NvbXBhbnlpbmcgIkxpbms6Ij8gU3VyZSwgc29tZXRpbWVzIHRoZXJlIGlzIG5vIGRlZGljYXRl
+ZCByZXBvcnQgdG8KbGluayB0bywgYnV0IHRoYXQncyB3aHkgaXQncyBqdXN0IGEgd2FybmluZyBw
+ZW9wbGUgY2FuIGlnbm9yZS4KCiAtIFNob3VsZCBjaGVja3BhdGNoLnBsIHdhcm4gaWYgZGV2ZWxv
+cGVyIGluc3RlYWQgb2YgJ0xpbms6JyAod2hpY2gKcmVnemJvdCByZWxpZXMgb24pIHVzZSB0YWdz
+IGxpa2UgJ0J1Z0xpbms6JywgJ1JlZmVyZW5jZXM6JyBhbmQgYSBmZXcKb3RoZXJzIHRoYXQgTGlu
+dXMgYWZhaWNzIGRvZXNuJ3QgbGlrZSAoYW5kIHJpZ2h0IG5vdyBhcmUgaWdub3JlZCBieQpyZWd6
+Ym90KToKaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsL0NBSGstPXdnczM4WnJmUHZ5PW5Pd1Zr
+VnpqcE0zVkZVMXpvYlAzN0Z3ZF9oOWlBRDVKUUBtYWlsLmdtYWlsLmNvbS8KCiAtIEhvdyBzaG91
+bGQgSSBoYW5kbGUgbG93LXF1YWxpdHkgb3IgcHJvYmxlbWF0aWMgcmVwb3J0cyAoZm9yIGV4YW1w
+bGUKd2l0aCB2ZW5kb3Iga2VybmVscywgb3V0ZGF0ZWQga2VybmVscywgdGFpbnRlZCBrZXJuZWxz
+LCAuLi4uKSBmb3IKcmVncmVzc2lvbnMgdGhhdCBzZWVtcyBsZWdpdCB0byBtZSAtLSBmb3IgZXhh
+bXBsZSBpZiB0aGUgcmVwb3J0IGlzIGZvciBhCnJlbGF0aXZlIGZyZXNoIGFuZCB1bnRhaW50ZWQg
+dmVuZG9yIGtlcm5lbCB0aGF0IGlzIGtub3duIHRvIGJlIG5lYXJseQp2YW5pbGxhPyBUaGVyZSBh
+cmUgcXVpdGUgYSBmZXcgb2YgdGhvc2UgaW4gYnVnemlsbGEgYW5kIHNvbWUgb24gdGhlCmxpc3Rz
+IGFzIHdlbGwuIEkgZmVhciBtYWludGFpbmVycyB3aWxsIHN0YXJ0IHRvIGdldCBhbm5veWVkIGJ5
+IG1lIGlmIEkKc2ltcGx5IHByb2QgdGhlbSB3aXRoIHRvbyBtYW55IGJhZCByZXBvcnRzLiBUaGF0
+J3Mgd2h5IEkgc29tZXRpbWVzIGFzawpyZXBvcnRlcnMgdG8gaW1wcm92ZSB0aGVpciByZXBvcnQg
+YmVmb3JlIGZvcndhcmRpbmcgdGhlIGlzc3VlLCBidXQgdGhhdApxdWlja2x5IHR1cm5lZCBpbnRv
+IGEgYmlnIGFuZCBhbm5veWluZyB0aW1lLXNpbmsuCgogLSBJIHNlZSBtYW55IG1haW5saW5lIGNv
+bW1pdHMgZml4aW5nIHJlZ3Jlc3Npb25zIEkgbmV2ZXIgbm90aWNlZCwgd2hpY2gKbWFkZSBtZSB3
+b25kZXI6IGlzIGl0IGEgcHJvYmxlbSB0aGF0IEkgYXBwYXJlbnRseSBzZWVtIHRvIG5vdCBiZWNv
+bWUKYXdhcmUgb2YgbWFueSByZWdyZXNzaW9ucyByZXBvcnRzPyBJZiB0aGUgcmVncmVzc2lvbiB3
+YXMgZml4ZWQgdGhhdApvYnZpb3VzbHkgaXMgbm90IGEgcHJvYmxlbS4gQnV0IGl0IGFsd2F5cyBt
+YWtlcyBtZSB3b25kZXIgaG93IG1hbnkKcmVncmVzc2lvbiByZXBvcnRzIGFyZSBvdXQgdGhlcmUg
+dGhhdCB3ZXJlIG5vdCBhZGRyZXNzZWQ/CgoKKiBPdXRsaW5lIGEgbmV3IG9yIHBsYW5uZWQgZmVh
+dHVyZXMgdG8gbWFrZSByZWdyZXNzaW9uIHRyYWNraW5nIHdpdGgKcmVnemJvdCBtb3JlIHVzZWZ1
+bCBmb3IgZGV2ZWxvcGVycyBhbmQgbWFpbnRhaW5lcnMKCiogRGlzY3VzcyB3aGF0IGRldmVsb3Bl
+cnMgd291bGQgbGlrZSBtZSBvciByZWd6Ym90IHRvIGRvIHRvIG1ha2UKZXZlcnlvbmUncyBsaWZl
+IGVhc2llciBvciBteSByZWdyZXNzaW9uIHRyYWNraW5nIGVmZm9ydHMgbW9yZSB1c2VmdWwgZm9y
+CmFsbCBvZiB1cy4KCkZXSVcsIEkgcGxhbiB0byBzdWJtaXQgYSBzZXNzaW9uIHRvIHRoZSBtYWlu
+dGFpbmVycyBzdW1taXQgYXMgd2VsbCAoYQptYWlsIGFib3V0IHRoaXMgd2lsbCBmb2xsb3cgaW4g
+YSBmZXcgbWludXRlcykuIFRoZSBpZGVhIGlzIHRvIG91dGxpbmUKd2hhdCBoYXMgYmVlbiBhZ3Jl
+ZWQgb24gaW4gdGhpcyBzZXNzaW9uIGFuZCBmdXJ0aGVyIGRpc2N1c3MgaXNzdWVzIHRoYXQKbWln
+aHQgbmVlZCBpdCAodGhlIGJ1Z3ppbGxhIHNpdHVhdGlvbiBtaWdodCBiZSBvbmUgb2YgdGhvc2Up
+LgoKQ2lhbywgVGhvcnN0ZW4KX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX18KS3N1bW1pdC1kaXNjdXNzIG1haWxpbmcgbGlzdApLc3VtbWl0LWRpc2N1c3NAbGlz
+dHMubGludXhmb3VuZGF0aW9uLm9yZwpodHRwczovL2xpc3RzLmxpbnV4Zm91bmRhdGlvbi5vcmcv
+bWFpbG1hbi9saXN0aW5mby9rc3VtbWl0LWRpc2N1c3MK
