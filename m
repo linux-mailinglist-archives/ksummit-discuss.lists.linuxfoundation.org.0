@@ -1,104 +1,102 @@
 Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
-Received: from smtp3.osuosl.org (smtp3.osuosl.org [140.211.166.136])
-	by mail.lfdr.de (Postfix) with ESMTPS id D466654E08D
-	for <lists@lfdr.de>; Thu, 16 Jun 2022 14:09:43 +0200 (CEST)
+Received: from smtp4.osuosl.org (smtp4.osuosl.org [IPv6:2605:bc80:3010::137])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3138F54E09E
+	for <lists@lfdr.de>; Thu, 16 Jun 2022 14:14:53 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
-	by smtp3.osuosl.org (Postfix) with ESMTP id D1CD460B0A;
-	Thu, 16 Jun 2022 12:09:41 +0000 (UTC)
+	by smtp4.osuosl.org (Postfix) with ESMTP id 564D241A65;
+	Thu, 16 Jun 2022 12:14:51 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from smtp3.osuosl.org ([127.0.0.1])
-	by localhost (smtp3.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id bpmDw4ESV3lZ; Thu, 16 Jun 2022 12:09:41 +0000 (UTC)
+Received: from smtp4.osuosl.org ([127.0.0.1])
+	by localhost (smtp4.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id N02vfcNo8enw; Thu, 16 Jun 2022 12:14:50 +0000 (UTC)
 Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [140.211.9.56])
-	by smtp3.osuosl.org (Postfix) with ESMTPS id 2E8FE610FD;
-	Thu, 16 Jun 2022 12:09:40 +0000 (UTC)
+	by smtp4.osuosl.org (Postfix) with ESMTPS id 726B141A59;
+	Thu, 16 Jun 2022 12:14:49 +0000 (UTC)
 Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id BBECBC002D;
-	Thu, 16 Jun 2022 12:09:38 +0000 (UTC)
+	by lists.linuxfoundation.org (Postfix) with ESMTP id 265A4C002D;
+	Thu, 16 Jun 2022 12:14:48 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@lists.linuxfoundation.org
 Received: from smtp4.osuosl.org (smtp4.osuosl.org [IPv6:2605:bc80:3010::137])
- by lists.linuxfoundation.org (Postfix) with ESMTP id C6DB3C002D
+ by lists.linuxfoundation.org (Postfix) with ESMTP id 83614C002D
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Thu, 16 Jun 2022 12:09:36 +0000 (UTC)
+ Thu, 16 Jun 2022 12:14:46 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
- by smtp4.osuosl.org (Postfix) with ESMTP id A659341A33
+ by smtp4.osuosl.org (Postfix) with ESMTP id 64CA741A4B
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Thu, 16 Jun 2022 12:09:36 +0000 (UTC)
+ Thu, 16 Jun 2022 12:14:46 +0000 (UTC)
 X-Virus-Scanned: amavisd-new at osuosl.org
-Authentication-Results: smtp4.osuosl.org (amavisd-new);
- dkim=pass (1024-bit key) header.d=redhat.com
 Received: from smtp4.osuosl.org ([127.0.0.1])
  by localhost (smtp4.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id pX-WftMuBk_9
+ with ESMTP id r3krwMMtwxqj
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Thu, 16 Jun 2022 12:09:35 +0000 (UTC)
+ Thu, 16 Jun 2022 12:14:45 +0000 (UTC)
 X-Greylist: domain auto-whitelisted by SQLgrey-1.8.0
 Received: from us-smtp-delivery-124.mimecast.com
  (us-smtp-delivery-124.mimecast.com [170.10.129.124])
- by smtp4.osuosl.org (Postfix) with ESMTPS id 9EB6041A2E
+ by smtp4.osuosl.org (Postfix) with ESMTPS id 73D85410DC
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Thu, 16 Jun 2022 12:09:35 +0000 (UTC)
+ Thu, 16 Jun 2022 12:14:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1655381374;
+ s=mimecast20190719; t=1655381684;
  h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
  to:to:cc:cc:mime-version:mime-version:content-type:content-type:
  in-reply-to:in-reply-to:references:references;
- bh=1IgUCs7IfTIUvr92HprBkUxx3RPggT701kcbE+YjHYE=;
- b=NwkTuxwmcVQ48MgObC8313g07/5gUf74UfVVKs+NshFbJNWQskJ/MDwtFvYDW4M+pyniUc
- jtbslPjagK5r8DhkrfXnXz+c8o1mkbVDBFcOp/hcCDANFYMUE7hzRzyAlLiobPrurnn2tt
- Y08KASIGRsW9fOVZhWhwBZpCjjUdwlw=
-Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com
- [209.85.210.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ bh=8/61+EsKJotNEzZxYAG3VSutI95W65/m3BS81hk+zBI=;
+ b=RzF7JzQj3w7zU75rcTjI34CbI4Xxma8v2sbuQYeNmNpKlQT0KzGbMSoZWfKURmBiRfg6aU
+ s0sP7ReRa2TZQ45Cu9xjEIDftpPEbaLtcT1t85fL44Q3H7z7tUnJMwRsigMfr/NrcPebwS
+ LkpSKLqrgnd0JnCzo9RlI4cqPwMUQH0=
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com
+ [209.85.216.69]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-593-GEX8LHCKMtyelMF-J80IRg-1; Thu, 16 Jun 2022 08:09:33 -0400
-X-MC-Unique: GEX8LHCKMtyelMF-J80IRg-1
-Received: by mail-pf1-f199.google.com with SMTP id
- y66-20020a62ce45000000b0051bb4d19f5fso787625pfg.18
+ us-mta-39-4cmUSIKVM6-p-BWkDRJ4rw-1; Thu, 16 Jun 2022 08:14:43 -0400
+X-MC-Unique: 4cmUSIKVM6-p-BWkDRJ4rw-1
+Received: by mail-pj1-f69.google.com with SMTP id
+ y15-20020a17090a474f00b001eac1991515so821182pjg.1
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Thu, 16 Jun 2022 05:09:33 -0700 (PDT)
+ Thu, 16 Jun 2022 05:14:42 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=1IgUCs7IfTIUvr92HprBkUxx3RPggT701kcbE+YjHYE=;
- b=ftziYVVLBfOwUWi+XTBtDZ+QCbn9vUPaMAjsmfjRtv31Iu2gL8jAe/P+R4KMnVX30O
- JFSLTaVBCoCii8YMW9RlYGqpnr2fDONilMO/5aE02B9I8KoM+Kzd6t9lk7pzogKdnxCP
- fwT9QlIBFgH/jn4iHW8akxRlY99atyX/S6a9sCMC4bdS7AIgooSMyNYvJgeUKhAFFSKz
- hXtKOuyoucVvEEa/3m+LTUZ11l/45LVXauE9UN0isC+wMjtuoq6+8bmqsksMakm4lXtR
- rX+olMAMdmpsLoykVrNpwqiXomb1zC2tkZqwA4ceb4lhOMIVYA1r/aAOlvGYi2tsvLwx
- 7w2g==
-X-Gm-Message-State: AJIora/zoJl/ap0K7UFotWGlnyHYaLYrjzbusYXThjN6yyDMKEnGghez
- /5BpoaGyrIjC7GoCbnEmyKILcrzKnm7liMvX8F1kaLftThccWss7Dm1jhVC74iQMjB7xc40mvYL
- ZhEp2hLlypuIMmGllSME9KIggY6jnfH4gpCJLUACRJ74R1YTEy9eI3aqisA==
-X-Received: by 2002:a17:902:c403:b0:167:4a9f:2785 with SMTP id
- k3-20020a170902c40300b001674a9f2785mr4114847plk.67.1655381372259; 
- Thu, 16 Jun 2022 05:09:32 -0700 (PDT)
-X-Google-Smtp-Source: AGRyM1tojsUHPbXxZw2yUU0xBuBcclLizs8OSYO9jVSKbNseJlcM37XskDUdALaUHI3vpzHO+SCkjNPFc8f6FGxUGVM=
-X-Received: by 2002:a17:902:c403:b0:167:4a9f:2785 with SMTP id
- k3-20020a170902c40300b001674a9f2785mr4114825plk.67.1655381371934; Thu, 16 Jun
- 2022 05:09:31 -0700 (PDT)
+ bh=8/61+EsKJotNEzZxYAG3VSutI95W65/m3BS81hk+zBI=;
+ b=fLQ3CibAh7rCputIj8ljzOWExgxdAgkJSbVAi1elFj+pvz0TylDqLbhwpNvpi5r7ch
+ FSZD/GhP4TUZ9ii+IoK2T9XVGP801n2IDtDcklav32RhCIJBUKfVM5Z1yZUn+GxFvEIo
+ m9gRs5VhVRujAzb6KYctIXY2buC3SNzoPNAK7JSC3YK4rBw/iVn1wsbL0UBp8VYnON7A
+ 38ZbJ/PjlnKj3wJSb9LhGn9vU8iG32A86VC1ZOYe5RdwSn7ZrH8yW4AxliqTniY/kAUD
+ RJAkcTEBTQNe00DT+1X78j/InUtA0GJLgFk+K898Kb1BzDzpM1KnpudAZMl3qTnvprb/
+ J0iA==
+X-Gm-Message-State: AJIora9xRLYF0aJp9GoRI0pyCcg1IrGOsZSnJQgBsvGs1zVUgs9UfoAi
+ cXBeClU3HzZfMaRdigonXQzhAbtC2le/zyM8KjyIVpfPFvrH2I6NKoV5VaozUnWNPnfPh6yDDIt
+ ufQkpwfSb3WUAg4YNcRmN4aGgJa/5itNxMEedELlONZaLKAca7Tah6qpkjA==
+X-Received: by 2002:a63:3344:0:b0:408:cd45:3e6b with SMTP id
+ z65-20020a633344000000b00408cd453e6bmr4272106pgz.146.1655381681846; 
+ Thu, 16 Jun 2022 05:14:41 -0700 (PDT)
+X-Google-Smtp-Source: AGRyM1suxpBIuOeEtU8NcI4yB3dBf+fjZotw1zWnXjrgSFWlfiJuYkiLnUfkFR65aWJzOahX1VzgXgfCmWOCo+9leiE=
+X-Received: by 2002:a63:3344:0:b0:408:cd45:3e6b with SMTP id
+ z65-20020a633344000000b00408cd453e6bmr4272071pgz.146.1655381681537; Thu, 16
+ Jun 2022 05:14:41 -0700 (PDT)
 MIME-Version: 1.0
 References: <nycvar.YFH.7.76.2206150834520.14340@cbobk.fhfr.pm>
  <CACRpkdaYx5uOt8Xi8AY3N2BcQjG7J5ZUwr6yueF_pet1HoOrFQ@mail.gmail.com>
  <nycvar.YFH.7.76.2206151023250.14340@cbobk.fhfr.pm>
- <CAO-hwJJmW_STS=nT22n4pcaZf9gz953K4o2vhgmq-ig4OzxOLg@mail.gmail.com>
- <nycvar.YFH.7.76.2206160959080.14340@cbobk.fhfr.pm>
- <CACRpkdY24aHp+iJschxZzTC4wyX51qH028YY++LZOMu94COeZQ@mail.gmail.com>
-In-Reply-To: <CACRpkdY24aHp+iJschxZzTC4wyX51qH028YY++LZOMu94COeZQ@mail.gmail.com>
+ <20220615170407.ycbkgw5rofidkh7x@quack3.lan>
+ <87h74lvnyf.fsf@meer.lwn.net> <20220615174358.GA26358@lst.de>
+ <CAO-hwJKqA07KX+6QtotCS8PtHFtk3DLQPJ3W8puaHOv7tOdi+Q@mail.gmail.com>
+ <20220616114856.GA11127@lst.de>
+In-Reply-To: <20220616114856.GA11127@lst.de>
 From: Benjamin Tissoires <benjamin.tissoires@redhat.com>
-Date: Thu, 16 Jun 2022 14:09:20 +0200
-Message-ID: <CAO-hwJJzwbzB4=h4EUN3MaGnu7xRRm-5_yn0Bg5v3zYmz1D0fQ@mail.gmail.com>
-To: Linus Walleij <linus.walleij@linaro.org>
+Date: Thu, 16 Jun 2022 14:14:30 +0200
+Message-ID: <CAO-hwJKEOiAin_9Hq2tav2WQGV=17-EHoQ6qPYMZ5znLJUmYxA@mail.gmail.com>
+To: Christoph Hellwig <hch@lst.de>
 Authentication-Results: relay.mimecast.com;
  auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=btissoir@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Cc: ksummit-discuss@lists.linuxfoundation.org,
- Bartosz Golaszewski <brgl@bgdev.pl>, Christoph Hellwig <hch@lst.de>,
- Luca Weiss <luca@z3ntu.xyz>
+ Bartosz Golaszewski <brgl@bgdev.pl>, Luca Weiss <luca@z3ntu.xyz>
 Subject: Re: [Ksummit-discuss] [MAINTAINERS SUMMIT] How far to go with eBPF
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.15
@@ -116,59 +114,44 @@ Content-Transfer-Encoding: 7bit
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
-On Thu, Jun 16, 2022 at 1:38 PM Linus Walleij <linus.walleij@linaro.org> wrote:
+On Thu, Jun 16, 2022 at 1:49 PM Christoph Hellwig <hch@lst.de> wrote:
 >
-> On Thu, Jun 16, 2022 at 10:02 AM Jiri Kosina <jikos@kernel.org> wrote:
-> > On Wed, 15 Jun 2022, Benjamin Tissoires wrote:
-> >
-> > > One point that was also raised in the various HID-BPF patch series is
-> > > that for "hardware enablement" like support, the eBPF programs would be
-> > > in-tree, and automatically loaded by the kernel itself.
-> > >
-> > > Alexei has some ideas on how to implement that, I had others, but the
-> > > hallway track discussions showed that everybody has a different idea on
-> > > the automatic mechanism, but it is a requirement and worth discussing :)
-> > >
-> > > Which means that in that case, eBPF would be a more convenient way for
-> > > users to fix their device, without having to rely on a full or partial
-> > > kernel recompilation.
+> On Wed, Jun 15, 2022 at 08:34:19PM +0200, Benjamin Tissoires wrote:
+> > Also, one of the things I'd like to have in kfuncs is to be able to
+> > restrict them to a set of tracepoints, not just "all tracing
+> > programs".
 >
-> Convenient for some definition of convenient. I might be biased in asking
-> how much harder it is to set up a kernel compile, rebuild a module
-> and run a few insmod/rmmod to find a quirk compared to setting up
-> the eBPF compiler and figure out how to compile and push in such
-> programs.
+> Yes.
 >
-> I guess I could be convinced.
+> > Because the thing I do not want is users hijacking the kfunc API I
+> > define in other use cases I haven't thought of, and this would prevent
+> > changes.
+>
+> Yes.  And I also think the BTF_IDs for kfuncs need to become something
+> like EXPORT_SYMBOL_EPBF to be more explicit and greppable and need to
+> see the same process.  That is in-tree users and no guarantee of stability
+> for out of tree users.
 
-The plan is to forward to the end user the sources, of course, but
-also the binary blob. The binary can be checked that it is doing the
-correct thing because it's not so much of a black box and we can
-easily check that it is the one built from the source. For extra check
-the maintainer can also sign the binary.
-
-And for the end user, it is thus: 1. trust your kernel maintainer (see
-above if you don't), and 2. drop the binary in the file system and
-forget. So no compilation involved :)
+Sounds interesting :)
 
 >
-> > That definitely does solve one of the issues. It's basically following the
-> > model of perf, where the ABI must not be kept intact, because the user(s)
-> > of it are in-tree and released in lockstep with the ABI changes.
+> > And AFAICT, I consider everything eBPF I do in HID as ABI, and treat
+> > it as such, and document it from day one.
 >
-> I agree, I would actually go so far as to taint the kernel if programs that are
-> not in-tree are used. That is fine for the goal here: users can create new
-> eBPF snippets and debug them, but they can't ship them because then
-> the kernel gets tainted, so they MUST be submitted upstream.
+> Yikes.  So you're adding a UDI-like stable driver ABI?
 >
-> Do you think we could do this? Pushing taint in the face of people who
-> don't follow our established contribution process is essentially the big
-> hammer we have to stop fragmentation.
 
-I would like to have that too. The in-kernel eBPF binaries are using a
-different path to be loaded so I would assume this is OK to
-differentiate, but I'll leave it to Alexei to give a more definitive
-answer.
+No, I mean I am carefully defining the eBPF api I am willing to export
+to user space, and will restrain myself from shuffling arguments every
+single release.
+
+The last change in the HID core protocol was 20 years old, so we
+roughly know what it does. It is not so much of a task to define what
+will be unlikely to change.
+
+Maybe a better way of putting it: "I consider *almost* everything eBPF
+I do in HID as *UAPI*, and treat it as such, and document it from day
+one."
 
 Cheers,
 Benjamin
