@@ -1,108 +1,116 @@
 Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
-Received: from smtp1.osuosl.org (smtp1.osuosl.org [140.211.166.138])
-	by mail.lfdr.de (Postfix) with ESMTPS id 342755511AE
-	for <lists@lfdr.de>; Mon, 20 Jun 2022 09:41:39 +0200 (CEST)
+Received: from smtp2.osuosl.org (smtp2.osuosl.org [IPv6:2605:bc80:3010::133])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8B589551227
+	for <lists@lfdr.de>; Mon, 20 Jun 2022 10:08:05 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
-	by smtp1.osuosl.org (Postfix) with ESMTP id A9C5E830FB;
-	Mon, 20 Jun 2022 07:41:36 +0000 (UTC)
-DKIM-Filter: OpenDKIM Filter v2.11.0 smtp1.osuosl.org A9C5E830FB
-Authentication-Results: smtp1.osuosl.org;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=ig/3/AQD
+	by smtp2.osuosl.org (Postfix) with ESMTP id EE9E4400A8;
+	Mon, 20 Jun 2022 08:08:01 +0000 (UTC)
+DKIM-Filter: OpenDKIM Filter v2.11.0 smtp2.osuosl.org EE9E4400A8
+Authentication-Results: smtp2.osuosl.org;
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=e7nVcQNE
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from smtp1.osuosl.org ([127.0.0.1])
-	by localhost (smtp1.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id aad9Tu9-_j7i; Mon, 20 Jun 2022 07:41:35 +0000 (UTC)
+Received: from smtp2.osuosl.org ([127.0.0.1])
+	by localhost (smtp2.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id Xfqo8ivgKVwY; Mon, 20 Jun 2022 08:08:00 +0000 (UTC)
 Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [IPv6:2605:bc80:3010:104::8cd3:938])
-	by smtp1.osuosl.org (Postfix) with ESMTPS id CE3D0830DE;
-	Mon, 20 Jun 2022 07:41:34 +0000 (UTC)
-DKIM-Filter: OpenDKIM Filter v2.11.0 smtp1.osuosl.org CE3D0830DE
+	by smtp2.osuosl.org (Postfix) with ESMTPS id EB68640ABF;
+	Mon, 20 Jun 2022 08:07:59 +0000 (UTC)
+DKIM-Filter: OpenDKIM Filter v2.11.0 smtp2.osuosl.org EB68640ABF
 Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id 463EEC002D;
-	Mon, 20 Jun 2022 07:41:33 +0000 (UTC)
+	by lists.linuxfoundation.org (Postfix) with ESMTP id 8F3E7C002D;
+	Mon, 20 Jun 2022 08:07:58 +0000 (UTC)
 X-Original-To: ksummit-discuss@lists.linuxfoundation.org
 Delivered-To: ksummit-discuss@lists.linuxfoundation.org
-Received: from smtp1.osuosl.org (smtp1.osuosl.org [140.211.166.138])
- by lists.linuxfoundation.org (Postfix) with ESMTP id CD49FC002D
+Received: from smtp4.osuosl.org (smtp4.osuosl.org [IPv6:2605:bc80:3010::137])
+ by lists.linuxfoundation.org (Postfix) with ESMTP id D5324C002D
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon, 20 Jun 2022 07:41:31 +0000 (UTC)
+ Mon, 20 Jun 2022 08:07:56 +0000 (UTC)
 Received: from localhost (localhost [127.0.0.1])
- by smtp1.osuosl.org (Postfix) with ESMTP id 95278830C5
+ by smtp4.osuosl.org (Postfix) with ESMTP id BC8B6408D5
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon, 20 Jun 2022 07:41:31 +0000 (UTC)
-DKIM-Filter: OpenDKIM Filter v2.11.0 smtp1.osuosl.org 95278830C5
+ Mon, 20 Jun 2022 08:07:56 +0000 (UTC)
+DKIM-Filter: OpenDKIM Filter v2.11.0 smtp4.osuosl.org BC8B6408D5
+Authentication-Results: smtp4.osuosl.org;
+ dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com
+ header.a=rsa-sha256 header.s=mimecast20190719 header.b=e7nVcQNE
 X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from smtp1.osuosl.org ([127.0.0.1])
- by localhost (smtp1.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id vD27qAPR7hek
+Received: from smtp4.osuosl.org ([127.0.0.1])
+ by localhost (smtp4.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id IXmPx73jdlTn
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon, 20 Jun 2022 07:41:30 +0000 (UTC)
+ Mon, 20 Jun 2022 08:07:55 +0000 (UTC)
 X-Greylist: domain auto-whitelisted by SQLgrey-1.8.0
-DKIM-Filter: OpenDKIM Filter v2.11.0 smtp1.osuosl.org 4BDB7830C2
+DKIM-Filter: OpenDKIM Filter v2.11.0 smtp4.osuosl.org 381EF408B3
 Received: from us-smtp-delivery-124.mimecast.com
  (us-smtp-delivery-124.mimecast.com [170.10.129.124])
- by smtp1.osuosl.org (Postfix) with ESMTPS id 4BDB7830C2
+ by smtp4.osuosl.org (Postfix) with ESMTPS id 381EF408B3
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon, 20 Jun 2022 07:41:30 +0000 (UTC)
+ Mon, 20 Jun 2022 08:07:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1655710888;
+ s=mimecast20190719; t=1655712474;
  h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
  to:to:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding;
- bh=YXSzAxnEDHc0GzZg9LFWeAVawAuDa+9Kr9EAPzwIKf4=;
- b=ig/3/AQDNrzMlv5FEUkKkQatbIaPkiX0xj+Q1GUNAFBarWMW8FcgWSABXf5Gyw6ENvqb7X
- RMTEQPbM8fR9ZjJaHFlbSAS98BCKwoh1MqjGwG+u+iYzs61cOOAdTfikR6lB2rRUQMVgTA
- VN4DJmAtHm1wJfu2nRnkYXB1QaC7J2s=
-Received: from mail-ej1-f72.google.com (mail-ej1-f72.google.com
- [209.85.218.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=MRuiCHV1h1tEgEcdgJwb9hbq1vM/dIHh+2LbCdwn7Ng=;
+ b=e7nVcQNE8nQ6sppKwTLkOL0Alo9IB5oVEoVZDTbrKtpuu6IBqxZqXHVO3bUh/eqlttWw/O
+ VKMPS61OgIo53pvjB89OIo+Jwq4QpVGinFblJJMJHv83IQEHNbp36P1PNOMeEXyPJJS3pe
+ 57h6IAT+coliBpXO+wggKm7ftQ9Fcpc=
+Received: from mail-ej1-f70.google.com (mail-ej1-f70.google.com
+ [209.85.218.70]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-517--0tyIeXdORGrwUMtn_wdWA-1; Mon, 20 Jun 2022 03:41:27 -0400
-X-MC-Unique: -0tyIeXdORGrwUMtn_wdWA-1
-Received: by mail-ej1-f72.google.com with SMTP id
- kf3-20020a17090776c300b0070d149300e9so3119366ejc.15
+ us-mta-97-imD86a0nOGGgyqU1wClPmw-1; Mon, 20 Jun 2022 04:07:52 -0400
+X-MC-Unique: imD86a0nOGGgyqU1wClPmw-1
+Received: by mail-ej1-f70.google.com with SMTP id
+ z7-20020a170906434700b007108b59c212so3153990ejm.5
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon, 20 Jun 2022 00:41:27 -0700 (PDT)
+ Mon, 20 Jun 2022 01:07:52 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:message-id:date:mime-version:user-agent:from
- :subject:to:content-language:content-transfer-encoding;
- bh=YXSzAxnEDHc0GzZg9LFWeAVawAuDa+9Kr9EAPzwIKf4=;
- b=mpFf9C9sCAIVvgaaoqHvSDSyyahOSKM+KK8/en2sYMM4Yc3Km6X+d68nM+Tc4qUS7C
- wuQMUiJVDji3mbWQIqCVvWyzCw4NDcECC5OoyJ1UK4/AMMsxtZHjpu0NNAc2kgdIkG9k
- SAuei4ubSiypoQVLQSQzwyPiiHW0qGljDi6V3lTFfVbK+SyWrDU1bephqlhkdTC98lED
- oX6AKQ3hvYngga79esPiCGrFzxUW6Ta85vevAw+aQw5tEglF+9uKF/M4Y+vOCwsjIj5G
- 9RJaLVoy7P8f1UOhogHJ/kCn4PvpJmJ8fyYOR8HgAiwcckSYUbVICbPKsD+gPYlD25iK
- CSWg==
-X-Gm-Message-State: AJIora/4fMvTDjmctaanuCCIWusU9vKJWMa/8KM1rjLsAXp78OolGXNv
- M713rR+jQx8VTi9lrankT3SeSQO+Y4CdzUCGBi3IsMoUH1s5lEljZryzqAik49kUFQChx2bNjgZ
- hLBnt222nn6z/Y9KfWVPUIxSWmQHZkHLphQX2jznP3Q==
-X-Received: by 2002:a17:907:97d5:b0:706:76ba:f28f with SMTP id
- js21-20020a17090797d500b0070676baf28fmr19069326ejc.367.1655710886272; 
- Mon, 20 Jun 2022 00:41:26 -0700 (PDT)
-X-Google-Smtp-Source: AGRyM1v1BPks6YVizebmwVcwui0Ffl+jTRXtv22hkp4mG2ambMwVOLW+ZvnXAZD/kSCca2ZvBBOHqA==
-X-Received: by 2002:a17:907:97d5:b0:706:76ba:f28f with SMTP id
- js21-20020a17090797d500b0070676baf28fmr19069315ejc.367.1655710885956; 
- Mon, 20 Jun 2022 00:41:25 -0700 (PDT)
-Received: from [10.87.1.157] ([145.15.244.231])
+ h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+ :content-language:from:to:references:in-reply-to
+ :content-transfer-encoding;
+ bh=MRuiCHV1h1tEgEcdgJwb9hbq1vM/dIHh+2LbCdwn7Ng=;
+ b=F3oXo9GRQ0YC0xrMov37XPl9iLSoXjT0fwPPRd+E+V4vETE8/cgBJoOLpAdZsFOb8/
+ x0pF2+106utSZYZ/P42nNF+WoMUvrJS16Y0Sgg+Qy77dWNaD6KNHKQPI3XJgLAEBecTV
+ GNzvzpUw8biWmVa8gPdd3iHOPz9PIRdUX11teud+go3Wxm+c8qRBPEbQ5QMHI+/nQP97
+ GWMTaOsyJ2PaxASIzIG3v7gamtdvycE1yb6BF5DPMEJ5sLsifD3dgd3r2HZYzB/I1GH+
+ WtKhO6InGfeYwHCzgRW5t47gdPUNYjxAitR/pLvnpx6xgWnNnQEQZm+XzLs5M4t2ROlG
+ uyUA==
+X-Gm-Message-State: AJIora8cMKVa82upenEdM4wsW0BpxQicTchSv2ltpGfx8/1OHt4MbVSZ
+ b/ooJpBndz4SRwlvQjHYMYiZs6N8mKoUwbSS7YBfD39Znvx80X9b5qOAeVutIik154nDUEhsp0d
+ X/xhcpJzig7/L9wuru+e4Br5E3NuBPRFcqY8B01tPBw==
+X-Received: by 2002:a17:907:3d8a:b0:710:c2e8:79f2 with SMTP id
+ he10-20020a1709073d8a00b00710c2e879f2mr19234551ejc.577.1655712471165; 
+ Mon, 20 Jun 2022 01:07:51 -0700 (PDT)
+X-Google-Smtp-Source: AGRyM1tDTxbe91OKorE1veXoV97dytZExRjRfjxvp4KjlXQ6rUK3lEvi7jTJbehMb4F3CTgqmOwzOw==
+X-Received: by 2002:a17:907:3d8a:b0:710:c2e8:79f2 with SMTP id
+ he10-20020a1709073d8a00b00710c2e879f2mr19234543ejc.577.1655712470922; 
+ Mon, 20 Jun 2022 01:07:50 -0700 (PDT)
+Received: from [10.87.1.19] ([145.15.244.207])
  by smtp.gmail.com with ESMTPSA id
- wi18-20020a170906fd5200b00707d11fd421sm5334857ejb.107.2022.06.20.00.41.24
+ w1-20020a170906480100b006fe9f9d0938sm5569346ejq.175.2022.06.20.01.07.49
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Mon, 20 Jun 2022 00:41:25 -0700 (PDT)
-Message-ID: <efde4273-ae38-c050-f3ed-177e175e0007@redhat.com>
-Date: Mon, 20 Jun 2022 09:41:19 +0200
+ Mon, 20 Jun 2022 01:07:50 -0700 (PDT)
+Message-ID: <6a252f40-9a84-1b6a-12a0-eb0a9eeec6c0@redhat.com>
+Date: Mon, 20 Jun 2022 10:07:44 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.8.0
 From: Hans de Goede <hdegoede@redhat.com>
-To: ksummit@lists.linux.dev, ksummit-discuss@lists.linuxfoundation.org
+To: ksummit@lists.linux.dev, ksummit-discuss@lists.linuxfoundation.org,
+ Linus Walleij <linus.walleij@linaro.org>
+References: <efde4273-ae38-c050-f3ed-177e175e0007@redhat.com>
+In-Reply-To: <efde4273-ae38-c050-f3ed-177e175e0007@redhat.com>
 Authentication-Results: relay.mimecast.com;
  auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=hdegoede@redhat.com
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-Subject: [Ksummit-discuss] [TECH TOPIC] New userspace API for display-panel
-	brightness control
+Subject: Re: [Ksummit-discuss] [TECH TOPIC] New userspace API for
+ display-panel brightness control
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.15
 Precedence: list
@@ -119,87 +127,148 @@ Content-Transfer-Encoding: 7bit
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
-<resend to both lists, because of confusion of which list to use>
-
 Hi All,
 
-As requested here is a copy of my LPC kernel summit track submission:
+On 6/16/22 22:04, Linus Walleij wrote:
+> On Thu, Jun 16, 2022 at 11:33 AM Hans de Goede <hdegoede@redhat.com> wrote:
+> 
+>> The current userspace API for brightness control offered by
+>> /sys/class/backlight devices has various problems:
+>>
+>> 1. There is no way to map the backlight device to a specific
+>> display-output / panel
+> 
+> For userspace, using just sysfs you mean?
 
-Title: New userspace API for display-panel brightness control
+Yes,
 
-The current userspace API for brightness control offered by
-/sys/class/backlight devices has various problems:
+> But that makes it sound like userspace needs to understand
+> things like backlight-to-panel topology etc.
 
-1. There is no way to map the backlight device to a specific
-display-output / panel
+The linked RFC/proposal for the new API makes brightness a property
+on the drm connector object, making the backlight-to-panel topology
+mapping a kernel problem.
 
-2. On x86 there can be multiple firmware + direct-hw-access
-methods for controlling the backlight and the kernel may
-register multiple backlight-devices based on this which are
-all controlling the brightness for the same display-panel.
-To make things worse sometimes only one of the registered
-backlight devices actually works.
+One of the feature-requests behind this API is the ability to
+control the beightness of external monitors over DDC/DI this
+will mean (for laptops) multiple brightness controls (one
+per supported display) at which point userspace indeed needs
+to be aware of the brightness-control <-> panel mapping.
 
-3. Controlling the brightness requires root-rights requiring
-desktop-environments to use suid-root helpers for this.
+Making this a property on the drm connector object makes this
+mapping very explicit.
 
-4. The scale of the brightness value is unclear, the API does
-not define if "perceived brightness" or electrical power is
-being controlled and in practice both are used without userspace
-knowing which is which.
+> If you add the presence of ambient light sensors to this mix
+> things get even messier.
 
-5. The API does not define if a brightness value of 0 means off,
-or lowest brightness at which the screen is still readable
-(in a low lit room), again in practice both variants happen.
+Mapping ambient light-sensors to dipslays is admittedly still
+an unsolved problem, even with my proposal. But I'm not aware
+of any external monitors with the capability to report ambient
+light-sensors back to the connected PC (or other display source).
 
-This talk will present a proposal for a new userspace API
-which intends to address these problems in the form of a
-number of new properties for drm/kms properties on the
-drm_connector object for the display-panel.
+So for ambient light sensors for now userspace can keep assuming
+these belong to the device's internal panel, like it currently
+is also doing for the /sys/class/backlight devices.
 
-This talk will also focus on how to implement this proposal
-which brings several challenges with it:
+For external monitors with ambient light sensors, if
+anything I would expect the entire auto-brightness "stack"
+to be inside the external monitor, with the possibility
+to turn it on/off and set some parameters (like desired
+perceived brightness) through DDC/DI . In which case
+the auto setting + parameters can be made parameters on
+the drm-connector object just like brightness.
 
-1. The mess of having multiple interfaces to control a laptop's
-internal-panel will have to be sorted out because with the new
-API we can no longer just register multiple backlight devices
-and let userspace sort things out.
+And I guess we could make the ambient-light-level a drm-connector
+property too. This will require some kernel glue and is a bit
+outside of the scope of the current proposal. But it would
+make sense to do things this way and I think this would
+be a good/clean userspace API for the ambient light level
+reporting which automatically solves the display mapping
+problem.
 
-2. In various cases the drm/kms driver driving the panel
-does not control the brightness itself, but the brightness
-is controlled through some (ACPI) firmware interface such
-as the acpi_video or nvidia-wmi-ec-backlight interfaces.
+> I would rather make the analogy to the thermal subsystem:
+> 
+> - Handles multiple thermal sensors
+> - Handle linearization of measurements
+> - Some accumulate and work to monitor a thermal zone
+> - Handle multiple thermal zones
+> - Also has cooling devices (such as CPU frequency and fans)
+> - Policies are applied in the kernel to handle thermal sensors
+>   and cooling devices and control them in an orchestrated
+>   manner
+> - Userspace can sit back and enjoy the show, but it works
+>   out-of-the box. No magic thermal daemon.
+> 
+> Examples:
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/thermal/thermal-zones.yaml
+> 
+> Wouldn't backlight rather:
+> 
+> - Handle multiple backlight devices.
+> - Handle linearization of backlight intensity
+> - Some accumulate and work as a composite backlight
+> - Handle multiple composite backlights such as screens
+> - Also handle ambient light sensors
+> - Policies are applied in the kernel to handle backlight
+>   and ambient light sensors together
+> - Userspace can sit back and enjoy the show but it works
+>   out-of-the box, no magic backlight daemon
+> 
+> I understand userspace will want to force backlight to user
+> preferences, older people need more backlight etc.
+> 
+> But isn't it more compelling to handle that as a composite
+> backlight device than to expose several of them to
+> userspace? I imagine one big knob per screen
+> 1-100 for userspace, a bool for on/off and a bool to select
+> augmentation from ambient light sensors or not, the rest
+> the kernel can figure out.
+> 
+> My point is that this is not just a userspace API, it is
+> a policy extension of the backlight subsystem.
+> 
+> Maybe this is in line with what you're suggesting.
+> I guess I just needed to mention ambient light sensors
+> here.
+> 
+> My personal annoyance is to see several diverging
+> userspace implementations of policy for using ambient
+> light sensors with backlight. It is already annoying,
+> Android has something etc.
+> 
+> I understand that this drives a truck through the old mantra
+> to keep policy in userspace, but so does thermal already,
+> so I'd just ask myself what makes most sense.
 
-This introduces some challenging probe-ordering issues,
-the solution for which is not entirely clear yet, so this
-part of the talk will be actively seeking audience input
-on this topic.
+I'm actually a firm believer in keeping policy in
+userspace, especially for something like panel brightness
+control.
 
+There not only is an ambient-light sensor to take into
+account (with multiple possible algorithms to deal with
++ various knobs to tweak the algorithm) but also e.g. dimming
+the brightness when the machine is idle (no user input for X
+amount of time), when the battery goes below a certain treshold
+(battery saver mode) and when enabling the new-fangled builtin
+electronic privacy-screens.
 
-Comments:
-This is a duplicate submission with one which I submitted for
-the "LPC Refereed Track" before the "Kernel Summit 2022 CFP" posting.
+And more use-cases which impact the brightness control might
+popup in the future but just the above list is IMHO complicated
+enough to leave this to userspace.
 
-I recently send a RFC email about this to the relevant mailinglists:
-https://lore.kernel.org/dri-devel/0d188965-d809-81b5-74ce-7d30c49fee2d@redhat.com/
+Thermal is different because letting things overheat is really
+really bad, so the kernel really must get involved here. But
+in general I do believe keeping policy in userspace is best
+(when possible).
 
-As well as another RFC laying out some initial backlight code
-refactoring steps. As there is a bunch of technical debt which
-needs to be addressed before work on a new uAPI can even begin:
-https://lore.kernel.org/dri-devel/98519ba0-7f18-201a-ea34-652f50343158@redhat.com/
-
-I'm working on the refactoring now. I believe the refactoring
-is more likely to land in 5.21 then in 5.20. Let alone that
-the new uAPI on the kernel side + the mandatory userspace code
-consuming the uAPI will be ready before plumbers.
-
-IOW I expect this to still be very much in flux during Plumbers,
-so this won't be a presentation presenting only already finished
-work.
+E.g. we also don't have any sound volume-control policy
+in the kernel and IMHO brightness control is more like
+sound volume-control then like thermalzones.
 
 Regards,
 
 Hans
+
 
 _______________________________________________
 Ksummit-discuss mailing list
