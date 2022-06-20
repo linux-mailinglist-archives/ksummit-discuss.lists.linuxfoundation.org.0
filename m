@@ -1,116 +1,104 @@
 Return-Path: <ksummit-discuss-bounces@lists.linuxfoundation.org>
 X-Original-To: lists@lfdr.de
 Delivered-To: lists@lfdr.de
-Received: from smtp2.osuosl.org (smtp2.osuosl.org [IPv6:2605:bc80:3010::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8B589551227
-	for <lists@lfdr.de>; Mon, 20 Jun 2022 10:08:05 +0200 (CEST)
+Received: from smtp4.osuosl.org (smtp4.osuosl.org [140.211.166.137])
+	by mail.lfdr.de (Postfix) with ESMTPS id 90255551358
+	for <lists@lfdr.de>; Mon, 20 Jun 2022 10:52:10 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
-	by smtp2.osuosl.org (Postfix) with ESMTP id EE9E4400A8;
-	Mon, 20 Jun 2022 08:08:01 +0000 (UTC)
-DKIM-Filter: OpenDKIM Filter v2.11.0 smtp2.osuosl.org EE9E4400A8
-Authentication-Results: smtp2.osuosl.org;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=e7nVcQNE
-X-Virus-Scanned: amavisd-new at osuosl.org
-Received: from smtp2.osuosl.org ([127.0.0.1])
-	by localhost (smtp2.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id Xfqo8ivgKVwY; Mon, 20 Jun 2022 08:08:00 +0000 (UTC)
-Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [IPv6:2605:bc80:3010:104::8cd3:938])
-	by smtp2.osuosl.org (Postfix) with ESMTPS id EB68640ABF;
-	Mon, 20 Jun 2022 08:07:59 +0000 (UTC)
-DKIM-Filter: OpenDKIM Filter v2.11.0 smtp2.osuosl.org EB68640ABF
-Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
-	by lists.linuxfoundation.org (Postfix) with ESMTP id 8F3E7C002D;
-	Mon, 20 Jun 2022 08:07:58 +0000 (UTC)
-X-Original-To: ksummit-discuss@lists.linuxfoundation.org
-Delivered-To: ksummit-discuss@lists.linuxfoundation.org
-Received: from smtp4.osuosl.org (smtp4.osuosl.org [IPv6:2605:bc80:3010::137])
- by lists.linuxfoundation.org (Postfix) with ESMTP id D5324C002D
- for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon, 20 Jun 2022 08:07:56 +0000 (UTC)
-Received: from localhost (localhost [127.0.0.1])
- by smtp4.osuosl.org (Postfix) with ESMTP id BC8B6408D5
- for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon, 20 Jun 2022 08:07:56 +0000 (UTC)
-DKIM-Filter: OpenDKIM Filter v2.11.0 smtp4.osuosl.org BC8B6408D5
+	by smtp4.osuosl.org (Postfix) with ESMTP id E31B941694;
+	Mon, 20 Jun 2022 08:52:07 +0000 (UTC)
+DKIM-Filter: OpenDKIM Filter v2.11.0 smtp4.osuosl.org E31B941694
 Authentication-Results: smtp4.osuosl.org;
- dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com
- header.a=rsa-sha256 header.s=mimecast20190719 header.b=e7nVcQNE
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=NliYWXLg;
+	dkim=fail reason="signature verification failed" header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=o1v/OE5k
 X-Virus-Scanned: amavisd-new at osuosl.org
 Received: from smtp4.osuosl.org ([127.0.0.1])
- by localhost (smtp4.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id IXmPx73jdlTn
+	by localhost (smtp4.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id RbrAq3Kqw4K3; Mon, 20 Jun 2022 08:52:06 +0000 (UTC)
+Received: from lists.linuxfoundation.org (lf-lists.osuosl.org [IPv6:2605:bc80:3010:104::8cd3:938])
+	by smtp4.osuosl.org (Postfix) with ESMTPS id 571B041813;
+	Mon, 20 Jun 2022 08:52:05 +0000 (UTC)
+DKIM-Filter: OpenDKIM Filter v2.11.0 smtp4.osuosl.org 571B041813
+Received: from lf-lists.osuosl.org (localhost [127.0.0.1])
+	by lists.linuxfoundation.org (Postfix) with ESMTP id C5DB8C002D;
+	Mon, 20 Jun 2022 08:52:03 +0000 (UTC)
+X-Original-To: ksummit-discuss@lists.linuxfoundation.org
+Delivered-To: ksummit-discuss@lists.linuxfoundation.org
+Received: from smtp1.osuosl.org (smtp1.osuosl.org [IPv6:2605:bc80:3010::138])
+ by lists.linuxfoundation.org (Postfix) with ESMTP id 414A0C002D
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon, 20 Jun 2022 08:07:55 +0000 (UTC)
+ Mon, 20 Jun 2022 08:52:02 +0000 (UTC)
+Received: from localhost (localhost [127.0.0.1])
+ by smtp1.osuosl.org (Postfix) with ESMTP id 0E6F78318C
+ for <ksummit-discuss@lists.linuxfoundation.org>;
+ Mon, 20 Jun 2022 08:52:02 +0000 (UTC)
+DKIM-Filter: OpenDKIM Filter v2.11.0 smtp1.osuosl.org 0E6F78318C
+Authentication-Results: smtp1.osuosl.org;
+ dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz
+ header.a=rsa-sha256 header.s=susede2_rsa header.b=NliYWXLg; 
+ dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256
+ header.s=susede2_ed25519 header.b=o1v/OE5k
+X-Virus-Scanned: amavisd-new at osuosl.org
+Received: from smtp1.osuosl.org ([127.0.0.1])
+ by localhost (smtp1.osuosl.org [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id jnm24dxQR2E7
+ for <ksummit-discuss@lists.linuxfoundation.org>;
+ Mon, 20 Jun 2022 08:52:01 +0000 (UTC)
 X-Greylist: domain auto-whitelisted by SQLgrey-1.8.0
-DKIM-Filter: OpenDKIM Filter v2.11.0 smtp4.osuosl.org 381EF408B3
-Received: from us-smtp-delivery-124.mimecast.com
- (us-smtp-delivery-124.mimecast.com [170.10.129.124])
- by smtp4.osuosl.org (Postfix) with ESMTPS id 381EF408B3
+DKIM-Filter: OpenDKIM Filter v2.11.0 smtp1.osuosl.org 13DD883187
+Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.220.29])
+ by smtp1.osuosl.org (Postfix) with ESMTPS id 13DD883187
  for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon, 20 Jun 2022 08:07:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1655712474;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
+ Mon, 20 Jun 2022 08:52:00 +0000 (UTC)
+Received: from relay2.suse.de (relay2.suse.de [149.44.160.134])
+ by smtp-out2.suse.de (Postfix) with ESMTP id E83211F98F;
+ Mon, 20 Jun 2022 08:51:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+ t=1655715118; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+ mime-version:mime-version:content-type:content-type:
  in-reply-to:in-reply-to:references:references;
- bh=MRuiCHV1h1tEgEcdgJwb9hbq1vM/dIHh+2LbCdwn7Ng=;
- b=e7nVcQNE8nQ6sppKwTLkOL0Alo9IB5oVEoVZDTbrKtpuu6IBqxZqXHVO3bUh/eqlttWw/O
- VKMPS61OgIo53pvjB89OIo+Jwq4QpVGinFblJJMJHv83IQEHNbp36P1PNOMeEXyPJJS3pe
- 57h6IAT+coliBpXO+wggKm7ftQ9Fcpc=
-Received: from mail-ej1-f70.google.com (mail-ej1-f70.google.com
- [209.85.218.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-97-imD86a0nOGGgyqU1wClPmw-1; Mon, 20 Jun 2022 04:07:52 -0400
-X-MC-Unique: imD86a0nOGGgyqU1wClPmw-1
-Received: by mail-ej1-f70.google.com with SMTP id
- z7-20020a170906434700b007108b59c212so3153990ejm.5
- for <ksummit-discuss@lists.linuxfoundation.org>;
- Mon, 20 Jun 2022 01:07:52 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
- :content-language:from:to:references:in-reply-to
- :content-transfer-encoding;
- bh=MRuiCHV1h1tEgEcdgJwb9hbq1vM/dIHh+2LbCdwn7Ng=;
- b=F3oXo9GRQ0YC0xrMov37XPl9iLSoXjT0fwPPRd+E+V4vETE8/cgBJoOLpAdZsFOb8/
- x0pF2+106utSZYZ/P42nNF+WoMUvrJS16Y0Sgg+Qy77dWNaD6KNHKQPI3XJgLAEBecTV
- GNzvzpUw8biWmVa8gPdd3iHOPz9PIRdUX11teud+go3Wxm+c8qRBPEbQ5QMHI+/nQP97
- GWMTaOsyJ2PaxASIzIG3v7gamtdvycE1yb6BF5DPMEJ5sLsifD3dgd3r2HZYzB/I1GH+
- WtKhO6InGfeYwHCzgRW5t47gdPUNYjxAitR/pLvnpx6xgWnNnQEQZm+XzLs5M4t2ROlG
- uyUA==
-X-Gm-Message-State: AJIora8cMKVa82upenEdM4wsW0BpxQicTchSv2ltpGfx8/1OHt4MbVSZ
- b/ooJpBndz4SRwlvQjHYMYiZs6N8mKoUwbSS7YBfD39Znvx80X9b5qOAeVutIik154nDUEhsp0d
- X/xhcpJzig7/L9wuru+e4Br5E3NuBPRFcqY8B01tPBw==
-X-Received: by 2002:a17:907:3d8a:b0:710:c2e8:79f2 with SMTP id
- he10-20020a1709073d8a00b00710c2e879f2mr19234551ejc.577.1655712471165; 
- Mon, 20 Jun 2022 01:07:51 -0700 (PDT)
-X-Google-Smtp-Source: AGRyM1tDTxbe91OKorE1veXoV97dytZExRjRfjxvp4KjlXQ6rUK3lEvi7jTJbehMb4F3CTgqmOwzOw==
-X-Received: by 2002:a17:907:3d8a:b0:710:c2e8:79f2 with SMTP id
- he10-20020a1709073d8a00b00710c2e879f2mr19234543ejc.577.1655712470922; 
- Mon, 20 Jun 2022 01:07:50 -0700 (PDT)
-Received: from [10.87.1.19] ([145.15.244.207])
- by smtp.gmail.com with ESMTPSA id
- w1-20020a170906480100b006fe9f9d0938sm5569346ejq.175.2022.06.20.01.07.49
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Mon, 20 Jun 2022 01:07:50 -0700 (PDT)
-Message-ID: <6a252f40-9a84-1b6a-12a0-eb0a9eeec6c0@redhat.com>
-Date: Mon, 20 Jun 2022 10:07:44 +0200
+ bh=uLgQIwSF2R3icUXAwzekJI1Cf7WXQKD5oGKJ4cxjaBM=;
+ b=NliYWXLgcoADT+crplkGnwWJyG3XmSQMCoi1C0EKu/rbJmLluwKAgfB+cbYnFpJGD1dBus
+ FP8ULW/NoXMI2KsQNfprAhtHTa9h6P9zg1Wxuq5NQXjYrgGXm1zylJN/l22N0Vk4pbwjVq
+ TDtMO5hiWnmTXBcnStuYdOpoyDK7k+U=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+ s=susede2_ed25519; t=1655715118;
+ h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+ mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=uLgQIwSF2R3icUXAwzekJI1Cf7WXQKD5oGKJ4cxjaBM=;
+ b=o1v/OE5kK0DGtpvDOKGTY1aPPcY4ZROFdBnwW0gvjdyzt7GxoIhWuFI5Mqh38KtvLerF7e
+ GLLyDSCWSm1hMnBg==
+Received: from quack3.suse.cz (unknown [10.100.224.230])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by relay2.suse.de (Postfix) with ESMTPS id 33FE12C141;
+ Mon, 20 Jun 2022 08:51:58 +0000 (UTC)
+Received: by quack3.suse.cz (Postfix, from userid 1000)
+ id 98788A0636; Mon, 20 Jun 2022 10:51:57 +0200 (CEST)
+Date: Mon, 20 Jun 2022 10:51:57 +0200
+From: Jan Kara <jack@suse.cz>
+To: NeilBrown <neilb@suse.de>
+Message-ID: <20220620085157.oq4s2chtsl2s6eo7@quack3.lan>
+References: <87h74lvnyf.fsf@meer.lwn.net>
+ <20220615174601.GX1790663@paulmck-ThinkPad-P17-Gen-1>
+ <nycvar.YFH.7.76.2206152022550.14340@cbobk.fhfr.pm>
+ <20220616122634.6e11e58c@gandalf.local.home>
+ <bbb46f66bb8518e90030fe97a1225adf178654d1.camel@HansenPartnership.com>
+ <20220616125128.68151432@gandalf.local.home>
+ <a522bfa4241eb263e354ebbb293b0d629dd2e026.camel@HansenPartnership.com>
+ <nycvar.YFH.7.76.2206170947520.14340@cbobk.fhfr.pm>
+ <20220617103050.2almimus5hjcifxl@quack3.lan>
+ <165550941279.26404.17631638863614666198@noble.neil.brown.name>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.8.0
-From: Hans de Goede <hdegoede@redhat.com>
-To: ksummit@lists.linux.dev, ksummit-discuss@lists.linuxfoundation.org,
- Linus Walleij <linus.walleij@linaro.org>
-References: <efde4273-ae38-c050-f3ed-177e175e0007@redhat.com>
-In-Reply-To: <efde4273-ae38-c050-f3ed-177e175e0007@redhat.com>
-Authentication-Results: relay.mimecast.com;
- auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=hdegoede@redhat.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Subject: Re: [Ksummit-discuss] [TECH TOPIC] New userspace API for
- display-panel brightness control
+Content-Disposition: inline
+In-Reply-To: <165550941279.26404.17631638863614666198@noble.neil.brown.name>
+Cc: James Bottomley <James.Bottomley@HansenPartnership.com>,
+ "Paul E. McKenney" <paulmck@kernel.org>,
+ ksummit-discuss@lists.linuxfoundation.org,
+ Peter Zijlstra <peterz@infradead.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+ Luca Weiss <luca@z3ntu.xyz>, Christoph Hellwig <hch@lst.de>
+Subject: Re: [Ksummit-discuss] [MAINTAINERS SUMMIT] How far to go with eBPF
 X-BeenThere: ksummit-discuss@lists.linuxfoundation.org
 X-Mailman-Version: 2.1.15
 Precedence: list
@@ -127,149 +115,96 @@ Content-Transfer-Encoding: 7bit
 Errors-To: ksummit-discuss-bounces@lists.linuxfoundation.org
 Sender: "Ksummit-discuss" <ksummit-discuss-bounces@lists.linuxfoundation.org>
 
-Hi All,
-
-On 6/16/22 22:04, Linus Walleij wrote:
-> On Thu, Jun 16, 2022 at 11:33 AM Hans de Goede <hdegoede@redhat.com> wrote:
+On Sat 18-06-22 09:43:32, NeilBrown wrote:
+> On Fri, 17 Jun 2022, Jan Kara wrote:
+> > On Fri 17-06-22 09:53:52, Jiri Kosina wrote:
+> > > On Thu, 16 Jun 2022, James Bottomley wrote:
+> > > 
+> > > > > If you want a "stable ebpf program" then you submit it upstream and
+> > > > > we can make sure that it works with any internal API changes, the
+> > > > > same way we do for modules. Those with out-of-tree modules will have
+> > > > > the technical debt of changing every time a new kernel release is
+> > > > > out, and so should out-of-tree bpf programs.
+> > > > 
+> > > > Assuming eBPF takes off, that would have some poor maintainer managing
+> > > > the whole of the compatibility changes for the entire eBPF ecosystem
+> > > > ... I really don't think that's scalable.
+> > > 
+> > > I nevertheless still see this as the best and only option we have; that 
+> > > is, have an infrastructure in the kernel tree for maintaining eBPF 
+> > > programs, somehow sorted per subsystem so that it mirrors the standard 
+> > > maintainership / subsystem structure proper, and have the maintainers 
+> > > responsible for keeping the eBPF programs related to their subsystem in 
+> > > sync with the internal changes happening in the subsystem.
+> > > 
+> > > At the end of the day, it will be the subsystem maintainers themsleves 
+> > > accepting the program into the tree in the first place, so it's not like 
+> > > they are receiving responsibility for something they never wanted in the 
+> > > first place. So we'll probably end up with subsystems with many eBPF 
+> > > programs, and also subsystems with zero. Similarly to tracepoints.
+> > > 
+> > > I.e. pretty much the 'perf' model, but on much wider scale (as eBPF can 
+> > > hook to just about anything).
+> > > 
+> > > Any other option seems to lead to having eBPF programs sprinkled all over 
+> > > the internet that depend on particular kernel version / API, leading to 
+> > > nothing else than unhappy users, because "I downloaded it, it didn't work, 
+> > > Linux sucks".
+> > 
+> > OK, but if we keep eBPF programs this closely coupled to the kernel, then
+> > what is the advantage of using eBPF, say for HID as was discussed earlier
+> > in this thread, compared to just making sure HID has appropriate hooks and
+> > the handling of the device quirks is done in normal C code (kernel module)
+> > attached to these hooks?
+> > 
+> > Because frankly for me the main value of eBPF over patching and recompiling
+> > the kernel is that I can tweak the eBPF code exactly to my needs and load
+> > it to the kernel without needing to reboot, over time it is less work than
+> > maintaining a source code patch out of tree, and usually it is a hacky
+> > tweak I use for some debugging so merging it upstream does not make sense.
+> > 
 > 
->> The current userspace API for brightness control offered by
->> /sys/class/backlight devices has various problems:
->>
->> 1. There is no way to map the backlight device to a specific
->> display-output / panel
-> 
-> For userspace, using just sysfs you mean?
+> How is "load without needing to reboot" different from loading a module.
+> And if the code you need to tweak with eBPF isn't in a module, then how
+> it is different from live-patching ?
 
-Yes,
+Well, typically I want to print some values when entering a function or
+gather some stats while kernel is running. I could modify the kernel to do
+this and as you say for a module (if it can be unused), I could even start
+running the new code without reboot. And yes, live-patching could work for
+the non-modular bits in princible but it is a matter of convenience -
+live-patching is by far not as easy to use as eBPF for my purposes as eBPF
+trivially hooks to trace points, has data structures to coalescing data
+before passing it to userspace etc. But I'm getting offtopic here I'm
+afraid.
 
-> But that makes it sound like userspace needs to understand
-> things like backlight-to-panel topology etc.
+> And how is "less work than maintaining a source code patch out of tree"
+> different to asking for a stable abi?
 
-The linked RFC/proposal for the new API makes brightness a property
-on the drm connector object, making the backlight-to-panel topology
-mapping a kernel problem.
+To be clear I'm of the opinion we need to avoid tying us with stable ABI
+requirements by eBPF. But my experience shows that eBPF programs attaching
+to tracepoints / functions require less tweaking from version to version
+than source code patches which happen to not apply for all sorts of
+unrelated reasons. So it is not that eBPF programs would not require
+tweaking from time to time but simply the way how kernel extension happens
+with eBPF tends to result in less pointless conflicts.
 
-One of the feature-requests behind this API is the ability to
-control the beightness of external monitors over DDC/DI this
-will mean (for laptops) multiple brightness controls (one
-per supported display) at which point userspace indeed needs
-to be aware of the brightness-control <-> panel mapping.
+> It seems like eBPF might be just a back-door for a stable abi, which
+> seems easier because the compiler lives in the kernel which allows us to
+> distribute arch-independent modules.
 
-Making this a property on the drm connector object makes this
-mapping very explicit.
+I don't think so. eBPF is used for multiple different purposes. So far its
+uses were such that it was understood that eBPF programs will break from
+time to time and need update for a newer kernel. As the use of eBPF is
+expanding there's a real risk we develop eBPF programs breaking which
+would be difficult to deal with for users and that's where problems start.
+And AFAIU Jiri's topic proposal which started this thread is exactly trying
+to get the discussion going how to avoid such situation.
 
-> If you add the presence of ambient light sensors to this mix
-> things get even messier.
-
-Mapping ambient light-sensors to dipslays is admittedly still
-an unsolved problem, even with my proposal. But I'm not aware
-of any external monitors with the capability to report ambient
-light-sensors back to the connected PC (or other display source).
-
-So for ambient light sensors for now userspace can keep assuming
-these belong to the device's internal panel, like it currently
-is also doing for the /sys/class/backlight devices.
-
-For external monitors with ambient light sensors, if
-anything I would expect the entire auto-brightness "stack"
-to be inside the external monitor, with the possibility
-to turn it on/off and set some parameters (like desired
-perceived brightness) through DDC/DI . In which case
-the auto setting + parameters can be made parameters on
-the drm-connector object just like brightness.
-
-And I guess we could make the ambient-light-level a drm-connector
-property too. This will require some kernel glue and is a bit
-outside of the scope of the current proposal. But it would
-make sense to do things this way and I think this would
-be a good/clean userspace API for the ambient light level
-reporting which automatically solves the display mapping
-problem.
-
-> I would rather make the analogy to the thermal subsystem:
-> 
-> - Handles multiple thermal sensors
-> - Handle linearization of measurements
-> - Some accumulate and work to monitor a thermal zone
-> - Handle multiple thermal zones
-> - Also has cooling devices (such as CPU frequency and fans)
-> - Policies are applied in the kernel to handle thermal sensors
->   and cooling devices and control them in an orchestrated
->   manner
-> - Userspace can sit back and enjoy the show, but it works
->   out-of-the box. No magic thermal daemon.
-> 
-> Examples:
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/thermal/thermal-zones.yaml
-> 
-> Wouldn't backlight rather:
-> 
-> - Handle multiple backlight devices.
-> - Handle linearization of backlight intensity
-> - Some accumulate and work as a composite backlight
-> - Handle multiple composite backlights such as screens
-> - Also handle ambient light sensors
-> - Policies are applied in the kernel to handle backlight
->   and ambient light sensors together
-> - Userspace can sit back and enjoy the show but it works
->   out-of-the box, no magic backlight daemon
-> 
-> I understand userspace will want to force backlight to user
-> preferences, older people need more backlight etc.
-> 
-> But isn't it more compelling to handle that as a composite
-> backlight device than to expose several of them to
-> userspace? I imagine one big knob per screen
-> 1-100 for userspace, a bool for on/off and a bool to select
-> augmentation from ambient light sensors or not, the rest
-> the kernel can figure out.
-> 
-> My point is that this is not just a userspace API, it is
-> a policy extension of the backlight subsystem.
-> 
-> Maybe this is in line with what you're suggesting.
-> I guess I just needed to mention ambient light sensors
-> here.
-> 
-> My personal annoyance is to see several diverging
-> userspace implementations of policy for using ambient
-> light sensors with backlight. It is already annoying,
-> Android has something etc.
-> 
-> I understand that this drives a truck through the old mantra
-> to keep policy in userspace, but so does thermal already,
-> so I'd just ask myself what makes most sense.
-
-I'm actually a firm believer in keeping policy in
-userspace, especially for something like panel brightness
-control.
-
-There not only is an ambient-light sensor to take into
-account (with multiple possible algorithms to deal with
-+ various knobs to tweak the algorithm) but also e.g. dimming
-the brightness when the machine is idle (no user input for X
-amount of time), when the battery goes below a certain treshold
-(battery saver mode) and when enabling the new-fangled builtin
-electronic privacy-screens.
-
-And more use-cases which impact the brightness control might
-popup in the future but just the above list is IMHO complicated
-enough to leave this to userspace.
-
-Thermal is different because letting things overheat is really
-really bad, so the kernel really must get involved here. But
-in general I do believe keeping policy in userspace is best
-(when possible).
-
-E.g. we also don't have any sound volume-control policy
-in the kernel and IMHO brightness control is more like
-sound volume-control then like thermalzones.
-
-Regards,
-
-Hans
-
-
+								Honza
+-- 
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
 _______________________________________________
 Ksummit-discuss mailing list
 Ksummit-discuss@lists.linuxfoundation.org
